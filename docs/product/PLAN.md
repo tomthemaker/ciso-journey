@@ -43,6 +43,12 @@ Backups include all private state, review/attempt history, custom content, evide
 
 Each issue defines its acceptance evidence. Required shared checks: data/schema validation, meaningful unit/integration tests, preservation/backup tests, safe handling of imported HTML and URLs, keyboard/mobile essential flows, Pages build/subpath smoke test, documented recovery and release notes. Content releases also require objective coverage and review status checks. Sync adds two-account/two-device and reconnect/delete/conflict tests. Keep runtime changes separate from this planning PR.
 
+## Task completion gate
+
+Every task, including documentation and content, follows Todo → In Progress → In Review → Done. After implementation and checks, keep its issue open in In Review and request a separate fresh agent review for that task, without inherited implementation conversation. Supply the issue, acceptance criteria, repository/product instructions, candidate commit or immutable deliverable, diff and validation evidence. One batch-level sign-off does not replace individual reviews.
+
+The reviewer independently verifies acceptance, relevant risks and validation, and records its agent identifier, candidate version, coverage, checks, findings/limitations and explicit Approve or Changes requested verdict in the issue or PR. The implementer addresses findings; reviewer verification of the updated candidate is required. Changes after approval require review again. Done/issue closure requires final-candidate approval, passing checks and applicable delivery/merge requirements. Missing review cannot be treated as approval. Agent review does not substitute for the independent educator/legal validation required by content gates. This is a documented process; automated GitHub enforcement is not configured.
+
 ## Scope boundaries
 
 No AI tutoring/grading service, automated course scraping, certification dumps, LMS integrations, binary evidence hosting or cloud dependency in the first release. These require separate decisions. A full curriculum is a continuing editorial program, not one mass-generated code milestone. Actual authorship/review capacity and learner time budget determine subsequent scheduling.

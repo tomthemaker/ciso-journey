@@ -4,6 +4,8 @@ Tracking issue: https://github.com/tomthemaker/ciso-journey/issues/2
 
 Project: https://github.com/users/tomthemaker/projects/1 (Delivery board and Release plan views).
 
+Workflow: Todo → In Progress → In Review → Done. Every task requires its own fresh-agent approval of the final candidate before Done; record review evidence in the issue or PR. See AGENTS.md for the protocol.
+
 Canonical delivery status is in GitHub. This file maps stable planning keys to issues; do not infer completion from this snapshot. See ../product/PLAN.md for release gates.
 
 | Key | Release | Issue | Dependencies |

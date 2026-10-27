@@ -22,6 +22,7 @@ The user's project instructions take precedence over the supplied proposed plan.
 | D010 | Accepted / 2026-10-27 | Self-assessment, rubric assessment and independent review are distinct provenance. | Recognize/Explain/Apply/Lead describes applied assessment; preserve legacy 0–4 scores separately. |
 | D011 | Planning assumption / 2026-10-27 | Evidence links and metadata first; binary uploads deferred until private storage and backup semantics exist. | Do not promise uploads from a static public repo. |
 | D012 | Accepted / 2026-10-27 | Ship one complete foundation learning loop before scaling content. | Expansion requires released lessons, practice, retrieval and assessment working together. |
+| D013 | Accepted / 2026-10-27 | Every task must receive its own independent review by a fresh agent before Done, as requested by the product owner. | Workflow is Todo → In Progress → In Review → Done; record reviewer identity, reviewed version, checks, findings and explicit approval. Recheck changed candidates; no self-approval or batch-only sign-off. |
 
 ## Open decisions
 
@@ -40,4 +41,4 @@ Actual task IDs: w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12; p2a–p2e; p
 
 ## Current state
 
-Planning only; runtime unchanged. GitHub initiative: https://github.com/tomthemaker/ciso-journey/issues/2. Six release milestones and 21 delivery issues were created on 2026-10-27. GitHub Project: https://github.com/users/tomthemaker/projects/1, linked to this repository, with Delivery board and Release plan views. All planning issues start as Todo; board setup changes no product decisions or implementation status. Source archive index.html is byte-identical to repository baseline. No real learner backup was supplied or inspected. Read docs/product/PLAN.md, EVALUATION.md and docs/planning/BACKLOG.md for scope and work status. GitHub issue state is authoritative for completion; memory must not claim a release exists until checks pass.
+Planning only; runtime unchanged. GitHub initiative: https://github.com/tomthemaker/ciso-journey/issues/2. Six release milestones and 21 delivery issues were created on 2026-10-27. GitHub Project: https://github.com/users/tomthemaker/projects/1, linked to this repository, with Delivery board and Release plan views. All planning issues start as Todo. The product owner added In Review; D013 now requires a separate fresh-agent review before every task reaches Done. See AGENTS.md for the review protocol. Source archive index.html is byte-identical to repository baseline. No real learner backup was supplied or inspected. Read docs/product/PLAN.md, EVALUATION.md and docs/planning/BACKLOG.md for scope and work status. GitHub issue state is authoritative for completion; memory must not claim a release exists until checks pass.
