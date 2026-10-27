@@ -84,12 +84,18 @@ A comprehensive learning platform is planned; the current app retains its single
 
 [F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
-To run checks with Node 20+ and Python 3:
+Run fast checks with Node 20+:
 
 ```sh
 npm ci
-npx playwright install chromium
 npm test
 ```
 
-The app itself still needs no build or installed dependencies. Tests run the actual `index.html` in desktop Chromium and mobile Chromium emulation.
+Run critical browser checks locally during implementation/review of runtime or test changes and before release (Python 3 required):
+
+```sh
+npx playwright install chromium
+npm run test:browser
+```
+
+CI runs the fast unit layer. The app itself still needs no build or installed dependencies. Browser tests run the actual `index.html` in desktop Chromium and mobile Chromium emulation; see the [validation policy](AGENTS.md#validation-policy) for evidence reuse and release gates.

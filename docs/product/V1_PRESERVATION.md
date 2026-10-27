@@ -87,15 +87,23 @@ The baseline intentionally has no resource-level progress, recall, questions or 
 
 ## Reproduce the preservation checks
 
-The app still needs no build or runtime dependencies. Checks require Node 20+ (CI uses 22), npm and Python 3:
+The app still needs no build or runtime dependencies. Fast checks require Node 20+ (CI uses 22) and npm:
 
 ```sh
 npm ci
-npx playwright install chromium
 npm test
 ```
 
-`npm run test:unit` runs the fast Node matrix without a browser. `npm run test:browser` runs the six integration flows in each viewport. `npm run test:desktop` and `npm run test:mobile` run one viewport. Playwright starts a local Python server on `127.0.0.1:4173`; use a free port and stop any unrelated server there. Each test starts with an isolated browser context. `tests/fixtures/v1/inventory.json` is frozen test evidence, not runtime source. The GitHub Actions V1 preservation job runs both layers and uploads failure traces only. Its paths filter covers runtime/source/assets, tests, scripts, packages, configuration and workflows; documentation-only PRs avoid Chromium installation. No required check is currently enforced. If this workflow becomes required, revisit path-skipped workflow semantics to avoid pending checks. Trace files may contain entered data, so use synthetic data exclusively.
+`npm test` and `npm run test:unit` run the fast Node matrix without a browser. For local critical browser checks (Python 3 required):
+
+```sh
+npx playwright install chromium
+npm run test:browser
+```
+
+`npm run test:browser` runs the six integration flows in each viewport. `npm run test:desktop` and `npm run test:mobile` run one viewport. Playwright starts a local Python server on `127.0.0.1:4173`; use a free port and stop any unrelated server there. Each test starts with an isolated browser context. `tests/fixtures/v1/inventory.json` is frozen test evidence, not runtime source. Under D020, GitHub Actions runs fast unit checks only, without installing browsers. Its paths filter covers runtime/source/assets, tests, scripts, packages, configuration and workflows; documentation-only PRs skip this workflow. No required check is currently enforced. If this workflow becomes required, revisit path-skipped workflow semantics to avoid pending checks.
+
+Critical browser checks remain local implementation/fresh-review evidence for runtime/test changes and a pre-release gate, alongside Pages subpath smoke when available. Workflow/docs-only changes may reuse recorded results after an unchanged app/test/fixture/browser-config/lockfile comparison. Record candidate/results in the PR; CI alone cannot replace these gates. Failure traces stay local in `test-results/`; use synthetic data exclusively and never commit traces containing learner data.
 
 ## Recorded validation — 2026-10-27
 
@@ -116,6 +124,8 @@ At the product owner's request, this supersedes the interim 44-browser-test batc
 The **six browser flows per viewport** retain every task-ID write, exact resource destinations, six scores, safe imported text, real downloaded fixture round-trips, existing-storage bytes/defaults/extensions, form/keyboard/filter/reset/print controls, and representative rejection-before-confirmation checks. Truncated JSON, future version and impossible dates in both histories each preserve occupied stored bytes and the complete live exported data, followed by a reload check. Cancellation and quota failure independently preserve both state representations. There are at most six real downloads in one flow; there are no per-variant contexts/downloads, counters, batching machinery, retries, increased timeouts or disabled protections. Runtime and synthetic v1 fixtures remain unchanged. Node matrix coverage does not imply every malformed input is separately exercised through browser file I/O.
 
 Validation: `npm ci`; `CI=1 npm test -- --workers=2` on macOS / Node 24.4.1 passed **68/68 Node checks** (177 ms) and **12/12 desktop/mobile Chromium checks** (18.5 s). A direct comparison retained all original malformed payload strings/labels and dates. Deliberately bypassing the month-length guard failed the Node date assertions; mutating only the live Governance score after rejected import failed the browser full-data assertion despite unchanged stored bytes. Both mutations were restored. `git diff --check` passes; runtime, v1 fixtures and lockfile are unchanged. Exact-candidate CI and the separate fresh-agent review belong to #29/PR #31. No product decision changed; this supersedes only the test strategy and earlier browser-count evidence. Mobile emulation remains distinct from physical-device and cross-engine testing.
+
+D020 policy update, 2026-10-27: `npm test` now runs only the fast unit layer; use the separate browser command above for local checks. This supersedes prior browser-in-CI requirements and the historical combined command. The app, all tests/fixtures, Playwright configuration and dependency lockfile are unchanged from `4c31389cea5e46315af2aa1f21c7e0c56f9c25cc`, so its passing local 12-browser result remains applicable to this workflow/docs-only delta. The cancelled browser-install run [40499674948](https://github.com/tomthemaker/ciso-journey/actions/runs/40499674948) is not passing CI evidence. Final unit/CI results and fresh independent policy review are linked in [PR #31](https://github.com/tomthemaker/ciso-journey/pull/31).
 
 ## Learner backup and recovery
 

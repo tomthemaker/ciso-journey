@@ -20,7 +20,7 @@ on:
 permissions:
   contents: read
 jobs:
-  browser-regression:
+  unit-tests:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,11 +30,4 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm test -- --workers=2
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: preservation-failure-traces
-          path: test-results/
-          retention-days: 7
+      - run: npm test
