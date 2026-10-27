@@ -1,6 +1,11 @@
-const { test } = require('node:test');
+const { test, before } = require('node:test');
 const assert = require('node:assert/strict');
-const { validateBackup, empty: defaults, ...data } = require('./helpers/legacy-source.cjs');
+let validateBackup, defaults, data;
+before(async () => {
+  ({ validateBackup } = await import('../src/backup.ts'));
+  ({ empty: defaults } = await import('../src/storage.ts'));
+  data = await import('../src/data.ts');
+});
 const inventory = require('./fixtures/v1/inventory.json');
 const empty = require('./fixtures/v1/empty.json');
 const mixed = require('./fixtures/v1/mixed-progress.json');

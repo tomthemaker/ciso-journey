@@ -38,7 +38,7 @@ async function confirmAction(page, action, accept = true) {
 
 test.beforeEach(async ({ page }) => {
   page.on('pageerror', error => { throw error; });
-  await page.goto('/');
+  await page.goto('./');
 });
 
 test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work', async ({ page }) => {

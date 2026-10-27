@@ -87,23 +87,21 @@ The baseline intentionally has no resource-level progress, recall, questions or 
 
 ## Reproduce the preservation checks
 
-The app still needs no build or runtime dependencies. Fast checks require Node 20+ (CI uses 22) and npm:
+F02 supersession, 2026-10-27: current checks use Node 24.4.1+ and the TypeScript/Vite modules. The frozen inventory and private recovery contract below remain applicable.
 
 ```sh
 npm ci
 npm test
-```
-
-`npm test` and `npm run test:unit` run the fast Node matrix without a browser. For local critical browser checks (Python 3 required):
-
-```sh
+npm run typecheck
+npm run build
+# Critical browser checks run locally, not in CI:
 npx playwright install chromium
-npm run test:browser
+npm run test:browser -- --workers=4
 ```
 
-`npm run test:browser` runs the six integration flows in each viewport. `npm run test:desktop` and `npm run test:mobile` run one viewport. Playwright starts a local Python server on `127.0.0.1:4173`; use a free port and stop any unrelated server there. Each test starts with an isolated browser context. `tests/fixtures/v1/inventory.json` is frozen test evidence, not runtime source. Under D020, GitHub Actions runs fast unit checks only, without installing browsers. Its paths filter covers runtime/source/assets, tests, scripts, packages, configuration and workflows; documentation-only PRs skip this workflow. No required check is currently enforced. If this workflow becomes required, revisit path-skipped workflow semantics to avoid pending checks.
+`npm test` and `npm run test:unit` run 68 fast Node checks importing the actual typed validator/data. F02 replaces the temporary inline-source adapter described in the historical lean-harness record below with native TypeScript imports. `npm run test:browser` builds the app and runs six preservation plus two Pages flows in each desktop/mobile viewport. The strict static server exposes only `dist/` at `http://127.0.0.1:4174/ciso-journey/` without a SPA fallback; keep port 4174 free. `test:desktop`/`test:mobile` select one viewport.
 
-Critical browser checks remain local implementation/fresh-review evidence for runtime/test changes and a pre-release gate, alongside Pages subpath smoke when available. Workflow/docs-only changes may reuse recorded results after an unchanged app/test/fixture/browser-config/lockfile comparison. Record candidate/results in the PR; CI alone cannot replace these gates. Failure traces stay local in `test-results/`; use synthetic data exclusively and never commit traces containing learner data.
+Under D020, CI runs unit/type/build only, with source/test/config path filters; browser evidence is local and candidate-bound. [F02 run/deploy/origin/rollback](F02_BUILD_AND_DEPLOY.md) is the current command and Pages delivery authority. Earlier single-file/Python commands and validation counts are retained below as historical evidence. No real learner data belongs in fixtures or traces.
 
 ## Recorded validation — 2026-10-27
 
