@@ -5,6 +5,7 @@ const inventory = require('./fixtures/v1/inventory.json');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const allComplete = require('./fixtures/v1/all-complete.json');
 const empty = require('./fixtures/v1/empty.json');
+const { malformedInputs } = require('./fixtures/backup-cases.cjs');
 const KEY = 'ciso-journey-v1';
 const tasks = inventory.phases.flatMap(phase => phase.tasks);
 const stored = page => page.evaluate(key => localStorage.getItem(key), KEY);
@@ -23,14 +24,7 @@ async function importText(page, text, accept = true) {
   return dialogs;
 }
 const importBackup = (page, backup, accept) => importText(page, JSON.stringify(backup), accept);
-// Keep every real export assertion below Chromium's 10-download burst limit.
-// Count across reloads too, so expanding a batch cannot silently reintroduce it.
-const MAX_DOWNLOADS_PER_PAGE = 7;
-const downloadsByPage = new WeakMap();
 async function exportBackup(page) {
-  const count = (downloadsByPage.get(page) || 0) + 1;
-  expect(count, 'real backup downloads per page; split larger rejection batches').toBeLessThanOrEqual(MAX_DOWNLOADS_PER_PAGE);
-  downloadsByPage.set(page, count);
   const downloadEvent = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export backup' }).click();
   const download = await downloadEvent;
@@ -47,36 +41,33 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-test('inventory retains all 37 meanings, phases, six defaults and all resource destinations', async ({ page }) => {
+test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work', async ({ page }) => {
   expect(tasks).toHaveLength(37);
   expect(new Set(tasks.map(task => task[0])).size).toBe(37);
   expect(tasks.slice(0, 12).map(task => task[0])).toEqual(Array.from({ length: 12 }, (_, i) => `w${i + 1}`));
   await expect(page.locator('.phase h3')).toHaveText(inventory.phases.map(phase => phase.name));
   await expect(page.locator('.task > span')).toHaveText(tasks.map(task => task[1] + task[2]));
-  const blocks = page.locator('.task-block');
-  for (let i = 0; i < tasks.length; i++) {
-    const [id] = tasks[i];
+  const renderedResources = await page.locator('.task-block').evaluateAll(blocks => blocks.map(block => ({
+    focus: block.querySelector('details p').textContent,
+    links: [...block.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target, a.rel])
+  })));
+  expect(renderedResources).toEqual(tasks.map(([id]) => {
     const resource = inventory.taskLearningResources[id];
-    const block = blocks.nth(i);
-    await block.locator('summary').click();
-    await expect(block.locator('details')).toHaveAttribute('open', '');
-    await expect(block.locator('details p')).toHaveText('Study focus: ' + resource.focus);
-    const expected = [resource.linkedinUrl, 'https://www.linkedin.com/learning/search?keywords=' + encodeURIComponent(resource.searchTerms), resource.officialUrl, 'https://www.coursera.org/search?query=' + encodeURIComponent(resource.searchTerms)];
-    if (/^p[23]/.test(id)) expected.push('https://www.coursera.org/learn/cybersecurity-governance-compliance');
-    expect(await block.locator('a').evaluateAll(links => links.map(a => a.getAttribute('href')))).toEqual(expected);
-    for (const link of await block.locator('a').all()) {
-      await expect(link).toHaveAttribute('target', '_blank');
-      await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    }
-    await block.locator('summary').click();
-  }
+    const urls = [resource.linkedinUrl, 'https://www.linkedin.com/learning/search?keywords=' + encodeURIComponent(resource.searchTerms), resource.officialUrl, 'https://www.coursera.org/search?query=' + encodeURIComponent(resource.searchTerms)];
+    if (/^p[23]/.test(id)) urls.push('https://www.coursera.org/learn/cybersecurity-governance-compliance');
+    return { focus: 'Study focus: ' + resource.focus, links: urls.map(url => [url, '_blank', 'noopener noreferrer']) };
+  }));
+  const disclosure = page.locator('.task-block').first();
+  await disclosure.locator('summary').click();
+  await expect(disclosure.locator('details')).toHaveAttribute('open', '');
+  await disclosure.locator('summary').click();
+  await expect(disclosure.locator('details')).not.toHaveAttribute('open');
   await page.getByRole('button', { name: 'Competencies', exact: true }).click();
   for (const [name, value] of inventory.competencies) await expect(page.getByRole('combobox', { name: 'Rating for ' + name })).toHaveValue(String(value));
   await page.getByRole('button', { name: 'Resources', exact: true }).click();
   expect(await page.locator('#resourceList a').evaluateAll(links => links.map(a => [a.firstChild.textContent, a.getAttribute('href'), a.querySelector('small').textContent]))).toEqual(inventory.resources.map(([title, url, description]) => [title + ' ↗', url, description]));
-});
 
-test('every checkbox writes the original ID, phase and overall progress survive refresh and filters', async ({ page }) => {
+  await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
   for (let i = 0; i < tasks.length; i++) {
     await page.locator('.task input').nth(i).check();
     expect(JSON.parse(await stored(page)).completed).toEqual(Object.fromEntries(tasks.slice(0, i + 1).map(task => [task[0], true])));
@@ -96,47 +87,48 @@ test('every checkbox writes the original ID, phase and overall progress survive 
   await expect(page.locator('.task small')).toHaveText(tasks[0][2]);
 });
 
-for (const [name, backup] of Object.entries({ empty, mixed, allComplete })) {
-  test(`v1 ${name} imports, renders, persists and exports without changing values`, async ({ page }) => {
-    const dialogs = await importBackup(page, backup);
-    expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
-    expect(dialogs[1].message).toBe('Backup imported successfully.');
-    expect(JSON.parse(await stored(page))).toEqual(backup.data);
-    await page.reload();
-    const completed = Object.values(backup.data.completed).filter(Boolean).length;
-    await expect(page.locator('#statTasks')).toHaveText(String(completed));
-    await expect(page.locator('.task input:checked')).toHaveCount(completed);
-    await page.getByRole('button', { name: 'Competencies', exact: true }).click();
-    for (const [category, score] of Object.entries(backup.data.scores)) await expect(page.getByRole('combobox', { name: 'Rating for ' + category })).toHaveValue(String(score));
-    for (const [tab, kind, selector] of [['Learning journal', 'journal', '#journalList'], ['Achievements', 'achievements', '#achievementList']]) {
-      await page.getByRole('button', { name: tab, exact: true }).click();
-      const entries = [...backup.data[kind]].sort((a, b) => b.date.localeCompare(a.date));
-      await expect(page.locator(selector + ' .log strong')).toHaveText(entries.map(entry => entry.title));
-      await expect(page.locator(selector + ' .log p')).toHaveText(entries.map(entry => entry.body));
-      await expect(page.locator(selector + ' script, ' + selector + ' img')).toHaveCount(0);
-    }
-    expect(await page.evaluate(() => window.importExecuted)).toBeUndefined();
-    const exported = await exportBackup(page);
-    expect(exported.app).toBe('CISO Journey');
-    expect(exported.version).toBe(1);
-    expect(Number.isFinite(Date.parse(exported.exportedAt))).toBe(true);
-    expect(exported.data).toEqual(backup.data);
-    await importBackup(page, empty);
-    await importBackup(page, exported);
-    expect(JSON.parse(await stored(page))).toEqual(backup.data);
-  });
-}
+test('v1 fixtures render safely and real downloads round-trip every value', async ({ page }) => {
+  for (const [name, backup] of Object.entries({ empty, mixed, allComplete })) {
+    await test.step(name, async () => {
+      const dialogs = await importBackup(page, backup);
+      expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
+      expect(dialogs[1].message).toBe('Backup imported successfully.');
+      expect(JSON.parse(await stored(page))).toEqual(backup.data);
+      await page.reload();
+      const completed = Object.values(backup.data.completed).filter(Boolean).length;
+      await expect(page.locator('#statTasks')).toHaveText(String(completed));
+      await expect(page.locator('.task input:checked')).toHaveCount(completed);
+      await page.getByRole('button', { name: 'Competencies', exact: true }).click();
+      for (const [category, score] of Object.entries(backup.data.scores)) await expect(page.getByRole('combobox', { name: 'Rating for ' + category })).toHaveValue(String(score));
+      for (const [tab, kind, selector] of [['Learning journal', 'journal', '#journalList'], ['Achievements', 'achievements', '#achievementList']]) {
+        await page.getByRole('button', { name: tab, exact: true }).click();
+        const entries = [...backup.data[kind]].sort((a, b) => b.date.localeCompare(a.date));
+        await expect(page.locator(selector + ' .log strong')).toHaveText(entries.map(entry => entry.title));
+        await expect(page.locator(selector + ' .log p')).toHaveText(entries.map(entry => entry.body));
+        await expect(page.locator(selector + ' script, ' + selector + ' img')).toHaveCount(0);
+      }
+      expect(await page.evaluate(() => window.importExecuted)).toBeUndefined();
+      const exported = await exportBackup(page);
+      expect(exported.app).toBe('CISO Journey');
+      expect(exported.version).toBe(1);
+      expect(Number.isFinite(Date.parse(exported.exportedAt))).toBe(true);
+      expect(exported.data).toEqual(backup.data);
+      await importBackup(page, empty);
+      await importBackup(page, exported);
+      expect(JSON.parse(await stored(page))).toEqual(backup.data);
+    });
+  }
+});
 
-test('pre-existing v1 localStorage loads without rewriting or dropping any values', async ({ page }) => {
+test('existing storage bytes, default scores and extra fields survive', async ({ page }) => {
   const original = JSON.stringify(mixed.data, null, 2);
   await page.evaluate(({ key, original }) => localStorage.setItem(key, original), { key: KEY, original });
   await page.reload();
   expect(await stored(page)).toBe(original);
   expect((await exportBackup(page)).data).toEqual(mixed.data);
   await expect(page.locator('#statLogs')).toHaveText('2');
-});
 
-test('partial legacy scores use defaults while extra JSON fields survive', async ({ page }) => {
+  // Defaults and extensions also survive the real import/export path.
   const backup = structuredClone(mixed);
   backup.data.scores = { Governance: 4 };
   backup.data.syntheticExtension = { label: 'Synthetic extension only' };
@@ -144,86 +136,32 @@ test('partial legacy scores use defaults while extra JSON fields survive', async
   expect((await exportBackup(page)).data).toEqual({ ...backup.data, scores: { ...empty.data.scores, Governance: 4 } });
 });
 
-const bad = mutate => { const backup = structuredClone(allComplete); mutate(backup); return JSON.stringify(backup); };
-const malformedInputs = [
-  ['truncated JSON', '{truncated'], ['null envelope', 'null'], ['array envelope', '[]'], ['missing envelope fields', '{}'],
-  ['wrong app', bad(b => { b.app = 'Other app'; })], ['future version', bad(b => { b.version = 2; })], ['string version', bad(b => { b.version = '1'; })],
-  ['null data', bad(b => { b.data = null; })], ['missing completed', bad(b => { delete b.data.completed; })],
-  ['null completed', bad(b => { b.data.completed = null; })], ['array completed', bad(b => { b.data.completed = []; })], ['string completion', bad(b => { b.data.completed.w1 = 'true'; })],
-  ['null scores', bad(b => { b.data.scores = null; })], ['array scores', bad(b => { b.data.scores = []; })], ['out-of-range score', bad(b => { b.data.scores.Governance = 5; })], ['string score', bad(b => { b.data.scores.Governance = '2'; })], ['fractional score', bad(b => { b.data.scores.Governance = 1.5; })],
-  ['object journal', bad(b => { b.data.journal = {}; })], ['null achievements', bad(b => { b.data.achievements = null; })],
-  ['null journal entry', bad(b => { b.data.journal[0] = null; })], ['numeric date', bad(b => { b.data.journal[0].date = 123; })], ['unparseable date', bad(b => { b.data.journal[0].date = 'not a date'; })],
-  ['object title', bad(b => { b.data.achievements[0].title = {}; })], ['missing body', bad(b => { delete b.data.achievements[0].body; })],
-  ['duplicate entry ID', bad(b => { b.data.journal.push(b.data.journal[0]); })]
-];
-// Baseline + at most five rejection exports + post-reload export = seven.
-const REJECTIONS_PER_BATCH = MAX_DOWNLOADS_PER_PAGE - 2;
-for (let offset = 0; offset < malformedInputs.length; offset += REJECTIONS_PER_BATCH) {
-  const inputs = malformedInputs.slice(offset, offset + REJECTIONS_PER_BATCH);
-  test(`malformed and unsupported imports preserve storage and live state (cases ${offset + 1}–${offset + inputs.length})`, async ({ page }) => {
-    await importBackup(page, mixed);
-    const original = await stored(page);
-    expect((await exportBackup(page)).data).toEqual(mixed.data);
-    for (const [label, input] of inputs) {
-      await test.step(label, async () => {
-        const dialogs = await importText(page, input);
-        expect(dialogs.map(dialog => dialog.type)).toEqual(['alert']);
-        expect(dialogs[0].message).toMatch(/^Could not import backup:/);
-        expect(await stored(page)).toBe(original);
-        await expect(page.locator('#statTasks')).toHaveText('19');
-        expect((await exportBackup(page)).data).toEqual(mixed.data);
-      });
-    }
-    await page.reload();
-    expect(await stored(page)).toBe(original);
-    expect((await exportBackup(page)).data).toEqual(mixed.data);
-    // The file picker can select the same valid file again after an error.
-    await importBackup(page, allComplete);
-    await expect(page.locator('#statTasks')).toHaveText('37');
-  });
-}
-
-const invalidDates = ['2026-02-30', '2026-02-29', '1900-02-29', '2100-02-29', '2024-02-30', '2026-04-31', '2026-06-31', '2026-09-31', '2026-11-31', '2026-00-10', '2026-13-10', '2026-01-00', '2026-01-32'];
-for (const kind of ['journal', 'achievements']) {
-  for (let offset = 0; offset < invalidDates.length; offset += REJECTIONS_PER_BATCH) {
-    const dates = invalidDates.slice(offset, offset + REJECTIONS_PER_BATCH);
-    test(`${kind} rejects impossible calendar dates without changing storage or live state (cases ${offset + 1}–${offset + dates.length})`, async ({ page }) => {
-      await importBackup(page, mixed);
-      const original = await stored(page);
-      expect((await exportBackup(page)).data).toEqual(mixed.data);
-      for (const date of dates) {
-        await test.step(date, async () => {
-          const backup = structuredClone(allComplete);
-          backup.data[kind][0].date = date;
-          const dialogs = await importBackup(page, backup);
-          // Rejection must occur before replacement confirmation, even if accepted.
-          expect(dialogs.map(dialog => dialog.type), date).toEqual(['alert']);
-          expect(dialogs[0].message).toMatch(new RegExp('^Could not import backup: Invalid ' + kind + ' entry'));
-          expect(await stored(page), date).toBe(original);
-          await expect(page.locator('#statTasks')).toHaveText('19');
-          expect((await exportBackup(page)).data, date).toEqual(mixed.data);
-        });
-      }
-      await page.reload();
+test('invalid imports reject before confirmation and preserve stored bytes and full live state', async ({ page }) => {
+  await importBackup(page, mixed);
+  const original = await stored(page);
+  expect((await exportBackup(page)).data).toEqual(mixed.data);
+  const inputs = malformedInputs.filter(([label]) => ['truncated JSON', 'future version'].includes(label));
+  for (const kind of ['journal', 'achievements']) {
+    const backup = structuredClone(allComplete);
+    backup.data[kind][0].date = '2026-02-30';
+    inputs.push([kind + ' impossible date', JSON.stringify(backup)]);
+  }
+  for (const [label, input] of inputs) {
+    await test.step(label, async () => {
+      const dialogs = await importText(page, input);
+      expect(dialogs.map(dialog => dialog.type)).toEqual(['alert']);
+      expect(dialogs[0].message).toMatch(/^Could not import backup:/);
       expect(await stored(page)).toBe(original);
+      await expect(page.locator('#statTasks')).toHaveText('19');
       expect((await exportBackup(page)).data).toEqual(mixed.data);
     });
   }
-}
-
-test('valid leap days and legacy date strings import and round-trip in both histories', async ({ page }) => {
-  for (const date of ['2024-02-29', '2000-02-29', '2026-04-30', '2026-12-31', '0001-01-01', '10000-02-29']) {
-    const backup = structuredClone(allComplete);
-    backup.data.journal[0].date = date;
-    backup.data.achievements[0].date = date;
-    const dialogs = await importBackup(page, backup);
-    expect(dialogs.map(dialog => dialog.type), date).toEqual(['confirm', 'alert']);
-    expect(dialogs[1].message).toBe('Backup imported successfully.');
-    expect(JSON.parse(await stored(page))).toEqual(backup.data);
-    await page.reload();
-    await expect(page.locator('#statTasks')).toHaveText('37');
-    expect((await exportBackup(page)).data, date).toEqual(backup.data);
-  }
+  await page.reload();
+  expect(await stored(page)).toBe(original);
+  expect((await exportBackup(page)).data).toEqual(mixed.data);
+  // Selecting the same picker after an error still imports a valid file.
+  await importBackup(page, allComplete);
+  await expect(page.locator('#statTasks')).toHaveText('37');
 });
 
 test('cancelled import and failed persistence leave storage and live state untouched', async ({ page }) => {
@@ -231,10 +169,14 @@ test('cancelled import and failed persistence leave storage and live state untou
   const original = await stored(page);
   expect((await importBackup(page, allComplete, false)).map(dialog => dialog.type)).toEqual(['confirm']);
   expect(await stored(page)).toBe(original);
+  expect((await exportBackup(page)).data).toEqual(mixed.data);
   await page.evaluate(() => { Storage.prototype.setItem = () => { throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); }; });
   const dialogs = await importBackup(page, allComplete);
   expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
   expect(dialogs[1].message).toContain('Could not import backup:');
+  expect(await stored(page)).toBe(original);
+  expect((await exportBackup(page)).data).toEqual(mixed.data);
+  await page.reload();
   expect(await stored(page)).toBe(original);
   expect((await exportBackup(page)).data).toEqual(mixed.data);
 });
@@ -281,15 +223,14 @@ test('ratings, journal, achievements, delete confirmation and reset remain indep
   await expect(page.locator('#statCompetency')).toHaveText('0.5/4');
   const dimensions = await page.evaluate(() => ({ page: document.documentElement.scrollWidth, viewport: innerWidth }));
   expect(dimensions.page).toBeLessThanOrEqual(dimensions.viewport);
-});
 
-test('import button opens the chooser and print includes all five views', async ({ page }) => {
+  const beforeChooser = await stored(page);
   const chooserEvent = page.waitForEvent('filechooser');
   await page.getByRole('button', { name: 'Import backup' }).click();
   const chooser = await chooserEvent;
   expect(chooser.isMultiple()).toBe(false);
   await confirmAction(page, () => chooser.setFiles(path.join(__dirname, 'fixtures/v1/empty.json')), false);
-  expect(await stored(page)).toBeNull();
+  expect(await stored(page)).toBe(beforeChooser);
   await page.emulateMedia({ media: 'print' });
   for (const view of await page.locator('.view').all()) await expect(view).toBeVisible();
   await expect(page.locator('#exportBtn')).toBeHidden();

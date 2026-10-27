@@ -2,7 +2,21 @@ name: V1 preservation
 on:
   push:
     branches: [main]
+    paths: &preservation-paths
+      - index.html
+      - src/**
+      - public/**
+      - assets/**
+      - tests/**
+      - scripts/**
+      - .nvmrc
+      - package.json
+      - package-lock.json
+      - '*.config.*'
+      - 'tsconfig*.json'
+      - .github/workflows/**
   pull_request:
+    paths: *preservation-paths
 permissions:
   contents: read
 jobs:
