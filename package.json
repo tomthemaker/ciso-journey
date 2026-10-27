@@ -11,7 +11,7 @@
     "test": "npm run test:unit",
     "test:desktop": "npm run test:browser -- --project=chromium",
     "test:mobile": "npm run test:browser -- --project=mobile-chromium",
-    "test:unit": "node --experimental-strip-types --test tests/*.test.cjs",
+    "test:unit": "node --experimental-strip-types --test tests/*.test.cjs tests/curriculum/*.test.mjs && node scripts/render-curriculum.mjs --check",
     "test:browser": "npm run build && playwright test"
   },
   "engines": {

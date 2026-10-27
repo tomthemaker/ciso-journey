@@ -89,3 +89,7 @@ A comprehensive learning platform is planned; this increment introduces lightwei
 The app has no framework or runtime package dependency. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
 
 CI runs only unit/type/build checks. Run local browser checks during implementation and independent review of runtime/test changes and before release; record exact-candidate results in the PR. See the [validation policy](AGENTS.md#validation-policy).
+
+## Curriculum planning (C01)
+
+The [versioned coverage matrix](docs/curriculum/COVERAGE.md) maps all 37 actual roadmap tasks to ten domains, the six existing competencies and four versioned framework references. Its [reusable JSON data](curriculum/c01.v1.json) includes observable objectives, prerequisite links and planned assessments, prioritizing weeks 1–4. This is provisional curriculum design; original lessons and independent educator/legal review are subsequent delivery gates. Validation commands and source limitations are documented in the matrix.
