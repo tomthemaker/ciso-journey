@@ -23,7 +23,14 @@ async function importText(page, text, accept = true) {
   return dialogs;
 }
 const importBackup = (page, backup, accept) => importText(page, JSON.stringify(backup), accept);
+// Keep every real export assertion below Chromium's 10-download burst limit.
+// Count across reloads too, so expanding a batch cannot silently reintroduce it.
+const MAX_DOWNLOADS_PER_PAGE = 7;
+const downloadsByPage = new WeakMap();
 async function exportBackup(page) {
+  const count = (downloadsByPage.get(page) || 0) + 1;
+  expect(count, 'real backup downloads per page; split larger rejection batches').toBeLessThanOrEqual(MAX_DOWNLOADS_PER_PAGE);
+  downloadsByPage.set(page, count);
   const downloadEvent = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Export backup' }).click();
   const download = await downloadEvent;
@@ -137,54 +144,71 @@ test('partial legacy scores use defaults while extra JSON fields survive', async
   expect((await exportBackup(page)).data).toEqual({ ...backup.data, scores: { ...empty.data.scores, Governance: 4 } });
 });
 
-test('malformed and unsupported imports do not change storage or live state', async ({ page }) => {
-  await importBackup(page, mixed);
-  const original = await stored(page);
-  const bad = mutate => { const backup = structuredClone(allComplete); mutate(backup); return JSON.stringify(backup); };
-  const inputs = [
-    '{truncated', 'null', '[]', '{}',
-    bad(b => { b.app = 'Other app'; }), bad(b => { b.version = 2; }), bad(b => { b.version = '1'; }),
-    bad(b => { b.data = null; }), bad(b => { delete b.data.completed; }),
-    bad(b => { b.data.completed = null; }), bad(b => { b.data.completed = []; }), bad(b => { b.data.completed.w1 = 'true'; }),
-    bad(b => { b.data.scores = null; }), bad(b => { b.data.scores = []; }), bad(b => { b.data.scores.Governance = 5; }), bad(b => { b.data.scores.Governance = '2'; }), bad(b => { b.data.scores.Governance = 1.5; }),
-    bad(b => { b.data.journal = {}; }), bad(b => { b.data.achievements = null; }),
-    bad(b => { b.data.journal[0] = null; }), bad(b => { b.data.journal[0].date = 123; }), bad(b => { b.data.journal[0].date = 'not a date'; }),
-    bad(b => { b.data.achievements[0].title = {}; }), bad(b => { delete b.data.achievements[0].body; }),
-    bad(b => { b.data.journal.push(b.data.journal[0]); })
-  ];
-  for (const input of inputs) {
-    const dialogs = await importText(page, input);
-    expect(dialogs.map(dialog => dialog.type)).toEqual(['alert']);
-    expect(dialogs[0].message).toMatch(/^Could not import backup:/);
-    expect(await stored(page)).toBe(original);
-    await expect(page.locator('#statTasks')).toHaveText('19');
-    expect((await exportBackup(page)).data).toEqual(mixed.data);
-  }
-  // The file picker can select the same valid file again after an error.
-  await importBackup(page, allComplete);
-  await expect(page.locator('#statTasks')).toHaveText('37');
-});
-
-for (const kind of ['journal', 'achievements']) {
-  test(`${kind} rejects impossible calendar dates without changing storage or live state`, async ({ page }) => {
+const bad = mutate => { const backup = structuredClone(allComplete); mutate(backup); return JSON.stringify(backup); };
+const malformedInputs = [
+  ['truncated JSON', '{truncated'], ['null envelope', 'null'], ['array envelope', '[]'], ['missing envelope fields', '{}'],
+  ['wrong app', bad(b => { b.app = 'Other app'; })], ['future version', bad(b => { b.version = 2; })], ['string version', bad(b => { b.version = '1'; })],
+  ['null data', bad(b => { b.data = null; })], ['missing completed', bad(b => { delete b.data.completed; })],
+  ['null completed', bad(b => { b.data.completed = null; })], ['array completed', bad(b => { b.data.completed = []; })], ['string completion', bad(b => { b.data.completed.w1 = 'true'; })],
+  ['null scores', bad(b => { b.data.scores = null; })], ['array scores', bad(b => { b.data.scores = []; })], ['out-of-range score', bad(b => { b.data.scores.Governance = 5; })], ['string score', bad(b => { b.data.scores.Governance = '2'; })], ['fractional score', bad(b => { b.data.scores.Governance = 1.5; })],
+  ['object journal', bad(b => { b.data.journal = {}; })], ['null achievements', bad(b => { b.data.achievements = null; })],
+  ['null journal entry', bad(b => { b.data.journal[0] = null; })], ['numeric date', bad(b => { b.data.journal[0].date = 123; })], ['unparseable date', bad(b => { b.data.journal[0].date = 'not a date'; })],
+  ['object title', bad(b => { b.data.achievements[0].title = {}; })], ['missing body', bad(b => { delete b.data.achievements[0].body; })],
+  ['duplicate entry ID', bad(b => { b.data.journal.push(b.data.journal[0]); })]
+];
+// Baseline + at most five rejection exports + post-reload export = seven.
+const REJECTIONS_PER_BATCH = MAX_DOWNLOADS_PER_PAGE - 2;
+for (let offset = 0; offset < malformedInputs.length; offset += REJECTIONS_PER_BATCH) {
+  const inputs = malformedInputs.slice(offset, offset + REJECTIONS_PER_BATCH);
+  test(`malformed and unsupported imports preserve storage and live state (cases ${offset + 1}–${offset + inputs.length})`, async ({ page }) => {
     await importBackup(page, mixed);
     const original = await stored(page);
-    const invalidDates = ['2026-02-30', '2026-02-29', '1900-02-29', '2100-02-29', '2024-02-30', '2026-04-31', '2026-06-31', '2026-09-31', '2026-11-31', '2026-00-10', '2026-13-10', '2026-01-00', '2026-01-32'];
-    for (const date of invalidDates) {
-      const backup = structuredClone(allComplete);
-      backup.data[kind][0].date = date;
-      const dialogs = await importBackup(page, backup);
-      // Rejection must occur before replacement confirmation, even if accepted.
-      expect(dialogs.map(dialog => dialog.type), date).toEqual(['alert']);
-      expect(dialogs[0].message).toMatch(new RegExp('^Could not import backup: Invalid ' + kind + ' entry'));
-      expect(await stored(page), date).toBe(original);
-      await expect(page.locator('#statTasks')).toHaveText('19');
-      expect((await exportBackup(page)).data, date).toEqual(mixed.data);
+    expect((await exportBackup(page)).data).toEqual(mixed.data);
+    for (const [label, input] of inputs) {
+      await test.step(label, async () => {
+        const dialogs = await importText(page, input);
+        expect(dialogs.map(dialog => dialog.type)).toEqual(['alert']);
+        expect(dialogs[0].message).toMatch(/^Could not import backup:/);
+        expect(await stored(page)).toBe(original);
+        await expect(page.locator('#statTasks')).toHaveText('19');
+        expect((await exportBackup(page)).data).toEqual(mixed.data);
+      });
     }
     await page.reload();
     expect(await stored(page)).toBe(original);
     expect((await exportBackup(page)).data).toEqual(mixed.data);
+    // The file picker can select the same valid file again after an error.
+    await importBackup(page, allComplete);
+    await expect(page.locator('#statTasks')).toHaveText('37');
   });
+}
+
+const invalidDates = ['2026-02-30', '2026-02-29', '1900-02-29', '2100-02-29', '2024-02-30', '2026-04-31', '2026-06-31', '2026-09-31', '2026-11-31', '2026-00-10', '2026-13-10', '2026-01-00', '2026-01-32'];
+for (const kind of ['journal', 'achievements']) {
+  for (let offset = 0; offset < invalidDates.length; offset += REJECTIONS_PER_BATCH) {
+    const dates = invalidDates.slice(offset, offset + REJECTIONS_PER_BATCH);
+    test(`${kind} rejects impossible calendar dates without changing storage or live state (cases ${offset + 1}–${offset + dates.length})`, async ({ page }) => {
+      await importBackup(page, mixed);
+      const original = await stored(page);
+      expect((await exportBackup(page)).data).toEqual(mixed.data);
+      for (const date of dates) {
+        await test.step(date, async () => {
+          const backup = structuredClone(allComplete);
+          backup.data[kind][0].date = date;
+          const dialogs = await importBackup(page, backup);
+          // Rejection must occur before replacement confirmation, even if accepted.
+          expect(dialogs.map(dialog => dialog.type), date).toEqual(['alert']);
+          expect(dialogs[0].message).toMatch(new RegExp('^Could not import backup: Invalid ' + kind + ' entry'));
+          expect(await stored(page), date).toBe(original);
+          await expect(page.locator('#statTasks')).toHaveText('19');
+          expect((await exportBackup(page)).data, date).toEqual(mixed.data);
+        });
+      }
+      await page.reload();
+      expect(await stored(page)).toBe(original);
+      expect((await exportBackup(page)).data).toEqual(mixed.data);
+    });
+  }
 }
 
 test('valid leap days and legacy date strings import and round-trip in both histories', async ({ page }) => {
