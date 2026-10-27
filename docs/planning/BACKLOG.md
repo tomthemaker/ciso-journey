@@ -2,6 +2,8 @@
 
 Tracking issue: https://github.com/tomthemaker/ciso-journey/issues/2
 
+Project: https://github.com/users/tomthemaker/projects/1 (Delivery board and Release plan views).
+
 Canonical delivery status is in GitHub. This file maps stable planning keys to issues; do not infer completion from this snapshot. See ../product/PLAN.md for release gates.
 
 | Key | Release | Issue | Dependencies |
