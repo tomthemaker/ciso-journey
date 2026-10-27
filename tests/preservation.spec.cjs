@@ -37,7 +37,7 @@ async function confirmAction(page, action, accept = true) {
 
 test.beforeEach(async ({ page }) => {
   page.on('pageerror', error => { throw error; });
-  await page.goto('/');
+  await page.goto('./');
 });
 
 test('inventory retains all 37 meanings, phases, six defaults and all resource destinations', async ({ page }) => {
