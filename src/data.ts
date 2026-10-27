@@ -1,4 +1,4 @@
-import type { Phase, LearningResource } from "./types";
+import type { Phase, LearningResource } from "./types.ts";
 
 export const phases: Phase[] = [
   {

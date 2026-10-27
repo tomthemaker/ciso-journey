@@ -18,11 +18,13 @@ npm run typecheck
 npm run build
 npm run preview
 # Open http://127.0.0.1:4173/ciso-journey/
+npm test
+# Local critical browser checks (install Chromium once):
 npx playwright install chromium
-npm test -- --workers=4
+npm run test:browser -- --workers=4
 ```
 
-Tests build the app and check desktop/mobile behavior under the actual Pages subpath. See [build, deployment, origin migration and rollback](docs/product/F02_BUILD_AND_DEPLOY.md) for the Actions publishing workflow and private recovery steps.
+Fast unit checks run with `npm test`. CI adds typecheck/build; critical browser checks run locally against a production build under the actual Pages subpath. See [build, deployment, origin migration and rollback](docs/product/F02_BUILD_AND_DEPLOY.md) for the Actions publishing workflow and private recovery steps.
 
 ## Features
 
@@ -85,3 +87,5 @@ A comprehensive learning platform is planned; this increment introduces lightwei
 [F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
 The app has no framework or runtime package dependency. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
+
+CI runs only unit/type/build checks. Run local browser checks during implementation and independent review of runtime/test changes and before release; record exact-candidate results in the PR. See the [validation policy](AGENTS.md#validation-policy).

@@ -1,5 +1,5 @@
-import { competencies } from "./data";
-import type { LearnerState } from "./types";
+import { competencies } from "./data.ts";
+import type { LearnerState } from "./types.ts";
 
 // Keep the same origin-scoped key and serialized shape throughout modularization.
 export const KEY = "ciso-journey-v1";

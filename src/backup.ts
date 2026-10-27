@@ -1,5 +1,5 @@
-import { empty } from "./storage";
-import type { HistoryEntry, LearnerState, V1Backup } from "./types";
+import { empty } from "./storage.ts";
+import type { HistoryEntry, LearnerState, V1Backup } from "./types.ts";
 
 function record(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);

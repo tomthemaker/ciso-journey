@@ -71,14 +71,14 @@ Defaults describe the prototype's starting values; they are not measured learner
 | Five section buttons | Roadmap, Competencies, Learning journal, Achievements and Resources switch the active view; navigation is temporary. | Every section visited through its real button. |
 | Task checkbox / label | Set its original ID to true or false, update phase and total progress, persist. It does not change scores or create entries. | All 37 checked individually and mapped to stored IDs; keyboard Space toggles the first task back to false. |
 | Phase filter | All tasks or incomplete tasks. Completed tasks disappear; completed phases disappear; fully completed roadmap shows the congratulations message. Filter is temporary. | Full-complete empty state and single incomplete task. |
-| Per-task disclosure | Expand/collapse suggestions and study focus. Every task offers LinkedIn course/path, targeted LinkedIn search, official reference and Coursera search; p2/p3 add a governance/compliance course link. | All 37 disclosures and exact frozen hrefs; safe new-tab attributes. No network navigation or claim of external link health. |
+| Per-task disclosure | Expand/collapse suggestions and study focus. Every task offers LinkedIn course/path, targeted LinkedIn search, official reference and Coursera search; p2/p3 add a governance/compliance course link. | One disclosure toggled; all 37 exact frozen hrefs and safe new-tab attributes checked in one DOM read. No network navigation or claim of external link health. |
 | Six competency selects | Each accepts 0–4; save independently, update average. Initial score summary stays fixed. | All category defaults, overrides through select controls, import values and reset average. |
 | Journal form | Required date/topic/body; topic max length 140; submit appends generated ID, trimmed title/body, date; form clears and date defaults to today. | Keyboard submit, date and multiline body, generated ID, clear, refresh and imported date ordering. |
 | Achievement form | Required date/title (max length 160), optional evidence body; submit appends generated ID and clears form. | Submit with empty evidence, persistence and imported entry rendering. |
 | Delete on either history | Native confirmation; accept removes only matching entry and updates count, cancel leaves entry. | Both histories delete; achievement cancellation; empty histories. |
 | Export button | Download dated JSON v1 envelope containing complete current state. No state changes. | Parse real downloaded bytes; compare every value; re-import exported file. |
 | Import button / picker | Single JSON file chooser. Validate full payload, then ask before replacing state. Success alert and clear file input; retry can select the same file. | Chooser, all three fixtures, confirmation, cancellation, repeated selections. |
-| Invalid / unsupported import | Reject invalid JSON, wrong app/version or malformed state/entries before any write; report an error and keep current state. Failed persistence also keeps the live state. | 25 malformed/future variants plus 13 impossible dates in each history against occupied state, stored bytes and live export; valid leap-day round-trips; injected quota failure. |
+| Invalid / unsupported import | Reject invalid JSON, wrong app/version or malformed state/entries before any write; report an error and keep current state. Failed persistence also keeps the live state. | Node: all 25 malformed/future variants, 13 impossible dates and six valid dates per history. Browser: truncated/future imports and impossible dates in both histories preserve occupied stored bytes and full live exports; cancelled import and injected quota failure do too. |
 | Reset button | Confirmation warns that a backup is needed; accept clears completions, histories and restores six defaults; cancel changes nothing. | Accept, cancel, exact saved defaults and reload. |
 | General Resources | Nine official/reference links open in new tabs. | Exact frozen title, description and URL inventory. |
 | Responsive / keyboard / print | One-column layout below 850px; section bar scrolls; native buttons, selects, checkboxes and forms remain usable. Print reveals all views and hides actions. | Full suite in desktop Chromium and Pixel 7 Chromium emulation; checkbox/submit keyboard smoke; no document overflow; print CSS smoke. |
@@ -87,17 +87,21 @@ The baseline intentionally has no resource-level progress, recall, questions or 
 
 ## Reproduce the preservation checks
 
-**F02 supersession (2026-10-27):** The run commands, Python server and direct single-file rollback below describe the captured F01 baseline. Current TypeScript build/check commands, strict `/ciso-journey/` server and the complete Pages rollback sequence are in [F02 build and deployment](F02_BUILD_AND_DEPLOY.md). The frozen data/interaction inventory and private recovery principles remain applicable.
-
-The app still needs no build or runtime dependencies. Browser checks require Node 20+ (CI uses 22), npm and Python 3:
+F02 supersession, 2026-10-27: current checks use Node 24.4.1+ and the TypeScript/Vite modules. The frozen inventory and private recovery contract below remain applicable.
 
 ```sh
 npm ci
-npx playwright install chromium
 npm test
+npm run typecheck
+npm run build
+# Critical browser checks run locally, not in CI:
+npx playwright install chromium
+npm run test:browser -- --workers=4
 ```
 
-`npm run test:desktop` and `npm run test:mobile` run one viewport. Playwright starts a local Python server on `127.0.0.1:4173`; use a free port and stop any unrelated server there. Each test starts with an isolated browser context. `tests/fixtures/v1/inventory.json` is frozen test evidence, not runtime source. The GitHub Actions V1 preservation job runs both projects and uploads failure traces only. Trace files may contain entered data, so use synthetic data exclusively.
+`npm test` and `npm run test:unit` run 68 fast Node checks importing the actual typed validator/data. F02 replaces the temporary inline-source adapter described in the historical lean-harness record below with native TypeScript imports. `npm run test:browser` builds the app and runs six preservation plus two Pages flows in each desktop/mobile viewport. The strict static server exposes only `dist/` at `http://127.0.0.1:4174/ciso-journey/` without a SPA fallback; keep port 4174 free. `test:desktop`/`test:mobile` select one viewport.
+
+Under D020, CI runs unit/type/build only, with source/test/config path filters; browser evidence is local and candidate-bound. [F02 run/deploy/origin/rollback](F02_BUILD_AND_DEPLOY.md) is the current command and Pages delivery authority. Earlier single-file/Python commands and validation counts are retained below as historical evidence. No real learner data belongs in fixtures or traces.
 
 ## Recorded validation — 2026-10-27
 
@@ -108,6 +112,18 @@ npm test
 Calendar-date review fix, 2026-10-27: the independent review of `9ba6a43` in [PR #27](https://github.com/tomthemaker/ciso-journey/pull/27#issuecomment-6440671105) found that `Date.parse` normalized impossible dates. Import now checks month lengths and the Gregorian leap-year rule before parsing for the existing supported date range. Both journal and achievement regressions reject February 30, February 29 in ordinary/century non-leap years, all four 30-day-month overflows, and zero/out-of-range months and days before confirmation. Each rejection preserves occupied stored bytes and live exported data; refresh also preserves the original state. Valid 2024/2000 leap days, normal month/year boundaries, a padded year and a longer legacy year round-trip in both histories.
 
 The new journal rejection test failed against the pre-fix `9ba6a43` runtime on `2026-02-30` (unexpected replacement confirmation), proving regression sensitivity. The updated full suite passed 28/28 browser tests across both Chromium projects with `CI=1 npm test -- --workers=4` on macOS / Node 26.10.0. `npm ci` and `git diff --check` passed. No new product decision or scope change; this completes D015's existing malformed-import requirement and awaits independent verification of the updated candidate.
+
+## Lean preservation checks — 2026-10-27
+
+Infrastructure [#29](https://github.com/tomthemaker/ciso-journey/issues/29), [PR #31](https://github.com/tomthemaker/ciso-journey/pull/31). Failed run [40496743587](https://github.com/tomthemaker/ciso-journey/actions/runs/40496743587) stopped receiving download events after bursts of ten downloads in 786–927 ms. Pinned Chromium 156.0.8078.4 [defines a ten-download/one-second limiter](https://chromium.googlesource.com/chromium/src/+/refs/tags/156.0.8078.4/third_party/blink/renderer/core/frame/local_frame.cc). Traces and source support this diagnosis without exposing the internal counter; no application defect was demonstrated.
+
+At the product owner's request, this supersedes the interim 44-browser-test batching approach. The **68 Node tests** cover the exact original 25 malformed/future inputs, all 13 impossible dates in each history, all six valid dates in each history, three fixtures, default scores/extensions and the frozen inventory. They execute the actual shipped declarations and validator through a small explicit source-region adapter, with no DOM/storage mocks or duplicate validation logic. F02 will replace that temporary adapter with direct typed-module imports. Input immutability and full returned data are checked separately from browser persistence.
+
+The **six browser flows per viewport** retain every task-ID write, exact resource destinations, six scores, safe imported text, real downloaded fixture round-trips, existing-storage bytes/defaults/extensions, form/keyboard/filter/reset/print controls, and representative rejection-before-confirmation checks. Truncated JSON, future version and impossible dates in both histories each preserve occupied stored bytes and the complete live exported data, followed by a reload check. Cancellation and quota failure independently preserve both state representations. There are at most six real downloads in one flow; there are no per-variant contexts/downloads, counters, batching machinery, retries, increased timeouts or disabled protections. Runtime and synthetic v1 fixtures remain unchanged. Node matrix coverage does not imply every malformed input is separately exercised through browser file I/O.
+
+Validation: `npm ci`; `CI=1 npm test -- --workers=2` on macOS / Node 24.4.1 passed **68/68 Node checks** (177 ms) and **12/12 desktop/mobile Chromium checks** (18.5 s). A direct comparison retained all original malformed payload strings/labels and dates. Deliberately bypassing the month-length guard failed the Node date assertions; mutating only the live Governance score after rejected import failed the browser full-data assertion despite unchanged stored bytes. Both mutations were restored. `git diff --check` passes; runtime, v1 fixtures and lockfile are unchanged. Exact-candidate CI and the separate fresh-agent review belong to #29/PR #31. No product decision changed; this supersedes only the test strategy and earlier browser-count evidence. Mobile emulation remains distinct from physical-device and cross-engine testing.
+
+D020 policy update, 2026-10-27: `npm test` now runs only the fast unit layer; use the separate browser command above for local checks. This supersedes prior browser-in-CI requirements and the historical combined command. The app, all tests/fixtures, Playwright configuration and dependency lockfile are unchanged from `4c31389cea5e46315af2aa1f21c7e0c56f9c25cc`, so its passing local 12-browser result remains applicable to this workflow/docs-only delta. The cancelled browser-install run [40499674948](https://github.com/tomthemaker/ciso-journey/actions/runs/40499674948) is not passing CI evidence. Final unit/CI results and fresh independent policy review are linked in [PR #31](https://github.com/tomthemaker/ciso-journey/pull/31).
 
 ## Learner backup and recovery
 

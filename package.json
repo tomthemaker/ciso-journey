@@ -8,9 +8,11 @@
     "typecheck": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "npm run build && playwright test",
-    "test:desktop": "npm test -- --project=chromium",
-    "test:mobile": "npm test -- --project=mobile-chromium"
+    "test": "npm run test:unit",
+    "test:desktop": "npm run test:browser -- --project=chromium",
+    "test:mobile": "npm run test:browser -- --project=mobile-chromium",
+    "test:unit": "node --experimental-strip-types --test tests/*.test.cjs",
+    "test:browser": "npm run build && playwright test"
   },
   "engines": {
     "node": ">=24.4.1"
