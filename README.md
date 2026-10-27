@@ -60,7 +60,7 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 
 ### Implementation notes
 
-1. Keep the current task IDs (`p1a`, etc.) stable and give each resource a **stable ID** rather than using a URL or array index as the sole identity. Existing `taskLearningResources` entries can be converted into records with `id`, `taskId`, `platform`, `title`, `url`, `type`, and `isCustom` fields. Treat search-result links as **discovery suggestions**, not courses the learner has actually completed.
+1. Keep the current task IDs (`w1`–`w12`, `p2a`–`p6e`) stable and give each resource a **stable ID** rather than using a URL or array index as the sole identity. Existing `taskLearningResources` entries can be converted into records with `id`, `taskId`, `platform`, `title`, `url`, `type`, and `isCustom` fields. Treat search-result links as **discovery suggestions**, not courses the learner has actually completed.
 2. Add separate state collections such as `resourceProgress` (`resourceId` → status, completedAt, notes, evidenceUrl), `taskMastery` (`taskId` → level, evidence, assessedAt), and `customResources`. Avoid encoding these in the existing `completed` object.
 3. **Backward compatibility is mandatory:** current localStorage key is `ciso-journey-v1`; existing data shape includes `completed`, `scores`, `journal`, and `achievements`. Load old data safely, use defaults for new fields, and preserve the meaning of previously checked-off roadmap tasks. Do not silently reset or reinterpret historical completions. Keep importing existing version-1 JSON backups; use a documented migration if changing backup versions.
 4. Use accessible controls and clear visual differentiation for resource status versus demonstrated mastery. Make updating a resource status possible directly from its expanded roadmap panel.
@@ -78,4 +78,18 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 
 ## CISO Journey 2.0 planning
 
-A comprehensive learning platform is planned; the current app remains unchanged. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
+A comprehensive learning platform is planned; the current app retains its single-file runtime and v1 data format. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
+
+## Preservation checks and recovery
+
+[F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1 payload before replacing progress; unsupported or malformed files leave current state untouched.
+
+To run checks with Node 20+ and Python 3:
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+```
+
+The app itself still needs no build or installed dependencies. Tests run the actual `index.html` in desktop Chromium and mobile Chromium emulation.

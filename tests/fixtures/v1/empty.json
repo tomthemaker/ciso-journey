@@ -1,0 +1,18 @@
+{
+  "app": "CISO Journey",
+  "version": 1,
+  "exportedAt": "2026-02-02T12:00:00.000Z",
+  "data": {
+    "completed": {},
+    "scores": {
+      "Security architecture": 0,
+      "Cyber-risk management": 1,
+      "Governance": 0,
+      "Compliance": 0,
+      "Security operations": 0,
+      "Executive reporting": 2
+    },
+    "journal": [],
+    "achievements": []
+  }
+}
