@@ -87,6 +87,8 @@ The baseline intentionally has no resource-level progress, recall, questions or 
 
 ## Reproduce the preservation checks
 
+**F02 supersession (2026-10-27):** The run commands, Python server and direct single-file rollback below describe the captured F01 baseline. Current TypeScript build/check commands, strict `/ciso-journey/` server and the complete Pages rollback sequence are in [F02 build and deployment](F02_BUILD_AND_DEPLOY.md). The frozen data/interaction inventory and private recovery principles remain applicable.
+
 The app still needs no build or runtime dependencies. Browser checks require Node 20+ (CI uses 22), npm and Python 3:
 
 ```sh
