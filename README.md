@@ -75,3 +75,7 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 - The dashboard accurately distinguishes learning activity from proven capability, and documentation explains the difference.
 
 **Suggested Codex prompt:** "Implement the README feature 'Resource-level learning and mastery tracking' in the existing CISO Journey app. Preserve current users' localStorage and v1 backup compatibility, use stable task/resource IDs, and add tests for the acceptance criteria. Keep the UI simple and local-first."
+
+## CISO Journey 2.0 planning
+
+A comprehensive learning platform is planned; the current app remains unchanged. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.

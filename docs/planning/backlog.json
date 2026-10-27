@@ -1,0 +1,318 @@
+[
+  {
+    "key": "F01",
+    "release": "R0",
+    "title": "Preserve v1 data and establish migration regression fixtures",
+    "deps": [],
+    "scope": "Extract the actual 37 task IDs and inventory every existing interaction. Create synthetic v1 backups spanning completions, all scores, journal and achievements; no real learner data.",
+    "accept": [
+      "All 37 IDs including w1\u2013w12 retain meaning; six score categories remain intact.",
+      "Tests prove v1 import preserves values and malformed/unsupported imports leave current state untouched.",
+      "Record baseline browser flows and recovery steps before modularization."
+    ]
+  },
+  {
+    "key": "F02",
+    "release": "R0",
+    "title": "Modularize the app with TypeScript and deploy a Pages build",
+    "deps": [
+      "F01"
+    ],
+    "scope": "Introduce Vite and lightweight modules while preserving app behavior. Configure CI build and GitHub Pages repository subpath; document rollback.",
+    "accept": [
+      "Existing roadmap, filters, ratings, journal, achievements, export/import and reset still work.",
+      "Build and browser smoke tests cover /ciso-journey/, refresh and asset URLs.",
+      "Document run/test/deploy commands and deployed-origin backup migration."
+    ]
+  },
+  {
+    "key": "F03",
+    "release": "R0",
+    "title": "Implement versioned transactional storage and complete backups",
+    "deps": [
+      "F01",
+      "F02"
+    ],
+    "scope": "Define storage boundaries, evaluate IndexedDB, and implement recoverable migrations plus a schema-versioned backup envelope extensible to learning history.",
+    "accept": [
+      "Migrations are transactional/idempotent; original v1 state remains recoverable until success.",
+      "Full export/import round-trips all introduced entities and rejects corrupt/future input without writes.",
+      "Storage failure/quota cases give actionable recovery rather than silently resetting progress."
+    ]
+  },
+  {
+    "key": "C01",
+    "release": "R1",
+    "title": "Design curriculum coverage and measurable learning objectives",
+    "deps": [],
+    "scope": "Map ten domains, all 37 actual tasks and six existing competencies to versioned NIST CSF, ISO 27001, CISSP and CISM outcomes; prioritize weeks 1\u20134.",
+    "accept": [
+      "Coverage matrix includes secure software, cloud, cryptography, networking and leadership.",
+      "Each foundation objective is observable and has prerequisites plus a planned assessment.",
+      "CISSP outline validity dates and Swiss/EU scope are explicit; record unresolved learner preferences in memory."
+    ]
+  },
+  {
+    "key": "C02",
+    "release": "R1",
+    "title": "Define content schemas and an editorial publication gate",
+    "deps": [
+      "C01"
+    ],
+    "scope": "Model lessons, concepts, questions, cards, sources, scenarios, rubrics and versioned mappings. Build validators and an authoring/review checklist.",
+    "accept": [
+      "Stable IDs, relationships, content versions and source/review metadata validate automatically.",
+      "Draft, source-checked, independently reviewed, published, stale and retired states are distinct.",
+      "No AI-only draft is labeled independently reviewed; legal claims require verified authoritative text.",
+      "Content corrections preserve prior attempt versions; copyright constraints and review cadence documented."
+    ]
+  },
+  {
+    "key": "L01",
+    "release": "R1",
+    "title": "Build the original lesson reader and concept navigation",
+    "deps": [
+      "F02",
+      "F03",
+      "C02"
+    ],
+    "scope": "Provide structured reading with objectives, sections, examples, references, prerequisites and concept links; record reading progress independently.",
+    "accept": [
+      "A learner can study a complete unit without paid external material.",
+      "Keyboard/mobile reader and safe rendering of authored/imported content are checked.",
+      "Reading completion does not mark a task or competency mastered."
+    ]
+  },
+  {
+    "key": "C03",
+    "release": "R1",
+    "title": "Author and review original lessons for foundation weeks 1\u20134",
+    "deps": [
+      "C01",
+      "C02"
+    ],
+    "scope": "Produce at least four substantive original lessons aligned to actual w1\u2013w4 tasks, with executive examples, misconceptions, practice and supplementary LinkedIn links.",
+    "accept": [
+      "Every objective has adequate explanatory reading and a worked example, not only a definition/link list.",
+      "At least 12 curated cards, 20 questions spanning all three formats, and one case reference stable concepts/sources.",
+      "Reviewer status is truthful; unresolved factual/source concerns prevent validated publication."
+    ]
+  },
+  {
+    "key": "L02",
+    "release": "R1",
+    "title": "Track learning resources independently and preserve custom resources",
+    "deps": [
+      "F03",
+      "C02"
+    ],
+    "scope": "Implement README resource progress stories with stable resource IDs, dates, notes and custom links. Courses supplement original teaching.",
+    "accept": [
+      "Course completion changes resource state only; task/recall/mastery stay unchanged.",
+      "Discovery searches are labeled; resource edits/archival preserve historical progress.",
+      "Custom-resource lifecycle, safe URL handling and backup round-trip are verified."
+    ]
+  },
+  {
+    "key": "Q01",
+    "release": "R1",
+    "title": "Implement question banks and explained assessment attempts",
+    "deps": [
+      "F03",
+      "C02",
+      "L01"
+    ],
+    "scope": "Support MCQ, scenario-based and open-ended questions with objective links, versioned attempts, feedback and retry behavior.",
+    "accept": [
+      "Every MCQ option has an explanation; feedback appears after an attempted answer.",
+      "Scenario/open-ended responses use explicit rubrics and annotated examples, not string matching.",
+      "Attempts retain content version and assessment provenance; quiz score does not confer applied mastery."
+    ]
+  },
+  {
+    "key": "S01",
+    "release": "R1",
+    "title": "Implement deterministic FSRS review scheduling and durable history",
+    "deps": [
+      "F03",
+      "C02"
+    ],
+    "scope": "Integrate a pinned ts-fsrs version behind an adapter, four ratings, complete scheduler state, append-only events, due queues and configurable new-card caps.",
+    "accept": [
+      "Clock-controlled tests cover all ratings, overdue cards, timezone boundaries and refresh/backup restoration.",
+      "Event and scheduler writes are atomic; double submits do not schedule twice.",
+      "Store library/scheduler/content versions and preserve history for edited, suspended or archived cards.",
+      "Again means failed recall; Hard means successful effortful recall; no ratings mutate competency."
+    ]
+  },
+  {
+    "key": "S02",
+    "release": "R1",
+    "title": "Build prompt-first daily review and the foundation Today flow",
+    "deps": [
+      "S01",
+      "L01",
+      "L02",
+      "Q01",
+      "C03"
+    ],
+    "scope": "Connect original reading, questions, due reviews and one related exercise in a manageable daily study loop.",
+    "accept": [
+      "Answer is hidden until reveal; keyboard-accessible Again/Hard/Good/Easy follow reveal.",
+      "Due reviews have priority, new-card limits are configurable and overdue work survives missed days.",
+      "Show distinct reading/resource/task/recall/assessment signals and an honest time estimate.",
+      "End-to-end foundation flow works on mobile and survives restart/export/import."
+    ]
+  },
+  {
+    "key": "A01",
+    "release": "R1",
+    "title": "Deliver the first executive simulation with rubric and evidence",
+    "deps": [
+      "Q01",
+      "C03",
+      "F03"
+    ],
+    "scope": "Provide one executive decision case with impact, options, accountable owner, recommendation, residual risk and evidence metadata.",
+    "accept": [
+      "A complete worked response and Recognize/Explain/Apply/Lead rubric explain tradeoffs.",
+      "Self-assessed vs independently reviewed evidence is explicit; old 0\u20134 ratings remain separate.",
+      "Evidence links/notes stay private and round-trip; no binary/public upload assumed."
+    ]
+  },
+  {
+    "key": "G01",
+    "release": "R1",
+    "title": "Verify and release the complete weeks 1\u20134 learning loop",
+    "deps": [
+      "S02",
+      "A01"
+    ],
+    "scope": "Run release-gate verification across original lessons, questions, retrieval, practice, data preservation and Pages deployment.",
+    "accept": [
+      "All R0 and R1 gates in PLAN.md pass with recorded test/content-review evidence.",
+      "Invalid imported markup/URLs cannot execute; essential keyboard/mobile flows pass.",
+      "Release notes disclose provisional content and retain recovery/export instructions."
+    ]
+  },
+  {
+    "key": "C04",
+    "release": "R2",
+    "title": "Complete original foundation teaching for weeks 5\u201312",
+    "deps": [
+      "G01"
+    ],
+    "scope": "Write at least eight further substantial lessons with cards, questions, worked examples and exercises mapped to w5\u2013w12.",
+    "accept": [
+      "All 12 weekly tasks have original teaching and assessments for their stated outcomes.",
+      "Content passes schema/source/pedagogy review; cards are curated instead of mechanically generated.",
+      "Previously studied content versions and progress survive expansion."
+    ]
+  },
+  {
+    "key": "A02",
+    "release": "R2",
+    "title": "Add six competency cases, practical portfolio and quarterly reassessment",
+    "deps": [
+      "A01",
+      "G01"
+    ],
+    "scope": "Expand to one executive case per legacy competency and practical artifacts such as risk register, ISMS gap analysis, incident tabletop and board report.",
+    "accept": [
+      "Six cases have decision tradeoffs, rubrics and annotated responses.",
+      "Quarterly assessments record level, provenance, evidence and date without overwriting original scores.",
+      "Portfolio metadata, private notes and assessment history survive backups."
+    ]
+  },
+  {
+    "key": "P01",
+    "release": "R2",
+    "title": "Show retention, assessment and evidence trends honestly",
+    "deps": [
+      "C04",
+      "A02"
+    ],
+    "scope": "Build progress views separating observed retrieval performance, FSRS estimates, rubric assessments, milestones and portfolio evidence.",
+    "accept": [
+      "No single readiness/mastery percent or certificate eligibility claim.",
+      "Time windows, sample sizes and estimated-vs-observed measures are visible.",
+      "Trends derive from durable versioned events and handle no-data cases."
+    ]
+  },
+  {
+    "key": "C05",
+    "release": "R3",
+    "title": "Publish advanced curriculum across architecture, risk and operations",
+    "deps": [
+      "C04",
+      "C01"
+    ],
+    "scope": "Deliver original advanced teaching for architecture/IAM, asset protection, secure delivery/cloud, risk, operations, incidents, resilience and third parties.",
+    "accept": [
+      "Every relevant task/objective in the coverage matrix has reviewed lessons, questions, cards and practical cases.",
+      "Source mappings are versioned; revised frameworks do not silently rewrite prior attempts.",
+      "Editorial gaps remain visible rather than presenting placeholder lessons as complete."
+    ]
+  },
+  {
+    "key": "C06",
+    "release": "R3",
+    "title": "Publish Swiss/EU compliance, governance and executive leadership teaching",
+    "deps": [
+      "C04",
+      "C02"
+    ],
+    "scope": "Deliver original ISMS/audit, privacy/regulatory, strategy/budget, board communication, culture/ethics and AI governance units.",
+    "accept": [
+      "Verify current FADP, GDPR, NIS2, DORA and relevant Swiss sector guidance against official texts before claims are published.",
+      "Explain jurisdiction, entity/sector applicability, effective dates and national implementation; do not imply every rule applies to every Swiss learner.",
+      "Original board/budget/leadership cases and ISO/NIST/CISSP/CISM mappings complete all 37 tasks across ten domains.",
+      "Independent review status and stale-content handling are explicit."
+    ]
+  },
+  {
+    "key": "R01",
+    "release": "R4",
+    "title": "Create explainable personalized learning paths",
+    "deps": [
+      "P01",
+      "S02"
+    ],
+    "scope": "Use prerequisite gaps, due reviews, assessed weaknesses, learner goals and time budget to recommend next study; start with deterministic rules.",
+    "accept": [
+      "Explain why each recommendation appears and allow learner override.",
+      "Tests cover cold start, conflicting goals, prerequisite cycles, scarce time and overdue load.",
+      "No recommendation infers applied competency from course/flashcard success; preference changes persist."
+    ]
+  },
+  {
+    "key": "Y01",
+    "release": "R5",
+    "title": "Design private sync, threat model and conflict semantics",
+    "deps": [
+      "F03",
+      "P01"
+    ],
+    "scope": "Evaluate sync provider, auth, region, recovery and threat model; specify append-only reviews, note conflicts, deletes/tombstones and transactional boundaries.",
+    "accept": [
+      "Record provider/region and identity decisions in MEMORY.md before infrastructure work.",
+      "Define account switching, sign-out/local data, duplicate/out-of-order events, same-card concurrent reviews and deletion semantics.",
+      "Define export/deletion/recovery and evidence privacy; browser secrets/service-role keys forbidden."
+    ]
+  },
+  {
+    "key": "Y02",
+    "release": "R5",
+    "title": "Implement optional authenticated cross-device synchronization",
+    "deps": [
+      "Y01"
+    ],
+    "scope": "Add private user-owned sync with enforced server authorization, durable offline queues and explicit conflict UI.",
+    "accept": [
+      "Two devices converge through reconnect/retry without duplicate review events or silent conflicting-note loss.",
+      "Two-account tests prove isolation, including malicious ownership updates and storage policies if used.",
+      "Sign-out/account switching cannot expose another account; server deletions are not resurrected offline.",
+      "Local-only mode and complete backups remain available; no privileged frontend credentials."
+    ]
+  }
+]
