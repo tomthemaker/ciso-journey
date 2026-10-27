@@ -165,6 +165,43 @@ test('malformed and unsupported imports do not change storage or live state', as
   await expect(page.locator('#statTasks')).toHaveText('37');
 });
 
+for (const kind of ['journal', 'achievements']) {
+  test(`${kind} rejects impossible calendar dates without changing storage or live state`, async ({ page }) => {
+    await importBackup(page, mixed);
+    const original = await stored(page);
+    const invalidDates = ['2026-02-30', '2026-02-29', '1900-02-29', '2100-02-29', '2024-02-30', '2026-04-31', '2026-06-31', '2026-09-31', '2026-11-31', '2026-00-10', '2026-13-10', '2026-01-00', '2026-01-32'];
+    for (const date of invalidDates) {
+      const backup = structuredClone(allComplete);
+      backup.data[kind][0].date = date;
+      const dialogs = await importBackup(page, backup);
+      // Rejection must occur before replacement confirmation, even if accepted.
+      expect(dialogs.map(dialog => dialog.type), date).toEqual(['alert']);
+      expect(dialogs[0].message).toMatch(new RegExp('^Could not import backup: Invalid ' + kind + ' entry'));
+      expect(await stored(page), date).toBe(original);
+      await expect(page.locator('#statTasks')).toHaveText('19');
+      expect((await exportBackup(page)).data, date).toEqual(mixed.data);
+    }
+    await page.reload();
+    expect(await stored(page)).toBe(original);
+    expect((await exportBackup(page)).data).toEqual(mixed.data);
+  });
+}
+
+test('valid leap days and legacy date strings import and round-trip in both histories', async ({ page }) => {
+  for (const date of ['2024-02-29', '2000-02-29', '2026-04-30', '2026-12-31', '0001-01-01', '10000-02-29']) {
+    const backup = structuredClone(allComplete);
+    backup.data.journal[0].date = date;
+    backup.data.achievements[0].date = date;
+    const dialogs = await importBackup(page, backup);
+    expect(dialogs.map(dialog => dialog.type), date).toEqual(['confirm', 'alert']);
+    expect(dialogs[1].message).toBe('Backup imported successfully.');
+    expect(JSON.parse(await stored(page))).toEqual(backup.data);
+    await page.reload();
+    await expect(page.locator('#statTasks')).toHaveText('37');
+    expect((await exportBackup(page)).data, date).toEqual(backup.data);
+  }
+});
+
 test('cancelled import and failed persistence leave storage and live state untouched', async ({ page }) => {
   await importBackup(page, mixed);
   const original = await stored(page);

@@ -31,6 +31,14 @@ const resources=[['NIST Cybersecurity Framework 2.0','https://www.nist.gov/cyber
 const KEY='ciso-journey-v1';const empty=()=>({completed:{},scores:Object.fromEntries(competencies),journal:[],achievements:[]});let state=load();
 function load(){try{const raw=JSON.parse(localStorage.getItem(KEY));if(raw&&typeof raw==='object')return{...empty(),...raw,scores:{...empty().scores,...raw.scores}}}catch(e){}return empty()}
 function save(){localStorage.setItem(KEY,JSON.stringify(state));renderStats()}
+function validCalendarDate(value){
+ if(!/^\d{4,}-\d{2}-\d{2}$/.test(value))return false;
+ const [year,month,day]=value.split('-').map(Number);
+ const leap=year%4===0&&(year%100!==0||year%400===0);
+ const days=[31,leap?29:28,31,30,31,30,31,31,30,31,30,31];
+ // Check components first: Date.parse alone normalizes impossible days into another month.
+ return month>=1&&month<=12&&day>=1&&day<=days[month-1]&&Number.isFinite(Date.parse(value));
+}
 // Validate the whole v1 payload before confirmation or any write. Do not coerce learner data.
 function validateBackup(backup){
  const record=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
@@ -41,7 +49,7 @@ function validateBackup(backup){
  for(const kind of ['journal','achievements']){
   const ids=new Set();
   for(const entry of data[kind]){
-   if(!record(entry)||!['id','date','title','body'].every(key=>typeof entry[key]==='string')||!entry.id||!/^\d{4,}-\d{2}-\d{2}$/.test(entry.date)||!Number.isFinite(Date.parse(entry.date))||ids.has(entry.id))throw Error('Invalid '+kind+' entry. Current progress has not changed.');
+   if(!record(entry)||!['id','date','title','body'].every(key=>typeof entry[key]==='string')||!entry.id||!validCalendarDate(entry.date)||ids.has(entry.id))throw Error('Invalid '+kind+' entry. Current progress has not changed.');
    ids.add(entry.id);
   }
  }
