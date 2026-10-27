@@ -1,6 +1,6 @@
 # Curriculum coverage matrix
 
-Generated from [c01.v1.json](../../curriculum/c01.v1.json), version **c01-2026-10-27.1**. Refs [C01 / #6](https://github.com/tomthemaker/ciso-journey/issues/6). Run `node scripts/render-curriculum.mjs` to regenerate; use `--check` in validation.
+Generated from [c01.v1.json](../../curriculum/c01.v1.json), version **c01-2026-10-27.2**. Refs [C01 / #6](https://github.com/tomthemaker/ciso-journey/issues/6). Run `node scripts/render-curriculum.mjs` to regenerate; use `--check` in validation.
 
 **Draft curriculum design.** All objectives, assessments and framework alignments are provisional. This document contains plans, not released lessons, authored question banks, validated rubrics or learner results. No independent educator or legal review has occurred. Agent delivery review is a separate procedural gate.
 
@@ -112,7 +112,7 @@ The title and expected output below reproduce the actual legacy roadmap. Objecti
 | w3 — Week 3 · Networking, segmentation, endpoints, Zero Trust | Create an enterprise security architecture diagram | d02 / comp-1 | NIST: PR.IR, PR.PS; ISO: risk; CP: 3, 4; CM: 3 | obj-w3-1, obj-w3-2 / w1, w2 / R1-first-loop |
 | w4 — Week 4 · Encryption, classification, backups and recovery | Draft a data protection control assessment | d01, d02, d07 / comp-1, comp-4, comp-5 | NIST: PR.DS, RC.RP; ISO: risk; CP: 2, 3, 7; CM: 3, 4 | obj-w4-1, obj-w4-2 / w1, w3 / R1-first-loop |
 | w5 — Week 5 · Cloud, containers and supply-chain security | Review shared-responsibility and key AWS/Azure risks | d02, d07 / comp-1, comp-2 | NIST: GV.SC, PR.PS; ISO: risk; CP: 3, 8; CM: 3 | obj-w5-1, obj-w5-2 / w3, w4 / R2-foundation |
-| w6 — Week 6 · Threat modeling and common attack paths | Document five realistic threat scenarios | d02, d04, d06 / comp-1, comp-2, comp-5 | NIST: ID.RA, DE.AE; ISO: risk; CP: 1, 3, 8; CM: 2 | obj-w6-1, obj-w6-2 / w3, w5 / R2-foundation |
+| w6 — Week 6 · Threat modeling and common attack paths | Document five realistic threat scenarios | d02, d04, d06 / comp-1, comp-2, comp-5 | NIST: ID.RA; ISO: risk; CP: 1, 3, 8; CM: 2 | obj-w6-1, obj-w6-2 / w3, w5 / R2-foundation |
 | w7 — Week 7 · NIST CSF 2.0 functions and categories | Create an initial security capability map | d03, d05 / comp-3, comp-4 | NIST: GV.OV, ID.AM, PR.PS, DE.CM, RS.MA, RC.RP; ISO: system; CP: 1, 6, 7; CM: 1, 3, 4 | obj-w7-1, obj-w7-2 / w1, w6 / R2-foundation |
 | w8 — Week 8 · NIST CSF organizational profiles | Draft a current vs target capability profile | d03, d04, d05 / comp-2, comp-3, comp-4 | NIST: GV.RM, ID.IM; ISO: improve; CP: 1, 6; CM: 2, 3 | obj-w8-1, obj-w8-2 / w7 / R2-foundation |
 | w9 — Week 9 · Governance structures, policies, decisions | Draft a security governance charter | d03, d10 / comp-3 | NIST: GV.RR, GV.PO; ISO: system; CP: 1; CM: 1 | obj-w9-1, obj-w9-2 / w7 / R2-foundation |

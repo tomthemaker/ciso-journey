@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "c01-2026-10-27.1",
+  "contentVersion": "c01-2026-10-27.2",
   "status": "draft",
   "authorship": {
     "role": "AI-assisted curriculum design",
@@ -716,8 +716,7 @@
         {
           "frameworkVersionId": "nist-csf-2.0",
           "targetIds": [
-            "ID.RA",
-            "DE.AE"
+            "ID.RA"
           ],
           "status": "provisional-alignment"
         },
