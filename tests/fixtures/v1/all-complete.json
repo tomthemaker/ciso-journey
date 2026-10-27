@@ -1,0 +1,82 @@
+{
+  "app": "CISO Journey",
+  "version": 1,
+  "exportedAt": "2026-02-02T12:00:00.000Z",
+  "data": {
+    "completed": {
+      "w1": true,
+      "w2": true,
+      "w3": true,
+      "w4": true,
+      "w5": true,
+      "w6": true,
+      "w7": true,
+      "w8": true,
+      "w9": true,
+      "w10": true,
+      "w11": true,
+      "w12": true,
+      "p2a": true,
+      "p2b": true,
+      "p2c": true,
+      "p2d": true,
+      "p2e": true,
+      "p3a": true,
+      "p3b": true,
+      "p3c": true,
+      "p3d": true,
+      "p3e": true,
+      "p4a": true,
+      "p4b": true,
+      "p4c": true,
+      "p4d": true,
+      "p4e": true,
+      "p5a": true,
+      "p5b": true,
+      "p5c": true,
+      "p5d": true,
+      "p5e": true,
+      "p6a": true,
+      "p6b": true,
+      "p6c": true,
+      "p6d": true,
+      "p6e": true
+    },
+    "scores": {
+      "Security architecture": 4,
+      "Cyber-risk management": 4,
+      "Governance": 4,
+      "Compliance": 4,
+      "Security operations": 4,
+      "Executive reporting": 4
+    },
+    "journal": [
+      {
+        "id": "synthetic-journal-1",
+        "date": "2026-01-02",
+        "title": "Synthetic <script>window.importExecuted=true</script> & governance",
+        "body": "Fictional learning only.\nNo employer evidence. Zürich 🔐 <img src=x onerror=\"window.importExecuted=true\">"
+      },
+      {
+        "id": "synthetic-journal-2",
+        "date": "2025-12-31",
+        "title": "Older synthetic reflection",
+        "body": "Second entry tests ordering, line breaks\nand preserved text."
+      }
+    ],
+    "achievements": [
+      {
+        "id": "synthetic-achievement-1",
+        "date": "2026-02-01",
+        "title": "Synthetic milestone",
+        "body": "Fictional board memo; no actual evidence."
+      },
+      {
+        "id": "synthetic-achievement-2",
+        "date": "2025-11-30",
+        "title": "Synthetic empty evidence",
+        "body": ""
+      }
+    ]
+  }
+}
