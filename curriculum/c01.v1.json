@@ -1,0 +1,4064 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c01-2026-10-27.1",
+  "status": "draft",
+  "authorship": {
+    "role": "AI-assisted curriculum design",
+    "independentEducatorReview": null,
+    "legalReview": null
+  },
+  "issue": "https://github.com/tomthemaker/ciso-journey/issues/6",
+  "baseline": {
+    "commit": "86be75d",
+    "taskSource": "index.html",
+    "compatibility": "Planning data only. Task IDs/titles/outcomes, legacy score names/defaults and ciso-journey-v1 runtime remain unchanged."
+  },
+  "mappingPolicy": {
+    "status": "provisional-alignment",
+    "meaning": "Planned curriculum alignment at stated granularity; not equivalent coverage, accreditation, exam readiness or legal compliance.",
+    "taskScope": "All objectives of a task contribute to its selected targets; no claim that every objective covers every target.",
+    "isoLimitation": "Only public overview themes; no clause or Annex A coverage claim.",
+    "transitions": [
+      {
+        "frameworkVersionId": "cism-2022",
+        "on": "2026-11-03",
+        "action": "Re-map and review against replacement outline before presenting alignment as current."
+      },
+      {
+        "frameworkVersionId": "cissp-2024",
+        "on": "2027-04-15",
+        "action": "Re-map and review against replacement outline before presenting alignment as current."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src-nist",
+      "publisher": "NIST",
+      "title": "CSWP 29: Cybersecurity Framework 2.0",
+      "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+      "version": "2.0",
+      "publicationDate": "2024-02-26",
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-10-27",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-iso",
+      "publisher": "ISO",
+      "title": "ISO/IEC 27001 overview",
+      "url": "https://www.iso.org/standard/27001",
+      "version": "2022 edition 3",
+      "publicationDate": "2022-10",
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-10-27",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-iso-amd",
+      "publisher": "ISO",
+      "title": "ISO/IEC 27001 Amendment 1",
+      "url": "https://www.iso.org/standard/88435.html",
+      "version": "2024 climate action amendment",
+      "publicationDate": "2024-02",
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-10-27",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-cissp",
+      "publisher": "ISC2",
+      "title": "CISSP exam outline, current PDF",
+      "url": "https://edge.sitecorecloud.io/internationf173-xmc4e73-prodbc0f-9660/media/Project/ISC2/Main/Media/documents/exam-outlines/CISSP-Exam-Outline-April-2024-English.pdf",
+      "version": "effective 2024-04-15",
+      "publicationDate": null,
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-04-14",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-cissp-transition",
+      "publisher": "ISC2",
+      "title": "CISSP outline and transition notice",
+      "url": "https://www.isc2.org/certifications/cissp/cissp-certification-exam-outline",
+      "version": "2027-04-15 transition announced",
+      "publicationDate": null,
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-04-14",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-cism",
+      "publisher": "ISACA",
+      "title": "CISM exam content outline and transition notice",
+      "url": "https://www.isaca.org/credentialing/cism/cism-exam-content-outline",
+      "version": "2022 outline; replacement 2026-11-03",
+      "publicationDate": null,
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2026-11-02",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-cism-guide",
+      "publisher": "ISACA",
+      "title": "Exam candidate guide",
+      "url": "https://www.isaca.org/en/credentialing/-/media/fa494652c5f149289af38cef18328650.ashx",
+      "version": "Appendix C: effective 2022",
+      "publicationDate": null,
+      "jurisdiction": "Global",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2026-11-02",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-fdpic",
+      "publisher": "FDPIC",
+      "title": "Data protection overview",
+      "url": "https://www.edoeb.admin.ch/en/data-protection",
+      "version": "live overview",
+      "publicationDate": null,
+      "jurisdiction": "Switzerland",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "metadata-and-scope-checked"
+    },
+    {
+      "id": "src-fadp",
+      "publisher": "Swiss Confederation / Fedlex",
+      "title": "Federal Act on Data Protection",
+      "url": "https://www.fedlex.admin.ch/eli/cc/2022/491/en",
+      "version": "official legal entry; text not verified",
+      "publicationDate": null,
+      "jurisdiction": "Switzerland",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "blocked-javascript-text-unverified"
+    },
+    {
+      "id": "src-gdpr",
+      "publisher": "European Union / EUR-Lex",
+      "title": "GDPR",
+      "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj/eng",
+      "version": "official legal entry; consolidated text not verified",
+      "publicationDate": null,
+      "jurisdiction": "European Union",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "blocked-bot-challenge-text-unverified"
+    },
+    {
+      "id": "src-nis2",
+      "publisher": "European Union / EUR-Lex",
+      "title": "NIS2",
+      "url": "https://eur-lex.europa.eu/eli/dir/2022/2555/oj/eng",
+      "version": "official legal entry; consolidated text not verified",
+      "publicationDate": null,
+      "jurisdiction": "European Union",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "blocked-bot-challenge-text-unverified"
+    },
+    {
+      "id": "src-dora",
+      "publisher": "European Union / EUR-Lex",
+      "title": "DORA",
+      "url": "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng",
+      "version": "official legal entry; consolidated text not verified",
+      "publicationDate": null,
+      "jurisdiction": "European Union",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "blocked-bot-challenge-text-unverified"
+    },
+    {
+      "id": "src-ai-act",
+      "publisher": "European Union / EUR-Lex",
+      "title": "AI Act",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng",
+      "version": "official legal entry; consolidated text not verified",
+      "publicationDate": null,
+      "jurisdiction": "European Union",
+      "checkedAt": "2026-10-27",
+      "reviewDueAt": "2027-01-25",
+      "verification": "blocked-bot-challenge-text-unverified"
+    }
+  ],
+  "frameworkVersions": [
+    {
+      "id": "nist-csf-2.0",
+      "label": "NIST CSF 2.0",
+      "sourceIds": [
+        "src-nist"
+      ],
+      "validFrom": "2024-02-26",
+      "validUntilExclusive": null,
+      "dateBasis": "Publication date; no expiry announced in checked source.",
+      "granularity": "category",
+      "targets": {
+        "ID.AM": "Asset Management",
+        "ID.RA": "Risk Assessment",
+        "ID.IM": "Improvement",
+        "PR.AA": "Identity Management, Authentication, and Access Control",
+        "PR.DS": "Data Security",
+        "PR.PS": "Platform Security",
+        "PR.IR": "Technology Infrastructure Resilience",
+        "PR.AT": "Awareness and Training",
+        "GV.OC": "Organizational Context",
+        "GV.RM": "Risk Management Strategy",
+        "GV.RR": "Roles, Responsibilities, and Authorities",
+        "GV.PO": "Policy",
+        "GV.OV": "Oversight",
+        "GV.SC": "Cybersecurity Supply Chain Risk Management",
+        "DE.CM": "Continuous Monitoring",
+        "DE.AE": "Adverse Event Analysis",
+        "RS.MA": "Incident Management",
+        "RS.CO": "Incident Response Reporting and Communication",
+        "RC.RP": "Incident Recovery Plan Execution"
+      }
+    },
+    {
+      "id": "iso27001-2022-amd2024",
+      "label": "ISO/IEC 27001:2022 + Amd 1:2024",
+      "sourceIds": [
+        "src-iso",
+        "src-iso-amd"
+      ],
+      "validFrom": null,
+      "validUntilExclusive": null,
+      "dateBasis": "Edition published 2022-10; amendment 2024-02. No universal legal effective date.",
+      "granularity": "overview-theme-only",
+      "targets": {
+        "risk": "Risk-based ISMS (curriculum theme)",
+        "system": "Establish and operate an ISMS (curriculum theme)",
+        "improve": "Maintain and continually improve an ISMS (curriculum theme)"
+      },
+      "limitation": "Public overview checked, full licensed requirements not inspected. Theme IDs are local, not ISO clauses or Annex A controls. Amendment metadata checked; no amendment-specific mapping claimed."
+    },
+    {
+      "id": "cissp-2024",
+      "label": "CISSP exam outline effective 2024-04-15",
+      "sourceIds": [
+        "src-cissp",
+        "src-cissp-transition"
+      ],
+      "validFrom": "2024-04-15",
+      "validUntilExclusive": "2027-04-15",
+      "dateBasis": "Current outline effective date and announced replacement date; end date is exclusive.",
+      "granularity": "exam-domain",
+      "targets": {
+        "1": "Security and Risk Management",
+        "2": "Asset Security",
+        "3": "Security Architecture and Engineering",
+        "4": "Communication and Network Security",
+        "5": "Identity and Access Management",
+        "6": "Security Assessment and Testing",
+        "7": "Security Operations",
+        "8": "Software Development Security"
+      }
+    },
+    {
+      "id": "cism-2022",
+      "label": "CISM exam outline effective 2022",
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide"
+      ],
+      "validFrom": null,
+      "validUntilExclusive": "2026-11-03",
+      "dateBasis": "Candidate guide identifies effective 2022; exact starting day not verified. Replacement date announced on outline page; end date is exclusive.",
+      "granularity": "job-practice-domain",
+      "targets": {
+        "1": "Information Security Governance",
+        "2": "Information Security Risk Management",
+        "3": "Information Security Program",
+        "4": "Incident Management"
+      }
+    }
+  ],
+  "competencies": [
+    {
+      "id": "comp-1",
+      "legacyName": "Security architecture",
+      "legacyDefault": 0
+    },
+    {
+      "id": "comp-2",
+      "legacyName": "Cyber-risk management",
+      "legacyDefault": 1
+    },
+    {
+      "id": "comp-3",
+      "legacyName": "Governance",
+      "legacyDefault": 0
+    },
+    {
+      "id": "comp-4",
+      "legacyName": "Compliance",
+      "legacyDefault": 0
+    },
+    {
+      "id": "comp-5",
+      "legacyName": "Security operations",
+      "legacyDefault": 0
+    },
+    {
+      "id": "comp-6",
+      "legacyName": "Executive reporting",
+      "legacyDefault": 2
+    }
+  ],
+  "domains": [
+    {
+      "id": "d01",
+      "title": "Security principles and assets",
+      "competencyIds": [
+        "comp-1",
+        "comp-2"
+      ],
+      "scope": "Asset inventory and business impact underpin control selection."
+    },
+    {
+      "id": "d02",
+      "title": "Architecture / IAM / Zero Trust",
+      "competencyIds": [
+        "comp-1"
+      ],
+      "scope": "Include network boundaries, cryptography, cloud shared responsibility and secure software delivery."
+    },
+    {
+      "id": "d03",
+      "title": "Governance and operating models",
+      "competencyIds": [
+        "comp-3"
+      ],
+      "scope": "Make ownership, authority and escalation explicit."
+    },
+    {
+      "id": "d04",
+      "title": "Cyber risk and decisions",
+      "competencyIds": [
+        "comp-2"
+      ],
+      "scope": "Analyze scenarios, uncertainty and treatment decisions."
+    },
+    {
+      "id": "d05",
+      "title": "ISMS / audit / compliance",
+      "competencyIds": [
+        "comp-4",
+        "comp-3"
+      ],
+      "scope": "Distinguish control design, operation, evidence and assurance."
+    },
+    {
+      "id": "d06",
+      "title": "Operations / incidents / threat intelligence",
+      "competencyIds": [
+        "comp-5"
+      ],
+      "scope": "Use threat-informed detection and accountable incident decisions."
+    },
+    {
+      "id": "d07",
+      "title": "Continuity / resilience / third parties",
+      "competencyIds": [
+        "comp-5",
+        "comp-2"
+      ],
+      "scope": "Prioritize critical services and dependencies, including providers."
+    },
+    {
+      "id": "d08",
+      "title": "Swiss / EU privacy / regulation and AI governance",
+      "competencyIds": [
+        "comp-4"
+      ],
+      "scope": "Research applicability before claiming obligations; include AI inventory and accountable use."
+    },
+    {
+      "id": "d09",
+      "title": "Strategy / budgets / board reporting",
+      "competencyIds": [
+        "comp-6",
+        "comp-3"
+      ],
+      "scope": "Connect investments and measures to business decisions."
+    },
+    {
+      "id": "d10",
+      "title": "Culture / leadership / ethics",
+      "competencyIds": [
+        "comp-3",
+        "comp-6"
+      ],
+      "scope": "Practice ethical escalation, stakeholder influence and learning culture."
+    }
+  ],
+  "jurisdictionScope": {
+    "default": "General executive curriculum using fictional organizations. Switzerland and EU are separate applicability investigations; neither location nor framework alignment establishes a legal obligation.",
+    "switzerland": "Determine federal/private/cantonal context, sector, authority, data flows and applicable text. FDPIC overview checked; Fedlex text unavailable in this check. Canton and industry remain unresolved.",
+    "eu": "Determine entity, establishment, territorial nexus, sector/size, regulated role and processing/AI use. Check GDPR, NIS2 national implementation, DORA sector scope, AI Act phased provisions and the applicable consolidated texts before legal teaching.",
+    "sourceIds": [
+      "src-fdpic",
+      "src-fadp",
+      "src-gdpr",
+      "src-nis2",
+      "src-dora",
+      "src-ai-act"
+    ],
+    "publicationGate": "Legal text remains unverified due to access challenges. No article, reporting deadline or definitive applicability conclusion is authored here; qualified jurisdiction-specific review required."
+  },
+  "tasks": [
+    {
+      "id": "w1",
+      "legacyTitle": "Week 1 · CIA triad, assets, threats, vulnerabilities, controls",
+      "legacyOutcome": "Produce a security vocabulary and concept map",
+      "priority": "R1-first-loop",
+      "status": "planned",
+      "domainIds": [
+        "d01"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-2"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.AM",
+            "ID.RA"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "2"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w1-1",
+        "obj-w1-2"
+      ]
+    },
+    {
+      "id": "w2",
+      "legacyTitle": "Week 2 · Authentication, authorization, IAM, MFA, PAM",
+      "legacyOutcome": "Draw an identity-security reference architecture",
+      "priority": "R1-first-loop",
+      "status": "planned",
+      "domainIds": [
+        "d02"
+      ],
+      "competencyIds": [
+        "comp-1"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "PR.AA"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "5"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w1"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w2-1",
+        "obj-w2-2"
+      ]
+    },
+    {
+      "id": "w3",
+      "legacyTitle": "Week 3 · Networking, segmentation, endpoints, Zero Trust",
+      "legacyOutcome": "Create an enterprise security architecture diagram",
+      "priority": "R1-first-loop",
+      "status": "planned",
+      "domainIds": [
+        "d02"
+      ],
+      "competencyIds": [
+        "comp-1"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "PR.IR",
+            "PR.PS"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w1",
+        "w2"
+      ],
+      "topicTags": [
+        "networking"
+      ],
+      "objectiveIds": [
+        "obj-w3-1",
+        "obj-w3-2"
+      ]
+    },
+    {
+      "id": "w4",
+      "legacyTitle": "Week 4 · Encryption, classification, backups and recovery",
+      "legacyOutcome": "Draft a data protection control assessment",
+      "priority": "R1-first-loop",
+      "status": "planned",
+      "domainIds": [
+        "d01",
+        "d02",
+        "d07"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-4",
+        "comp-5"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "PR.DS",
+            "RC.RP"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "2",
+            "3",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w1",
+        "w3"
+      ],
+      "topicTags": [
+        "cryptography"
+      ],
+      "objectiveIds": [
+        "obj-w4-1",
+        "obj-w4-2"
+      ]
+    },
+    {
+      "id": "w5",
+      "legacyTitle": "Week 5 · Cloud, containers and supply-chain security",
+      "legacyOutcome": "Review shared-responsibility and key AWS/Azure risks",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d02",
+        "d07"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-2"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.SC",
+            "PR.PS"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "3",
+            "8"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w3",
+        "w4"
+      ],
+      "topicTags": [
+        "cloud",
+        "secure-software"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ]
+    },
+    {
+      "id": "w6",
+      "legacyTitle": "Week 6 · Threat modeling and common attack paths",
+      "legacyOutcome": "Document five realistic threat scenarios",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d02",
+        "d04",
+        "d06"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-2",
+        "comp-5"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.RA",
+            "DE.AE"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "3",
+            "8"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w3",
+        "w5"
+      ],
+      "topicTags": [
+        "secure-software"
+      ],
+      "objectiveIds": [
+        "obj-w6-1",
+        "obj-w6-2"
+      ]
+    },
+    {
+      "id": "w7",
+      "legacyTitle": "Week 7 · NIST CSF 2.0 functions and categories",
+      "legacyOutcome": "Create an initial security capability map",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "ID.AM",
+            "PR.PS",
+            "DE.CM",
+            "RS.MA",
+            "RC.RP"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w1",
+        "w6"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ]
+    },
+    {
+      "id": "w8",
+      "legacyTitle": "Week 8 · NIST CSF organizational profiles",
+      "legacyOutcome": "Draft a current vs target capability profile",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d04",
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-3",
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RM",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w7"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ]
+    },
+    {
+      "id": "w9",
+      "legacyTitle": "Week 9 · Governance structures, policies, decisions",
+      "legacyOutcome": "Draft a security governance charter",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "GV.PO"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w7"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ]
+    },
+    {
+      "id": "w10",
+      "legacyTitle": "Week 10 · Likelihood, impact and risk treatment",
+      "legacyOutcome": "Start an enterprise risk register",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d04"
+      ],
+      "competencyIds": [
+        "comp-2"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.RA",
+            "GV.RM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w6",
+        "w9"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ]
+    },
+    {
+      "id": "w11",
+      "legacyTitle": "Week 11 · Security metrics and indicators",
+      "legacyOutcome": "Create an executive security scorecard",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d09"
+      ],
+      "competencyIds": [
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "DE.CM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w8",
+        "w10"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ]
+    },
+    {
+      "id": "w12",
+      "legacyTitle": "Week 12 · Integrated security assessment",
+      "legacyOutcome": "Deliver a short CISO assessment report",
+      "priority": "R2-foundation",
+      "status": "planned",
+      "domainIds": [
+        "d01",
+        "d03",
+        "d04",
+        "d05",
+        "d06",
+        "d07",
+        "d08",
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-2",
+        "comp-3",
+        "comp-4",
+        "comp-5",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w4",
+        "w5",
+        "w8",
+        "w9",
+        "w10",
+        "w11"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ]
+    },
+    {
+      "id": "p2a",
+      "legacyTitle": "Study NIST CSF Govern function and COBIT principles",
+      "legacyOutcome": "Define responsibilities and decision rights",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "GV.OV"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w9"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ]
+    },
+    {
+      "id": "p2b",
+      "legacyTitle": "Study risk appetite, tolerance, ownership and acceptance",
+      "legacyOutcome": "Write an enterprise risk management policy",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d04"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-3"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RM",
+            "GV.PO"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w10",
+        "p2a"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p2b-1"
+      ]
+    },
+    {
+      "id": "p2c",
+      "legacyTitle": "Practice FAIR-style risk scenarios and uncertainty",
+      "legacyOutcome": "Quantify or range-estimate three loss scenarios",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d04"
+      ],
+      "competencyIds": [
+        "comp-2"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.RA"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2b"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p2c-1"
+      ]
+    },
+    {
+      "id": "p2d",
+      "legacyTitle": "Create risk taxonomy and prioritization criteria",
+      "legacyOutcome": "Build a risk register with treatment decisions",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d04"
+      ],
+      "competencyIds": [
+        "comp-2"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.RA",
+            "GV.RM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2c"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p2d-1"
+      ]
+    },
+    {
+      "id": "p2e",
+      "legacyTitle": "Produce a board-level governance report",
+      "legacyOutcome": "Explain top risks, decisions and owners",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2d",
+        "w11"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p2e-1"
+      ]
+    },
+    {
+      "id": "p3a",
+      "legacyTitle": "Study ISO/IEC 27001 and 27002",
+      "legacyOutcome": "Define ISMS scope and policy hierarchy",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OC",
+            "GV.PO"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w9",
+        "w10"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p3a-1"
+      ]
+    },
+    {
+      "id": "p3b",
+      "legacyTitle": "Learn control selection and statement of applicability",
+      "legacyOutcome": "Create a sample control mapping",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d02",
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.RA",
+            "PR.PS"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "3",
+            "6",
+            "8"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "2",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p3a",
+        "w5"
+      ],
+      "topicTags": [
+        "secure-software",
+        "cloud",
+        "cryptography",
+        "networking"
+      ],
+      "objectiveIds": [
+        "obj-p3b-1"
+      ]
+    },
+    {
+      "id": "p3c",
+      "legacyTitle": "Study audit planning and evidence collection",
+      "legacyOutcome": "Run a mock control gap assessment",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p3b"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p3c-1"
+      ]
+    },
+    {
+      "id": "p3d",
+      "legacyTitle": "Review Swiss FADP, GDPR, NIS2, DORA and AI Act applicability",
+      "legacyOutcome": "Create a regulatory obligation register",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d08"
+      ],
+      "competencyIds": [
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OC",
+            "GV.SC"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "2"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p3a",
+        "w4"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p3d-1"
+      ]
+    },
+    {
+      "id": "p3e",
+      "legacyTitle": "Build an ISMS management review package",
+      "legacyOutcome": "Draft a remediation and audit calendar",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d05"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-4"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p3c",
+        "p3d"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p3e-1"
+      ]
+    },
+    {
+      "id": "p4a",
+      "legacyTitle": "Study SOC models, detection and vulnerability management",
+      "legacyOutcome": "Define security operations KPIs and ownership",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d06"
+      ],
+      "competencyIds": [
+        "comp-5"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "DE.CM",
+            "DE.AE",
+            "PR.PS"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "6",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w6",
+        "w11"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p4a-1"
+      ]
+    },
+    {
+      "id": "p4b",
+      "legacyTitle": "Study NIST incident response guidance",
+      "legacyOutcome": "Draft severity levels and escalation matrix",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d06"
+      ],
+      "competencyIds": [
+        "comp-5"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "RS.MA",
+            "RS.CO"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p4a"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p4b-1"
+      ]
+    },
+    {
+      "id": "p4c",
+      "legacyTitle": "Study crisis management and communication",
+      "legacyOutcome": "Prepare ransomware decision exercise",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d06",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-5",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "RS.CO",
+            "GV.RR"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p4b",
+        "p3d"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p4c-1"
+      ]
+    },
+    {
+      "id": "p4d",
+      "legacyTitle": "Learn business impact analysis, RTO, RPO and recovery",
+      "legacyOutcome": "Create critical service recovery priorities",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d07"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-5"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "PR.IR",
+            "RC.RP"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w4",
+        "w10"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p4d-1"
+      ]
+    },
+    {
+      "id": "p4e",
+      "legacyTitle": "Conduct an incident tabletop",
+      "legacyOutcome": "Write an after-action and improvement report",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d06",
+        "d07",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-5",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "RS.MA",
+            "RC.RP",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "7"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p4c",
+        "p4d"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p4e-1"
+      ]
+    },
+    {
+      "id": "p5a",
+      "legacyTitle": "Design security organization and operating model",
+      "legacyOutcome": "Define roles, committees and sourcing choices",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d07",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "GV.SC",
+            "PR.AT"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2a",
+        "p3e"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p5a-1"
+      ]
+    },
+    {
+      "id": "p5b",
+      "legacyTitle": "Develop three-year security strategy",
+      "legacyOutcome": "Prioritize investments and milestones",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d09"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-3",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RM",
+            "GV.OV"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2e",
+        "p3e",
+        "p4e"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p5b-1"
+      ]
+    },
+    {
+      "id": "p5c",
+      "legacyTitle": "Build a risk-based security budget",
+      "legacyOutcome": "Create two investment business cases",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d04",
+        "d09"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "risk"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p2c",
+        "p5b"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p5c-1"
+      ]
+    },
+    {
+      "id": "p5d",
+      "legacyTitle": "Design executive security performance reporting",
+      "legacyOutcome": "Build a board dashboard and narrative",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d09"
+      ],
+      "competencyIds": [
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p5c",
+        "w11"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p5d-1"
+      ]
+    },
+    {
+      "id": "p5e",
+      "legacyTitle": "Present strategy and risk tradeoffs",
+      "legacyOutcome": "Produce a board-level decision memo",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "GV.RR"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p5d"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p5e-1"
+      ]
+    },
+    {
+      "id": "p6a",
+      "legacyTitle": "Reassess all six competencies with evidence",
+      "legacyOutcome": "Document demonstrated strengths and remaining gaps",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d01",
+        "d02",
+        "d03",
+        "d04",
+        "d05",
+        "d06",
+        "d07",
+        "d08",
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-1",
+        "comp-2",
+        "comp-3",
+        "comp-4",
+        "comp-5",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "ID.IM",
+            "GV.OV"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "w12",
+        "p3e",
+        "p4e",
+        "p5e"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p6a-1"
+      ]
+    },
+    {
+      "id": "p6b",
+      "legacyTitle": "Review CISM and CISSP eligibility and exam readiness",
+      "legacyOutcome": "Choose realistic exam dates if appropriate",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "PR.AT"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p6a"
+      ],
+      "topicTags": [],
+      "objectiveIds": [
+        "obj-p6b-1"
+      ]
+    },
+    {
+      "id": "p6c",
+      "legacyTitle": "Lead or contribute to a real security/GRC initiative",
+      "legacyOutcome": "Record measurable organizational impact",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d04",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-2",
+        "comp-3",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p5e"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p6c-1"
+      ]
+    },
+    {
+      "id": "p6d",
+      "legacyTitle": "Compile executive security portfolio",
+      "legacyOutcome": "Package strategy, risk, ISMS, incident and board artifacts",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d05",
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-4",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.OV",
+            "ID.IM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "improve"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1",
+            "6"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1",
+            "3"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p6a",
+        "p6c"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p6d-1"
+      ]
+    },
+    {
+      "id": "p6e",
+      "legacyTitle": "Practice CISO interview and board scenarios",
+      "legacyOutcome": "Write a 90-day plan for your first CISO-track role",
+      "priority": "R3-advanced",
+      "status": "planned",
+      "domainIds": [
+        "d03",
+        "d09",
+        "d10"
+      ],
+      "competencyIds": [
+        "comp-3",
+        "comp-6"
+      ],
+      "frameworkMappings": [
+        {
+          "frameworkVersionId": "nist-csf-2.0",
+          "targetIds": [
+            "GV.RR",
+            "GV.RM"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "iso27001-2022-amd2024",
+          "targetIds": [
+            "system"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cissp-2024",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        },
+        {
+          "frameworkVersionId": "cism-2022",
+          "targetIds": [
+            "1"
+          ],
+          "status": "provisional-alignment"
+        }
+      ],
+      "prerequisiteTaskIds": [
+        "p6d"
+      ],
+      "topicTags": [
+        "leadership"
+      ],
+      "objectiveIds": [
+        "obj-p6e-1"
+      ]
+    }
+  ],
+  "objectives": [
+    {
+      "id": "obj-w1-1",
+      "version": "1.0.0",
+      "taskId": "w1",
+      "statement": "Classify six statements as asset, threat, vulnerability, control or business impact and identify the affected confidentiality, integrity or availability goal.",
+      "prerequisiteObjectiveIds": [],
+      "entryRequirement": "No prior security study assumed; use a fictional business service and the supplied glossary.",
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "classification",
+        "artifact": "Annotated vocabulary exercise",
+        "criteria": [
+          "At least five of six classifications correct",
+          "Distinguish threat from vulnerability and justify the confidentiality, integrity or availability impact"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w1-2",
+      "version": "1.0.0",
+      "taskId": "w1",
+      "statement": "Construct two risk chains connecting a business service, asset, threat, vulnerability, consequence and control.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "concept-map",
+        "artifact": "Security concept map",
+        "criteria": [
+          "Two complete chains",
+          "Each control has an owner and a stated limitation"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w2-1",
+      "version": "1.0.0",
+      "taskId": "w2",
+      "statement": "Trace a joiner, mover and leaver through an identity lifecycle and distinguish authentication from authorization at each access decision.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "diagram",
+        "artifact": "Identity lifecycle diagram",
+        "criteria": [
+          "All three lifecycle events represented",
+          "Access approval, privilege change and removal have named owners"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w2-2",
+      "version": "1.0.0",
+      "taskId": "w2",
+      "statement": "Select MFA and privileged-access safeguards for three access paths and justify one residual risk per path.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w2-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "IAM reference architecture",
+        "criteria": [
+          "Show user, administrator and service access paths",
+          "Differentiate proof of identity, permitted action and privileged session controls"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w3-1",
+      "version": "1.0.0",
+      "taskId": "w3",
+      "statement": "Draw two business service flows across endpoint, network and application boundaries and identify where each access decision is enforced.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w2-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "diagram",
+        "artifact": "Enterprise architecture diagram",
+        "criteria": [
+          "Two end-to-end flows",
+          "Mark at least three trust boundaries and control owners"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w3-2",
+      "version": "1.0.0",
+      "taskId": "w3",
+      "statement": "Compare a flat network with a segmented design and justify two controls using explicit Zero Trust assumptions.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w2-2",
+        "obj-w3-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Architecture decision note",
+        "criteria": [
+          "Explain a lateral movement path in both designs",
+          "State a failure mode and operational tradeoff for each proposed control"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w4-1",
+      "version": "1.0.0",
+      "taskId": "w4",
+      "statement": "Select protection for data at rest and in transit and explain encryption, hashing and key-management responsibilities for a classified dataset.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w3-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Data protection control assessment",
+        "criteria": [
+          "Distinguish encryption from hashing",
+          "Identify classification, key owner, access rule and residual risk"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w4-2",
+      "version": "1.0.0",
+      "taskId": "w4",
+      "statement": "Design a restore exercise for a critical dataset using stated recovery objectives and a documented success test.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w3-2",
+        "obj-w4-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-plan",
+        "artifact": "Recovery test plan",
+        "criteria": [
+          "Separate recovery time and recovery point objectives",
+          "Include restore verification, owner and evidence to collect; do not infer recovery from backup completion"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w5-1",
+      "version": "1.0.0",
+      "taskId": "w5",
+      "statement": "Allocate provider, customer and supplier responsibilities for six controls across one managed cloud service and one container workload.",
+      "prerequisiteObjectiveIds": [
+        "obj-w3-2",
+        "obj-w4-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Shared responsibility matrix",
+        "criteria": [
+          "Six controls with accountable parties",
+          "Flag at least two service-model assumptions requiring provider confirmation"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w5-2",
+      "version": "1.0.0",
+      "taskId": "w5",
+      "statement": "Propose three checks spanning source, dependency, build and deployment for a containerized service and explain what each fails to detect.",
+      "prerequisiteObjectiveIds": [
+        "obj-w3-2",
+        "obj-w4-2",
+        "obj-w5-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "design-review",
+        "artifact": "Software supply-chain review",
+        "criteria": [
+          "Cover all four delivery stages across the checks",
+          "Name evidence, owner and limitation for each check"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w6-1",
+      "version": "1.0.0",
+      "taskId": "w6",
+      "statement": "Construct five threat scenarios identifying actor, entry point, asset, preconditions and business consequence.",
+      "prerequisiteObjectiveIds": [
+        "obj-w3-2",
+        "obj-w5-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "threat-model",
+        "artifact": "Threat scenario register",
+        "criteria": [
+          "Five distinct scenarios",
+          "Trace each attack across at least one boundary"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w6-2",
+      "version": "1.0.0",
+      "taskId": "w6",
+      "statement": "Rank the five scenarios and propose a preventive and detective control for the two highest priorities.",
+      "prerequisiteObjectiveIds": [
+        "obj-w3-2",
+        "obj-w5-2",
+        "obj-w6-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Threat treatment note",
+        "criteria": [
+          "State ranking assumptions and uncertainty",
+          "Connect each selected control to a specific attack step and evidence source"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w7-1",
+      "version": "1.0.0",
+      "taskId": "w7",
+      "statement": "Allocate twelve example security activities across all six CSF 2.0 functions and explain ambiguous allocations.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w6-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "classification",
+        "artifact": "CSF capability map",
+        "criteria": [
+          "All six functions represented",
+          "At least ten defensible allocations with rationale; allow justified cross-function mapping"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w7-2",
+      "version": "1.0.0",
+      "taskId": "w7",
+      "statement": "Assign an owner and an evidence request to six selected CSF categories without treating the map as an audit certification.",
+      "prerequisiteObjectiveIds": [
+        "obj-w1-2",
+        "obj-w6-2",
+        "obj-w7-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-plan",
+        "artifact": "Capability ownership matrix",
+        "criteria": [
+          "Six categories with owners and evidence",
+          "Separate desired outcome from control implementation"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w8-1",
+      "version": "1.0.0",
+      "taskId": "w8",
+      "statement": "Draft current and target profiles for six selected CSF outcomes using evidence and explicit unknowns.",
+      "prerequisiteObjectiveIds": [
+        "obj-w7-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Current and target profile",
+        "criteria": [
+          "Six outcomes with evidence or unknown status",
+          "Explain target selection using business risk"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w8-2",
+      "version": "1.0.0",
+      "taskId": "w8",
+      "statement": "Prioritize three profile gaps into an improvement backlog with owner, dependency and acceptance evidence.",
+      "prerequisiteObjectiveIds": [
+        "obj-w7-2",
+        "obj-w8-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-plan",
+        "artifact": "Profile improvement backlog",
+        "criteria": [
+          "Three gaps with accountable owners",
+          "Explain why a profile or tier is not a measured competency score"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w9-1",
+      "version": "1.0.0",
+      "taskId": "w9",
+      "statement": "Draft a charter assigning policy approval, risk acceptance, incident escalation and assurance responsibilities.",
+      "prerequisiteObjectiveIds": [
+        "obj-w7-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-plan",
+        "artifact": "Security governance charter",
+        "criteria": [
+          "All four decision types have an accountable role",
+          "Separate governing oversight from execution and escalation"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w9-2",
+      "version": "1.0.0",
+      "taskId": "w9",
+      "statement": "Resolve two conflicting stakeholder requests using the charter and document an ethical escalation.",
+      "prerequisiteObjectiveIds": [
+        "obj-w7-2",
+        "obj-w9-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Decision and escalation log",
+        "criteria": [
+          "Two decisions cite delegated authority",
+          "Record conflict, affected stakeholders and escalation rationale"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w10-1",
+      "version": "1.0.0",
+      "taskId": "w10",
+      "statement": "Build three risk register entries separating likelihood, consequence, existing controls and uncertainty.",
+      "prerequisiteObjectiveIds": [
+        "obj-w6-2",
+        "obj-w9-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "scenario",
+        "artifact": "Foundation risk register",
+        "criteria": [
+          "Three complete entries with business owners",
+          "State evidence, assumptions and residual risk without unsupported precision"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w10-2",
+      "version": "1.0.0",
+      "taskId": "w10",
+      "statement": "Compare accept, avoid, transfer and mitigate options for one scenario and recommend a treatment within delegated authority.",
+      "prerequisiteObjectiveIds": [
+        "obj-w6-2",
+        "obj-w9-2",
+        "obj-w10-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "decision-memo",
+        "artifact": "Risk treatment decision",
+        "criteria": [
+          "Address all four options and residual exposure",
+          "Name accepting authority, action owner and review trigger"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w11-1",
+      "version": "1.0.0",
+      "taskId": "w11",
+      "statement": "Define four executive measures with formula, denominator, source, owner, cadence and a decision threshold.",
+      "prerequisiteObjectiveIds": [
+        "obj-w8-2",
+        "obj-w10-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-plan",
+        "artifact": "Executive security scorecard",
+        "criteria": [
+          "Four reproducible metric definitions",
+          "Include a risk indicator and a control performance indicator"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w11-2",
+      "version": "1.0.0",
+      "taskId": "w11",
+      "statement": "Interpret two changing measures and write a recommendation that states data limitations and a decision request.",
+      "prerequisiteObjectiveIds": [
+        "obj-w8-2",
+        "obj-w10-2",
+        "obj-w11-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "decision-memo",
+        "artifact": "Scorecard narrative",
+        "criteria": [
+          "Distinguish a change in measurement from a change in risk",
+          "Provide a decision, owner and uncertainty statement"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w12-1",
+      "version": "1.0.0",
+      "taskId": "w12",
+      "statement": "Synthesize the foundation artifacts into a scoped CISO assessment with three prioritized decisions and traceable evidence.",
+      "prerequisiteObjectiveIds": [
+        "obj-w4-2",
+        "obj-w5-2",
+        "obj-w8-2",
+        "obj-w9-2",
+        "obj-w10-2",
+        "obj-w11-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "integrated-case",
+        "artifact": "Short CISO assessment report",
+        "criteria": [
+          "Three decisions trace to risk, control evidence and accountable owner",
+          "Include architecture, governance, operations and a Swiss/EU applicability question requiring verification"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist",
+        "src-fdpic",
+        "src-fadp",
+        "src-gdpr",
+        "src-nis2",
+        "src-dora",
+        "src-ai-act"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-w12-2",
+      "version": "1.0.0",
+      "taskId": "w12",
+      "statement": "Defend one recommendation against an alternative and identify remaining learning and evidence gaps across all six competencies.",
+      "prerequisiteObjectiveIds": [
+        "obj-w4-2",
+        "obj-w5-2",
+        "obj-w8-2",
+        "obj-w9-2",
+        "obj-w10-2",
+        "obj-w11-2",
+        "obj-w12-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "oral-or-written-defense",
+        "artifact": "Assessment defense and gap plan",
+        "criteria": [
+          "Compare benefit, cost, uncertainty and residual risk",
+          "Separate self-rating, question performance, recall estimate and applied evidence"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist",
+        "src-fdpic",
+        "src-fadp",
+        "src-gdpr",
+        "src-nis2",
+        "src-dora",
+        "src-ai-act"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p2a-1",
+      "version": "1.0.0",
+      "taskId": "p2a",
+      "statement": "Assign five governance decisions to accountable roles and explain escalation and oversight.",
+      "prerequisiteObjectiveIds": [
+        "obj-w9-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Define responsibilities and decision rights",
+        "criteria": [
+          "Five decisions with roles and authority",
+          "Distinguish CSF governance outcomes from any proposed COBIT comparison; verify COBIT sources during authoring"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p2b-1",
+      "version": "1.0.0",
+      "taskId": "p2b",
+      "statement": "Draft risk appetite, tolerance and acceptance rules for three business scenarios.",
+      "prerequisiteObjectiveIds": [
+        "obj-w10-2",
+        "obj-p2a-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Write an enterprise risk management policy",
+        "criteria": [
+          "Three scenarios distinguish appetite from limits",
+          "Name accepting authority and review triggers"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p2c-1",
+      "version": "1.0.0",
+      "taskId": "p2c",
+      "statement": "Estimate ranges for three loss scenarios and show how assumptions affect the recommendation.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2b-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Quantify or range-estimate three loss scenarios",
+        "criteria": [
+          "Three ranges with evidence and uncertainty",
+          "Sensitivity analysis; do not claim validated FAIR analysis without methodology review"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p2d-1",
+      "version": "1.0.0",
+      "taskId": "p2d",
+      "statement": "Prioritize five register entries and justify treatment, ownership and review cadence.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2c-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Build a risk register with treatment decisions",
+        "criteria": [
+          "Five entries with comparable criteria",
+          "Document exceptions and residual risk acceptance"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p2e-1",
+      "version": "1.0.0",
+      "taskId": "p2e",
+      "statement": "Write a board report linking three top risks to decisions and owners.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2d-1",
+        "obj-w11-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Explain top risks, decisions and owners",
+        "criteria": [
+          "Three evidence-linked decisions",
+          "State uncertainty and oversight follow-up"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p3a-1",
+      "version": "1.0.0",
+      "taskId": "p3a",
+      "statement": "Define ISMS scope, interfaces and policy hierarchy for a fictional organization.",
+      "prerequisiteObjectiveIds": [
+        "obj-w9-2",
+        "obj-w10-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Define ISMS scope and policy hierarchy",
+        "criteria": [
+          "Identify organizational boundaries and dependencies",
+          "Distinguish requirements from implementation guidance; licensed standard review pending"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p3b-1",
+      "version": "1.0.0",
+      "taskId": "p3b",
+      "statement": "Justify inclusion or exclusion of six candidate controls in a sample applicability record.",
+      "prerequisiteObjectiveIds": [
+        "obj-p3a-1",
+        "obj-w5-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Create a sample control mapping",
+        "criteria": [
+          "Six risk-linked decisions with owners",
+          "Include software delivery, cloud, cryptography and networking; exact ISO mapping requires licensed review"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p3c-1",
+      "version": "1.0.0",
+      "taskId": "p3c",
+      "statement": "Plan and perform a mock gap assessment of three controls.",
+      "prerequisiteObjectiveIds": [
+        "obj-p3b-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Run a mock control gap assessment",
+        "criteria": [
+          "Separate design from operating effectiveness",
+          "Record sampling limits, evidence and findings"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p3d-1",
+      "version": "1.0.0",
+      "taskId": "p3d",
+      "statement": "Draft an applicability and obligation register for Swiss FADP, GDPR, NIS2, DORA and the AI Act for a fictional entity.",
+      "prerequisiteObjectiveIds": [
+        "obj-p3a-1",
+        "obj-w4-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Create a regulatory obligation register",
+        "criteria": [
+          "For each instrument record entity, sector, territory, dates, authority and unknowns",
+          "Include AI role/use inventory; no obligation becomes verified before official text and legal review"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist",
+        "src-fdpic",
+        "src-fadp",
+        "src-gdpr",
+        "src-nis2",
+        "src-dora",
+        "src-ai-act"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p3e-1",
+      "version": "1.0.0",
+      "taskId": "p3e",
+      "statement": "Prepare a management review and corrective-action calendar from three mock findings.",
+      "prerequisiteObjectiveIds": [
+        "obj-p3c-1",
+        "obj-p3d-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Draft a remediation and audit calendar",
+        "criteria": [
+          "Each finding has owner, deadline and closure evidence",
+          "Include management decisions and follow-up verification"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p4a-1",
+      "version": "1.0.0",
+      "taskId": "p4a",
+      "statement": "Define detection, vulnerability and threat-intelligence operating responsibilities with four measures.",
+      "prerequisiteObjectiveIds": [
+        "obj-w6-2",
+        "obj-w11-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Define security operations KPIs and ownership",
+        "criteria": [
+          "Four measures linked to service risks",
+          "Show triage, remediation and coverage limitations"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p4b-1",
+      "version": "1.0.0",
+      "taskId": "p4b",
+      "statement": "Classify three incidents and draft severity and escalation rules.",
+      "prerequisiteObjectiveIds": [
+        "obj-p4a-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Draft severity levels and escalation matrix",
+        "criteria": [
+          "Severity reflects business impact",
+          "Name incident commander, authority and communication triggers"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p4c-1",
+      "version": "1.0.0",
+      "taskId": "p4c",
+      "statement": "Prepare a ransomware decision exercise with competing operational, legal and communication demands.",
+      "prerequisiteObjectiveIds": [
+        "obj-p4b-1",
+        "obj-p3d-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Prepare ransomware decision exercise",
+        "criteria": [
+          "At least three decision points and alternatives",
+          "Record uncertain legal/reporting questions for qualified review"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p4d-1",
+      "version": "1.0.0",
+      "taskId": "p4d",
+      "statement": "Rank three critical services using impact analysis and recovery objectives.",
+      "prerequisiteObjectiveIds": [
+        "obj-w4-2",
+        "obj-w10-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Create critical service recovery priorities",
+        "criteria": [
+          "Distinguish RTO and RPO",
+          "Map supplier dependencies and a recovery test for each service"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p4e-1",
+      "version": "1.0.0",
+      "taskId": "p4e",
+      "statement": "Run a fictional incident tabletop and write an improvement report.",
+      "prerequisiteObjectiveIds": [
+        "obj-p4c-1",
+        "obj-p4d-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Write an after-action and improvement report",
+        "criteria": [
+          "Capture decisions, assumptions and observations",
+          "Assign corrective actions with deadlines and retest evidence"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p5a-1",
+      "version": "1.0.0",
+      "taskId": "p5a",
+      "statement": "Design an operating model with roles, committees, sourcing and an awareness intervention.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2a-1",
+        "obj-p3e-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Define roles, committees and sourcing choices",
+        "criteria": [
+          "Explain accountability and supplier oversight",
+          "Define one culture outcome and ethical escalation channel"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p5b-1",
+      "version": "1.0.0",
+      "taskId": "p5b",
+      "statement": "Build a three-year strategy connecting three investments to business risks and staged outcomes.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2e-1",
+        "obj-p3e-1",
+        "obj-p4e-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Prioritize investments and milestones",
+        "criteria": [
+          "Three investments with owners and dependencies",
+          "Include constraints and review triggers; dates are scenario assumptions"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p5c-1",
+      "version": "1.0.0",
+      "taskId": "p5c",
+      "statement": "Compare two investment business cases using cost ranges and residual risk.",
+      "prerequisiteObjectiveIds": [
+        "obj-p2c-1",
+        "obj-p5b-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Create two investment business cases",
+        "criteria": [
+          "Show assumptions and sensitivity",
+          "State decision authority and rejected alternatives"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p5d-1",
+      "version": "1.0.0",
+      "taskId": "p5d",
+      "statement": "Build a board dashboard whose four measures can be traced to risk treatments.",
+      "prerequisiteObjectiveIds": [
+        "obj-p5c-1",
+        "obj-w11-2"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Build a board dashboard and narrative",
+        "criteria": [
+          "Four measures have definitions and evidence sources",
+          "Narrative includes exceptions and a decision request"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p5e-1",
+      "version": "1.0.0",
+      "taskId": "p5e",
+      "statement": "Write and defend a board decision memo on a disputed security investment.",
+      "prerequisiteObjectiveIds": [
+        "obj-p5d-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Produce a board-level decision memo",
+        "criteria": [
+          "Recommendation includes alternatives and tradeoffs",
+          "Handle an ethical or stakeholder conflict explicitly"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p6a-1",
+      "version": "1.0.0",
+      "taskId": "p6a",
+      "statement": "Reassess all six competencies using artifacts and documented limitations.",
+      "prerequisiteObjectiveIds": [
+        "obj-w12-2",
+        "obj-p3e-1",
+        "obj-p4e-1",
+        "obj-p5e-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Document demonstrated strengths and remaining gaps",
+        "criteria": [
+          "Six separate evidence-linked appraisals",
+          "Keep legacy scores, self-assessment and independent feedback distinct"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p6b-1",
+      "version": "1.0.0",
+      "taskId": "p6b",
+      "statement": "Compare current CISSP and CISM eligibility and outline versions against a fictional experience record.",
+      "prerequisiteObjectiveIds": [
+        "obj-p6a-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Choose realistic exam dates if appropriate",
+        "criteria": [
+          "Verify official eligibility sources when authoring; no eligibility conclusion here",
+          "Select a conditional preparation plan with dates or document why no exam date is appropriate"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p6c-1",
+      "version": "1.0.0",
+      "taskId": "p6c",
+      "statement": "Plan and evaluate a permitted security initiative using a baseline and an outcome measure.",
+      "prerequisiteObjectiveIds": [
+        "obj-p5e-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Record measurable organizational impact",
+        "criteria": [
+          "Document role, permission and measurable change or uncertainty",
+          "Use sanitized/synthetic portfolio material; private employer evidence stays outside Git"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p6d-1",
+      "version": "1.0.0",
+      "taskId": "p6d",
+      "statement": "Assemble a sanitized portfolio connecting strategy, risk, ISMS, incident and board artifacts to objectives.",
+      "prerequisiteObjectiveIds": [
+        "obj-p6a-1",
+        "obj-p6c-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Package strategy, risk, ISMS, incident and board artifacts",
+        "criteria": [
+          "All five artifact types have provenance and limitations",
+          "Remove confidential information and distinguish authorship from independent review"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    },
+    {
+      "id": "obj-p6e-1",
+      "version": "1.0.0",
+      "taskId": "p6e",
+      "statement": "Produce and defend a 90-day CISO-track plan in two stakeholder scenarios.",
+      "prerequisiteObjectiveIds": [
+        "obj-p6d-1"
+      ],
+      "entryRequirement": null,
+      "assessmentPlan": {
+        "status": "planned-not-authored",
+        "kind": "applied-artifact",
+        "artifact": "Write a 90-day plan for your first CISO-track role",
+        "criteria": [
+          "Prioritize discovery, decisions, owners and success evidence",
+          "State experience gaps without claiming certified readiness"
+        ],
+        "provenance": "Rubric-based self-assessment planned; independent review recorded separately when available."
+      },
+      "sourceIds": [
+        "src-cism",
+        "src-cism-guide",
+        "src-cissp",
+        "src-cissp-transition",
+        "src-iso",
+        "src-iso-amd",
+        "src-nist"
+      ],
+      "status": "draft"
+    }
+  ]
+}

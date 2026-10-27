@@ -79,3 +79,8 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 ## CISO Journey 2.0 planning
 
 A comprehensive learning platform is planned; the current app remains unchanged. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
+
+
+## Curriculum planning (C01)
+
+The [versioned coverage matrix](docs/curriculum/COVERAGE.md) maps all 37 actual roadmap tasks to ten domains, the six existing competencies and four versioned framework references. Its [reusable JSON data](curriculum/c01.v1.json) includes observable objectives, prerequisite links and planned assessments, prioritizing weeks 1–4. This is provisional curriculum design; original lessons and independent educator/legal review are subsequent delivery gates. Validation commands and source limitations are documented in the matrix.
