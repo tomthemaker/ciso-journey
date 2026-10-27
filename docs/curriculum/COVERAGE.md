@@ -451,7 +451,7 @@ Open learner preferences remain in [product memory](../product/MEMORY.md): weekl
 
 ## Validation commands
 
-Use Node.js 22+ for the test runner (the data scripts also run on the repository’s older Node 14). No app dependency or runtime change is introduced.
+Use the repository’s Node.js 24.4.1 or newer. Validation imports the actual typed runtime task and competency data directly; the preservation unit checks also compare runtime data against the frozen v1 inventory. No app dependency or runtime change is introduced. `npm test` runs the preservation and curriculum unit checks plus generated-matrix consistency; the focused commands are:
 
 ```sh
 node scripts/validate-curriculum.mjs

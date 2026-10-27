@@ -2,12 +2,25 @@
   "name": "ciso-journey",
   "version": "1.0.0",
   "private": true,
-  "description": "Browser regression checks for CISO Journey",
+  "description": "Local-first CISO Journey with a static TypeScript/Vite build",
   "scripts": {
-    "test": "playwright test",
-    "test:desktop": "playwright test --project=chromium",
-    "test:mobile": "playwright test --project=mobile-chromium"
+    "dev": "vite --host 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "npm run test:unit",
+    "test:desktop": "npm run test:browser -- --project=chromium",
+    "test:mobile": "npm run test:browser -- --project=mobile-chromium",
+    "test:unit": "node --experimental-strip-types --test tests/*.test.cjs tests/curriculum/*.test.mjs && node scripts/render-curriculum.mjs --check",
+    "test:browser": "npm run build && playwright test"
   },
-  "engines": { "node": ">=20" },
-  "devDependencies": { "@playwright/test": "1.64.1" }
+  "engines": {
+    "node": ">=24.4.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  },
+  "type": "module"
 }

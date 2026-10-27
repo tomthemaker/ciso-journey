@@ -6,6 +6,10 @@ Work in functional, reviewable increments. Original lessons and measurable learn
 
 For each product-changing PR, update the shared memory with dated decisions, rationale and supersessions, or explicitly state that no product decision changed. Link the issue and validation evidence. Do not mark authored content independently reviewed without an actual independent review. Historical input documents are not implementation authority when they conflict with the user's requirements or current product decisions.
 
+## Validation policy
+
+Keep CI fast: run unit tests and type/build checks when present. Run critical browser flows locally during implementation and independent review of runtime/test changes, and before release, including the Pages subpath smoke check when available. Record the candidate and results in the PR. Workflow/docs-only changes may reuse recorded browser evidence when the app, tests, fixtures, browser configuration and dependency lockfile are unchanged; record that comparison. `npm test` runs fast unit checks; `npm run test:browser` explicitly runs local browser checks. Browser installation and execution do not belong in CI at this stage. See D020 in docs/product/MEMORY.md.
+
 ## Task orchestration
 
 Use one orchestrator agent only to distribute tasks and oversee the process: scope work, manage dependencies, hand off context, track GitHub status and arrange reviews. The orchestrator does not implement tasks or approve deliverables.

@@ -1,14 +1,12 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { phases, competencies as runtimeCompetencies } from '../src/data.ts';
 
 export const root = fileURLToPath(new URL('../', import.meta.url));
 export const loadCurriculum = () => JSON.parse(readFileSync(resolve(root, 'curriculum/c01.v1.json'), 'utf8'));
-export const loadLegacy = () => {
-  const html = readFileSync(resolve(root, 'index.html'), 'utf8');
-  return [...html.matchAll(/\['((?:w\d+)|(?:p[2-6][a-e]))','([^']+)','([^']+)'\]/g)]
-    .map(([, id, title, outcome]) => ({ id, title, outcome }));
-};
+export const loadLegacy = () => phases.flatMap(phase =>
+  phase.tasks.map(([id, title, outcome]) => ({ id, title, outcome })));
 
 export function validateCurriculum(data, legacy = loadLegacy()) {
   const errors = [];
@@ -50,7 +48,7 @@ export function validateCurriculum(data, legacy = loadLegacy()) {
   const expectedTaskIds = [...Array.from({ length: 12 }, (_, i) => `w${i + 1}`),
     ...[2, 3, 4, 5, 6].flatMap(n => [...'abcde'].map(letter => `p${n}${letter}`))];
   check(tasks.size === 37 && expectedTaskIds.every(id => tasks.has(id)), 'Exactly the actual 37 task IDs are required');
-  check(legacy.length === 37, 'Legacy extraction must find 37 tasks');
+  check(legacy.length === 37, 'Legacy runtime must contain 37 tasks');
   for (const task of legacy) {
     const record = tasks.get(task.id);
     check(record?.legacyTitle === task.title && record?.legacyOutcome === task.outcome, `Legacy meaning changed: ${task.id}`);
@@ -59,6 +57,9 @@ export function validateCurriculum(data, legacy = loadLegacy()) {
   check(competencies.size === 6, 'Six legacy competencies required');
   legacyCompetencies.forEach((name, i) => check(competencies.get(`comp-${i + 1}`)?.legacyName === name &&
     competencies.get(`comp-${i + 1}`)?.legacyDefault === [0, 1, 0, 0, 0, 2][i], `Legacy competency changed: ${name}`));
+  check(runtimeCompetencies.length === 6, 'Runtime must retain six legacy competencies');
+  runtimeCompetencies.forEach(([name, score], i) => check(competencies.get(`comp-${i + 1}`)?.legacyName === name &&
+    competencies.get(`comp-${i + 1}`)?.legacyDefault === score, `Curriculum differs from runtime competency: ${name}`));
   check(domains.size === 10, 'Ten domains required');
   for (const domain of domains.values()) {
     references(domain.competencyIds, competencies, `${domain.id} competencies`);

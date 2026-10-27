@@ -1,19 +1,30 @@
 # CISO Journey
 
-A single-file, local-first web application for tracking an executive CISO development roadmap.
+A local-first web application for tracking an executive CISO development roadmap.
 
 ## Start
 
-Open `index.html` in a modern browser. No installation, account, server, dependencies, or internet access needed (except to follow external reference links).
+Use Node 24.4.1+ and the Vite development server:
 
-To run with a local development server instead:
-
-```bash
-cd ciso-journey
-python3 -m http.server 8080
+```sh
+npm ci
+npm run dev
 ```
 
-Open http://localhost:8080.
+Open http://127.0.0.1:5173/ciso-journey/. The TypeScript source needs a build/server; opening `index.html` directly no longer runs the app.
+
+```sh
+npm run typecheck
+npm run build
+npm run preview
+# Open http://127.0.0.1:4173/ciso-journey/
+npm test
+# Local critical browser checks (install Chromium once):
+npx playwright install chromium
+npm run test:browser -- --workers=4
+```
+
+Fast unit checks run with `npm test`. CI adds typecheck/build; critical browser checks run locally against a production build under the actual Pages subpath. See [build, deployment, origin migration and rollback](docs/product/F02_BUILD_AND_DEPLOY.md) for the Actions publishing workflow and private recovery steps.
 
 ## Features
 
@@ -30,18 +41,9 @@ Open http://localhost:8080.
 
 Data is saved in your current browser's localStorage. Switching browser or device, or clearing site data, may lose progress. Use **Export backup** regularly. Importing a backup replaces existing local progress. The app does not synchronize across devices.
 
-## Good Codex handoff tasks
-
-1. Convert this single-file app into React + TypeScript + Vite.
-2. Add milestones, custom learning tasks, due dates, and edit controls.
-3. Add spaced repetition or quizzes for concepts.
-4. Model competencies, concepts, frameworks and evidence as a knowledge graph.
-5. Add optional private synchronization, with user-selected storage.
-6. Add CSV/Markdown exports and weekly learning reports.
-
 ## Security and privacy
 
-No network requests are made by the app itself. External framework links open in new tabs when clicked. Imported JSON is parsed as data and rendered with `textContent`, not injected as HTML. Only import backups you trust. No authentication is provided because this prototype stores data only in your browser.
+The browser loads static HTML, JavaScript and CSS assets; no learner data is sent to a service. External framework links open in new tabs when clicked. Imported JSON is parsed as data and rendered with `textContent`, not injected as HTML. Only import backups you trust. No authentication is provided because this prototype stores data only in your browser.
 
 ## Learning resources per roadmap task (v1.1)
 Every roadmap task includes expandable learning suggestions, with LinkedIn Learning as the preferred platform, official standards, and Coursera discovery links. Verified LinkedIn courses are linked directly; targeted LinkedIn and Coursera course searches are provided to accommodate catalog changes. Progress storage continues to use `ciso-journey-v1`, preserving prior progress in the same browser and origin. If moving between file locations/browsers, export a JSON backup from the old app and import it into the updated one.
@@ -78,21 +80,15 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 
 ## CISO Journey 2.0 planning
 
-A comprehensive learning platform is planned; the current app retains its single-file runtime and v1 data format. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
+A comprehensive learning platform is planned; this increment introduces lightweight TypeScript modules and a static Vite build while retaining the v1 data format. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
 
 ## Preservation checks and recovery
 
 [F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
-To run checks with Node 20+ and Python 3:
+The app has no framework or runtime package dependency. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
 
-```sh
-npm ci
-npx playwright install chromium
-npm test
-```
-
-The app itself still needs no build or installed dependencies. Tests run the actual `index.html` in desktop Chromium and mobile Chromium emulation.
+CI runs only unit/type/build checks. Run local browser checks during implementation and independent review of runtime/test changes and before release; record exact-candidate results in the PR. See the [validation policy](AGENTS.md#validation-policy).
 
 ## Curriculum planning (C01)
 
