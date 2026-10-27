@@ -42,7 +42,7 @@ The repository used **Deploy from a branch → main / root** before F02. Leave t
 4. Monitor the **Build and browser regression** run and the **github-pages** deployment. Record the run URL, deployed commit and live validation in #4 before declaring delivery complete. To repeat the current main build: `gh workflow run preservation.yml --ref main`.
 5. In a clean browser, open the public URL and `#journal` directly, refresh each section and verify the emitted `/ciso-journey/assets/*.js` and `*.css` respond successfully. Rehearse import, refresh and export with a synthetic fixture; confirm all 37 tasks and six defaults. Keep this rehearsal in a clean profile so it cannot replace real learner progress. In the learner's original profile, confirm existing data remains and make a private export. Local and CI subpath checks are evidence about the artifact; live hosting is verified only after actual deployment.
 
-The workflow pins official GitHub actions by commit, publishes only a tested artifact and serializes runs per ref. Permissions/environment rules may require a repository administrator's delivery action; a successful PR build alone does not prove the Pages source has been switched or the public site updated.
+The workflow pins official GitHub actions by commit, publishes only a tested artifact, serializes main publishing and cancels superseded PR checks. Permissions/environment rules may require a repository administrator's delivery action; a successful PR build alone does not prove the Pages source has been switched or the public site updated.
 
 ## Origin and backup migration
 
