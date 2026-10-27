@@ -56,21 +56,21 @@ A deployment or asset failure does not itself change the learner's stored v1 dat
 
 For a later regression **after the first successful F02 release**, revert the faulty change to the last approved Vite version through a reviewed PR, then let the main workflow rebuild, recheck and deploy. Keep Pages on GitHub Actions. Source-control rollback and the actual deployed artifact must both be recorded.
 
-If the **first F02 deployment** cannot be recovered, restore the known single-file F01 runtime and matching checks while preserving all current product docs and unrelated work:
+If the **first F02 deployment** has an application/asset regression, restore the known self-contained F01 runtime through the retained build pipeline, preserving docs, toolchain and unrelated curriculum work:
 
 ```sh
 git switch -c fix/restore-f01-pages origin/main
-git restore --source=17124e47b1913ec3972adc542fbaae00e27f005a -- index.html package.json package-lock.json playwright.config.cjs .github/workflows/preservation.yml
+git restore --source=17124e47b1913ec3972adc542fbaae00e27f005a -- index.html
 git rm tests/pages.spec.cjs
 npm ci
-npx playwright install chromium
+npm run typecheck
 npm test -- --workers=4
-# Record all 28 original preservation checks, commit, open/review the PR, then merge.
+# Record the preservation checks, commit, open/review the PR, then merge.
 ```
 
-This replaces the Vite entry with the self-contained F01 app and restores its static-server configuration/workflow. Keep the current preservation assertions and any reviewed browser harness stabilization; their relative app URL also works with the restored root server. The retained TypeScript source is inactive during that emergency rollback; clean it up or reintroduce it in a later reviewed task. Keep the frozen F01 fixtures intact.
+The Pages-specific cases require new hash navigation and separate assets that the F01 runtime does not provide; remove those cases in this explicit emergency rollback only. Keep all current preservation assertions, any reviewed browser harness stabilization and unrelated curriculum checks. Retain the current package scripts/workflow/server: Vite also builds the self-contained classic-script F01 HTML into `dist/`, and the strict subpath server can run the complete preservation suite against it. The retained TypeScript source is inactive at runtime during rollback. The main workflow then publishes that tested self-contained artifact while Pages stays on GitHub Actions. Rehearsal on 2026-10-27 used a separate temporary copy and passed typecheck plus all 28 original desktop/mobile preservation cases (29.3 seconds); the output was one self-contained `dist/index.html`. No deployment or learner data was involved.
 
-**After** main contains the restored self-contained `index.html`, switch Pages Source back to **Deploy from a branch → main / root** (or `gh api --method PUT repos/tomthemaker/ciso-journey/pages -f build_type=legacy -f 'source[branch]=main' -f 'source[path]=/'`). Do not switch back while main still has a Vite source entry. Confirm the branch Pages build succeeds and the public app loads. Record the rollback commit, checks and live smoke evidence in #4. This sequence restores hosting without deleting or reinterpreting v1 local data; import the private export only if it is needed and verified. Re-enable Actions publishing only through a new reviewed build release and the source-switch sequence above.
+If **Actions publishing itself is unavailable**, after merging the reviewed F01 `index.html` restoration, switch Pages Source back to **Deploy from a branch → main / root** (or `gh api --method PUT repos/tomthemaker/ciso-journey/pages -f build_type=legacy -f 'source[branch]=main' -f 'source[path]=/'`). Do not switch back while main still has a Vite source entry. Pause/disable the deploy workflow as part of this recorded delivery exception (`gh workflow disable preservation.yml`) so it cannot compete with branch publishing; retain local checks and follow with a reviewed recovery task. Confirm the branch Pages build succeeds and the public app loads. Record the rollback commit, checks and live smoke evidence in #4. This restores hosting without deleting or reinterpreting v1 local data; import the private export only if it is needed and verified. Re-enable Actions publishing only through a reviewed build release and the source-switch sequence above.
 
 ## Validation record
 
