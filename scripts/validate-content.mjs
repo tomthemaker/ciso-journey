@@ -3,6 +3,8 @@ import { isDeepStrictEqual } from 'node:util';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadCurriculum } from './validate-curriculum.mjs';
+import { contentRefs, effectiveStatus } from '../src/content-status.ts';
+export { effectiveStatus } from '../src/content-status.ts';
 
 // The small declarative shape contract is shared by all records; semantic gates follow.
 const text = value => typeof value === 'string' && value.trim().length > 0;
@@ -170,34 +172,6 @@ export function validateContent(bundle, { curriculum = loadCurriculum(), previou
   };
   for (const record of records.values()) if (record.kind === 'lesson') visit(record);
   return errors;
-}
-
-function contentRefs(record) {
-  const p = record.payload ?? {};
-  return [...(record.sourceRefs ?? []), ...(p.conceptRefs ?? []), ...(p.practiceRefs ?? []), ...(p.prerequisiteRefs ?? []), ...(p.conceptRef ? [p.conceptRef] : []), ...(p.rubricRef ? [p.rubricRef] : [])];
-}
-
-// Source evidence can be unusable even while the source is visibly a draft.
-function sourceEvidenceStale(bundle, record, asOf) {
-  if (record?.kind !== 'source') return false;
-  const state = bundle.editorial.find(item => key(item?.ref) === key(record));
-  return record.payload.reviewDueAt <= asOf || state?.unresolvedChallenges.length > 0 ||
-    state?.reviews.some(review => review.verdict === 'changes-requested');
-}
-
-// Expiry propagates through dependencies without erasing historical publication metadata.
-export function effectiveStatus(bundle, record, asOf, curriculum = loadCurriculum(), visited = new Set()) {
-  if (!record || !object(record.payload)) return 'stale';
-  const state = bundle.editorial.find(item => key(item?.ref) === key(record))?.status;
-  if (['draft', 'stale', 'retired'].includes(state) || visited.has(key(record))) return state;
-  visited.add(key(record));
-  const p = record.payload;
-  if (sourceEvidenceStale(bundle, record, asOf) || (record.kind === 'mapping' && ((p.validUntilExclusive && p.validUntilExclusive <= asOf) || (p.validFrom && p.validFrom > asOf)))) return 'stale';
-  for (const target of contentRefs(record)) {
-    const dependent = bundle.records.find(item => key(item) === key(target));
-    if (sourceEvidenceStale(bundle, dependent, asOf) || ['stale', 'retired'].includes(effectiveStatus(bundle, dependent, asOf, curriculum, visited))) return 'stale';
-  }
-  return state;
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

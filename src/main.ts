@@ -1,4 +1,6 @@
 import "./styles.css";
+import { bindReader } from "./lessons";
+import { lessonBundle, lessonObjectives } from "./lesson-data";
 import { createBackup, validateBackup } from "./backup";
 import { renderResources, renderScores, renderStats } from "./dashboard";
 import { byId, node } from "./dom";
@@ -18,8 +20,8 @@ function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
   document.body.dataset.storageBusy = String(busy);
   for (const control of document.querySelectorAll<HTMLInputElement | HTMLButtonElement | HTMLSelectElement | HTMLTextAreaElement>(
-    ".task input, #scores select, form input, form textarea, form button, .log button, #phaseFilter, #resetBtn",
-  )) control.disabled = busy || !state;
+    "#readingComplete, .task input, #scores select, form input, form textarea, form button, .log button, #phaseFilter, #resetBtn",
+  )) control.disabled = busy || !state || control.dataset.retired === "true";
   byId("importBtn", "button").disabled = busy;
   byId("exportBtn", "button").disabled = !state;
   byId("retryStorageBtn", "button").disabled = busy;
@@ -30,6 +32,7 @@ function showError(error: unknown): void {
   controls();
 }
 function renderAll(): void {
+  renderLessons(state);
   if (state) {
     renderStats(state);
     renderRoadmap(state, changed);
@@ -41,6 +44,8 @@ function renderAll(): void {
 }
 const changed: Change = async edit => {
   if (busy || !state || !storage) return false;
+  const readingFocused = document.activeElement?.id === "readingComplete";
+  const readingHash = location.hash;
   const candidate = structuredClone(state);
   edit(candidate);
   busy = true;
@@ -56,8 +61,10 @@ const changed: Change = async edit => {
   } finally {
     busy = false;
     renderAll();
+    if (readingFocused && location.hash === readingHash) document.getElementById("readingComplete")?.focus({ preventScroll: true });
   }
 };
+const renderLessons = bindReader(lessonBundle, lessonObjectives, changed);
 async function load(): Promise<void> {
   if (busy) return;
   busy = true;
@@ -80,6 +87,7 @@ function download(content: string, filename: string): void {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 bindNavigation();
+window.addEventListener("hashchange", controls);
 bindHistoryForms(changed);
 byId("phaseFilter", "select").addEventListener("change", () => {
   if (state) renderRoadmap(state, changed);
