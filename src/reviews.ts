@@ -45,6 +45,8 @@ export const ratingMeaning: Readonly<Record<RecallRating, string>> = {
   Again: 'Failed recall', Hard: 'Successful recall with effort', Good: 'Successful recall', Easy: 'Easy successful recall',
 };
 const ratings: RecallRating[] = ['Again', 'Hard', 'Good', 'Easy'];
+const statuses: CardStatus[] = ['active', 'suspended', 'archived'];
+const stringEnum = <T extends string>(value: unknown, values: readonly T[]): value is T => typeof value === 'string' && values.includes(value as T);
 const object = (v: unknown): v is Record<string, unknown> => v !== null && typeof v === 'object' && !Array.isArray(v);
 function invalid(): never { throw new Error('Invalid or unsupported review progress. Current progress has not changed.'); }
 function instant(v: unknown): v is string { return typeof v === 'string' && Number.isFinite(Date.parse(v)) && new Date(v).toISOString() === v; }
@@ -85,7 +87,7 @@ export function validateReviewProgress(value: unknown): asserts value is ReviewP
   if (!object(value) || value.schemaVersion !== 1 || !object(value.settings) || !integer(value.settings.newCardsPerDay) || Number(value.settings.newCardsPerDay) > 100 || !Array.isArray(value.cards) || !Array.isArray(value.events)) invalid();
   const cards = new Map<string, ScheduledCard>();
   for (const card of value.cards) {
-    if (!object(card) || !refValid(card.contentRef) || !['active', 'suspended', 'archived'].includes(String(card.status)) || !scheduleValid(card.schedule)) invalid();
+    if (!object(card) || !refValid(card.contentRef) || !stringEnum(card.status, statuses) || !scheduleValid(card.schedule)) invalid();
     const key = contentKey(card.contentRef);
     if (cards.has(key)) invalid();
     cards.set(key, card as unknown as ScheduledCard);
@@ -93,13 +95,13 @@ export function validateReviewProgress(value: unknown): asserts value is ReviewP
   const ids = new Set<string>();
   const previous = new Map<string, Schedule>();
   for (const event of value.events) {
-    if (!object(event) || typeof event.id !== 'string' || !event.id || ids.has(event.id) || !refValid(event.contentRef) || !ratings.includes(event.rating as RecallRating) || !instant(event.reviewedAt) || typeof event.timeZone !== 'string' || !object(event.provenance) || !contains(event.provenance, PROVENANCE) || !scheduleValid(event.before) || !scheduleValid(event.after) || !object(event.log)) invalid();
+    if (!object(event) || typeof event.id !== 'string' || !event.id || ids.has(event.id) || !refValid(event.contentRef) || !stringEnum(event.rating, ratings) || !instant(event.reviewedAt) || typeof event.timeZone !== 'string' || !object(event.provenance) || !contains(event.provenance, PROVENANCE) || !scheduleValid(event.before) || !scheduleValid(event.after) || !object(event.log)) invalid();
     try { localDay(event.reviewedAt, event.timeZone); } catch { invalid(); }
     const key = contentKey(event.contentRef);
     if (!cards.has(key) || Date.parse(event.before.due) > Date.parse(event.reviewedAt)) invalid();
     const prior = previous.get(key);
     if (prior ? !sameSchedule(event.before, prior) : !sameSchedule(event.before, toStored(createEmptyCard(event.before.due)))) invalid();
-    const calculated = calculate(event.before, event.rating as RecallRating, event.reviewedAt);
+    const calculated = calculate(event.before, event.rating, event.reviewedAt);
     if (!sameSchedule(event.after, calculated.after) || !contains(event.log, calculated.log)) invalid();
     ids.add(event.id);
     previous.set(key, event.after);
@@ -120,7 +122,7 @@ export function enrollCard(state: LearnerState, contentRef: ContentRef, now: str
     reviews.cards.push({ contentRef: { ...contentRef }, status: 'active', schedule: toStored(createEmptyCard(now)) });
 }
 export function setCardStatus(state: LearnerState, ref: ContentRef, status: CardStatus): void {
-  if (!['active', 'suspended', 'archived'].includes(status)) throw new Error('Invalid card status.');
+  if (!stringEnum(status, statuses)) throw new Error('Invalid card status.');
   const card = state.reviewProgress?.cards.find(card => contentKey(card.contentRef) === contentKey(ref));
   if (!card) throw new Error('Card revision is not enrolled.');
   card.status = status;
@@ -141,7 +143,7 @@ export function dueQueue(state: LearnerState, now: string, timeZone?: string): {
 export interface ReviewInput { eventId: string; contentRef: ContentRef; rating: RecallRating; now: string; timeZone?: string }
 /** Append on a private candidate, then persist the entire candidate once via Change/F03. Never changes task or competency state. */
 export function applyReview(state: LearnerState, input: ReviewInput): ReviewEvent {
-  if (!input.eventId || typeof input.eventId !== 'string' || !refValid(input.contentRef) || !ratings.includes(input.rating) || !instant(input.now)) throw new Error('Invalid review submission.');
+  if (!input.eventId || typeof input.eventId !== 'string' || !refValid(input.contentRef) || !stringEnum(input.rating, ratings) || !instant(input.now)) throw new Error('Invalid review submission.');
   const reviews = progress(state);
   const existing = reviews.events.find(event => event.id === input.eventId);
   if (existing) {

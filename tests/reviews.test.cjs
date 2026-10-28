@@ -127,6 +127,25 @@ test('malformed, future, orphan, duplicate and inconsistent histories reject who
     assert.deepEqual(backup, untouched); assert.equal(s.reviewProgress.events.length, 1);
   }
 });
+test('imported review enums require primitive strings and never coerce array or object values', () => {
+  const s = state(); reviews.applyReview(s, input());
+  for (const [field, allowed] of [['status', ['active', 'suspended', 'archived']], ['rating', ['Again', 'Hard', 'Good', 'Easy']]]) {
+    for (const malformed of [...allowed.map(value => [value]), { value: allowed[0] }, null, true, 1, 'unknown']) {
+      const backup = createBackup(structuredClone(s));
+      const target = field === 'status' ? backup.data.reviewProgress.cards[0] : backup.data.reviewProgress.events[0];
+      target[field] = malformed;
+      const untouched = structuredClone(backup);
+      assert.throws(() => validateBackup(backup), /review progress/, `${field}: ${JSON.stringify(malformed)}`);
+      assert.deepEqual(backup, untouched);
+    }
+  }
+  for (const status of ['active', 'suspended', 'archived']) {
+    const backup = createBackup(structuredClone(s));
+    backup.data.reviewProgress.cards[0].status = status;
+    assert.deepEqual(validateBackup(backup), backup.data);
+  }
+  assert.equal(reviews.dueQueue(s, '2026-10-29T00:00:00.000Z', 'Europe/Zurich').due.length, 1);
+});
 test('integration action shares pending submit and retries failed persistence using same event ID', async () => {
   let committed = state(), calls = 0, release;
   const change = async edit => {
