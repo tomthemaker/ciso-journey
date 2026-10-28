@@ -1,0 +1,9 @@
+# Pilot progress view
+
+Refs [#18](https://github.com/tomthemaker/ciso-journey/issues/18). This preparatory increment reports existing pilot data; the R2 dependencies and issue remain open.
+
+The Progress route derives a read-only report at render time from the validated local snapshot. The event window is the current local calendar day and preceding 29 local days, inclusive; UTC instants after the displayed as-of instant are excluded and counted. Each activity day shows the numerator and denominator for observed self-rated reviews and keyed MCQ attempts. Retry counts compare exact question revisions with earlier attempts, including earlier attempts outside the window. Historical missing content remains counted by recorded outcome and flagged. Constructed responses remain ungraded; self-assessments are grouped by exact rubric revision and criterion, with missing anchors counted separately. No scores are averaged across rubric criteria or versions.
+
+Estimated recall is the arithmetic mean of per-card FSRS retrievability for active reviewed exact revisions, based on the latest eligible review state at the as-of instant. The existing deterministic adapter pins ts-fsrs 5.4.2 / FSRS-6.0 and its parameters; this estimate is neither observed recall nor competency. Suspended, archived and never-reviewed cards are excluded. Snapshot task, reading and legacy scores have no event timestamps; they cannot support historical trends. Resource counts use each tracked resource's last recorded progress at or before as-of; evidence counts are metadata presence, not quality. No learner content is copied into this document.
+
+Validation: `npm test`, `npm run typecheck`, `npm run build`, and `npm run test:browser -- --workers=2` with Node 24.4.1. The browser suite includes Pages subpath and mobile flows. Final candidate and results are in the delivery PR. Independent review and the issue's remaining R2 dependencies are separate gates.

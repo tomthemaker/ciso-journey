@@ -1,0 +1,32 @@
+const { test, expect } = require('@playwright/test');
+test('progress route is readable, keyboard navigable, and does not change learning state', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('./#progress');
+  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+  await expect(page.getByRole('heading', { name: 'Progress', exact: true })).toBeVisible();
+  await expect(page.locator('#progressReport')).toContainText('No review self-ratings');
+  await expect(page.locator('#progressReport')).toContainText('Historical trends are unavailable');
+  await page.evaluate(() => { document.body.style.zoom = '200%'; });
+  await expect(page.locator('#progressReport')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBeTruthy();
+  await page.getByRole('button', { name: 'Roadmap', exact: true }).focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#roadmap/);
+  await page.getByRole('button', { name: 'Progress', exact: true }).click();
+  await expect(page.locator('#progressReport')).toContainText('No keyed MCQ attempts');
+});
+test('committed practice appears separately without changing the saved snapshot', async ({ page }) => {
+  const bundle = require('../content/foundation.v1.json');
+  const question = bundle.records.find(r => r.kind === 'question' && r.payload.format === 'mcq');
+  await page.goto(`./#questions/${question.id}/${question.version}`);
+  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+  await page.locator('#answer-' + question.payload.correctOptionId).check();
+  await page.locator('#submitAttempt').click();
+  await expect(page.locator('.attempt-result')).toHaveCount(1);
+  const snapshot = () => page.evaluate(() => new Promise(resolve => { const request = indexedDB.open('ciso-journey', 1); request.onsuccess = () => { const db = request.result, tx = db.transaction('snapshots'), get = tx.objectStore('snapshots').get('current'); tx.oncomplete = () => { db.close(); resolve(get.result); }; }; }));
+  const before = await snapshot();
+  await page.getByRole('button', { name: 'Progress', exact: true }).click();
+  await expect(page.locator('#progressReport')).toContainText('1 correct of 1 keyed MCQ attempts');
+  await expect(page.locator('#progressReport')).toContainText('No review self-ratings');
+  expect(await snapshot()).toEqual(before);
+});

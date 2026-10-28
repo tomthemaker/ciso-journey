@@ -657,3 +657,16 @@ button, input, textarea, select, .theme-control { font-family: system-ui, -apple
 .log button { color: var(--danger); }
 .theme-control { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
 .theme-control select { min-height: 44px; border: 1px solid var(--control-line); border-radius: 9px; padding: 8px; }
+
+.progress-report { max-width: 76ch; }
+.progress-window { font-size: 0.95rem; }
+.progress-section { padding: 1.2rem 0; border-top: 1px solid var(--line); }
+.progress-section h2 { margin: 0 0 0.45rem; }
+.progress-section p { margin: 0.4rem 0; }
+.progress-rubric { margin: 1rem 0; }
+.progress-rubric h3 { overflow-wrap: anywhere; }
+body[data-section="progress"] .hero { display: none; }
+body[data-section="progress"] .brand p, body[data-section="progress"] .logo { display: none; }
+body[data-section="progress"] .top { margin-bottom: 12px; gap: 12px; }
+body[data-section="progress"] .tabs { margin-block: 16px 24px; }
+.progress-report { overflow-wrap: anywhere; min-width: 0; }
