@@ -1,3 +1,4 @@
+import { validateScenarioResponses } from "./scenario-responses.ts";
 import { validateQuestionAttempts } from "./question-attempts.ts";
 import { validateResourceProgress } from "./resource-progress.ts";
 import { validateReadingProgress } from "./reading-progress.ts";
@@ -88,6 +89,7 @@ export function validateState(data: unknown): LearnerState {
       "Invalid task completion or competency score. Current progress has not changed.",
     );
   }
+  if ("scenarioResponses" in data) validateScenarioResponses(data.scenarioResponses);
   if ("questionAttempts" in data) validateQuestionAttempts(data.questionAttempts);
   if ("resourceProgress" in data) validateResourceProgress(data.resourceProgress);
   if ("readingProgress" in data) validateReadingProgress(data.readingProgress);

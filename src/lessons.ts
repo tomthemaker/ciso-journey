@@ -1,3 +1,4 @@
+import { caseHash } from './scenario-responses';
 import { byId, node } from './dom';
 import { contentHash, contentKey, contentRoute, findContent, safeHttps } from './content';
 import type { ContentBundle, ContentRecord, ContentRef, Lesson } from './content';
@@ -130,6 +131,7 @@ export function renderReader(
       const preview = node('details');
       preview.append(node('summary', {}, `${practice.title} · v${practice.version} · ${effectiveStatus(bundle, practice, asOf)}`),
         node('p', {}, text(practice.payload.prompt ?? practice.payload.brief)), node('p', {}, text(practice.payload.deliverable)));
+      if (practice.kind === 'scenario') preview.append(node('a', { href: caseHash(practice) }, 'Attempt this executive case'));
       if (practice.kind === 'question') preview.append(node('a', { href: questionHash(practice) }, 'Attempt this question'));
       article.append(preview);
     }

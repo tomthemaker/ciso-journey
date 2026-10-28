@@ -1,3 +1,4 @@
+import type { ScenarioResponses } from "./scenario-responses.ts";
 import type { QuestionAttempts } from "./question-attempts.ts";
 import type { ResourceProgress } from "./resource-progress.ts";
 import type { ReadingProgress } from "./reading-progress.ts";
@@ -33,6 +34,7 @@ export interface LearnerState {
   achievements: HistoryEntry[];
   readingProgress?: ReadingProgress;
   questionAttempts?: QuestionAttempts;
+  scenarioResponses?: ScenarioResponses;
   resourceProgress?: ResourceProgress;
   // Preserve extra JSON fields from compatible v1 backups.
   [key: string]: unknown;

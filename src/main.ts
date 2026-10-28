@@ -1,4 +1,5 @@
 import "./styles.css";
+import { bindCases } from "./cases";
 import { bindQuestions } from "./questions";
 import { bindReader } from "./lessons";
 import { lessonBundle, lessonObjectives } from "./lesson-data";
@@ -21,7 +22,7 @@ function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
   document.body.dataset.storageBusy = String(busy);
   for (const control of document.querySelectorAll<HTMLInputElement | HTMLButtonElement | HTMLSelectElement | HTMLTextAreaElement>(
-    "#readingComplete, #questionBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
+    "#readingComplete, #questionBank fieldset, #caseBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
   )) control.disabled = busy || !state || control.dataset.retired === "true";
   byId("importBtn", "button").disabled = busy;
   byId("exportBtn", "button").disabled = !state;
@@ -35,6 +36,7 @@ function showError(error: unknown): void {
 function renderAll(): void {
   renderLessons(state);
   renderQuestions(state);
+  renderCases(state);
   if (state) {
     renderStats(state);
     renderRoadmap(state, changed);
@@ -69,6 +71,7 @@ const changed: Change = async edit => {
 bindNavigation();
 const renderLessons = bindReader(lessonBundle, lessonObjectives, changed);
 const renderQuestions = bindQuestions(lessonBundle, lessonObjectives, changed);
+const renderCases = bindCases(lessonBundle, lessonObjectives, changed);
 async function load(): Promise<void> {
   if (busy) return;
   busy = true;
