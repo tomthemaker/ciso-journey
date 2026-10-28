@@ -6,9 +6,11 @@ export function bindNavigation(): void {
     const section = tabs.some((tab) => tab.dataset.tab === requested)
       ? requested
       : "roadmap";
-    tabs.forEach((tab) =>
-      tab.classList.toggle("active", tab.dataset.tab === section),
-    );
+    document.body.dataset.section = section;
+    tabs.forEach((tab) => {
+      tab.classList.toggle('active', tab.dataset.tab === section);
+      if (tab.dataset.tab === section) tab.setAttribute('aria-current', 'page'); else tab.removeAttribute('aria-current');
+    });
     document
       .querySelectorAll<HTMLElement>(".view")
       .forEach((view) => view.classList.toggle("active", view.id === section));
@@ -19,6 +21,6 @@ export function bindNavigation(): void {
       showSection();
     }),
   );
-  window.addEventListener("hashchange", showSection);
+  window.addEventListener('hashchange', () => { showSection(); const id = location.hash.split('/')[1]; if (location.hash.startsWith('#roadmap/') && id) { const task = document.getElementById(`task-${id}`); task?.focus(); task?.scrollIntoView({ block: 'center' }); } });
   showSection();
 }

@@ -18,6 +18,14 @@ let storage: LearnerStorage | undefined;
 let state: LearnerState | undefined;
 let busy = false;
 const status = byId("storageStatus", "p");
+const themeChoice = byId("themeChoice", "select");
+const systemTheme = matchMedia("(prefers-color-scheme: dark)");
+function applyTheme(): void {
+  const theme = state?.displayPreferences?.theme ?? "system";
+  themeChoice.value = theme;
+  document.documentElement.dataset.theme = theme === "system" ? (systemTheme.matches ? "dark" : "light") : theme;
+}
+systemTheme.addEventListener("change", applyTheme);
 const recoveryButton = byId("recoveryBtn", "button");
 function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
@@ -25,16 +33,19 @@ function controls(): void {
   for (const control of document.querySelectorAll<HTMLInputElement | HTMLButtonElement | HTMLSelectElement | HTMLTextAreaElement>(
     "#todayStudy fieldset, #readingComplete, #questionBank fieldset, #caseBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
   )) control.disabled = busy || !state || control.dataset.retired === "true" || control.dataset.pending === "true";
+  themeChoice.disabled = busy || !state;
   byId("importBtn", "button").disabled = busy;
   byId("exportBtn", "button").disabled = !state;
   byId("retryStorageBtn", "button").disabled = busy;
   recoveryButton.hidden = !storage?.recovery;
 }
 function showError(error: unknown): void {
+  document.body.dataset.storageError = "true";
   status.textContent = recoveryMessage(error);
   controls();
 }
 function renderAll(): void {
+  applyTheme();
   renderToday(state);
   renderLessons(state);
   renderQuestions(state);
@@ -59,6 +70,7 @@ const changed: Change = async edit => {
   try {
     await storage.save(candidate);
     state = candidate;
+    document.body.dataset.storageError = "false";
     status.textContent = "Progress saved in this browser. Export regular backups.";
     return true;
   } catch (error) {
@@ -82,6 +94,7 @@ async function load(): Promise<void> {
   try {
     storage ??= new LearnerStorage();
     state = await storage.load();
+    document.body.dataset.storageError = "false";
     status.textContent = "Progress stored in this browser. Export regular backups.";
   } catch (error) {
     // No fabricated empty learner: retain known committed state, or block the learning views.
@@ -89,8 +102,16 @@ async function load(): Promise<void> {
   } finally {
     busy = false;
     renderAll();
+    if (state && location.hash.startsWith("#roadmap/")) {
+      const target = document.getElementById(`task-${location.hash.split("/")[1]}`);
+      target?.focus(); target?.scrollIntoView({ block: "center" });
+    }
   }
 }
+themeChoice.addEventListener("change", () => {
+  const theme = themeChoice.value as "system" | "light" | "dark";
+  void changed(candidate => { candidate.displayPreferences = { schema: 1, theme }; });
+});
 function download(content: string, filename: string): void {
   const url = URL.createObjectURL(new Blob([content], { type: "application/json" }));
   node("a", { href: url, download: filename }).click();
@@ -122,6 +143,7 @@ importFile.addEventListener("change", async () => {
       storage ??= new LearnerStorage();
       await storage.save(candidate);
       state = candidate;
+      document.body.dataset.storageError = "false";
       status.textContent = "Backup imported and saved in this browser.";
       alert("Backup imported successfully.");
     }

@@ -35,6 +35,7 @@ test('complete reading, exact concept/prerequisite navigation and keyboard secti
   await expect(page.getByRole('heading', { name: 'Worked example', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Learning objectives', exact: true })).toBeVisible();
   await expect(page.locator('.lesson-body')).toContainText(lesson.payload.workedExample);
+  await page.locator('.section-index > summary').click();
   const sectionButton = page.getByRole('navigation', { name: 'Reading sections' }).getByRole('button').first();
   await sectionButton.focus();
   await page.keyboard.press('Enter');
@@ -59,7 +60,8 @@ test('complete reading, exact concept/prerequisite navigation and keyboard secti
     await expect(page.locator('#readerHeading')).toHaveText(installed.title);
     for (const section of installed.payload.sections) await expect(page.locator('.lesson-body')).toContainText(section.body);
     await expect(page.locator('.lesson-body')).toContainText(installed.payload.workedExample);
-    await expect(page.getByRole('heading', { name: 'References and source currentness', exact: true })).toBeVisible();
+    await page.locator('.reader-references > summary').click();
+    await expect(page.locator('.reader-references')).toContainText('Source status:');
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
   await page.getByRole('button', { name: 'Roadmap', exact: true }).click();

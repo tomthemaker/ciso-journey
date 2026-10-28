@@ -20,7 +20,8 @@ function referenceLink(bundle: ContentBundle, ref: ContentRef): HTMLAnchorElemen
   return node('a', { href: contentHash(ref) }, `${record?.title ?? ref.id} · v${ref.version}`);
 }
 function references(parent: HTMLElement, bundle: ContentBundle, record: ContentRecord, asOf: string): void {
-  heading(parent, 'References and source currentness');
+  const details = node('details', { class: 'reader-references' });
+  details.append(node('summary', {}, 'References and source currentness')); parent.append(details); parent = details;
   const sources = node('ul');
   for (const ref of record.sourceRefs) {
     const source = findContent(bundle, ref);
@@ -42,7 +43,7 @@ function provenance(parent: HTMLElement, bundle: ContentBundle, record: ContentR
     const actor = bundle.actors.find(item => item.id === id);
     return `${id} (${actor?.kind ?? 'unknown'}; ${actor?.role ?? 'unknown role'})`;
   });
-  parent.append(node('p', { class: 'side-note' }, `Authored ${record.authoredAt} by ${authors.join(', ')}. Bundle ${bundle.contentVersion}.`));
+  const details = node('details'); details.append(node('summary', {}, 'Authorship and exact revision'), node('p', { class: 'side-note' }, `Authored ${record.authoredAt} by ${authors.join(', ')}. Bundle ${bundle.contentVersion}. Exact revision ${contentKey(record)}.`)); parent.append(details);
   if (status === 'draft') parent.append(node('p', { class: 'warn' }, 'Provisional draft. No independent educator or legal approval is claimed. Source metadata and automated checks do not validate teaching.'));
   if (status === 'stale' || status === 'retired') parent.append(node('p', { class: 'warn' }, `${status === 'retired' ? 'Retired: withdrawn from new study.' : 'Stale: review is required before relying on this material.'} This exact revision remains available for history.`));
 }
@@ -53,8 +54,8 @@ export function renderReader(
 ): void {
   const focusId = root.contains(document.activeElement) ? document.activeElement?.id : undefined;
   root.replaceChildren();
-  const intro = node('div', { class: 'card' });
-  intro.append(node('h2', {}, 'Foundation reading'), node('p', {}, 'Original reading is self-contained. External courses are optional supplements. Reading completion records participation only; task completion, resource use, recall, question attempts and applied assessment remain separate.'));
+  const intro = node('details', { class: 'card lesson-index' });
+  intro.append(node('summary', {}, 'Foundation reading — lesson index'), node('p', {}, 'Original reading is self-contained. External courses are optional supplements. Reading completion records participation only; task completion, resource use, recall, question attempts and applied assessment remain separate.'));
   const lessons = bundle.records.filter(record => record.kind === 'lesson' &&
     !bundle.records.some(other => other.id === record.id && other.version > record.version));
   const catalog = node('ol', { class: 'lesson-catalog' });
@@ -66,12 +67,12 @@ export function renderReader(
   intro.append(catalog);
   root.append(intro);
   const ref = contentRoute(hash);
-  if (!ref) return;
+  if (!ref) { intro.open = true; return; }
   const record = findContent(bundle, ref);
   const article = node('article', { class: 'card lesson-body', 'aria-labelledby': 'readerHeading' });
   const title = node('h2', { id: 'readerHeading', tabindex: '-1' }, record?.title ?? 'Revision unavailable');
   article.append(title);
-  root.append(article);
+  root.prepend(article);
   if (!record || !['lesson', 'concept'].includes(record.kind)) {
     article.append(node('p', {}, 'This exact lesson or concept revision is unavailable in the installed bundle. Reading history has been retained.'));
     return;
@@ -111,7 +112,7 @@ export function renderReader(
       });
       contents.append(link);
     });
-    article.append(contents);
+    const sectionIndex = node('details', { class: 'section-index' }); sectionIndex.append(node('summary', {}, 'Reading sections'), contents); article.append(sectionIndex);
     p.sections.forEach((section, index) => {
       const block = node('section');
       block.append(node('h3', { id: `reading-section-${index}`, tabindex: '-1' }, section.heading), node('p', {}, section.body));
@@ -128,7 +129,7 @@ export function renderReader(
     for (const target of p.practiceRefs) {
       const practice = findContent(bundle, target);
       if (!practice) continue;
-      const preview = node('details');
+      const preview = node('details', { class: 'practice-preview' });
       preview.append(node('summary', {}, `${practice.title} · v${practice.version} · ${effectiveStatus(bundle, practice, asOf)}`),
         node('p', {}, text(practice.payload.prompt ?? practice.payload.brief)), node('p', {}, text(practice.payload.deliverable)));
       if (practice.kind === 'scenario') preview.append(node('a', { href: caseHash(practice) }, 'Attempt this executive case'));

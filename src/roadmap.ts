@@ -42,7 +42,7 @@ export function renderRoadmap(state: LearnerState, changed: Change) {
     for (const task of phase.tasks) {
       if (onlyIncomplete && state.completed[task[0]]) continue;
       const row = node("label", {
-          class: "task" + (state.completed[task[0]] ? " done" : ""),
+          id: `task-${task[0]}`, tabindex: "-1", class: "task" + (state.completed[task[0]] ? " done" : ""),
         }),
         check = node("input", { type: "checkbox" });
       check.checked = !!state.completed[task[0]];
