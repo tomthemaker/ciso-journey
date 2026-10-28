@@ -47,3 +47,22 @@ test('latest assessment revisions retain stable identities, keys and score dimen
   assert.match(scenario.payload.deliverable, /rubric-foundation-case@3/);
   assert.equal(exact(scenario.payload.rubricRef).id, 'rubric-foundation-case');
 });
+
+test('current teaching catalog keeps every stable ID and revised payloads pin current teaching dependencies', () => {
+  const oldIds = new Set(previous.records.filter(record => record.kind !== 'source').map(record => record.id));
+  const newIds = new Set(candidate.records.filter(record => record.kind !== 'source').map(record => record.id));
+  assert.deepEqual(newIds, oldIds);
+  const oldVersions = new Map();
+  for (const r of previous.records) oldVersions.set(r.id, Math.max(oldVersions.get(r.id) || 0, r.version));
+  const inspect = (value, owner) => {
+    if (Array.isArray(value)) return value.forEach(item => inspect(item, owner));
+    if (!value || typeof value !== 'object') return;
+    if (Object.keys(value).sort().join(',') === 'id,version' && latest(value.id)) {
+      if (latest(value.id).kind !== 'source') assert.equal(value.version, latest(value.id).version, `${owner} -> ${refKey(value)}`);
+    } else Object.values(value).forEach(item => inspect(item, owner));
+  };
+  for (const id of newIds) {
+    const record = latest(id);
+    if (record.version > oldVersions.get(id)) inspect(record.payload, refKey(record));
+  }
+});
