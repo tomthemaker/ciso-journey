@@ -1,4 +1,5 @@
 import "./styles.css";
+import { renderProgress } from "./progress-view";
 import { bindToday } from "./today";
 import { bindCases } from "./cases";
 import { bindQuestions } from "./questions";
@@ -46,6 +47,7 @@ function showError(error: unknown): void {
 }
 function renderAll(): void {
   applyTheme();
+  renderProgress(state, lessonBundle);
   renderToday(state);
   renderLessons(state);
   renderQuestions(state);
