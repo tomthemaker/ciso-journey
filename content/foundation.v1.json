@@ -4821,7 +4821,7 @@
         "id": "rubric-w2-question-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the lifecycle, decisions assessment anchors as observable responses; criterion IDs and scores remain unchanged. Corrects authentication to account-authenticator control rather than identity proofing. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w2-question-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -5232,7 +5232,7 @@
         "id": "lesson-w1-foundations",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/0/heading, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/heading, /sections/5/body, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/1, /conceptRefs/2.",
+      "changeNote": "Defines residual risk, connects the worked choice to evidence, and states weekly extension work. Pins the revised practice and concept dependencies. Changed fields: /sections/0/heading, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/heading, /sections/5/body, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/1, /conceptRefs/2.",
       "priorAttemptImpact": "Historical reading records remain pinned to lesson-w1-foundations@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this lesson revision.",
       "payload": {
@@ -5343,7 +5343,7 @@
         "id": "lesson-w2-identity",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/0/body, /sections/1/heading, /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /workedExample, /misconceptions/0, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
+      "changeNote": "Defines identity lifecycle, authentication, privileged and software access terms, and states weekly extension work. Pins the revised practice and concept dependencies. Changed fields: /sections/0/body, /sections/1/heading, /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /workedExample, /misconceptions/0, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
       "priorAttemptImpact": "Historical reading records remain pinned to lesson-w2-identity@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this lesson revision.",
       "payload": {
@@ -5459,7 +5459,7 @@
         "id": "lesson-w3-architecture",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/0/body, /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
+      "changeNote": "Defines service flows, device condition, boundaries, lateral movement and failure choices, and states weekly extension work. Pins the revised practice and concept dependencies. Changed fields: /sections/0/body, /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
       "priorAttemptImpact": "Historical reading records remain pinned to lesson-w3-architecture@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this lesson revision.",
       "payload": {
@@ -5583,7 +5583,7 @@
         "id": "lesson-w4-data",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /practiceRefs/5, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
+      "changeNote": "Explains key responsibilities and recovery measurement, and states weekly extension work. Pins the revised practice and concept dependencies. Changed fields: /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /practiceRefs/5, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
       "priorAttemptImpact": "Historical reading records remain pinned to lesson-w4-data@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this lesson revision.",
       "payload": {
@@ -5706,7 +5706,7 @@
         "id": "question-w1-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the  on classifications and two-level interpretation. Pins the revised question rubric. Changed fields: /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w1-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5752,7 +5752,7 @@
         "id": "question-w1-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the  on disclosure and availability chains, controls and uncertainty. Pins the revised question rubric. Changed fields: /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w1-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5798,7 +5798,7 @@
         "id": "question-w1-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the  on backup completion, the recovery risk chain and evidence. Pins the revised question rubric. Changed fields: /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w1-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5844,7 +5844,7 @@
         "id": "question-w2-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on joiner, mover and leaver actions and authentication. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5890,7 +5890,7 @@
         "id": "question-w2-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on user, administrator and job safeguards and factors. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5936,7 +5936,7 @@
         "id": "question-w2-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on emergency access rollout and remaining risk. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -5982,7 +5982,7 @@
         "id": "question-w3-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on customer and recovery flows, identities and boundaries. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w3-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6028,7 +6028,7 @@
         "id": "question-w3-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the  on segmentation controls, failure modes and tradeoffs. Pins the revised question rubric. Changed fields: /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w3-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6078,7 +6078,7 @@
         "id": "question-w4-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on address classification, encryption and authorised-user limits. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w4-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6128,7 +6128,7 @@
         "id": "question-w4-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the prompt on recovery targets, measurements and safe restore evidence. Pins the revised question rubric. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w4-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6178,7 +6178,7 @@
         "id": "question-w4-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies the  on honest reporting of recovery outcomes and uncertainty. Pins the revised question rubric. Changed fields: /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w4-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6225,7 +6225,7 @@
         "id": "concept-risk-chain",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines a causal risk chain in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-risk-chain@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6264,7 +6264,7 @@
         "id": "concept-control-evidence",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines evidence for a control in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-control-evidence@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6303,7 +6303,7 @@
         "id": "concept-identity-lifecycle",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines joiner, mover and leaver in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-identity-lifecycle@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6342,7 +6342,7 @@
         "id": "concept-privileged-access",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines constrain powerful access in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-privileged-access@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6381,7 +6381,7 @@
         "id": "concept-service-flow",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition, /misconception.",
+      "changeNote": "Defines trace a service request in plain language. Changed fields: /definition, /misconception.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-service-flow@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6420,7 +6420,7 @@
         "id": "concept-trust-boundary",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines an explicit enforcement boundary in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-trust-boundary@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6459,7 +6459,7 @@
         "id": "concept-zero-trust",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines resource-centred access in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-zero-trust@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6502,7 +6502,7 @@
         "id": "concept-data-classification",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines classification as a handling decision in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-data-classification@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6545,7 +6545,7 @@
         "id": "concept-cryptographic-purpose",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines match cryptography to its purpose in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-cryptographic-purpose@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6588,7 +6588,7 @@
         "id": "concept-recovery-objectives",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /definition.",
+      "changeNote": "Defines recovery time and recovery point in plain language. Changed fields: /definition.",
       "priorAttemptImpact": "Historical linked history remain pinned to concept-recovery-objectives@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this concept revision.",
       "payload": {
@@ -6627,7 +6627,7 @@
         "id": "card-w1-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of the link between a risk chain and a decision. Changed fields: /prompt, /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w1-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w1-2@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -6670,7 +6670,7 @@
         "id": "card-w3-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of the elements of a service-flow diagram. Changed fields: /prompt, /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w3-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w3-1@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -6713,7 +6713,7 @@
         "id": "card-w3-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of the access assumption rejected by Zero Trust. Changed fields: /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w3-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w3-3@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -6760,7 +6760,7 @@
         "id": "card-w4-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of classification and handling rules. Changed fields: /prompt, /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w4-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w4-1@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -6807,7 +6807,7 @@
         "id": "card-w4-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of digest comparison and authenticity. Changed fields: /prompt, /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w4-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w4-2@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -6849,7 +6849,7 @@
         "id": "question-w2-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/0/text, /options/3/explanation.",
+      "changeNote": "Clarifies the options or feedback on retained sales access after a role change. Changed fields: /options/0/text, /options/3/explanation.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6913,7 +6913,7 @@
         "id": "question-w2-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/2/text, /options/2/explanation.",
+      "changeNote": "Clarifies the options or feedback on credentials and permissions for an unattended job. Changed fields: /options/2/text, /options/2/explanation.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6977,7 +6977,7 @@
         "id": "question-w3-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/1/text, /options/1/explanation, /options/2/explanation, /options/3/explanation.",
+      "changeNote": "Clarifies the options or feedback on application enforcement of order-level permissions. Changed fields: /options/1/text, /options/1/explanation, /options/2/explanation, /options/3/explanation.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w3-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -7045,7 +7045,7 @@
         "id": "question-w4-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt.",
+      "changeNote": "Clarifies the  on a digest supplied with an untrusted file. Changed fields: /prompt.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w4-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -7109,7 +7109,7 @@
         "id": "rubric-w2-question-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the rollout, residual-risk assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w2-question-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7188,7 +7188,7 @@
         "id": "rubric-w4-question-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the measurement, safe-restore, evidence-follow-up assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w4-question-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7282,7 +7282,7 @@
         "id": "rubric-w1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the classification, chains, controls assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7376,7 +7376,7 @@
         "id": "rubric-w2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the lifecycle, decisions, paths assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7470,7 +7470,7 @@
         "id": "rubric-w3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the flows, comparison, tradeoffs assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7568,7 +7568,7 @@
         "id": "rubric-w4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the protection, objectives, exercise assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/description, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7661,7 +7661,7 @@
         "id": "rubric-w1-question-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the classification, cia, ambiguity assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w1-question-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7754,7 +7754,7 @@
         "id": "rubric-w1-question-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the chains, controls, uncertainty assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w1-question-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7847,7 +7847,7 @@
         "id": "rubric-w1-question-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
+      "changeNote": "Rephrases the correction, risk-chain, evidence assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor, /criteria/2/levels/0/descriptor, /criteria/2/levels/1/descriptor, /criteria/2/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w1-question-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -7940,7 +7940,7 @@
         "id": "rubric-w2-question-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the paths, factors assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w2-question-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -8015,7 +8015,7 @@
         "id": "rubric-w3-question-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the flows, boundaries assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w3-question-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -8090,7 +8090,7 @@
         "id": "rubric-w3-question-4",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the comparison, controls assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w3-question-4@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -8169,7 +8169,7 @@
         "id": "rubric-w4-question-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the handling, authorised-user assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/description, /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w4-question-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -8248,7 +8248,7 @@
         "id": "rubric-w4-question-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
+      "changeNote": "Rephrases the honest-report, capability-limits assessment anchors as observable responses; criterion IDs and scores remain unchanged. Changed fields: /criteria/0/levels/0/descriptor, /criteria/0/levels/1/descriptor, /criteria/0/levels/2/descriptor, /criteria/1/levels/0/descriptor, /criteria/1/levels/1/descriptor, /criteria/1/levels/2/descriptor.",
       "priorAttemptImpact": "Historical rubric assessments remain pinned to rubric-w4-question-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this rubric revision.",
       "payload": {
@@ -8323,7 +8323,7 @@
         "id": "question-w3-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/3/text.",
+      "changeNote": "Clarifies the options or feedback on application authorisation after network access. Changed fields: /options/3/text.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w3-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -8391,7 +8391,7 @@
         "id": "question-w4-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt.",
+      "changeNote": "Clarifies the  on the recovery time and recovery point objectives. Changed fields: /prompt.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w4-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -8456,7 +8456,7 @@
         "id": "card-w1-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of purchase versus evidence from a restore. Changed fields: /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w1-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w1-3@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -8499,7 +8499,7 @@
         "id": "card-w2-1",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of removal and verification of obsolete access. Changed fields: /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w2-1@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w2-1@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -8542,7 +8542,7 @@
         "id": "card-w2-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of multifactor sign-in versus export permission. Changed fields: /prompt, /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w2-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w2-2@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -8585,7 +8585,7 @@
         "id": "card-w3-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /answer, /conceptRef.",
+      "changeNote": "Clarifies recall of tests of network isolation. Changed fields: /answer, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w3-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w3-2@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
@@ -8632,7 +8632,7 @@
         "id": "card-w4-3",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /conceptRef.",
+      "changeNote": "Clarifies recall of recovery time and recovery-point targets. Changed fields: /prompt, /conceptRef.",
       "priorAttemptImpact": "Historical card reviews remain pinned to card-w4-3@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "Existing card-w4-3@1 schedule and review events remain unchanged; enrolling this newer revision starts a separate schedule explicitly.",
       "payload": {
