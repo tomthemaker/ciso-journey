@@ -1,0 +1,1485 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w8-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-w8-profiles-author",
+      "kind": "ai",
+      "role": "Original w8 profile lesson/practice author and official technical-source inspector; not independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w8-csf-core",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST CSF 2.0: profile definitions and selected Core outcomes",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [],
+      "taskIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29, CSF 2.0, final 2024-02-26",
+        "jurisdiction": "Global technical guidance; no jurisdiction-specific legal obligation asserted",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Inspected section 3.1 (printed pp. 6–7), section 3.2 (pp. 7–8), and Appendix A GV.RM-02/06 (p. 16), ID.AM-02 (p. 18), ID.IM-02/04 (p. 19), PR.AA-05 (p. 20). Outcome identifiers and explanatory summaries were checked; fictional acceptance criteria are local choices, not NIST requirements. Checked by the declared AI actor through official web/PDF text extraction on 2026-10-29; no independent human verification, full linked-resource audit or future currency guarantee.",
+        "verifierId": "ai-w8-profiles-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrases and fictional teaching only. No copied tables, diagrams, assessment items or extended quotations. Source inspection does not provide rights clearance for future reproductions.",
+        "c01SourceId": "src-nist"
+      }
+    },
+    {
+      "id": "source-w8-profile-guide",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST guide to creating and using Organizational Profiles",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [],
+      "taskIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1301.pdf",
+        "edition": "NIST SP 1301, final, February 2024",
+        "jurisdiction": "Global technical guidance; no jurisdiction-specific legal obligation asserted",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Inspected all ten PDF pages: introduction; scope; information gathering; Current/Target columns; gap analysis and action-plan fields; implementation/update loop. CSRC final record https://csrc.nist.gov/pubs/sp/1301/final confirms final publication on 2024-02-26. The guide permits contextual rating scales; this exercise deliberately uses descriptive evidence labels and does not infer universal readiness percentages. Checked by the declared AI actor through official web/PDF text extraction on 2026-10-29; no independent human verification, full linked-resource audit or future currency guarantee.",
+        "verifierId": "ai-w8-profiles-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrases and fictional teaching only. No copied tables, diagrams, assessment items or extended quotations. Source inspection does not provide rights clearance for future reproductions.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w8-tier-guide",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST guide to using the CSF Tiers",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [],
+      "taskIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1302.pdf",
+        "edition": "NIST SP 1302, final, October 2024",
+        "jurisdiction": "Global technical guidance; no jurisdiction-specific legal obligation asserted",
+        "publicationDate": "2024-10-21",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Inspected all three PDF pages: Tier purpose, selection and application to Profiles. CSRC final record https://csrc.nist.gov/pubs/sp/1302/final confirms final date 2024-10-21. Tiers characterize governance/management rigor and inform Profiles; they do not measure an individual learner or certify the organization. Checked by the declared AI actor through official web/PDF text extraction on 2026-10-29; no independent human verification, full linked-resource audit or future currency guarantee.",
+        "verifierId": "ai-w8-profiles-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrases and fictional teaching only. No copied tables, diagrams, assessment items or extended quotations. Source inspection does not provide rights clearance for future reproductions.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "lesson-w8-csf-profiles",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Current and target CSF profiles: evidence into priorities",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "From a capability map to a decision",
+            "body": "A capability map connects work to outcomes, accountable roles and evidence. Recall the week 7 distinction: an outcome describes a result, while a control is a way to produce it. A service inventory can support an outcome; buying inventory software does not establish that the inventory is maintained. Before this lesson, be able to explain that distinction and name an owner and evidence for a selected category. Review week 7 if this is difficult.\n\nThis week you will write current and target entries for six selected outcomes, then prioritize three gaps. A profile describes an organization's cybersecurity posture in the language of the CSF Core. Here, capability profile means this scoped Organizational Profile, not a standardized capability score. The six rows form a teaching subset. They do not establish coverage of the whole service or the entire Core."
+          },
+          {
+            "heading": "Define the comparison boundary",
+            "body": "Write one scope statement before assessing anything: service, included systems and people, important supplier interfaces, exclusions, assessment date and planning horizon. Use that same boundary for current and target entries. A current assessment of one warehouse cannot support a target claim about every warehouse. If a planned acquisition expands the boundary, record a separate comparison or clearly separate the added scope.\n\nState the business decision the profile supports. For example, a dispatch service needs an investment decision before its seasonal demand peak. Record whose expectations matter, which losses would disrupt the mission, and constraints on staff, money and timing. Risk tolerance means the limits within which leadership is prepared to operate. An analyst's proposed limit remains a proposal until the authorized decision maker agrees. A profile helps communicate these decisions; it does not establish legal applicability."
+          },
+          {
+            "heading": "Build the current entry from bounded evidence",
+            "body": "Choose an outcome because its result matters within the scope. Use its exact identifier and an original summary, then record the relevant practice, evidence date and coverage. A current entry may describe partial implementation or an attempt in progress. It should separate demonstrated results from assertions. Evidence can include an approved decision, configuration record, sampled access review or exercise observation. Each supports a particular claim, not every part of an outcome.\n\nUse descriptive labels such as evidenced for the stated sample, partial, or unknown, and define them locally. Unknown means the available material does not support a conclusion. It is not proof that the practice is absent, nor permission to treat it as effective. Name the missing observation, a person who can obtain it, and a date for clarification. Interviews help locate evidence but do not turn an untested assertion into demonstrated performance. Preserve conflicting evidence and explain the resulting uncertainty."
+          },
+          {
+            "heading": "Set the target and explain the gap",
+            "body": "A target entry describes a desired result for the same scope and states why it deserves attention. Select the ambition from business exposure, expected change and feasible resources. Specify a deadline and the evidence that would support the desired result. Planned funding or an assigned ticket belongs in the plan; neither is current evidence of the result.\n\nA gap is the difference between the bounded current finding and the desired target. It may concern a missing practice, incomplete coverage, weak performance or uncertainty. Distinguish an evidence gap from a confirmed implementation gap: first checking whether an access review occurred can be cheaper than purchasing another tool. Define acceptance evidence before action starts so the owner knows what result will be examined. A successful sample supports that sample and remains subject to its limitations. It does not prove permanent or universal attainment."
+          },
+          {
+            "heading": "Executive example 1: evidence changes the investment",
+            "body": "Fictional Alder Dispatch must load trucks by 08:00. Its profile covers the dispatch application, identity administration and one hosting support interface; payroll is excluded. The assessment is dated 29 October and targets the next 90 days. For ID.AM-02, the service owner supplies an application list last updated in March. A recent deployment record names a scheduling component absent from that list. The current finding is partial inventory coverage, not complete absence of an inventory. The target is a reconciled inventory with a named maintainer and a change-triggered update process, because omitted components can undermine access and recovery planning.\n\nThe finance director proposes an inventory product. The CISO instead requests a short reconciliation owned by the service owner before the purchase decision. Acceptance evidence is a list checked against deployments and owner interviews, with unresolved differences recorded and an update exercised after a test change. If manual maintenance cannot keep pace, automation may follow. This sequence tests the cause of the gap before committing money; it leaves the March evidence and its limitations visible."
+          },
+          {
+            "heading": "Turn differences into an accountable backlog",
+            "body": "Compare all six rows before choosing three gaps. Rank the selected work with a stated decision rule: consequences of delay, urgency, uncertainty, dependencies and available capacity. The largest-looking documentation gap need not come first. A risky permission that can be restricted today may deserve earlier action than a comprehensive policy rewrite. Explain why deferred work can wait and who will review the remaining exposure.\n\nFor each action, name one accountable role with authority to coordinate delivery, contributors, a dependency, deadline and required resources. A dependency is a condition needed before completion, such as confirming the service boundary or obtaining supplier participation; say none if none exists. Separate priority from execution order. An urgent exercise may depend on first repairing the contact plan. Record acceptance evidence, who will judge it, the uncertainty that remains, and a review trigger. Update the current entry only after checking new evidence; retain the earlier dated assessment so progress can be examined."
+          },
+          {
+            "heading": "Executive example 2: urgency and dependencies",
+            "body": "In the same fictional dispatch scope, PR.AA-05 has a recent access review, but two departed contractors retain dispatch administration rights. ID.IM-04 has an incident contact plan whose hosting support number is obsolete. ID.IM-02 has no recorded joint exercise with that support team; its performance is unknown. These findings suggest three different actions, not three identical red scores.\n\nThe operations director ranks removal of the contractor rights first because they expose dispatch changes now. The identity lead owns removal and an access-denial check, using the confirmed departure list. The service owner then validates the support route and distributes a revised contact plan. The exercise coordinator schedules a joint disruption exercise after that route is confirmed and records observations, improvement owners and follow-up dates. The planned exercise does not close the current unknown in advance. Another justified ordering could start by restoring the emergency contact route if an active outage makes that delay more dangerous; the reason and temporary exposure must be explicit."
+          },
+          {
+            "heading": "Interpret the result without overstating it",
+            "body": "Profiles support choices and communication. Tiers characterize the rigor of organizational cybersecurity risk governance and management; they can inform profile choices. A Tier is not a count of completed outcomes or a measured learner competency. Do not average the six rows into a universal percentage of readiness. A locally defined rating can summarize a bounded assessment, but its meaning depends on scope, evidence and method.\n\nThe weekly exercise below supplies six outcome summaries and fictional evidence. Its top anchors explicitly require risk reasons for all six targets, three fully specified actions, one justified alternative priority, a residual uncertainty and a dated review trigger. Use the question rubrics only for their own responses. Resource completion, task completion, card recall, question attempts and applied self-assessment remain separate signals. This AI draft and any agent review do not establish independent educator approval or organizational certification."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w7-csf-capability-map",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 65,
+        "workedExample": "Worked comparison: ID.IM-02, Alder Dispatch, 29 October. Current: no joint hosting-support exercise record was supplied; supplier participation and observed coordination are unknown. Target by day 90: run a scoped disruption exercise with hosting support and identify improvements from recorded observations. Gap: missing exercise evidence, with actual coordination capability unmeasured. Priority: after validating the support contact route, because the exercise needs a reachable participant. Accountable owner: exercise coordinator; dependency: service owner confirms contacts and supplier availability. Acceptance: dated participant list, timed observations, lessons and improvement owners with follow-up dates, reviewed by the operations director. Limit: one exercise does not establish future incident success. The numbers and acceptance criteria are fictional local choices, not NIST requirements.",
+        "misconceptions": [
+          "A plan or funded project is evidence that its target outcome is already achieved.",
+          "Unknown means absent, or can be counted as effective without checking.",
+          "Current and target rows can use different service boundaries without qualification.",
+          "A Profile is a universal compliance checklist, and a Tier measures learner mastery or certification readiness.",
+          "The same priority order must be correct for every business context."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w8-1",
+            "version": 1
+          },
+          {
+            "id": "question-w8-2",
+            "version": 1
+          },
+          {
+            "id": "question-w8-3",
+            "version": 1
+          },
+          {
+            "id": "question-w8-4",
+            "version": 1
+          },
+          {
+            "id": "question-w8-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w8-profile-backlog",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w8-profile",
+            "version": 1
+          },
+          {
+            "id": "concept-w8-evidence-gap",
+            "version": 1
+          },
+          {
+            "id": "concept-w8-backlog",
+            "version": 1
+          },
+          {
+            "id": "concept-w8-tier",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "concept-w8-profile",
+      "version": 1,
+      "kind": "concept",
+      "title": "A profile compares scoped outcomes",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "definition": "An Organizational Profile expresses current and/or desired cybersecurity posture using CSF outcomes. Comparable current and target entries make their shared boundary and assessment/planning dates explicit.",
+        "misconception": "A target for a larger scope proves a smaller assessed scope is ready."
+      }
+    },
+    {
+      "id": "concept-w8-evidence-gap",
+      "version": 1,
+      "kind": "concept",
+      "title": "An unknown is a bounded finding",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "definition": "An evidence gap is a missing observation needed to support a claim. It creates uncertainty about current achievement; it does not establish either absence or effectiveness of a practice.",
+        "misconception": "No supplied record proves no practice exists."
+      }
+    },
+    {
+      "id": "concept-w8-backlog",
+      "version": 1,
+      "kind": "concept",
+      "title": "A gap becomes an accountable action",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "definition": "An improvement backlog translates selected current-to-target differences into prioritized actions with an accountable owner, dependencies, resources, timing and acceptance evidence.",
+        "misconception": "Buying a tool closes the gap before its result is checked."
+      }
+    },
+    {
+      "id": "concept-w8-tier",
+      "version": 1,
+      "kind": "concept",
+      "title": "Tiers describe organizational risk practice",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "definition": "CSF Tiers characterize the rigor of organizational cybersecurity risk governance and management and can inform Profiles. They are distinct from a learner assessment and from a count of completed outcomes.",
+        "misconception": "A Tier is an individual competency score or a certification result."
+      }
+    },
+    {
+      "id": "card-w8-profile",
+      "version": 1,
+      "kind": "card",
+      "title": "What boundary must remain explicit when comparing current and target profile entries?",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "prompt": "What boundary must remain explicit when comparing current and target profile entries?",
+        "answer": "The service, systems, people and interfaces being compared must share a stated scope; distinguish any added future scope so a narrow current assessment is not generalized.",
+        "conceptRef": {
+          "id": "concept-w8-profile",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w8-evidence-gap",
+      "version": 1,
+      "kind": "card",
+      "title": "What does an unknown current finding mean?",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "prompt": "What does an unknown current finding mean?",
+        "answer": "Available evidence is insufficient for the bounded claim. It proves neither that the practice is absent nor that it is effective.",
+        "conceptRef": {
+          "id": "concept-w8-evidence-gap",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w8-backlog",
+      "version": 1,
+      "kind": "card",
+      "title": "What makes acceptance evidence useful in an improvement action?",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "prompt": "What makes acceptance evidence useful in an improvement action?",
+        "answer": "It states the observable result to examine before closure, so completing an activity is not mistaken for demonstrating the desired outcome.",
+        "conceptRef": {
+          "id": "concept-w8-backlog",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w8-tier",
+      "version": 1,
+      "kind": "card",
+      "title": "What does a CSF Tier characterize?",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "prompt": "What does a CSF Tier characterize?",
+        "answer": "The rigor of organizational cybersecurity risk governance and management. It is not a learner competency or certification score.",
+        "conceptRef": {
+          "id": "concept-w8-tier",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-w8-1",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 8 question 1",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A current profile covers one dispatch site. The target covers all four sites, but the report does not identify this change. Which revision best supports a defensible gap comparison?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Use one explicit shared scope, or separately identify the added target scope and its unassessed baseline.",
+            "explanation": "Correct. A comparison must show which systems and people each finding covers; added scope needs its own baseline rather than an inferred result."
+          },
+          {
+            "id": "b",
+            "text": "Average the one-site findings and apply the result to every site.",
+            "explanation": "One site does not demonstrate practices at the others. Averaging cannot repair missing coverage."
+          },
+          {
+            "id": "c",
+            "text": "Keep the scopes implicit because CSF identifiers are the same.",
+            "explanation": "The identifier names an outcome, not the local boundary or coverage of its evidence."
+          },
+          {
+            "id": "d",
+            "text": "Replace current evidence with the approved four-site budget.",
+            "explanation": "A budget supports a plan; it does not demonstrate current achievement at any site."
+          }
+        ],
+        "correctOptionId": "a",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w8-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 8 question 2",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "Which statement best interprets an Organizational Profile and a CSF Tier?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Completing six profile rows certifies the service as compliant.",
+            "explanation": "Row completion is an authoring action. It does not establish legal applicability, compliance or certification."
+          },
+          {
+            "id": "b",
+            "text": "The Tier equals the average capability score of employees who completed the lesson.",
+            "explanation": "Tiers concern organizational risk governance and management, not employee learning scores."
+          },
+          {
+            "id": "c",
+            "text": "The profile describes selected current or desired outcomes in context; a Tier can inform it by characterizing risk governance and management rigor.",
+            "explanation": "Correct. These tools support contextual risk decisions without equating a plan or organizational characterization with individual competence."
+          },
+          {
+            "id": "d",
+            "text": "Every organization must target the highest Tier for every outcome.",
+            "explanation": "Selection depends on risk, objectives and feasibility. A universal highest-Tier prescription is not justified."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-w8-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Assess one bounded current-to-target row",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "finding",
+            "description": "Distinguish evidence from the claim it supports.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats planned or missing evidence as proof of achievement/absence."
+              },
+              {
+                "score": 1,
+                "descriptor": "States the evidence limitation but leaves the current claim or follow-up vague."
+              },
+              {
+                "score": 2,
+                "descriptor": "Labels current achievement unknown for the unobserved coordination, distinguishes a contact list from tested performance, and names missing observations."
+              }
+            ]
+          },
+          {
+            "id": "target",
+            "description": "Set a justified target and test.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No target or evidence test."
+              },
+              {
+                "score": 1,
+                "descriptor": "Proposes a scoped target or test but gives no business reason or follow-up owner/time."
+              },
+              {
+                "score": 2,
+                "descriptor": "States a same-scope target, dispatch-risk reason, acceptance observations and a proposed owner plus follow-up date or interval."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w8-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 8 question 3",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional dispatch scope: application and hosting-support interface; assessment today, horizon 60 days. A current contact list exists, but no joint exercise record was supplied. For ID.IM-02 (learning from tests/exercises, including with suppliers), write one current finding, the missing observation, a same-scope target and its business-risk reason. State acceptance evidence and propose an owner plus follow-up date or interval. Do not infer that an exercise never happened or that the contact list proves coordination.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w8-question-3",
+          "version": 1
+        },
+        "annotatedExample": "Current: coordination performance is unknown from the supplied material; a contact list demonstrates listed contacts, not exercised coordination. Seek dated exercise observations from the service owner within ten days. Target: within 60 days run a dispatch disruption exercise with hosting support and identify improvements, because delayed escalation could prolong lost dispatch capacity. The exercise coordinator owns the action; acceptance is participant confirmation, timed observations, identified improvements and follow-up owners/dates. Annotation: the target and evidence stay within the given interface; neither silence nor planning is counted as a tested result."
+      }
+    },
+    {
+      "id": "rubric-w8-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Assess a two-gap priority decision",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "decision",
+            "description": "Explain priority and an alternative.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Gives an unsupported order or treats one order as universally required."
+              },
+              {
+                "score": 1,
+                "descriptor": "Links an order to dispatch risk but omits the alternative condition or a dependency."
+              },
+              {
+                "score": 2,
+                "descriptor": "Justifies an order using immediate dispatch exposure, names a dependency, and states a plausible changed condition that would justify reversing the order."
+              }
+            ]
+          },
+          {
+            "id": "action",
+            "description": "Make one action reviewable.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No accountable action."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names an owner and activity but lacks timing, acceptance or residual uncertainty."
+              },
+              {
+                "score": 2,
+                "descriptor": "For the first action, proposes one accountable role, deadline/interval and observable acceptance evidence, and states one remaining uncertainty."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w8-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 8 question 4",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional dispatch has two gaps: departed contractors retain administrator permissions, and the emergency hosting-support number is obsolete. No outage is currently reported. You can start one action today. Choose and justify the first action; identify a dependency. Give its accountable role, deadline/interval, acceptance evidence and one remaining uncertainty. State a plausible changed condition that could justify reversing the priority. Either order can earn full credit when its risk reasoning fits explicit assumptions.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w8-question-4",
+          "version": 1
+        },
+        "annotatedExample": "I start permission removal today: retained administration can enable unauthorized dispatch changes now. The identity lead owns it; dependency is a verified departure/account list and authorized change access. By end of day, record revocation and a safe access-denial check for those accounts. Other unreviewed privileges remain uncertain. If an active dispatch outage requires immediate supplier escalation, validating the emergency support route may take priority. Annotation: this justifies a contextual order, gives observable closure evidence, and allows a different defensible choice rather than treating the model order as a key."
+      }
+    },
+    {
+      "id": "rubric-w8-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Assess a bounded executive interpretation",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "interpretation",
+            "description": "Separate organizational description from measured learning and conformance.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Accepts readiness/certification or learner mastery from the profile/Tier."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects the claim but explains only profile or Tier limits."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains that selected profile outcomes need scoped evidence, that Tiers characterize organizational governance/management rigor, and that neither establishes certification or individual applied competency."
+              }
+            ]
+          },
+          {
+            "id": "message",
+            "description": "Write a decision-useful replacement.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Repeats the unsupported score or gives no replacement."
+              },
+              {
+                "score": 1,
+                "descriptor": "Offers a qualified statement but no uncertainty or next evidence check."
+              },
+              {
+                "score": 2,
+                "descriptor": "Replaces the score with a scoped status/decision statement naming a remaining uncertainty and next evidence check."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w8-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 8 question 5",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "format": "open",
+        "prompt": "An executive writes: “We completed six profile rows and selected Tier 3, so the organization and every learner are 75% ready and certified.” In your own words, explain the distinct limits of the profile and Tier, including why neither establishes certification or individual applied competency. Replace the sentence with a useful scoped decision statement that names one uncertainty and the next evidence check. Invent facts only if you label them as assumptions.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w8-question-5",
+          "version": 1
+        },
+        "annotatedExample": "The profile records selected current/desired outcomes within a boundary; completing rows does not demonstrate all outcomes. A Tier characterizes organizational risk governance and management rigor and is not an individual learning score. Neither establishes certification or a universal readiness percentage. Replacement, using fictional assumptions: “For dispatch only, the six-outcome draft identifies permissions and supplier coordination as priorities; supplier exercise performance remains unknown. The service owner will obtain exercise observations within ten days before we update the current finding.” Annotation: this supports a specific decision and preserves uncertainty; it claims no external assurance."
+      }
+    },
+    {
+      "id": "rubric-w8-profile-backlog",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Assess the six-outcome profile and three-gap backlog",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "profile",
+            "description": "Six comparable current/target rows, scoped claims and evidence.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than six usable rows, conflicting scopes, or targets presented as achieved."
+              },
+              {
+                "score": 1,
+                "descriptor": "Six same-scope rows with current evidence/unknowns and desired targets, but some evidence limitations, missing checks or risk reasons are unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Six exact outcome IDs with current practice, evidence date or explicitly unknown date, and limitation/explicit unknown; each has a same-scope target, business-risk reason and acceptance evidence. Each unknown has a proposed evidence owner and follow-up time."
+              }
+            ]
+          },
+          {
+            "id": "backlog",
+            "description": "Three prioritized gaps with accountable delivery.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than three actions or no connection to profile differences."
+              },
+              {
+                "score": 1,
+                "descriptor": "Three linked gaps with owners and an order; some dependencies, resources, timing or acceptance details are missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "Three linked gaps each specify risk-based priority rationale, one accountable role, contributors, dependency or justified none, resources, deadline, acceptance evidence and acceptance reviewer. Distinguishes execution dependencies from importance."
+              }
+            ]
+          },
+          {
+            "id": "judgment",
+            "description": "Bound the decision and reconsider it.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims certification, universal readiness or learner competency, or ignores uncertainty."
+              },
+              {
+                "score": 1,
+                "descriptor": "Explains profile/Tier limits and identifies uncertainty, but omits alternative order or a dated review trigger."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains why profile and Tier are not measured learner competency/certification scores; justifies one alternative priority under a stated changed condition; records one residual uncertainty, who reviews it, and a dated review or earlier event trigger."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w8-profile-backlog",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Six outcomes into a three-gap improvement backlog",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "brief": "Fictional Alder Dispatch needs a decision on the next 90 days of improvement before seasonal demand rises. Both profiles cover its dispatch application, identity administration and one hosting-support interface at one site. Payroll and other sites are excluded. Assess as of 29 October 2026. Unauthorized dispatch changes and prolonged inability to load trucks are the main stated concerns. There is no reported active outage. The operations director can approve ten internal staff-days; hosting support can join one two-hour exercise. These are fictional resource limits, not NIST thresholds.\n\nUse these six selected CSF 2.0 outcomes and supplied evidence. The summaries explain the selected aspect; check the Core for full outcome wording. No supplied item alone establishes full outcome achievement.\n1. GV.RM-02 — risk appetite/tolerance statements. E1: a 20 October draft proposes a maximum dispatch interruption, but approval and communication records were not supplied. Treat the limit as proposed; approved tolerance is unknown.\n2. GV.RM-06 — a shared method for calculating, documenting, categorizing and prioritizing risks. E2: 21 October risk entries use inconsistent impact labels; no common approved method was supplied. This demonstrates inconsistent entries, with the wider method uncertain.\n3. ID.AM-02 — maintained software/service/system inventories managed by the organization. E3: the March inventory omits a scheduling component named in the 25 October deployment record. Coverage is partial; other omissions are unknown.\n4. PR.AA-05 — policy-based, managed/enforced/reviewed permissions using least privilege and separation of duties. E4: the 26 October review identifies two departed contractors retaining dispatch administration. This is a confirmed permissions gap; the sample does not cover every permission.\n5. ID.IM-02 — improvements identified from tests/exercises, including with suppliers. E5: an undated contact list exists, but no joint exercise observations were supplied. Tested coordination and identified improvements are unknown, not proven absent.\n6. ID.IM-04 — established, communicated, maintained and improved incident response/other operational cybersecurity plans. E6: the 27 October contact-plan check finds an obsolete hosting emergency number. This is a confirmed maintenance gap; other plan quality remains unassessed.\n\nYou may make labeled assumptions about roles, effort, target limits or sequencing. Do not invent completed tests, approvals or observed results. Targets need not promise full attainment of every part of the broad outcome within 90 days.",
+        "deliverable": "Produce (1) a scope/date/horizon statement; (2) six rows using the exact IDs above, each with current practice, E1–E6 evidence or explicit unknown, evidence limitation, same-scope desired target, business-risk reason and acceptance evidence; (3) a prioritized backlog of exactly three gaps linked to those rows. For each action state priority rationale, one accountable role, contributors, dependency or justified none, resources within the stated capacity, deadline, acceptance evidence and who judges it. For every current unknown propose an evidence owner and follow-up date/interval, even if it is outside the selected three actions; include its effort in the capacity or explicitly propose approval for extra effort. Explain priority versus execution order. To meet the top anchors also justify one alternative priority under a stated changed condition, identify one residual uncertainty with its review owner, give a dated review or earlier event trigger, and explain why neither a profile nor Tier is a measured learner competency or certification score. There is no required priority order: justified alternatives can receive full credit. Use only fictional evidence; assess with the weekly rubric, separate from question rubrics.",
+        "constraints": [
+          "Keep all current and target rows within the stated scope and retain the assessment date/horizon.",
+          "Use only supplied fictional evidence and explicitly labeled assumptions; never public learner/employer material.",
+          "Use ten internal staff-days and one two-hour supplier exercise as the initial capacity; show deferral or additional approval for work outside it.",
+          "Targets and local acceptance thresholds are proposals, not NIST prescriptions or evidence of completed work.",
+          "Score this artifact only with rubric-w8-profile-backlog; no automatic progress, recall or competency change."
+        ],
+        "rubricRef": {
+          "id": "rubric-w8-profile-backlog",
+          "version": 1
+        },
+        "annotatedExample": "One defensible response, not the only acceptable plan:\nScope: one Alder dispatch site, application/identity/hosting interface; excludes payroll/other sites; current 29 October 2026, target horizon 27 January 2027. Evidence IDs are the supplied fictional records.\nGV.RM-02: E1 is a draft proposal dated 20 October, not approved tolerance. Current approval/communication unknown. Target: operations director agrees, communicates and sets review of an interruption tolerance by day 30, because unresolved limits make escalation and funding choices inconsistent. Acceptance: recorded authorized decision, communication and review date, not the draft alone. Director investigates prior approval within ten days.\nGV.RM-06: E2 (21 October) demonstrates inconsistent labels; wider method unknown. Target: agree and apply a shared method to this dispatch risk set by day 45, enabling comparable prioritization. Acceptance: approved method and reworked entries with assumptions/priority rationale. Risk lead checks existing method records within ten days. This target remains proposed work, subject to capacity approval beyond the initial backlog below.\nID.AM-02: E3 (March list versus 25 October deployment) shows an omitted component; other coverage unknown. Target by day 60: reconcile dispatch software/services/systems, assign maintenance and demonstrate a change update, because omissions weaken access/recovery planning. Acceptance: reconciled list, unresolved differences and test-change update. Service owner investigates coverage within ten days. Implementation effort is deferred pending an estimate; the profile does not claim it funded.\nPR.AA-05: E4 (26 October) confirms retained departed-contractor administration in a limited sample. Target by day 1: remove those rights and verify their denial, addressing immediate unauthorized changes. Acceptance: authorized removal and safe denial checks; further permission/policy review remains necessary before broader achievement claims.\nID.IM-02: E5 supplies an undated contact list but no dated exercise observations; coordination/improvement identification unknown. Target by day 60: exercise a dispatch disruption with support and identify improvements, since delayed coordination can prolong interruption. Acceptance: confirmed participants, timed observations, improvement owners and follow-up dates. Exercise coordinator seeks historical observations within ten days.\nID.IM-04: E6 (27 October) confirms an obsolete emergency number; wider plan quality unknown. Target by day 7: validate the support route, update/distribute the plan and check receipt, because inability to escalate delays dispatch recovery. Acceptance: safe contact-route confirmation, revised plan and recipient acknowledgment. Service owner checks other critical contacts within ten days; wider plan evaluation remains deferred.\nBacklog 1, PR.AA-05: identity lead accountable; HR and dispatch owner contribute; verified departure list and authorized change access are dependencies. One staff-day, end of day 1; operations director accepts removal/denial evidence. First priority addresses presently usable authority.\nBacklog 2, ID.IM-04: service owner accountable; hosting support and dispatch lead contribute. Dependency: supplier confirms the correct escalation route. Two staff-days, day 7; operations director accepts validated route, revised distribution and receipt. This also enables the exercise.\nBacklog 3, ID.IM-02: exercise coordinator accountable; service owner and hosting support contribute. Depends on backlog 2 and supplier scheduling. Three staff-days plus the available two supplier hours, day 60; operations director reviews observations and improvement assignments. Important work can execute later because its coordination prerequisites must exist.\nAllocate the other four of ten staff-days to the explicitly requested evidence checks, including approval/method/coverage enquiries. If those checks cannot fit, seek a revised resource decision rather than imply hidden capacity. The other targets are desired improvements, not approved implementation commitments. New findings may change this backlog.\nAlternative: an active outage needing support could justify validating the contact route before permission removal; document the temporary access exposure. Residual uncertainty: unreviewed permissions may exist. Operations director reviews that uncertainty and the backlog on 12 November 2026, earlier if misuse, outage or evidence of a major inventory omission appears. A profile is a scoped description/plan; Tiers characterize organizational risk governance/management rigor. Neither demonstrates an individual's applied competency or certification. Annotation: six rows distinguish evidence from aspiration; each target has a risk reason and test; three funded actions have owners, dependencies and bounded closure evidence. Alternative priorities and more cautious targets are valid when justified."
+      }
+    },
+    {
+      "id": "mapping-w8-profile-improvement",
+      "version": 1,
+      "kind": "mapping",
+      "title": "Provisional C01 alignment: profile priorities and improvement",
+      "authorIds": [
+        "ai-w8-profiles-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "objectiveIds": [
+        "obj-w8-1",
+        "obj-w8-2"
+      ],
+      "taskIds": [
+        "w8"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w8-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w8-profile-guide",
+          "version": 1
+        },
+        {
+          "id": "source-w8-tier-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original w8 AI draft; unregistered authoring fragment, not a released lesson.",
+      "priorAttemptImpact": "No existing attempt is changed or reassessed; retain every shown revision.",
+      "scheduleImpact": "No existing card enrollment, review event or schedule changes.",
+      "payload": {
+        "frameworkVersionId": "nist-csf-2.0",
+        "targetIds": [
+          "GV.RM",
+          "ID.IM"
+        ],
+        "validFrom": "2024-02-26",
+        "validUntilExclusive": null,
+        "rationale": "Current/target comparison uses business-risk priorities, explicit uncertainty and selected risk-management/improvement outcomes to produce an accountable backlog. The six-row exercise uses specific Core outcomes as a teaching subset.",
+        "limitation": "Preserves C01 w8 category alignment only. No exhaustive category coverage, framework equivalence, measured competency, legal obligation or certification readiness is inferred."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w8-csf-core",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w8-profile-guide",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w8-tier-guide",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w8-csf-profiles",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w8-profile",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w8-evidence-gap",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w8-backlog",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w8-tier",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w8-profile",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w8-evidence-gap",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w8-backlog",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w8-tier",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w8-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w8-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w8-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w8-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w8-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w8-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w8-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w8-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w8-profile-backlog",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w8-profile-backlog",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "mapping-w8-profile-improvement",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
