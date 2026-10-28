@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
 const bundle = require('../content/foundation.v1.json');
-const cards = bundle.records.filter(r => r.kind === 'card');
+const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version));
 const first = cards[0];
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
 async function snapshot(page) {
@@ -20,7 +20,7 @@ async function deck(page) {
 }
 async function enroll(page, all = true) {
   await deck(page);
-  await page.locator(all ? '#todayEnrollAll' : '#enroll-' + first.id + '-1').click(); await ready(page);
+  await page.locator(all ? '#todayEnrollAll' : '#enroll-' + first.id + '-' + first.version).click(); await ready(page);
 }
 async function cap(page, limit) {
   await deck(page); await page.locator('#todayCap').fill(String(limit));
@@ -172,10 +172,10 @@ test('missed days retain overdue priority at zero cap; suspend/archive/restore r
   await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 0 allowed new cards');
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   const before = await snapshot(page); await deck(page);
-  await page.locator('#suspended-' + first.id + '-1').click(); await ready(page);
+  await page.locator('#suspended-' + first.id + '-' + first.version).click(); await ready(page);
   await expect(page.locator('#todayPrompt')).toHaveCount(0);
-  await deck(page); await page.locator('#archived-' + first.id + '-1').click(); await ready(page);
-  await page.locator('#active-' + first.id + '-1').click(); await ready(page);
+  await deck(page); await page.locator('#archived-' + first.id + '-' + first.version).click(); await ready(page);
+  await page.locator('#active-' + first.id + '-' + first.version).click(); await ready(page);
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   const restored = await snapshot(page);
   expect(restored.data.reviewProgress.cards).toEqual(before.data.reviewProgress.cards);
@@ -195,4 +195,28 @@ test('daily cap refreshes at local midnight and newly due reviews appear without
   await page.locator('#todayRefresh').click();
   await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 1 allowed new cards');
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
+});
+
+
+test('bulk enrollment leaves an archived earlier revision unchanged; the newer revision is explicit', async ({ page }) => {
+  const { enrollCard, applyReview, setCardStatus } = await import('../src/reviews.ts');
+  await page.goto('./#today'); await ready(page);
+  const backup = await exported(page), old = { id: first.id, version: first.version - 1 };
+  enrollCard(backup.data, old, '2026-10-28T08:00:00.000Z');
+  applyReview(backup.data, { eventId: 'synthetic-old-review', contentRef: old, rating: 'Good', now: '2026-10-28T08:01:00.000Z' });
+  setCardStatus(backup.data, old, 'archived');
+  const prior = structuredClone(backup.data.reviewProgress);
+  await imported(page, backup); await ready(page); await deck(page);
+  await expect(page.locator('#active-' + old.id + '-' + old.version)).toBeVisible();
+  await page.locator('#todayEnrollAll').click(); await ready(page);
+  const afterBulk = (await snapshot(page)).data.reviewProgress;
+  expect(afterBulk.cards.find(item => item.contentRef.id === old.id)).toEqual(prior.cards[0]);
+  expect(afterBulk.events).toEqual(prior.events);
+  expect(afterBulk.cards.some(item => item.contentRef.id === first.id && item.contentRef.version === first.version)).toBe(false);
+  await expect(page.locator('#enroll-' + first.id + '-' + first.version)).toHaveText('Enroll this revision');
+  await page.locator('#enroll-' + first.id + '-' + first.version).click(); await ready(page);
+  const afterExplicit = (await snapshot(page)).data.reviewProgress;
+  expect(afterExplicit.cards.find(item => item.contentRef.id === old.id && item.contentRef.version === old.version)).toEqual(prior.cards[0]);
+  expect(afterExplicit.events).toEqual(prior.events);
+  expect(afterExplicit.cards.find(item => item.contentRef.id === first.id && item.contentRef.version === first.version).schedule.reps).toBe(0);
 });

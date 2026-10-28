@@ -5,9 +5,11 @@ import { validateContent, effectiveStatus } from '../../scripts/validate-content
 import { loadCurriculum } from '../../scripts/validate-curriculum.mjs';
 
 const bundle = JSON.parse(readFileSync(new URL('../../content/foundation.v1.json', import.meta.url), 'utf8'));
-const lessons = bundle.records.filter(record => record.kind === 'lesson');
-const questions = bundle.records.filter(record => record.kind === 'question');
-const cards = bundle.records.filter(record => record.kind === 'card');
+const latest = new Map();
+for (const record of bundle.records) if (!latest.has(record.id) || latest.get(record.id).version < record.version) latest.set(record.id, record);
+const lessons = [...latest.values()].filter(record => record.kind === 'lesson');
+const questions = [...latest.values()].filter(record => record.kind === 'question');
+const cards = [...latest.values()].filter(record => record.kind === 'card');
 const asOf = '2026-10-28';
 const resolve = reference => bundle.records.find(record => record.id === reference.id && record.version === reference.version);
 
@@ -52,7 +54,8 @@ test('pilot retrieval and questions cover each week across all formats with feed
         const rubric = resolve(question.payload.rubricRef);
         assert.equal(rubric.payload.assessmentProvenance, 'self-assessment');
         assert.ok(rubric.payload.criteria.every(criterion => criterion.levels.length >= 3));
-        assert.ok(question.payload.annotatedExample.includes('Annotation:'));
+        assert.ok(question.payload.annotatedExample.trim().length > 100);
+        assert.ok(question.payload.annotatedExample.includes('\n\n')); // answer and explanation remain separately readable
       }
     }
   }
@@ -116,10 +119,10 @@ test('short response anchors exclude unrelated weekly work while examples retain
     assert.doesNotMatch(JSON.stringify(resolve(question.payload.rubricRef).payload), unrelatedWork, id);
   }
   const example = id => questions.find(record => record.id === id).payload.annotatedExample;
-  assert.match(example('question-w2-3'), /application owner verifies allowed reporting actions and denied former support actions/);
-  assert.match(example('question-w3-3'), /customer session.*scoped API identity.*admin context.*workload identity.*scoped recovery identity/s);
-  assert.match(example('question-w3-5'), /preserves dispatch but can admit a compromised terminal/);
-  assert.match(example('question-w4-4'), /recoverable update’s age at simulated disruption against RPO/);
+  assert.match(example('question-w2-3'), /application owner tests that reporting actions are allowed and former support actions are denied/);
+  assert.match(example('question-w3-3'), /customer session.*API identity.*administrator context.*workload identity.*recovery identity/s);
+  assert.match(example('question-w3-5'), /preserves dispatch.*terminal whose condition has changed could be compromised/s);
+  assert.match(example('question-w4-4'), /At the simulated disruption.*age of the latest recoverable update against the recovery point objective/s);
 });
 
 test('the cross-week executive case preserves targets, separate measurements and criterion-based self-feedback', () => {
