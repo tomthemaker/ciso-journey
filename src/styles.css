@@ -538,3 +538,13 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 .case-body input, .case-body textarea, .case-body select { width: 100%; min-width: 0; max-width: 100%; }
 .case-body select option { white-space: normal; }
 .case-result, .case-example { border-top: 1px solid var(--line); margin-top: 16px; }
+
+.today-controls { border: 1px solid var(--line); padding: 16px; min-width: 0; }
+.today-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-block: 16px; }
+#todayStudy { overflow-wrap: anywhere; }
+#todayStudy p { white-space: pre-wrap; }
+#todayStudy a { color: var(--accent); text-underline-offset: 3px; }
+#todayStudy li { margin-block: 12px; }
+#todayStudy summary { cursor: pointer; padding-block: 8px; }
+#todayStudy input { margin: 10px; max-width: 100px; }
+.today-deck .btn { margin: 4px; }
