@@ -63,6 +63,9 @@ test('complete reading, exact concept/prerequisite navigation and keyboard secti
     await expect(page.getByRole('heading', { name: 'References and source currentness', exact: true })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
+  await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
+  await page.goBack();
+  await expect(page.locator('#readerHeading')).toBeFocused();
   expect((await snapshot(page)).data.readingProgress).toBeUndefined();
 });
 

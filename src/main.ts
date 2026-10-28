@@ -64,6 +64,7 @@ const changed: Change = async edit => {
     if (readingFocused && location.hash === readingHash) document.getElementById("readingComplete")?.focus({ preventScroll: true });
   }
 };
+bindNavigation();
 const renderLessons = bindReader(lessonBundle, lessonObjectives, changed);
 async function load(): Promise<void> {
   if (busy) return;
@@ -86,7 +87,6 @@ function download(content: string, filename: string): void {
   node("a", { href: url, download: filename }).click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-bindNavigation();
 window.addEventListener("hashchange", controls);
 bindHistoryForms(changed);
 byId("phaseFilter", "select").addEventListener("change", () => {
