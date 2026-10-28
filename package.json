@@ -22,5 +22,8 @@
     "typescript": "7.0.2",
     "vite": "8.3.5"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "ts-fsrs": "5.4.2"
+  }
 }

@@ -1,3 +1,4 @@
+import type { ReviewProgress } from "./reviews.ts";
 import type { ScenarioResponses } from "./scenario-responses.ts";
 import type { QuestionAttempts } from "./question-attempts.ts";
 import type { ResourceProgress } from "./resource-progress.ts";
@@ -33,6 +34,7 @@ export interface LearnerState {
   journal: HistoryEntry[];
   achievements: HistoryEntry[];
   readingProgress?: ReadingProgress;
+  reviewProgress?: ReviewProgress;
   questionAttempts?: QuestionAttempts;
   scenarioResponses?: ScenarioResponses;
   resourceProgress?: ResourceProgress;
