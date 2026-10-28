@@ -1,0 +1,1344 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w11-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w11-author",
+      "kind": "ai",
+      "role": "Original w11 security metrics draft author and official-source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w11-sp55-v1",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-55 Volume 1 — Identifying and Selecting Measures",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST); Katherine Schroeder, Hung Trinh and Victoria Yan Pillitteri",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-55v1.pdf",
+        "edition": "NIST SP 800-55v1, December 2024 final; CSRC final history 2024-12-04; supersedes SP 800-55 Rev.1 (2008)",
+        "jurisdiction": "US guidance; voluntary nonfederal adaptation for a fictional organization, not Swiss/EU legal requirements",
+        "publicationDate": "2024-12-04",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official PDF text and CSRC final landing page on 2026-10-29. Title/date, publication history, sections 3.1.1–3.1.5 (printed pp.12–16), 3.2–3.3 (pp.16–18), and 4.1–4.2 (pp.19–20): documentation, reporting, data quality, uncertainty, measure characteristics/types and evaluation. Supports reproducible definitions and contextual interpretation; the four measures, cohorts, deadlines and escalation thresholds are original fictional adaptations, not NIST prescriptions. HTTP/PDF receipts and source-access limits in docs/curriculum/drafts/w11.md. No human educator/legal approval.",
+        "verifierId": "ai-c04-w11-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations and fictional examples; no NIST passages, tables or diagrams reproduced. NIST Technical Series rights notice inspected 2026-10-29: US NIST employee works generally lack US copyright protection; foreign and third-party rights remain distinct. https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications . Attribution does not imply endorsement or independent rights clearance.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w11-sp55-v2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-55 Volume 2 — Developing an Information Security Measurement Program",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST); Katherine Schroeder, Hung Trinh and Victoria Yan Pillitteri",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-55v2.pdf",
+        "edition": "NIST SP 800-55v2, December 2024 final; CSRC final history 2024-12-04; supersedes SP 800-55 Rev.1 (2008)",
+        "jurisdiction": "US guidance; voluntary nonfederal adaptation for a fictional organization, not Swiss/EU legal requirements",
+        "publicationDate": "2024-12-04",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official PDF text and CSRC final landing page on 2026-10-29. Title/date, publication history, sections 2.4 (printed pp.6–9), 2.6 (pp.9–10), 2.7.3 (p.11), and section 3 (pp.12–22): role responsibilities, communication, data management, stakeholder goals, collection/analysis and corrective actions. Supports accountable measurement and decision follow-up; corporate role assignments and decision timings are fictional adaptations, not mandatory NIST rules. HTTP/PDF receipts and source-access limits in docs/curriculum/drafts/w11.md. No human educator/legal approval.",
+        "verifierId": "ai-c04-w11-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations and fictional examples; no NIST passages, tables or diagrams reproduced. NIST Technical Series rights notice inspected 2026-10-29: US NIST employee works generally lack US copyright protection; foreign and third-party rights remain distinct. https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications . Attribution does not imply endorsement or independent rights clearance.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w11-metric-contract",
+      "version": 1,
+      "kind": "concept",
+      "title": "A reproducible measure",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A measure definition fixes the decision purpose, population, formula, unit, numerator and denominator or an explicit reason no ratio applies, time reference, evidence source, accountable owner, cadence, quality checks and action trigger. A displayed value can then be independently recomputed.",
+        "misconception": "A percentage without its population, period and calculation is self-explanatory."
+      }
+    },
+    {
+      "id": "concept-w11-risk-and-performance",
+      "version": 1,
+      "kind": "concept",
+      "title": "Risk indicators and control performance",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A risk indicator tracks a condition relevant to a plausible harmful event. A control performance indicator tracks operation or results of a protective process. The same observation can inform both discussions, but neither alone establishes incident probability or total security.",
+        "misconception": "A high control completion percentage proves that business risk is low."
+      }
+    },
+    {
+      "id": "concept-w11-comparison-validity",
+      "version": 1,
+      "kind": "concept",
+      "title": "Comparable measurements",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A trend supports a comparison only when scope, definitions, units, observation windows and collection methods are understood. Cohort changes and missing observations can change a ratio without any improvement among previously measured items.",
+        "misconception": "A smaller adverse percentage always means fewer exposed assets."
+      }
+    },
+    {
+      "id": "concept-w11-decision-narrative",
+      "version": 1,
+      "kind": "concept",
+      "title": "Evidence to an executive decision",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A scorecard narrative connects observed changes to possible mechanisms, identifies uncertainty, compares an action with an alternative, and requests a decision from an authorized owner with a follow-up date and evidence. A threshold prompts investigation or action; it is not a universal safety boundary.",
+        "misconception": "A green status or one overall score removes the need for judgment."
+      }
+    },
+    {
+      "id": "lesson-w11-executive-scorecard",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Create an executive security scorecard",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Start with a business question",
+            "body": "An executive scorecard is a compact set of measures that helps someone decide what to change. Begin with a service and a harmful event: if the customer portal fails, customers cannot place orders. The week 8 profile identifies a target outcome and its gap; the week 10 register connects a risk scenario to a treatment, owner and review. Bring those artifacts forward. Select observations that could change a treatment decision, rather than listing every number a tool exports. This lesson concerns enterprise security evidence. The app's learner progress view concerns study events; neither dataset measures the other.\n\nNIST SP 800-55 Volume 1, December 2024 final, addresses measure selection and evaluation; Volume 2 addresses a measurement program. Their documentation and analysis guidance informs this lesson. All organizations, numbers, roles and thresholds below are invented. They illustrate a method, not a NIST minimum or a legal obligation."
+          },
+          {
+            "heading": "Define the observation before calculating",
+            "body": "Write a measure definition before drawing its chart. State its purpose, population and exclusions, formula, unit, observation date or window, evidence source, accountable owner, collection/reporting cadence, quality check and decision trigger. For a ratio, define both numerator and denominator and display their counts beside the percentage. For a count or duration, say that no denominator applies and define the counting unit or start/stop events instead. A zero denominator produces “not applicable” or “no observations,” never a perfect score.\n\nA snapshot counts conditions at a stated instant; a period measure counts events in a defined interval. Mixing unresolved items at month end with all items ever opened creates a denominator that drifts for unrelated reasons. Keep unique asset or ticket identifiers, consistent time zones and evidence of exclusions. Preserve the calculation version when a definition changes. Name who can correct the input and who can authorize action: a data collector need not have authority to accept the underlying risk."
+          },
+          {
+            "heading": "Choose a small balanced set",
+            "body": "A risk indicator observes a condition relevant to harm: overdue serious flaws on reachable service hosts suggest an opportunity for compromise. A control performance indicator observes a protective process: verified remediation by the agreed deadline shows whether that process delivered on time. An attacker may exploit a flaw before its deadline; timely work therefore does not establish low overall risk.\n\nImplementation, effectiveness, efficiency and mission impact ask different questions. Installing a logging agent is implementation evidence; successfully detecting a defined synthetic attack tests a narrower outcome. Fast triage says little about undetected events. Use complementary observations and explain their limits. Avoid an unexplained average of unrelated percentages: high backup coverage must not cancel exposed administrator access. Labels such as leading and lagging depend on the event and decision being considered."
+          },
+          {
+            "heading": "Worked executive example 1 · Four reproducible definitions",
+            "body": "Fictional Cedar Services wants reliable portal ordering. Month-end snapshots describe state immediately before 00:00 UTC on the next month’s first day; monthly intervals include 00:00 UTC on day one and exclude that next boundary. The COO owns the service decision; each named measure owner validates inputs and presents exceptions monthly. These are candidate thresholds for COO approval.\n\nM1, a risk indicator: 100 × known internet-reachable portal hosts with at least one internally rated high-severity flaw unremediated more than 14 elapsed days after first verified detection / all known internet-reachable portal hosts, unit percent of hosts. Count each host once. Use reconciled inventory, reachability tests and verified findings at month end. The infrastructure owner checks duplicate identifiers and unknown hosts weekly. Above 10%, request a treatment plan from the COO within five working days; retain exceptions in the numerator.\n\nM2, control performance: 100 × portal remediation tickets independently verified fixed by their original deadline / all portal remediation tickets originally due in the month, unit percent of tickets. Verification staff check ticket timestamps and reopening; the remediation owner reports monthly. Below 90%, ask the COO to resolve capacity or scheduling conflicts within five working days. Moved deadlines remain in the original due cohort; early work for future cohorts is excluded.\n\nM3, recovery performance: 100 × scheduled portal recovery exercises due in the month that meet both agreed recovery-time and recovery-point targets with business acceptance / all such exercises due, unit percent of exercises. The recovery owner reconciles the approved calendar with timestamped exercise and acceptance records monthly. Untested exercises remain due and cannot count as successes. Any failure or missed exercise triggers a COO recovery review within five working days; small samples limit generalization.\n\nM4, observation coverage: 100 × required portal log feeds with a successful ingestion heartbeat in the preceding 24 hours / all required feeds in the approved portal logging inventory, unit percent of feeds at month end. The monitoring owner reconciles that inventory with ingestion records daily and reports monthly. Below 100% triggers same-day investigation. A heartbeat checks ingestion, not attack detection; missing inventory entries remain an uncertainty to investigate."
+          },
+          {
+            "heading": "Worked executive example 2 · Improvement that disappears",
+            "body": "In September, M1 is 10/40 = 25%; in October it is 12/60 = 20%. Discovery added 20 hosts, two overdue. All original 40 hosts remain, still with ten overdue. The percentage fell five percentage points, while the count increased by two and the original cohort did not improve. The new inventory expands visibility; it does not prove that risk increased precisely by 20% or that remediation reduced risk. Unknown hosts may remain.\n\nM2 appears to improve from 18/20 = 90% to 23/25 = 92%. An audit finds that five additional October tickets had their original October deadlines moved to November and were omitted. All 23 reported successes met their original deadlines. Under the stated definition, October is 23/30 = 76.7%, rounded to one decimal place. The displayed improvement resulted from changed counting, while the corrected measure identifies a timeliness problem. It still does not explain its cause.\n\nThe CISO recommends that the COO authorize a two-week remediation pilot for the overdue portal hosts and require the remediation owner to restore original due cohorts within five working days. Deferring the pilot until inventory reconciliation could improve targeting but prolongs known exposure. Keep reconciliation in parallel, review the host counts and original-deadline results after two weeks, and check staffing before expanding the pilot. The limits are incomplete discovery, one corrected month and no verified link between ticket delay and incidents. These observations support action under uncertainty, not a predicted breach rate."
+          },
+          {
+            "heading": "Explain uncertainty without hiding the signal",
+            "body": "Before interpreting a change, ask whether the measuring instrument changed. More alerts can reflect better collection; fewer alerts can reflect a broken feed, changed rules or fewer attacks. Compare ingestion coverage and rule versions before claiming improvement. A mean resolution time can fall when slow unresolved cases are omitted; show the remaining backlog and define which events qualify. Small exercise samples do not justify claims about every possible outage.\n\nCheck duplicates, stale exports, omitted suppliers, changed severity criteria and revised deadlines. Distinguish missing evidence from an observed failure and from an observed success. State which uncertainty could reverse the recommendation and what evidence would reduce it. Do not manufacture confidence intervals without a suitable sampling model. Preserve adverse results and definitions when targets create incentives to relabel or exclude difficult work. A color should point to a documented trigger and owner, not replace the evidence."
+          },
+          {
+            "heading": "Practice · Create an executive security scorecard",
+            "body": "Use the fictional exercise linked below. Define four measures, including a risk indicator and control performance indicator, with enough detail for another analyst to reproduce them. Interpret both supplied changes using counts and percentages; state the effect of revised scope or deadlines. Write a short recommendation with a decision request, authorized owner, alternative, limitations and follow-up date/evidence. Use the exercise rubric to revise your first response. The questions assess smaller pieces of that work. Reading, resource completion, task completion, recall, question attempts and applied self-assessment remain separate. No score here establishes professional readiness or independently reviewed competence."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w8-csf-profiles",
+            "version": 1
+          },
+          {
+            "id": "lesson-w10-risk-register",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 65,
+        "workedExample": "Example 1 defines four portal measures with calculation, population, source, owner, cadence, quality checks and decision triggers. Example 2 separates expanded discovery and changed deadline accounting from genuine improvement, then requests a bounded executive decision.",
+        "misconceptions": [
+          "A falling adverse percentage proves risk fell.",
+          "Fewer alerts prove that the service is safer.",
+          "A completed control or green average establishes overall security or learner readiness.",
+          "Changing a deadline removes a ticket from its original due cohort."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w11-1",
+            "version": 1
+          },
+          {
+            "id": "question-w11-2",
+            "version": 1
+          },
+          {
+            "id": "question-w11-3",
+            "version": 1
+          },
+          {
+            "id": "question-w11-4",
+            "version": 1
+          },
+          {
+            "id": "question-w11-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w11-scorecard",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w11-metric-contract",
+            "version": 1
+          },
+          {
+            "id": "concept-w11-risk-and-performance",
+            "version": 1
+          },
+          {
+            "id": "concept-w11-comparison-validity",
+            "version": 1
+          },
+          {
+            "id": "concept-w11-decision-narrative",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "card-w11-1",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 11 retrieval 1",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "Which fields make a security percentage reproducible?",
+        "answer": "Define purpose, population/exclusions, numerator, denominator, formula/unit, date or window, source, owner, cadence, quality check and decision trigger; display counts and retain the definition version.",
+        "conceptRef": {
+          "id": "concept-w11-metric-contract",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w11-2",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 11 retrieval 2",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "An overdue-exposure percentage falls after discovery adds many hosts. What must you check before claiming remediation worked?",
+        "answer": "Compare numerator and denominator counts, newly added items and the original cohort under the same definition/window. A larger denominator can lower the percentage while exposed hosts increase.",
+        "conceptRef": {
+          "id": "concept-w11-comparison-validity",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w11-3",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 11 retrieval 3",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "How do a risk indicator and control performance indicator differ?",
+        "answer": "One tracks a condition relevant to a harmful event; the other tracks protective process operation/results. Explain their connection and limits. Timely remediation alone does not establish incident probability or total security.",
+        "conceptRef": {
+          "id": "concept-w11-risk-and-performance",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w11-4",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 11 retrieval 4",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "What turns a trend description into an executive recommendation?",
+        "answer": "Connect the observation to a plausible mechanism; state data limitations, the requested decision and authorized owner, an alternative/tradeoff, and follow-up date/evidence. A threshold prompts action, not a safety guarantee.",
+        "conceptRef": {
+          "id": "concept-w11-decision-narrative",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-w11-1",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 11 question 1",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "Which definition best supports a reproducible monthly control performance measure?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Percentage of all security work completed; target green.",
+            "explanation": "Work, completion, denominator and time window are undefined, so the result cannot be reproduced."
+          },
+          {
+            "id": "b",
+            "text": "Tickets closed this month divided by all tickets ever opened.",
+            "explanation": "The numerator is a monthly flow while the denominator accumulates across history; closure also lacks verified remediation."
+          },
+          {
+            "id": "c",
+            "text": "Verified fixes by original deadline divided by all portal tickets originally due in the UTC calendar month; show counts, percent, ticket evidence, remediation owner and monthly cadence; below 90% requests a COO capacity review within five working days.",
+            "explanation": "This pins population, denominator, verification, original deadlines, window, evidence, owner, cadence and an actionable threshold. Audit exclusions and timestamps too."
+          },
+          {
+            "id": "d",
+            "text": "Tickets with a revised future deadline divided by tickets closed this month.",
+            "explanation": "This rewards deadline movement and divides unrelated populations rather than measuring on-time remediation."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w11-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 11 question 2",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A monitoring team reports 40% fewer alerts after changing collection rules. Which conclusion is supported?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "The probability of a breach fell by 40%.",
+            "explanation": "Alert volume is not a breach-probability estimator; the changed collection method confounds this comparison."
+          },
+          {
+            "id": "b",
+            "text": "The count fell; inspect rule versions, ingestion coverage and comparable periods before interpreting attack or control changes.",
+            "explanation": "This preserves the observation and investigates competing causes without turning fewer observations into a safety claim."
+          },
+          {
+            "id": "c",
+            "text": "The team should classify the month as successful because fewer alerts save time.",
+            "explanation": "An apparent workload reduction can reflect lost visibility; useful detection and decision context remain untested."
+          },
+          {
+            "id": "d",
+            "text": "No security decision can ever be made from monitoring data.",
+            "explanation": "Monitoring data can inform decisions when collection, scope and limitations are understood; uncertainty does not make it useless."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-w11-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 3 · discovery comparison",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "arithmetic",
+            "description": "Calculate the two snapshot rates and the original-cohort result.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No correct calculation."
+              },
+              {
+                "score": 1,
+                "descriptor": "Some correct rates but missing original cohort or counts."
+              },
+              {
+                "score": 2,
+                "descriptor": "Shows 8/20 = 40%, 9/30 = 30%, and original cohort 8/20 = 40%; numerator rises by one while percentage falls ten percentage points."
+              }
+            ]
+          },
+          {
+            "id": "interpretation",
+            "description": "Explain what the change supports and request one relevant check.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims remediation success or a breach probability from the ratio."
+              },
+              {
+                "score": 1,
+                "descriptor": "Notes a denominator change but leaves the inference or next check unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains discovery dilution and unchanged original-cohort exposure; requests a concrete inventory/cohort or verification check and avoids total-risk claims."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w11-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 4 · alert narrative",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "inference",
+            "description": "Explain the observed alert change and two limitations.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats the count fall as proof of safety."
+              },
+              {
+                "score": 1,
+                "descriptor": "Correctly limits the claim but provides only one limitation."
+              },
+              {
+                "score": 2,
+                "descriptor": "States alerts halved; explains both lost ingestion coverage and changed rules as competing explanations, without asserting attacker activity fell."
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "description": "Request an authorized action, owner and follow-up evidence/time.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No actionable request."
+              },
+              {
+                "score": 1,
+                "descriptor": "Gives action but omits owner, timing or evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Asks the fictional COO to authorize a monitoring repair/check, assigns monitoring owner, and sets a time with restored-feed and comparable-rule evidence; accepts a justified alternative."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w11-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 5 · one metric definition",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "definition",
+            "description": "Define one portal risk indicator with a reproducible calculation.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No measurable risk condition or denominator."
+              },
+              {
+                "score": 1,
+                "descriptor": "A relevant ratio appears but scope, window, unit or inclusion rules are incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Defines a plausible exposure condition, exact population/exclusions, numerator/denominator, formula/unit, time reference and zero-denominator handling."
+              }
+            ]
+          },
+          {
+            "id": "operation",
+            "description": "Specify evidence, owner, cadence, data-quality check and decision trigger.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No operating details."
+              },
+              {
+                "score": 1,
+                "descriptor": "Some details appear but at least one requested element is missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "Names a concrete source, responsible owner, collection/report cadence, quality check and threshold with action/decision authority; thresholds are justified fictional choices."
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "description": "State one limitation and connect the measure to a decision.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims total risk or incident probability is established."
+              },
+              {
+                "score": 1,
+                "descriptor": "States a generic limitation without its decision relevance."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains a specific limitation and how it affects interpretation or follow-up without claiming overall safety."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w11-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 11 question 3",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Cedar records 8 overdue hosts among 20 known portal hosts in September and 9 among 30 in October. The original 20 still contain the same 8 overdue hosts; all ten added hosts were newly discovered. Calculate both rates and the original-cohort result, explain the change in counts and percentage points, state what can be concluded about remediation, and request one relevant verification check.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w11-question-3",
+          "version": 1
+        },
+        "annotatedExample": "Shows 8/20 = 40% and 9/30 = 30%, a ten-percentage-point fall while overdue hosts rise by one. The original cohort remains 8/20 = 40%; the ratio change comes from newly observed hosts rather than demonstrated remediation in that cohort. Ask the infrastructure owner to reconcile unique host IDs, detection dates and exclusions against the inventory. Annotation: the answer distinguishes observed exposure, visibility and risk; other concrete checks are valid."
+      }
+    },
+    {
+      "id": "question-w11-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 11 question 4",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Cedar alerts fall from 2,000 to 1,000 per UTC calendar month. Fresh ingestion falls from 60/60 required feeds to 30/60; collection rules changed too. Write a four-sentence executive note: explain the observed change, give these two limitations, request an action from the COO with a responsible owner, and specify follow-up time/evidence. Do not estimate breach probability.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w11-question-4",
+          "version": 1
+        },
+        "annotatedExample": "Alerts halved, while fresh-feed coverage fell from 100% to 50%. Lost ingestion and changed rules can reduce observations, so the count does not demonstrate fewer attacks. COO: authorize the monitoring owner to restore missing feeds and preserve both rule versions today. Review feed reconciliation and a replay of the same synthetic events under both rule versions tomorrow before interpreting the trend. Annotation: the requested decision, owner and evidence resolve the two stated limitations; a justified scoped alternative can earn the same anchors."
+      }
+    },
+    {
+      "id": "question-w11-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 11 question 5",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "open",
+        "prompt": "Define one risk indicator for a fictional customer portal: give purpose, population/exclusions, numerator, denominator, formula/unit, time reference, zero-denominator handling, source, owner, collection/report cadence, data-quality check, and a threshold with requested action and decision authority. State one specific limitation and its decision relevance. Use invented data only; a defensible different exposure condition is acceptable.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w11-question-5",
+          "version": 1
+        },
+        "annotatedExample": "Purpose: prioritize prolonged reachable exposure. At the month-end boundary defined in the reading, count each known internet-reachable portal host once; exclude decommissioned hosts only with retained evidence. Numerator is hosts with a verified high-severity flaw older than 14 days; denominator is all known reachable portal hosts. Report 100 × numerator/denominator, percent plus counts; zero hosts gives no observations, not zero risk. Infrastructure owner reconciles inventory/reachability and verified finding exports weekly, checks duplicates and stale records, and reports monthly. Above a proposed 10%, request a COO treatment decision within five working days. Unknown hosts limit coverage, so discovery reconciliation runs alongside remediation. Annotation: 14 days and 10% are illustrative choices requiring organizational justification, not NIST requirements."
+      }
+    },
+    {
+      "id": "rubric-w11-scorecard",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Executive scorecard exercise rubric",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "four-definitions",
+            "description": "Provide four reproducible measures including a risk indicator and control performance indicator.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than four measures or no clear risk/performance distinction."
+              },
+              {
+                "score": 1,
+                "descriptor": "Four relevant measures, but type distinction or formula/population/time details are incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "All four state purpose/type, population/exclusions, formula, numerator/denominator or justified non-ratio unit, time/window and zero-observation treatment; risk and control performance are distinguished."
+              }
+            ]
+          },
+          {
+            "id": "operation",
+            "description": "Make every measure usable for accountable decisions.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Definitions lack sources and operating responsibilities."
+              },
+              {
+                "score": 1,
+                "descriptor": "Some source, owner, cadence, quality or trigger fields are missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "Each measure names source, owner, collection/report cadence, quality checks and a justified fictional threshold/action with authorized decision owner; sample/coverage limits are explicit."
+              }
+            ]
+          },
+          {
+            "id": "two-changes",
+            "description": "Calculate and interpret both supplied changes using comparable definitions.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims improvement from the displayed percentages alone."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognizes a measurement change but omits a rate, cohort correction or limitation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Shows exposure 10/40=25% to 12/60=20%, original cohort unchanged; shows apparent timely fixes 18/20=90% to 23/25=92%, corrected 23/30=76.7%; distinguishes counting/visibility from changed underlying exposure and causal evidence."
+              }
+            ]
+          },
+          {
+            "id": "recommendation",
+            "description": "Request a decision with ownership, uncertainty, alternative and follow-up.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No decision request or unjustified certainty."
+              },
+              {
+                "score": 1,
+                "descriptor": "A relevant recommendation lacks a requested decision, authorized owner, specific limitation, alternative/tradeoff or follow-up."
+              },
+              {
+                "score": 2,
+                "descriptor": "Requests a bounded action from the COO, assigns implementing owner, states specific limits, compares a plausible alternative/tradeoff, and sets follow-up time/evidence without predicting readiness or total safety."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w11-scorecard",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Cedar Services · a decision from four measures",
+      "authorIds": [
+        "ai-c04-w11-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w11-sp55-v1",
+          "version": 1
+        },
+        {
+          "id": "source-w11-sp55-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w11 AI-authored draft; no historical revision or publication state changed.",
+      "priorAttemptImpact": "New ID; preserve exact versions for any future attempts. Do not retarget or regrade historical attempts.",
+      "scheduleImpact": "No existing schedule changes; retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "brief": "Fictional Cedar Services runs a customer order portal. The COO can authorize treatment priorities and a two-week pilot; infrastructure, remediation, recovery and monitoring owners can supply evidence. All counts below are synthetic. September/October month-end known reachable hosts: 40/60; overdue high-severity hosts older than 14 days: 10/12. October discovery added 20 hosts including two overdue; the original 40 still contain ten overdue. Originally reported on-time remediation: September 18/20; October 23/25. Five further October-due tickets were excluded after moving their deadlines to November; all 23 reported successes met original deadlines. October scheduled recovery exercises: four due, three met both agreed RTO/RPO with acceptance, one untested. October required log feeds: ten, nine with a successful preceding-24h ingestion heartbeat. No incident frequency, loss estimate or complete inventory assurance is available.",
+        "deliverable": "Create a one-page executive scorecard plus a short decision narrative. Define four measures, including a risk indicator and a control performance indicator: purpose/type, population/exclusions, formula, numerator/denominator or justified non-ratio unit, time/window, zero-observation handling, evidence source, owner, collection/report cadence, quality check and threshold/action with decision authority. You may adapt the four lesson measures or justify alternatives; retain enough definitions to interpret the supplied host and remediation series. Calculate and interpret both series and the original host cohort/deadline correction, showing counts, percentages and data limitations. Request one bounded COO decision, assign its implementing owner, compare an alternative/tradeoff, and set follow-up time/evidence. State why the exercise/heartbeat results do not establish total safety. Use rubric-w11-scorecard@1 for criterion feedback; there is no aggregate pass/readiness percentage.",
+        "constraints": [
+          "Use fictional data and explicitly label proposed thresholds/assumptions; no employer evidence, real backups, credentials, production access or destructive tests.",
+          "Use UTC calendar month intervals and month-end snapshots immediately before the next month starts as defined in the reading; retained original deadlines determine due cohorts.",
+          "A missed exercise is not a success; a heartbeat tests ingestion only. Do not infer incident probability, legal compliance, certification or learner readiness.",
+          "Resource completion, task completion, recall, question attempts and rubric self-assessment remain separate; AI drafting and agent task review do not supply independent educator/legal approval."
+        ],
+        "rubricRef": {
+          "id": "rubric-w11-scorecard",
+          "version": 1
+        },
+        "annotatedExample": "One defensible scorecard uses the four lesson measures. All ratios are multiplied by 100 and reported as percentages with counts; zero denominator means no observations. Snapshots are immediately before the next UTC month starts; due cohorts use the UTC calendar month. These are proposed thresholds for COO approval, not external standards.\n\nM1 purpose: prioritize prolonged reachable exposure (risk indicator). Count each known reachable portal host once; retain accepted exceptions. Numerator: hosts with a verified internally high-severity flaw older than 14 elapsed days after first detection. Denominator: all known reachable portal hosts. Source: reconciled inventory, reachability tests and finding records. Infrastructure owner checks duplicate IDs, discovery gaps and dates weekly; reports monthly. Above 10%, request a COO treatment plan within five working days. October 12/60 = 20%; unknown hosts limit coverage.\n\nM2 purpose: assess remediation timeliness (control performance). Numerator: portal tickets verified fixed by their original deadline. Denominator: all portal tickets originally due this month, including moved deadlines; exclude future due cohorts. Source: retained ticket history and verification timestamps. Remediation owner checks reopening and original dates at monthly reporting; verification staff check every proposed success. Below 90%, request a COO capacity/scheduling review within five working days. October corrected 23/30 = 76.7%; timeliness does not prove that all exposure was removed.\n\nM3 purpose: test scoped recovery performance. Numerator: due portal exercises meeting both agreed recovery-time and recovery-point targets with business acceptance. Denominator: all exercises due this month, including untested ones. Source: approved calendar, timestamps and acceptance records. Recovery owner reconciles them monthly and requests COO review within five working days after any failure or missed exercise. October 3/4 = 75%; the sample cannot establish recovery under every disruption.\n\nM4 purpose: track observation coverage. Numerator: required portal feeds with an ingestion heartbeat in the preceding 24 hours. Denominator: all feeds in the approved portal logging inventory at month end. Source: inventory and ingestion records. Monitoring owner reconciles inventory daily, checks stale/missing feeds, reports monthly and investigates below 100% the same day. October 9/10 = 90%; heartbeats test ingestion rather than attack detection, and undocumented required feeds may still be missing.\n\nM1 fell from 10/40 = 25% to 12/60 = 20% because discovery changed scope; the original cohort remains 10/40 = 25%, while known overdue hosts increased. Apparent M2 improvement from 18/20 = 90% to 23/25 = 92% disappears when five moved tickets remain due: 23/30 = 76.7%. These observations do not estimate incident probability or establish why work was delayed.\n\nRequest COO authorization for a two-week overdue-host remediation pilot with infrastructure owner delivery; remediation owner repairs original-deadline reporting within five working days. Waiting for complete discovery could improve targeting but prolongs known exposure; reconcile discovery in parallel. Revisit original-cohort counts, verified fixes and unchanged-deadline results after two weeks, checking staffing before expansion. Missing inventory assurance and one corrected month limit generalization. Annotation: this model supplies every requested definition and the two trend interpretations; different justified measures/priorities can meet the rubric. The results support a bounded decision, not total safety or learner readiness."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w11-sp55-v1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w11-sp55-v2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w11-metric-contract",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w11-risk-and-performance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w11-comparison-validity",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w11-decision-narrative",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w11-executive-scorecard",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w11-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w11-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w11-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w11-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w11-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w11-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w11-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w11-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w11-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w11-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w11-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w11-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w11-scorecard",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w11-scorecard",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
