@@ -6091,7 +6091,7 @@
           "id": "rubric-w4-question-3",
           "version": 2
         },
-        "annotatedExample": "The fictional delivery addresses are restricted because unnecessary disclosure could harm customers. The data owner approves only the records needed by the courier, and the application owner limits export permissions. The storage and transfer owners protect stored copies and the approved transfer channel. The key custodian controls decryption access and tests recovery through the supported process.\n\nAn authorised application can still decrypt the data, and an authorised user can send plaintext to the wrong recipient. The classification must therefore lead to handling rules; encryption does not decide who may export the data or receive it."
+        "annotatedExample": "The fictional delivery addresses are restricted because unnecessary disclosure could harm customers. The data owner approves only the records needed by the courier, and the application owner limits export permissions. The storage owner encrypts stored copies, and the transfer owner protects the approved transfer channel with encryption. The key custodian controls decryption access and tests recovery through the supported process.\n\nAn authorised application can still decrypt the data, and an authorised user can send plaintext to the wrong recipient. The classification must therefore lead to handling rules; encryption does not decide who may export the data or receive it."
       }
     },
     {
