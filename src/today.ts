@@ -21,7 +21,8 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
   const root = byId('todayStudy', 'div'), actions = createReviewActions(change);
   let state: LearnerState | undefined, presentation: Presentation | undefined, pending = false, message = '', capDraft: string | undefined;
   function provenance(parent: HTMLElement, record: ContentRecord): void {
-    parent.append(node('p', { class: 'warn' }, `${effectiveStatus(bundle, record, new Date().toISOString().slice(0, 10))} · ${contentKey(record)} · Authored ${record.authoredAt} by ${record.authorIds.join(', ')}. No independent educator or legal approval is claimed.`));
+    parent.append(node('p', { class: 'content-status' }, `${effectiveStatus(bundle, record, new Date().toISOString().slice(0, 10))} · No independent educator or legal approval is claimed.`));
+    const details = node('details'); details.append(node('summary', {}, 'Authorship and revision'), node('p', { class: 'side-note' }, `${contentKey(record)} · Authored ${record.authoredAt} by ${record.authorIds.join(', ')}.`)); parent.append(details);
   }
   async function mutate(edit: (candidate: LearnerState) => void): Promise<void> {
     if (pending) return;
@@ -48,14 +49,17 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
   }
   function render(): void {
     const focusId = root.contains(document.activeElement) ? document.activeElement?.id : undefined;
-    const deckWasOpen = root.querySelector<HTMLDetailsElement>('#todayDeck')?.open ?? false;
+    const openDetails = new Set(Array.from(root.querySelectorAll<HTMLDetailsElement>('details[open][id]')).map(item => item.id));
+    const deckWasOpen = openDetails.has('todayDeck');
     root.replaceChildren();
-    const intro = node('div', { class: 'card' });
-    intro.append(node('h2', {}, 'Today'), node('p', {}, 'Start with due recall, then read an original lesson, try a question and optionally apply it in a case. Stop when you need to; missed days keep overdue work. Paid resources are optional.'));
+    const intro = node('div', { class: 'today-intro' });
+    intro.append(node('h2', {}, 'Today'), node('p', {}, 'Review what is due, then continue reading or choose an open task.'));
     root.append(intro);
     if (!state) { intro.append(node('p', {}, 'Load or recover saved progress to study.')); return; }
     const now = new Date().toISOString(), plan = todayPlan(bundle, state, now);
-    intro.append(node('p', { id: 'todayTime' }, `Rough plan: ${plan.reviewMinutes + plan.readingMinutes + plan.questionMinutes} minutes = ${plan.reviewMinutes} queued cards × 1 minute + ${plan.readingMinutes} minutes unread lesson + ${plan.questionMinutes} minutes one question. Optional case: about ${plan.caseMinutes} minutes. These are planning assumptions, excluding retries, pauses and optional resources; no mastery or readiness prediction.`));
+    const progressDetails = node('details', { id: 'todayProgress', class: 'study-details' });
+    progressDetails.append(node('summary', {}, 'Progress signals and study estimates'));
+    progressDetails.append(node('p', { id: 'todayTime' }, `Rough plan: ${plan.reviewMinutes + plan.readingMinutes + plan.questionMinutes} minutes = ${plan.reviewMinutes} queued cards × 1 minute + ${plan.readingMinutes} minutes unread lesson + ${plan.questionMinutes} minutes one question. Optional case: about ${plan.caseMinutes} minutes. These are planning assumptions, excluding retries, pauses and optional resources; no mastery or readiness prediction.`));
     const signals = node('ul', { id: 'todaySignals' });
     const reviews = state.reviewProgress?.events ?? [];
     for (const text of [
@@ -66,10 +70,11 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
       `Questions: ${state.questionAttempts?.attempts.length ?? 0} attempts; ${state.questionAttempts?.selfAssessments.length ?? 0} rubric self-assessments.`,
       `Applied assessment: ${state.scenarioResponses?.responses.length ?? 0} case responses; ${state.scenarioResponses?.selfAssessments.length ?? 0} case rubric self-assessments.`,
     ]) signals.append(node('li', {}, text));
-    intro.append(signals, node('p', { class: 'side-note' }, 'Participation, observed recall ratings, question attempts and applied self-assessment are separate signals. The six legacy self-ratings remain in Competencies. No completion implies competency.'));
-    const study = node('section', { class: 'card', 'aria-labelledby': 'todayQueueHeading' });
-    const h = node('h2', { id: 'todayQueueHeading', tabindex: '-1' }, '1 · Recall first');
+    progressDetails.append(signals, node('p', { class: 'side-note' }, 'Participation, observed recall ratings, question attempts and applied self-assessment are separate signals. The six legacy self-ratings remain in Competencies. No completion implies competency.'));
+    const study = node('section', { class: 'today-section', 'aria-labelledby': 'todayQueueHeading' });
+    const h = node('h2', { id: 'todayQueueHeading', tabindex: '-1' }, `Due reviews (${plan.due.length})`);
     study.append(h, node('p', { id: 'todayQueue' }, `${plan.queue.due.length} due or overdue reviews before ${plan.queue.newCards.length} allowed new cards. ${plan.queue.remainingNew} new introductions remaining today in ${Intl.DateTimeFormat().resolvedOptions().timeZone}.`));
+    if (plan.unavailable) study.append(node('p', { class: 'side-note' }, `${plan.due.length} available due or overdue; ${plan.newCards.length} available new cards. Counts above also retain unavailable exact revisions.`));
     study.append(node('p', { id: 'todayMessage', role: 'status' }, message));
     root.append(study);
     const eligible = [...plan.due, ...plan.newCards];
@@ -87,7 +92,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
       const scheduled = eligible.find(item => contentKey(item.contentRef) === contentKey(card))!;
       controls.append(node('p', {}, `${scheduled.schedule.reps ? 'Due review' : 'New card'} · Due ${new Date(scheduled.schedule.due).toLocaleString()}`));
       if (!presentation.revealed) {
-        controls.append(button('todayReveal', 'Reveal answer', () => { presentation!.revealed = true; render(); root.querySelector<HTMLElement>('#todayAnswer')?.focus(); }));
+        const reveal = button('todayReveal', 'Reveal answer', () => { presentation!.revealed = true; render(); root.querySelector<HTMLElement>('#todayAnswer')?.focus(); }); reveal.classList.add('primary'); controls.append(reveal);
       } else {
         controls.append(node('p', { id: 'todayAnswer', tabindex: '-1' }, String(card.payload.answer)));
         const ratings = node('div', { class: 'today-actions' });
@@ -110,21 +115,43 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
         }
         controls.append(refs);
       }
-    } else controls.append(node('p', {}, 'No available cards due now. Enroll cards below, or continue with the lesson. Future reviews return at their due time; no overdue history is erased.'));
+    } else controls.append(node('p', {}, 'No available cards due now. Continue reading or enroll cards in settings. Future reviews return when due.'));
     if (plan.unavailable) study.append(node('p', { class: 'warn' }, `${plan.unavailable} eligible exact card revisions are unavailable in this bundle. History and due dates are retained. Manage them below; no newer answer is substituted.`));
     study.append(button('todayRefresh', 'Refresh due queue', () => render()));
-    const next = node('section', { class: 'card' });
-    next.append(node('h2', {}, '2 · Read, question, apply'));
-    const links = node('ol');
+    const unread = latestRecords(bundle, 'lesson').filter(record => !isRead(state, record));
+    const openTasks = phases.flatMap(phase => phase.tasks).filter(([id]) => !state!.completed[id]);
+    const reading = node('section', { class: 'today-section', id: 'todayReading' });
+    reading.append(node('h2', {}, `Unfinished reading (${unread.length})`));
+    const readingList = node('ul', { class: 'worklist' });
+    for (const [index, record] of unread.entries()) {
+      const li = node('li');
+      li.append(node('a', { href: contentHash(record), class: !card && index === 0 ? 'btn primary' : '' }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
+      readingList.append(li);
+    }
+    reading.append(unread.length ? readingList : node('p', {}, 'All current lesson revisions are marked read.'), node('p', { class: 'side-note' }, 'Draft lessons are provisional. Reading completion records participation, not mastery.'));
+    root.append(reading);
+    const tasks = node('section', { class: 'today-section', id: 'todayTasks' });
+    tasks.append(node('h2', {}, `Open tasks (${openTasks.length} of 37)`), node('p', { class: 'side-note' }, 'Incomplete roadmap tasks; these have no assigned due date.'));
+    if (openTasks.length) {
+      if (!card && !unread.length) tasks.append(node('a', { href: `#roadmap/${openTasks[0][0]}`, class: 'btn primary' }, 'Continue with an open task'));
+      const taskDetails = node('details', { id: 'todayOpenTasks' }); taskDetails.append(node('summary', {}, `Show all ${openTasks.length} open tasks`));
+      const taskList = node('ul', { class: 'worklist' });
+      for (const [id, title] of openTasks) { const li = node('li'); li.append(node('a', { href: `#roadmap/${id}` }, title)); taskList.append(li); }
+      taskDetails.append(taskList); tasks.append(taskDetails);
+    } else tasks.append(node('p', {}, 'All 37 roadmap tasks are marked complete.'));
+    if (!card && !unread.length && !openTasks.length) tasks.append(node('p', {}, 'No available reviews, unread lessons or open tasks right now. Future reviews return when due.'));
+    root.append(tasks);
+    const next = node('section', { class: 'today-section' });
+    next.append(node('h2', {}, 'More study'));
+    const links = node('ul', { class: 'worklist' });
     for (const [record, label, href] of [
       [plan.lesson, 'Original lesson', plan.lesson ? contentHash(plan.lesson) : ''],
       [plan.question, 'Related question', plan.question ? questionHash(plan.question) : ''],
       [plan.scenario, 'Optional executive case', plan.scenario ? caseHash(plan.scenario) : ''],
     ] as const) if (record) {
-      const li = node('li'); li.append(node('a', { href }, `${label}: ${record.title} · v${record.version}`)); provenance(li, record); links.append(li);
+      const li = node('li'); li.append(node('a', { href }, `${label}: ${record.title} · v${record.version}`), node('span', { class: 'side-note' }, ` · ${effectiveStatus(bundle, record, now.slice(0, 10))}`)); links.append(li);
     }
-    next.append(links, node('a', { href: '#roadmap' }, 'Task progress and optional resource tracking'), node('p', { class: 'side-note' }, 'Return to Today using its tab. Links and progress stay local; export a full backup to carry all five learning namespaces to another browser.'));
-    root.append(next);
+    next.append(links); root.append(next, progressDetails);
     const settings = node('details', { class: 'card', id: 'todayDeck' }); settings.open = deckWasOpen;
     settings.append(node('summary', {}, 'Manage cards and daily new-card limit'));
     const deck = node('fieldset', { class: 'today-controls' }); deck.disabled = pending; deck.dataset.pending = String(pending);
@@ -155,6 +182,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
       list.append(li);
     }
     deck.append(list); root.append(settings);
+    for (const id of openDetails) { const details = document.getElementById(id); if (details instanceof HTMLDetailsElement) details.open = true; }
     if (focusId?.startsWith('today') || focusId?.includes('-card-')) {
       settings.open ||= focusId.startsWith('todayCap') || focusId.startsWith('todayEnroll') || focusId.includes('-card-');
       document.getElementById(focusId)?.focus({ preventScroll: true });

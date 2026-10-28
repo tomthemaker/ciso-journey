@@ -126,7 +126,7 @@ test('aborted writes keep drafts and hide feedback until retry commits; imported
   await expect(page.locator('#questionHeading')).toHaveText('Revision unavailable');
   await page.goto('./#lessons/' + bundle.records.find(r => r.kind === 'lesson').id + '/1');
   const link = page.getByRole('link', { name: 'Attempt this question' }).first();
-  await page.locator('.lesson-body details summary').first().click();
+  await page.locator('.practice-preview summary').first().click();
   await link.click();
   await expect(page.locator('#questionHeading')).toBeFocused();
 });
