@@ -494,3 +494,10 @@ textarea {
     box-shadow: none;
   }
 }
+
+.storage-panel { margin-bottom: 20px; }
+.storage-panel p { overflow-wrap: anywhere; }
+body[data-storage-blocked="true"] .hero,
+body[data-storage-blocked="true"] .tabs,
+body[data-storage-blocked="true"] .view { display: none !important; }
+@media print { .storage-panel { display: none; } }

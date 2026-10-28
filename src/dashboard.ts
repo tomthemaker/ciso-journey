@@ -1,6 +1,6 @@
 import { competencies, phases, resources } from "./data";
 import { byId, node } from "./dom";
-import type { LearnerState } from "./types";
+import type { Change, LearnerState } from "./types";
 
 export function renderStats(state: LearnerState): void {
   const tasks = phases.flatMap((phase) => phase.tasks);
@@ -23,7 +23,7 @@ export function renderStats(state: LearnerState): void {
     ).toFixed(1) + "/4";
 }
 
-export function renderScores(state: LearnerState, changed: () => void): void {
+export function renderScores(state: LearnerState, changed: Change): void {
   const root = byId("scores", "div");
   root.replaceChildren();
   for (const [name] of competencies) {
@@ -34,8 +34,8 @@ export function renderScores(state: LearnerState, changed: () => void): void {
       select.append(node("option", { value: String(i) }, i + "/4"));
     select.value = String(state.scores[name]);
     select.addEventListener("change", () => {
-      state.scores[name] = Number(select.value);
-      changed();
+      const score = Number(select.value);
+      void changed(candidate => { candidate.scores[name] = score; });
     });
     row.append(label, select);
     root.append(row);

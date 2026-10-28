@@ -1,5 +1,5 @@
-import { empty } from "./storage.ts";
-import type { HistoryEntry, LearnerState, V1Backup } from "./types.ts";
+import { empty } from "./state.ts";
+import type { HistoryEntry, LearnerState, Backup } from "./types.ts";
 
 function record(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === "object" && !Array.isArray(value);
@@ -49,13 +49,17 @@ export function validateBackup(backup: unknown): LearnerState {
   if (
     !record(backup) ||
     backup.app !== "CISO Journey" ||
-    backup.version !== 1
+    (backup.version !== 1 && backup.version !== 2)
   ) {
     throw new Error(
-      "Unsupported backup. Choose a CISO Journey version 1 backup.",
+      "Unsupported backup. Choose a CISO Journey version 1 or 2 backup.",
     );
   }
-  const data = backup.data;
+  return validateState(backup.data);
+}
+
+/** Shared validation for imports, stored snapshots and migration. */
+export function validateState(data: unknown): LearnerState {
   if (
     !record(data) ||
     !record(data.completed) ||
@@ -93,10 +97,10 @@ export function validateBackup(backup: unknown): LearnerState {
   };
 }
 
-export function createBackup(state: LearnerState): V1Backup {
+export function createBackup(state: LearnerState): Backup {
   return {
     app: "CISO Journey",
-    version: 1,
+    version: 2,
     exportedAt: new Date().toISOString(),
     data: state,
   };

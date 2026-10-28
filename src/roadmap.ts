@@ -1,8 +1,8 @@
 import { phases, taskLearningResources } from "./data";
 import { byId, node } from "./dom";
-import type { LearnerState } from "./types";
+import type { Change, LearnerState } from "./types";
 
-export function renderRoadmap(state: LearnerState, changed: () => void) {
+export function renderRoadmap(state: LearnerState, changed: Change) {
   const root = byId("phaseList", "div");
   root.replaceChildren();
   const onlyIncomplete = byId("phaseFilter", "select").value === "incomplete";
@@ -38,9 +38,8 @@ export function renderRoadmap(state: LearnerState, changed: () => void) {
         check = node("input", { type: "checkbox" });
       check.checked = !!state.completed[task[0]];
       check.addEventListener("change", () => {
-        state.completed[task[0]] = check.checked;
-        changed();
-        renderRoadmap(state, changed);
+        const completed = check.checked;
+        void changed(candidate => { candidate.completed[task[0]] = completed; });
       });
       const label = node("span", {}, task[1]);
       label.append(node("small", {}, task[2]));

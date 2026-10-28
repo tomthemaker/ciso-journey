@@ -1,10 +1,10 @@
 import { byId, node } from "./dom";
-import type { HistoryKind, LearnerState } from "./types";
+import type { Change, HistoryKind, LearnerState } from "./types";
 
 export function renderEntries(
   state: LearnerState,
   kind: HistoryKind,
-  changed: () => void,
+  changed: Change,
 ): void {
   const root = byId(
     kind === "journal" ? "journalList" : "achievementList",
@@ -29,9 +29,7 @@ export function renderEntries(
     const del = node("button", { type: "button" }, "Delete");
     del.addEventListener("click", () => {
       if (confirm("Delete this entry?")) {
-        state[kind] = state[kind].filter((value) => value.id !== entry.id);
-        changed();
-        renderEntries(state, kind, changed);
+        void changed(candidate => { candidate[kind] = candidate[kind].filter((value) => value.id !== entry.id); });
       }
     });
     item.append(
@@ -51,8 +49,7 @@ function makeId(): string {
 }
 
 export function bindHistoryForms(
-  getState: () => LearnerState,
-  changed: () => void,
+  changed: Change,
 ): void {
   const today = new Date().toLocaleDateString("en-CA");
   const forms = [
@@ -75,19 +72,18 @@ export function bindHistoryForms(
     const form = byId(fields.form, "form");
     const date = byId(fields.date, "input");
     date.value = today;
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const state = getState();
-      state[fields.kind].push({
+      const entry = {
         id: makeId(),
         date: date.value,
         title: byId(fields.title, "input").value.trim(),
         body: byId(fields.body, "textarea").value.trim(),
-      });
-      changed();
-      form.reset();
-      date.value = today;
-      renderEntries(state, fields.kind, changed);
+      };
+      if (await changed(candidate => { candidate[fields.kind].push(entry); })) {
+        form.reset();
+        date.value = today;
+      }
     });
   }
 }
