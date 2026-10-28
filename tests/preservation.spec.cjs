@@ -62,20 +62,20 @@ test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work'
   await expect(page.locator('.phase h3')).toHaveText(inventory.phases.map(phase => phase.name));
   await expect(page.locator('.task > span')).toHaveText(tasks.map(task => task[1] + task[2]));
   const renderedResources = await page.locator('.task-block').evaluateAll(blocks => blocks.map(block => ({
-    focus: block.querySelector('details p').textContent,
-    links: [...block.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target, a.rel])
+    focus: [...block.querySelectorAll('details p')].find(p => p.textContent.startsWith('Study focus: ')).textContent,
+    links: [...block.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target, a.rel]).sort((a, b) => a[0].localeCompare(b[0]))
   })));
   expect(renderedResources).toEqual(tasks.map(([id]) => {
     const resource = inventory.taskLearningResources[id];
     const urls = [resource.linkedinUrl, 'https://www.linkedin.com/learning/search?keywords=' + encodeURIComponent(resource.searchTerms), resource.officialUrl, 'https://www.coursera.org/search?query=' + encodeURIComponent(resource.searchTerms)];
     if (/^p[23]/.test(id)) urls.push('https://www.coursera.org/learn/cybersecurity-governance-compliance');
-    return { focus: 'Study focus: ' + resource.focus, links: urls.map(url => [url, '_blank', 'noopener noreferrer']) };
+    return { focus: 'Study focus: ' + resource.focus, links: urls.map(url => [url, '_blank', 'noopener noreferrer']).sort((a, b) => a[0].localeCompare(b[0])) };
   }));
   const disclosure = page.locator('.task-block').first();
-  await disclosure.locator('summary').click();
-  await expect(disclosure.locator('details')).toHaveAttribute('open', '');
-  await disclosure.locator('summary').click();
-  await expect(disclosure.locator('details')).not.toHaveAttribute('open');
+  await disclosure.locator('.task-resources > summary').click();
+  await expect(disclosure.locator('.task-resources')).toHaveAttribute('open', '');
+  await disclosure.locator('.task-resources > summary').click();
+  await expect(disclosure.locator('.task-resources')).not.toHaveAttribute('open');
   await page.getByRole('button', { name: 'Competencies', exact: true }).click();
   for (const [name, value] of inventory.competencies) await expect(page.getByRole('combobox', { name: 'Rating for ' + name })).toHaveValue(String(value));
   await page.getByRole('button', { name: 'Resources', exact: true }).click();
@@ -89,7 +89,8 @@ test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work'
   await expect(page.locator('#overallText')).toHaveText('100% (37/37)');
   await expect(page.locator('.phase .progress-label span:first-child')).toHaveText(['12 of 12 tasks', ...Array(5).fill('5 of 5 tasks')]);
   await page.locator('#phaseFilter').selectOption('incomplete');
-  await expect(page.locator('#phaseList')).toHaveText('All roadmap tasks completed. Excellent work!');
+  await expect(page.locator('#phaseList .empty')).toHaveText('All roadmap tasks completed. Excellent work!');
+  await expect(page.locator('#phaseList .task')).toHaveCount(0);
   await page.reload();
   await expect(page.locator('.task input:checked')).toHaveCount(37);
   // Keyboard interaction also preserves an explicit false value.
