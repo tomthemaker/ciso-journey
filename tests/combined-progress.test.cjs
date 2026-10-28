@@ -3,11 +3,12 @@ const assert = require('node:assert/strict');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const bundle = require('../content/foundation.v1.json');
 
-test('combined reading/resource/question/review backup retains independent histories and validates every namespace', async () => {
+test('combined reading/resource/question/case/review backup retains independent histories and validates every namespace', async () => {
   const { validateBackup, createBackup } = await import('../src/backup.ts');
   const { setRead } = await import('../src/reading-progress.ts');
   const { saveResourceProgress, editResource } = await import('../src/resource-progress.ts');
   const { createAttempt, appendAttempt, appendSelfAssessment } = await import('../src/question-attempts.ts');
+  const { createScenarioResponse, appendScenarioResponse, appendCaseSelfAssessment } = await import('../src/scenario-responses.ts');
   const { enrollCard, applyReview, setCardStatus } = await import('../src/reviews.ts');
   const state = structuredClone(mixed.data);
   const now = '2026-10-28T08:00:00.000Z';
@@ -19,6 +20,14 @@ test('combined reading/resource/question/review backup retains independent histo
   appendAttempt(state, createAttempt(bundle, question, 'Synthetic response', 'combined-attempt', now));
   const rubric = bundle.records.find(record => record.id === question.payload.rubricRef.id && record.version === question.payload.rubricRef.version);
   appendSelfAssessment(state, bundle, 'combined-attempt', rubric.payload.criteria.map(criterion => ({ criterionId: criterion.id, score: criterion.levels[0].score })), 'combined-assessment', now);
+  const scenario = bundle.records.find(record => record.kind === 'scenario' && record.version === 2);
+  appendScenarioResponse(state, createScenarioResponse(bundle, scenario, {
+    impact: 'Synthetic impact', options: 'Two bounded options', accountableOwner: 'Fictional COO',
+    recommendation: 'One bounded pilot', residualRisk: 'Synthetic residual risk',
+    evidence: { title: 'Synthetic worksheet', url: 'https://example.org/private-reference', notes: 'Synthetic private notes' },
+  }, 'combined-case-response', now));
+  const caseRubric = bundle.records.find(record => record.id === scenario.payload.rubricRef.id && record.version === scenario.payload.rubricRef.version);
+  appendCaseSelfAssessment(state, bundle, 'combined-case-response', caseRubric.payload.criteria.map(criterion => ({ criterionId: criterion.id, score: criterion.levels[0].score })), 'combined-case-assessment', now);
   const ref = { id: 'card-historical-synthetic', version: 2 };
   enrollCard(state, ref, now);
   const siblings = structuredClone(state);
@@ -32,7 +41,7 @@ test('combined reading/resource/question/review backup retains independent histo
   assert.deepEqual(state.completed, mixed.data.completed);
   assert.deepEqual(state.scores, mixed.data.scores);
   assert.deepEqual(reviewProgress.events[0], event);
-  for (const namespace of ['readingProgress', 'resourceProgress', 'questionAttempts', 'reviewProgress']) {
+  for (const namespace of ['readingProgress', 'resourceProgress', 'questionAttempts', 'scenarioResponses', 'reviewProgress']) {
     state[namespace].syntheticExtension = { retained: ['literal <script>text</script>'] };
   }
   for (const version of [1, 2]) {
@@ -41,11 +50,11 @@ test('combined reading/resource/question/review backup retains independent histo
     assert.deepEqual(restored, state);
     assert.deepEqual(applyReview(restored, answer), event);
     assert.deepEqual(restored, state); // Durable retry cannot change any restored namespace.
-    for (const namespace of ['readingProgress', 'resourceProgress', 'questionAttempts', 'reviewProgress']) {
+    for (const namespace of ['readingProgress', 'resourceProgress', 'questionAttempts', 'scenarioResponses', 'reviewProgress']) {
       const invalid = structuredClone(backup);
       invalid.data[namespace].schemaVersion = 99;
       const before = structuredClone(invalid);
-      assert.throws(() => validateBackup(invalid), /progress|question attempts/);
+      assert.throws(() => validateBackup(invalid), /progress|question attempts|case responses/);
       assert.deepEqual(invalid, before);
       assert.deepEqual(restored, state);
     }
