@@ -58,6 +58,70 @@ test('pilot retrieval and questions cover each week across all formats with feed
   }
 });
 
+test('each constructed response resolves criteria for its own requested output and objective', () => {
+  // These are the requested assessment dimensions, not keyed answer text. A full-week
+  // rubric cannot silently add unrelated work to a short question again.
+  const scopes = {
+    'w1-3': ['classification', 'cia', 'ambiguity'],
+    'w1-4': ['chains', 'controls', 'uncertainty'],
+    'w1-5': ['correction', 'risk-chain', 'evidence'],
+    'w2-3': ['lifecycle', 'decisions'],
+    'w2-4': ['paths', 'factors'],
+    'w2-5': ['rollout', 'residual-risk'],
+    'w3-3': ['flows', 'boundaries'],
+    'w3-4': ['comparison', 'controls'],
+    'w3-5': ['bounded-decision', 'tests'],
+    'w4-3': ['handling', 'authorised-user'],
+    'w4-4': ['measurement', 'safe-restore', 'evidence-follow-up'],
+    'w4-5': ['honest-report', 'capability-limits'],
+  };
+  for (const [suffix, criteria] of Object.entries(scopes)) {
+    const question = questions.find(record => record.id === `question-${suffix}`);
+    const rubric = resolve(question.payload.rubricRef);
+    assert.equal(rubric.id, `rubric-${suffix.slice(0, 2)}-question-${suffix.at(-1)}`);
+    assert.deepEqual(rubric.objectiveIds, question.objectiveIds);
+    assert.deepEqual(rubric.taskIds, question.taskIds);
+    assert.deepEqual(rubric.payload.criteria.map(criterion => criterion.id), criteria);
+    assert.ok(rubric.payload.criteria.every(criterion => criterion.levels.some(level => level.score === 2)));
+  }
+});
+
+test('classification and one-chain feedback cannot require the full weekly artifact', () => {
+  const criteria = id => resolve(questions.find(record => record.id === id).payload.rubricRef).payload.criteria;
+  const classification = criteria('question-w1-3');
+  assert.doesNotMatch(JSON.stringify(classification), /chains?|control owner|two services/i);
+  assert.match(classification.find(item => item.id === 'classification').levels.at(-1).descriptor, /all six/i);
+  assert.match(classification.find(item => item.id === 'cia').levels.at(-1).descriptor, /unsupported confidentiality/i);
+
+  const correction = criteria('question-w1-5');
+  const chain = correction.find(item => item.id === 'risk-chain');
+  assert.match(chain.levels.at(-1).descriptor, /one chain/i);
+  assert.doesNotMatch(JSON.stringify(correction), /two chains|fewer than two|classif/i);
+  assert.match(correction.find(item => item.id === 'evidence').levels.at(-1).descriptor, /two distinct/i);
+  // The larger weekly practice still intentionally asks for two chains.
+  assert.match(resolve({ id: 'rubric-w1', version: 1 }).payload.criteria.find(item => item.id === 'chains').levels[0].descriptor, /fewer than two chains/);
+});
+
+test('short response anchors exclude unrelated weekly work while examples retain requested evidence', () => {
+  const excluded = {
+    'question-w2-4': /joiner|mover|leaver|emergency/i,
+    'question-w2-5': /joiner|mover|leaver|three paths/i,
+    'question-w3-3': /flat design|two controls|rollback/i,
+    'question-w3-5': /two flows|three boundaries|two controls/i,
+    'question-w4-3': /RTO|RPO|hash|restore exercise/i,
+    'question-w4-5': /isolated environment|key custody|classification|design a.*restore/i,
+  };
+  for (const [id, unrelatedWork] of Object.entries(excluded)) {
+    const question = questions.find(record => record.id === id);
+    assert.doesNotMatch(JSON.stringify(resolve(question.payload.rubricRef).payload), unrelatedWork, id);
+  }
+  const example = id => questions.find(record => record.id === id).payload.annotatedExample;
+  assert.match(example('question-w2-3'), /application owner verifies allowed reporting actions and denied former support actions/);
+  assert.match(example('question-w3-3'), /customer session.*scoped API identity.*admin context.*workload identity.*scoped recovery identity/s);
+  assert.match(example('question-w3-5'), /preserves dispatch but can admit a compromised terminal/);
+  assert.match(example('question-w4-4'), /recoverable update’s age at simulated disruption against RPO/);
+});
+
 test('the cross-week executive case preserves targets, separate measurements and criterion-based self-feedback', () => {
   const scenario = bundle.records.find(record => record.kind === 'scenario');
   assert.equal(bundle.records.filter(record => record.kind === 'scenario').length, 1);

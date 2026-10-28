@@ -13,7 +13,24 @@ Each lesson contains explanatory reading and a separate worked executive example
 | w3 / lesson-w3-architecture | obj-w3-1, obj-w3-2 | Two service flows, boundaries and enforcement; flat/segmented comparison | source-csf, source-zero-trust |
 | w4 / lesson-w4-data | obj-w4-1, obj-w4-2 | Classified-data assessment; timed restore plan and two measurements | source-csf, source-key-management, source-recovery |
 
-Stable questions are `question-wN-1` through `-5`; cards `card-wN-1` through `-3`; practice rubrics `rubric-wN`. `scenario-foundation-decision@1` and `rubric-foundation-case@1` combine all eight objectives in one fictional executive case. Criteria have 0/1/2 descriptive anchors, not a pass score or a claim of independent competence. Read the question, attempt an answer, consult feedback, then revise the artifact; an annotated example is one defensible response, not a sole keyed open answer.
+Stable questions are `question-wN-1` through `-5`; cards `card-wN-1` through `-3`; full weekly practice rubrics `rubric-wN`. Each open/scenario question instead references its own `rubric-wN-question-N@1`, scoped to the requested response. `scenario-foundation-decision@1` and `rubric-foundation-case@1` combine all eight objectives in one fictional executive case. Criteria have 0/1/2 descriptive anchors, not a pass score or a claim of independent competence. Read the question, attempt an answer, consult feedback, then revise the artifact; an annotated example is one defensible response, not a sole keyed open answer.
+
+The following scope/evidence map supports review of the complete examples against their question rubrics. Score 2 describes a complete answer to the prompt; it does not require extra weekly practice. Different defensible answers can satisfy the same criteria.
+
+| Question suffix | Assessed output | Complete-example evidence |
+|---|---|---|
+| w1-3 | Six classifications, CIA reasoning, two-level interpretation | Asset/threat/weakness/control/impact/availability; conditional integrity, no invented disclosure; service condition/business consequence |
+| w1-4 | Two chains, owned controls/limits, uncertainty | Disclosure and booking loss; export/write restrictions and remaining exposure; export volume/recovery age investigation |
+| w1-5 | Executive correction, **one** chain, two evidence requests | Copy completion versus usable recovery; attacker/privileged deletion/service loss; isolated restore and denied deletion |
+| w2-3 | Three lifecycle events with ownership/local verification; authentication versus authorization | Join/move/leave owners; local-role/session removal and allowed/denied checks; login versus application action |
+| w2-4 | User/admin/job credential and permission safeguards/risks; factor distinction | Three distinct paths and remaining misuse; two passwords are knowledge factors |
+| w2-5 | Bounded outage-capable rollout and remaining risk | Elevation pilot; approved narrow emergency path independent of failed identity service; post-use control and legitimate-session misuse |
+| w3-3 | Two flows/hop identities; three boundaries with decisions/owners | Customer/API and admin/workload/recovery identities; response/management paths; entry/data/administration enforcement |
+| w3-4 | Flat/segmented comparison with residual route; two controls/failure modes/tradeoffs | Terminal-to-console route restricted; approved admin path remains; reachability rule and time-limited privilege each have limits/costs |
+| w3-5 | Bounded availability/security choice and two policy tests | Dispatch-only expiring grant with accepted posture uncertainty; allowed dispatch and denied management tests |
+| w4-3 | Classification/handling/key responsibility and authorised-user limitation | Restricted addresses; scoped export, rest/transit and key custody; plaintext wrong-recipient risk |
+| w4-4 | Separate targets/measurement; safe owned restore; evidence/follow-up | 4h/1h targets, acceptance clock/recovery-point age; isolated synthetic restore/dependencies/checks; retained results and owned retest |
+| w4-5 | Honest two-target reporting; targets versus measured capability/impact | Actual timestamps; RTO achieved/RPO missed; lost updates and scenario-bounded capability |
 
 The reading is self-contained. Each lesson has an optional LinkedIn Learning **search link**, explicitly described as unverified catalogue discovery, with no promised title, availability, copied transcript or automated completion. The 12 cards are curated retrieval prompts; their recall is distinct from practice quality. This increment adds no scheduler, question-attempt storage, applied-assessment storage or completion inference. Legacy tasks/scores and v1/v2 backups are untouched. L01 separately integrates the reader with the exact bundle.
 
@@ -38,6 +55,8 @@ Stable-fundamental source checks are due 2027-10-28, with immediate recheck on a
 
 Edit the canonical JSON directly. Keep delivered revisions append-only under C02; corrections add a new version, preserve the old payload and explain effects on attempts/schedules. Source changes require versioned source/dependent revisions and renewed review. The task-local generation aid is not an implementation dependency and is not committed.
 
+2026-10-28 pre-delivery review correction: [the first task review](https://github.com/tomthemaker/ciso-journey/pull/36#issuecomment-6462200398) found that short responses incorrectly reused whole-week assessment anchors. The 12 dedicated question rubrics and clarified examples correct this draft before its first merge/delivery; no learner assessment or attempt has used this bundle. Version 1 therefore remains the initial authored revision. This is not permission to overwrite delivered or assessed content: later corrections must retain exact prior revisions under C02. The four lesson IDs, full weekly rubrics and cross-week case remain unchanged. All 72 records remain draft without educator/legal approval.
+
 On Node 24.4.1:
 
 ```sh
@@ -49,4 +68,4 @@ node scripts/validate-content.mjs content/foundation.v1.json --as-of 2026-10-28
 npm run test:browser -- --workers=2
 ```
 
-`tests/curriculum/foundation.test.mjs` validates the actual bundle in `npm test`, checks all eight objective/example/practice paths, weekly question/card coverage, anchored feedback, case criteria and source-gate regressions. These guards prevent omissions; counts, headings and passing tests are not independent pedagogical validation. `content/**` triggers fast CI unit/type/build checks. Browsers stay local under D020. The PR records exact candidate and results; independent task review is required before delivery, while educator approval remains an open publication limit.
+`tests/curriculum/foundation.test.mjs` validates the actual bundle in `npm test`, checks all eight objective/example/practice paths, weekly question/card coverage, question-specific criterion/objective alignment, single-chain and classification-only anchors, exclusion of unrelated weekly work, clarified example evidence, case criteria and source-gate regressions. These guards prevent omissions; counts, headings and passing tests are not independent pedagogical validation. `content/**` triggers fast CI unit/type/build checks. Browsers stay local under D020. The PR records exact candidate and results; independent task review is required before delivery, while educator approval remains an open publication limit.

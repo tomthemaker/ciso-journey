@@ -1648,7 +1648,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w1",
+          "id": "rubric-w1-question-3",
           "version": 1
         },
         "annotatedExample": "Order records are an asset; deceptive invoice is a threat event; combined edit/approval privilege is a vulnerability; independent approval is a control; the payment is business impact, arising from integrity loss if records were changed; inability to retrieve orders is availability loss with possible dispatch impact. The last statement describes a service condition and can lead to a business consequence. No explicit disclosure is given. Annotation: a defensible answer explains the categories and distinguishes the state of information from business harm rather than forcing every statement into a single universal label."
@@ -1691,7 +1691,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w1",
+          "id": "rubric-w1-question-4",
           "version": 1
         },
         "annotatedExample": "Disclosure: booking support depends on appointment records; a stolen agent session uses unnecessary bulk export permission; addresses leak; the application owner removes bulk export by default and tests a normal account. An agent can still copy allowed individual records. Availability: booking depends on a database; an operator deletes rows using excessive production rights; staff cannot honour appointments; the database owner limits bulk writes and rehearses recovery. A stale recovery point remains possible. Annotation: both chains name a mechanism and an owner; investigating actual export volume and recoverable data age is stronger than inventing loss probabilities."
@@ -1734,7 +1734,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w1",
+          "id": "rubric-w1-question-5",
           "version": 1
         },
         "annotatedExample": "Booking depends on usable records; an attacker could delete live data and reachable copies with a powerful account; staff would lose the service. Completed copying does not show a recoverable independent copy. Ask for a timed isolated restore including keys and a denied deletion test from the compromised production role. The recovery owner and access owner investigate separately. Annotation: the correction connects evidence to a failure mechanism and acknowledges that even a successful exercise does not eliminate future exposure."
@@ -1899,10 +1899,10 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w2",
+          "id": "rubric-w2-question-3",
           "version": 1
         },
-        "annotatedExample": "The contract manager provides the joiner event; the support service owner approves scoped access; IAM creates the identity; the local application owner tests allowed support actions and denied reporting exports. On the move, the reporting owner approves new rights and the support owner removes old need; IAM and the application owner remove local roles and handle relevant sessions. On leaving, the contract manager triggers removal; IAM disables credentials and revokes tokens where supported; the application owner verifies local account/session removal using denied requests. Annotation: local and central access must reconcile; successful sign-in is account authentication, while each application action remains an authorization decision."
+        "annotatedExample": "The contract manager provides the joiner event; the support service owner approves scoped access; IAM creates the identity; the local application owner tests allowed support actions and denied reporting exports. On the move, the reporting owner approves new rights and the support owner removes old need; IAM and the application owner remove local roles and handle relevant sessions; the application owner verifies allowed reporting actions and denied former support actions before closing the move. On leaving, the contract manager triggers removal; IAM disables credentials and revokes tokens where supported; the application owner verifies local account/session removal using denied requests. Annotation: local and central access must reconcile; successful sign-in is account authentication, while each application action remains an authorization decision."
       }
     },
     {
@@ -1942,7 +1942,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w2",
+          "id": "rubric-w2-question-4",
           "version": 1
         },
         "annotatedExample": "User: appropriately configured phishing-resistant authentication plus assigned-record permissions; malware can misuse an active session. Administrator: separate strong-authentication account plus approved time-limited elevation and action logs; an approved bad change remains possible. Job: supported managed workload identity or protected scoped secret plus stock-write-only permission; a compromised runtime can corrupt allowed stock data. Two passwords are both knowledge factors. Annotation: the service job needs a noninteractive lifecycle, while privilege/session controls add protections beyond authentication."
@@ -1985,7 +1985,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w2",
+          "id": "rubric-w2-question-5",
           "version": 1
         },
         "annotatedExample": "Pilot one maintenance path, verify normal approved elevation and test an emergency procedure with a named approver, protected emergency credential, narrow reach, logging and post-use review. Confirm that emergency access does not depend solely on the failed identity service. Retire or reset temporary grants/secrets after use according to the supported process. Residual risk includes misuse of a legitimate emergency session. Annotation: leaving a universal bypass open defeats the restriction; removing every path before testing recovery can stop critical work."
@@ -2150,10 +2150,10 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w3",
+          "id": "rubric-w3-question-3",
           "version": 1
         },
-        "annotatedExample": "Customer browser → public entry → order API → database: entry owner controls accepted web paths, API owner checks customer/order ownership, database owner allows scoped API identity. Response returns only allowed order fields to the browser. Admin endpoint → controlled management entry → backup console → isolated restore environment: endpoint/entry owners evaluate permitted device/admin context; backup owner accepts a time-limited restore grant and uses its workload identity for copy access. Annotation: internet/entry, application/data and administration/service are distinct boundaries; naming an owner and decision makes the sketch reviewable. Exact components may differ if the decisions remain explicit."
+        "annotatedExample": "Customer browser → public entry → order API → database: the customer session identifies the requester to the API through the public entry; entry owner controls accepted web paths, API owner checks customer/order ownership, database owner allows scoped API identity. Response returns only allowed order fields to the browser. Admin endpoint → controlled management entry → backup console → isolated restore environment: endpoint/entry owners evaluate permitted device/admin context; backup owner accepts a time-limited restore grant and uses its workload identity for copy access and a scoped recovery identity in the isolated environment. Annotation: internet/entry, application/data and administration/service are distinct boundaries; naming an owner and decision makes the sketch reviewable. Exact components may differ if the decisions remain explicit."
       }
     },
     {
@@ -2193,7 +2193,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w3",
+          "id": "rubric-w3-question-4",
           "version": 1
         },
         "annotatedExample": "Flat design lets the terminal reach the backup management interface and try stolen administrator credentials. Restrict management reachability to an approved administration path; a broad emergency rule is a failure mode and new support flows need change coordination. Require separate time-limited backup administration with resource-specific authorization; an approved session can still be malicious and urgent access now depends on a tested elevation/exception process. The approved administrator-to-console path remains available and needs monitoring and recoverable copies. Annotation: this uses explicit access assumptions; merely drawing two networks or saying never trust is insufficient."
@@ -2236,10 +2236,10 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w3",
+          "id": "rubric-w3-question-5",
           "version": 1
         },
-        "annotatedExample": "Map the missing signal and affected dispatch action, verify whether a bounded last-known posture window is acceptable to the service/risk owner, and pilot a limited dispatch-only contingency grant with expiry and monitoring. Continue to deny unrelated backup administration; test an allowed synthetic dispatch and a denied management connection. Define rollback and recovery owners. Annotation: an acceptable answer may choose a different bounded policy or stop work if justified, but must explain the availability/security tradeoff and avoid using network location as unconditional permission."
+        "annotatedExample": "Map the missing signal and affected dispatch action, verify whether a bounded last-known posture window is acceptable to the service/risk owner, and pilot a limited dispatch-only contingency grant with expiry and monitoring. Continue to deny unrelated backup administration; test an allowed synthetic dispatch and a denied management connection. Limited continuation preserves dispatch but can admit a compromised terminal whose posture has changed; the service/risk owner must accept that bounded exposure. Define rollback and recovery owners. Annotation: an acceptable answer may choose a different bounded policy or stop work if justified, but must explain the availability/security tradeoff and avoid using network location as unconditional permission."
       }
     },
     {
@@ -2413,7 +2413,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w4",
+          "id": "rubric-w4-question-3",
           "version": 1
         },
         "annotatedExample": "The fictional delivery addresses are restricted because unnecessary disclosure could harm customers. The data owner approves only courier-needed records; the application owner limits export rights; storage and transfer owners protect copies at rest and through the approved transfer channel; the key custodian controls decryption access and tests supported recovery. A permitted application can still decrypt and an authorised user can send plaintext to the wrong recipient. Annotation: classification translates into handling rules; encryption does not decide whether a person should export or whom they should send it to."
@@ -2460,10 +2460,10 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w4",
+          "id": "rubric-w4-question-4",
           "version": 1
         },
-        "annotatedExample": "Business owner sets illustrative 4h RTO and 1h RPO. Start the clock at declared simulated disruption and stop at owner acceptance of booking/retrieval of a synthetic appointment. Recovery lead restores to an isolated test environment using synthetic copies; production writes are prohibited and unexpected production access is a stop condition. Verify key permissions and recovery account access; measure recovery-point timestamp, reconcile seeded record counts/values and run the business transaction. Retain timing, errors, recovered point and acceptance evidence. Assign failed steps and repeat the relevant scenario before claiming improvement. Annotation: targets must be independently checked; no backup-dashboard inference or universal recovery guarantee."
+        "annotatedExample": "Business owner sets illustrative 4h RTO and 1h RPO. Start the clock at declared simulated disruption and stop at owner acceptance of booking/retrieval of a synthetic appointment. Recovery lead restores to an isolated test environment using synthetic copies; production writes are prohibited and unexpected production access is a stop condition. Verify key permissions and recovery account access; measure the latest recoverable update’s age at simulated disruption against RPO, reconcile seeded record counts/values and run the business transaction. Retain timing, errors, recovered point and acceptance evidence. Assign failed steps to recovery/data owners and repeat the relevant scenario before claiming improvement. Annotation: targets must be independently checked; no backup-dashboard inference or universal recovery guarantee."
       }
     },
     {
@@ -2507,7 +2507,7 @@
         "options": [],
         "correctOptionId": null,
         "rubricRef": {
-          "id": "rubric-w4",
+          "id": "rubric-w4-question-5",
           "version": 1
         },
         "annotatedExample": "Retain the actual start, business acceptance and recovery-point times. Report RTO achieved for this scenario and RPO missed, along with missing-transaction consequences and uncertainty. Ask the data/recovery owners to propose and test more frequent recoverable points or safe reconciliation; the business owner decides on any temporary exposure. Annotation: a target is an agreed need, the test measures one capability, and relabelling the result does not recover lost updates. A successful file copy, resource completion or good recall answer cannot substitute for that exercise."
@@ -3247,6 +3247,954 @@
         },
         "annotatedExample": "Decision: pilot the restricted backup-management path and correct the contractor’s stale local role/session immediately through the accountable access owners; schedule the permitted follow-up recovery exercise. Chain 1: dispatch depends on orders; a compromised terminal reaches the console and reuses powerful access; reachable management plus stale privilege permits copy deletion; service recovery may fail (availability). Network owner restricts the path, backup owner removes obsolete privilege and tests allowed emergency administration; broad exception rules and approved-session misuse remain. Chain 2: delivery depends on address exports; a compromised clerk session uses excess export scope; unnecessary disclosure harms customers (confidentiality). Data/application owners restrict export scope and approved handling; authorised plaintext misuse remains. Identity: HR/contract trigger, service-owner approval, IAM execution and local-app verification govern joiners/movers/leavers; normal user access, time-limited separate admin access and scoped service credentials have different safeguards. Flows: customer browser → public entry → order API → order DB and managed terminal → internal entry → inventory API → stock DB; label entry, application and data boundaries with identity/permission decisions and owners. Neither flow grants backup administration. Protect the restricted fictional addresses at rest and in transit with named key custody and recovery; a bare digest without a trusted reference proves no origin. Recovery: 12:00 to 15:15 is 3h15m and meets the 4h RTO; 10:30 is 90 minutes before disruption and misses the 1h RPO. The recovery lead repeats an isolated synthetic restore with key/identity dependencies, timestamps, integrity reconciliation and an accepted order-to-dispatch transaction; database owner tests a newer recoverable point. Annotation: this is one defensible priority, not the single keyed response. Strong answers explicitly compare alternatives, state uncertainty and use each rubric criterion. One test does not prove all future recoveries or professional readiness."
       }
+    },
+    {
+      "id": "rubric-w1-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 1 question 3 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w1"
+      ],
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-security-principles",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "classification",
+            "description": "Classify the six supplied statements using security vocabulary.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Categories are missing or threat, vulnerability and control are conflated."
+              },
+              {
+                "score": 1,
+                "descriptor": "Most categories are defensible, but at least one is missing or unexplained."
+              },
+              {
+                "score": 2,
+                "descriptor": "All six statements have defensible categories with reasons."
+              }
+            ]
+          },
+          {
+            "id": "cia",
+            "description": "Explain the stated or conditional CIA effects without inventing disclosure.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Invents disclosure or confuses information effects with business harm."
+              },
+              {
+                "score": 1,
+                "descriptor": "Identifies integrity or availability, but leaves the causal link unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains conditional integrity loss and stated availability loss, distinguishes business impact and avoids an unsupported confidentiality claim."
+              }
+            ]
+          },
+          {
+            "id": "ambiguity",
+            "description": "Identify a statement that can be described at two levels.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Gives no defensible two-level interpretation."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names an ambiguous statement but explains only one level."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains a defensible information/service condition and its possible business consequence for the same statement."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w1-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 1 question 4 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w1"
+      ],
+      "objectiveIds": [
+        "obj-w1-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-security-principles",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "chains",
+            "description": "Construct the two requested causal chains: disclosure and loss of usable bookings.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a chain or gives labels without a causal mechanism."
+              },
+              {
+                "score": 1,
+                "descriptor": "Both chains exist, but a service, asset, threat, vulnerability or consequence is unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Both chains connect service, asset, threat and vulnerability to the requested disclosure or availability consequence."
+              }
+            ]
+          },
+          {
+            "id": "controls",
+            "description": "Give a relevant control, owner and limitation for each chain.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Controls do not address the chains or have no owners."
+              },
+              {
+                "score": 1,
+                "descriptor": "Relevant controls and owners are present, but a limitation is missing or generic."
+              },
+              {
+                "score": 2,
+                "descriptor": "Each chain has an owned control addressing its mechanism and a credible remaining limitation."
+              }
+            ]
+          },
+          {
+            "id": "uncertainty",
+            "description": "State one uncertainty to investigate about the chains.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "States no uncertainty or invents a precise loss probability."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names an uncertainty without saying what needs investigation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Names a specific uncertain assumption or condition and what to investigate."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w1-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 1 question 5 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w1"
+      ],
+      "objectiveIds": [
+        "obj-w1-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-security-principles",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "correction",
+            "description": "Correct the claim that backup-job completion proves ransomware risk is solved.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Accepts the claim or promises that a successful test eliminates risk."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects the claim without explaining the gap in evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes completed copying from usable recovery and limits what the evidence can establish."
+              }
+            ]
+          },
+          {
+            "id": "risk-chain",
+            "description": "Connect the correction to one causal risk chain.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Gives no causal mechanism."
+              },
+              {
+                "score": 1,
+                "descriptor": "Connects some elements, but leaves the weakness or service consequence unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "One chain connects service and records, attacker action, reachable copies or excessive privilege, and loss of usable service."
+              }
+            ]
+          },
+          {
+            "id": "evidence",
+            "description": "Request two pieces of evidence tied to the failure mechanism.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Requests no relevant evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Requests one relevant test or two generic reports without a causal link."
+              },
+              {
+                "score": 2,
+                "descriptor": "Requests two distinct relevant checks, such as usable isolated recovery and denied copy deletion, and explains their link to the chain."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w2-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 2 question 3 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w2"
+      ],
+      "objectiveIds": [
+        "obj-w2-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-authentication",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "lifecycle",
+            "description": "Trace joiner, mover and leaver with approval, execution and verification ownership, including local roles and sessions.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits an event or leaves obsolete access in place."
+              },
+              {
+                "score": 1,
+                "descriptor": "Covers all events, but ownership or verification of local roles/sessions is incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "All events have accountable approval/removal decisions, execution and verification; the move removes old rights and the departure checks local access and sessions."
+              }
+            ]
+          },
+          {
+            "id": "decisions",
+            "description": "Distinguish authentication from application authorization in the trace.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats successful sign-in as permission for every action."
+              },
+              {
+                "score": 1,
+                "descriptor": "Defines the distinction but does not connect it to the application."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes proving account identity from enforcing permitted application actions, with an allowed or denied action check."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w2-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 2 question 4 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w2"
+      ],
+      "objectiveIds": [
+        "obj-w2-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-authentication",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "paths",
+            "description": "Choose credential and permission safeguards and a residual risk for each of the three paths.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a path or relies on interactive human authentication for the unattended job."
+              },
+              {
+                "score": 1,
+                "descriptor": "All paths appear, but at least one lacks a suitable safeguard or residual risk."
+              },
+              {
+                "score": 2,
+                "descriptor": "User, administrator and job each have a suitable authentication/credential safeguard, scoped permission safeguard and credible remaining risk."
+              }
+            ]
+          },
+          {
+            "id": "factors",
+            "description": "Explain why two passwords are not MFA.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Calls two passwords different authentication factors."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects the claim without explaining factor categories."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains that both passwords are knowledge factors, so their combination does not provide multiple factor types."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w2-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 2 question 5 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w2"
+      ],
+      "objectiveIds": [
+        "obj-w2-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-authentication",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "rollout",
+            "description": "Recommend a bounded administrator-access rollout that handles urgent maintenance during identity-service outages.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Removes every maintenance path untested or leaves a universal bypass."
+              },
+              {
+                "score": 1,
+                "descriptor": "Proposes a pilot, but outage independence or emergency-use limits are unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Pilots approved elevation and a tested outage-capable emergency path with bounded privilege, accountable approval and post-use control."
+              }
+            ]
+          },
+          {
+            "id": "residual-risk",
+            "description": "Explain the remaining risk of the recommendation.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims the rollout eliminates misuse or ignores maintenance availability."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names a risk without linking it to the proposed path."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains a credible risk that remains in the bounded emergency or approved administrative path."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w3-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 3 question 3 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w3"
+      ],
+      "objectiveIds": [
+        "obj-w3-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-zero-trust",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "flows",
+            "description": "Describe customer lookup and administrator restore end to end, including identities and a response or management path.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a flow or gives disconnected boxes without identities."
+              },
+              {
+                "score": 1,
+                "descriptor": "Both flows are present, but a hop identity or the response/management path is unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Both flows name acting identities across hops, the requested service/data destinations and a response or management path."
+              }
+            ]
+          },
+          {
+            "id": "boundaries",
+            "description": "Mark at least three trust boundaries overall with enforcement decisions and control owners.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Relies on location as permission or gives no enforcement."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names boundaries but fewer than three have clear decisions and owners."
+              },
+              {
+                "score": 2,
+                "descriptor": "At least three boundaries across the flows have explicit enforcement decisions and accountable owners."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w3-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 3 question 4 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w3"
+      ],
+      "objectiveIds": [
+        "obj-w3-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-zero-trust",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "comparison",
+            "description": "Compare compromise in flat and segmented designs, including a permitted residual attack path.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Uses network labels without explaining attacker reachability."
+              },
+              {
+                "score": 1,
+                "descriptor": "Describes reduced reachability but omits either the flat route or an allowed residual route."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains a reachable attack route in the flat design, how segmentation restricts it and an allowed path that still carries risk."
+              }
+            ]
+          },
+          {
+            "id": "controls",
+            "description": "Justify two controls with a failure mode and operational tradeoff per control.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Offers slogans or controls that grant implicit trust by location."
+              },
+              {
+                "score": 1,
+                "descriptor": "Two relevant controls appear, but a failure mode or tradeoff is missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "Both controls have resource-specific reasoning, a credible failure mode and an operational tradeoff."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w3-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 3 question 5 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w3"
+      ],
+      "objectiveIds": [
+        "obj-w3-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-zero-trust",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "bounded-decision",
+            "description": "Recommend a bounded response to unavailable posture signals that addresses dispatch and restricted management.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Grants universal fail-open access or ignores the dispatch outage."
+              },
+              {
+                "score": 1,
+                "descriptor": "Bounds an exception, but its scope, duration or security/availability consequence is unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Makes an accountable bounded choice with scope and expiry, explains the availability/security tradeoff and preserves management restrictions."
+              }
+            ]
+          },
+          {
+            "id": "tests",
+            "description": "Make the policy decision testable for both service and management paths.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Provides no meaningful test or only checks login."
+              },
+              {
+                "score": 1,
+                "descriptor": "Tests one path but does not check the other."
+              },
+              {
+                "score": 2,
+                "descriptor": "Tests a permitted synthetic dispatch action and a denied unrelated management action against the proposed policy."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w4-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 4 question 3 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w4"
+      ],
+      "objectiveIds": [
+        "obj-w4-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-key-management",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "handling",
+            "description": "Assess classification, permissions, at-rest/in-transit protection and key ownership for the courier export.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats a label or disk encryption as sufficient protection."
+              },
+              {
+                "score": 1,
+                "descriptor": "Proposes relevant safeguards but omits a requested handling element or key responsibility."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains the classification rationale, scoped export permissions, protection at rest and in transit, and accountable key custody."
+              }
+            ]
+          },
+          {
+            "id": "authorised-user",
+            "description": "Explain the authorised-user limitation and a residual risk.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims encryption prevents all authorised-user disclosure."
+              },
+              {
+                "score": 1,
+                "descriptor": "Acknowledges a limitation without a concrete residual exposure."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains that permitted decryption/export can still expose plaintext through misuse or wrong-recipient handling."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w4-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 4 question 4 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w4"
+      ],
+      "objectiveIds": [
+        "obj-w4-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-key-management",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "measurement",
+            "description": "State separate RTO/RPO targets and how the exercise measures them.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Conflates recovery duration with recovery-point age."
+              },
+              {
+                "score": 1,
+                "descriptor": "States both targets but leaves the clock or data-loss measurement unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "States separate targets, disruption-to-business-acceptance timing and recovery-point age at disruption."
+              }
+            ]
+          },
+          {
+            "id": "safe-restore",
+            "description": "Design the owned exercise environment, dependencies and integrity/business success checks.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Uses backup-job completion as proof or risks uncontrolled production changes."
+              },
+              {
+                "score": 1,
+                "descriptor": "Describes a restore but omits an owner, isolation, key/identity dependency or meaningful success check."
+              },
+              {
+                "score": 2,
+                "descriptor": "Names an owner, isolated environment, key and identity dependencies, integrity checks and a business acceptance transaction."
+              }
+            ]
+          },
+          {
+            "id": "evidence-follow-up",
+            "description": "Specify evidence and the next action after a missed target.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Discards failures or declares success from an incomplete test."
+              },
+              {
+                "score": 1,
+                "descriptor": "Keeps some results but gives no actionable follow-up."
+              },
+              {
+                "score": 2,
+                "descriptor": "Retains timing, recovery-point and acceptance evidence, assigns failed steps to owners and retests the affected scenario."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w4-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 4 question 5 response rubric",
+      "authorIds": [
+        "ai-foundation-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w4"
+      ],
+      "objectiveIds": [
+        "obj-w4-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-key-management",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original foundation pilot. AI-authored provisional draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Initial version; any future attempts must retain this exact reference. No reassessment inferred.",
+      "scheduleImpact": "No scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "honest-report",
+            "description": "Preserve the actual evidence and report the separate target results.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Changes timings or calls both targets achieved."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects falsification but does not clearly report both outcomes or preserve measurement evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Retains actual start, acceptance and recovery-point times and reports RTO achieved and RPO missed for this test."
+              }
+            ]
+          },
+          {
+            "id": "capability-limits",
+            "description": "Distinguish targets from demonstrated capability and explain the significance of the RPO miss.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats a target or one test as universal demonstrated capability."
+              },
+              {
+                "score": 1,
+                "descriptor": "Acknowledges partial success without explaining data-loss consequences or the limit of the evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes agreed needs from this measured capability, explains missing-update consequences and limits the success claim to the tested scenario."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
     }
   ],
   "editorial": [
@@ -3784,6 +4732,114 @@
     {
       "ref": {
         "id": "scenario-foundation-decision",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w1-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w1-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w1-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w2-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w2-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w2-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w3-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w3-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w3-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w4-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w4-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w4-question-5",
         "version": 1
       },
       "status": "draft",
