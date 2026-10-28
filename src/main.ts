@@ -21,7 +21,7 @@ function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
   document.body.dataset.storageBusy = String(busy);
   for (const control of document.querySelectorAll<HTMLInputElement | HTMLButtonElement | HTMLSelectElement | HTMLTextAreaElement>(
-    "#readingComplete, #questionBank fieldset, #questionBank select, .task input, #scores select, form input, form textarea, form button, .log button, #phaseFilter, #resetBtn",
+    "#readingComplete, #questionBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
   )) control.disabled = busy || !state || control.dataset.retired === "true";
   byId("importBtn", "button").disabled = busy;
   byId("exportBtn", "button").disabled = !state;

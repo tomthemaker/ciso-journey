@@ -1,10 +1,19 @@
-import { phases, taskLearningResources } from "./data";
+import { phases } from "./data";
 import { byId, node } from "./dom";
+import { renderTaskResources } from "./resource-view";
+import { resourceCompletionCount } from "./resource-progress";
 import type { Change, LearnerState } from "./types";
 
+let previousState: LearnerState | undefined;
 export function renderRoadmap(state: LearnerState, changed: Change) {
   const root = byId("phaseList", "div");
+  const open = new Set(Array.from(root.querySelectorAll<HTMLDetailsElement>('details[open]')).map(details => details.id));
+  const drafts = previousState === state ? Array.from(root.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('form input, form select, form textarea')).map(control => ({ id: control.id, value: control.value })) : [];
+  // Custom-add form IDs are generated per render; retain the old forms on a failed save.
+  const addDrafts = previousState === state ? Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id$="-add-resource"]')).map(details => ({ id: details.id, form: details.querySelector('form')! })) : [];
+  previousState = state;
   root.replaceChildren();
+  root.append(node('p', { id: 'resourceCompletionCount', role: 'status' }, `${resourceCompletionCount(state)} resources completed (including archived history). Task completion and legacy ratings are separate.`));
   const onlyIncomplete = byId("phaseFilter", "select").value === "incomplete";
   for (const phase of phases) {
     const count = phase.tasks.filter((t) => state.completed[t[0]]).length;
@@ -46,75 +55,21 @@ export function renderRoadmap(state: LearnerState, changed: Change) {
       row.append(check, label);
       const block = node("div", { class: "task-block" });
       block.append(row);
-      const r = taskLearningResources[task[0]];
-      if (r) {
-        const details = node("details", { class: "task-resources" }),
-          summary = node(
-            "summary",
-            {},
-            "Learning resources · LinkedIn Learning first",
-          ),
-          links = node("div", { class: "resource-links" });
-        const addLink = (kind: string, title: string, url: string) => {
-          const a = node("a", {
-            class: "resource-link",
-            href: url,
-            target: "_blank",
-            rel: "noopener noreferrer",
-          });
-          a.append(
-            node("span", { class: "resource-kind" }, kind),
-            node("span", {}, title + " ↗"),
-          );
-          links.append(a);
-        };
-        const searchUrl =
-          "https://www.linkedin.com/learning/search?keywords=" +
-          encodeURIComponent(r.searchTerms);
-        addLink("LinkedIn Learning", r.linkedinTitle, r.linkedinUrl);
-        addLink(
-          "LinkedIn Learning",
-          "Explore targeted courses: " + r.searchTerms,
-          searchUrl,
-        );
-        addLink("Official", r.officialTitle, r.officialUrl);
-        addLink(
-          "Coursera",
-          "Explore courses: " + r.searchTerms,
-          "https://www.coursera.org/search?query=" +
-            encodeURIComponent(r.searchTerms),
-        );
-        if (
-          [
-            "p2a",
-            "p2b",
-            "p2c",
-            "p2d",
-            "p2e",
-            "p3a",
-            "p3b",
-            "p3c",
-            "p3d",
-            "p3e",
-          ].includes(task[0])
-        )
-          addLink(
-            "Coursera",
-            "Cybersecurity Governance and Compliance",
-            "https://www.coursera.org/learn/cybersecurity-governance-compliance",
-          );
-        details.append(
-          summary,
-          node("p", {}, "Study focus: " + r.focus),
-          links,
-        );
-        block.append(details);
-      }
+      block.append(renderTaskResources(state, task[0], changed));
       card.append(block);
     }
     root.append(card);
   }
-  if (!root.children.length)
+  for (const draft of addDrafts) document.getElementById(draft.id)?.querySelector('form')?.replaceWith(draft.form);
+  for (const draft of drafts) {
+    const control = document.getElementById(draft.id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+    if (control) control.value = draft.value;
+  }
+  for (const id of open) {
+    const details = document.getElementById(id);
+    if (details instanceof HTMLDetailsElement) details.open = true;
+  }
+  if (root.children.length === 1)
     root.append(
       node(
         "p",

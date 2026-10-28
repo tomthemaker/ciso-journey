@@ -1,4 +1,5 @@
 import { validateQuestionAttempts } from "./question-attempts.ts";
+import { validateResourceProgress } from "./resource-progress.ts";
 import { validateReadingProgress } from "./reading-progress.ts";
 import { empty } from "./state.ts";
 import type { HistoryEntry, LearnerState, Backup } from "./types.ts";
@@ -88,6 +89,7 @@ export function validateState(data: unknown): LearnerState {
     );
   }
   if ("questionAttempts" in data) validateQuestionAttempts(data.questionAttempts);
+  if ("resourceProgress" in data) validateResourceProgress(data.resourceProgress);
   if ("readingProgress" in data) validateReadingProgress(data.readingProgress);
   const journal = history(data.journal, "journal");
   const achievements = history(data.achievements, "achievements");
