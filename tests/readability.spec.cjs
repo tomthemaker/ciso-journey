@@ -1,0 +1,55 @@
+const { test, expect } = require('@playwright/test');
+const bundle = require('../content/foundation.v1.json');
+const lessons = bundle.records.filter(record => record.kind === 'lesson' && !bundle.records.some(other => other.id === record.id && other.version > record.version));
+const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+test('Today gives truthful unread and open lists, one next action, and task context without completing work', async ({ page }) => {
+  await page.goto('./#today'); await ready(page);
+  await expect(page.locator('.hero')).toBeHidden();
+  await expect(page.locator('#todayQueueHeading')).toHaveText('Due reviews (0)');
+  await expect(page.locator('#todayReading h2')).toHaveText(`Unfinished reading (${lessons.length})`);
+  await expect(page.locator('#todayReading li')).toHaveCount(lessons.length);
+  await expect(page.locator('#todayStudy .primary')).toHaveCount(1);
+  await expect(page.locator('#todayTasks h2')).toHaveText('Open tasks (37 of 37)');
+  await expect(page.locator('#todayProgress')).not.toHaveAttribute('open');
+  await page.locator('#todayOpenTasks summary').click();
+  await expect(page.locator('#todayOpenTasks li')).toHaveCount(37);
+  const task = page.locator('#todayOpenTasks a').first();
+  const title = await task.textContent(); await task.click();
+  await expect(page.locator('#task-w1')).toBeFocused();
+  await expect(page.locator('#task-w1')).toContainText(title);
+  await page.reload(); await ready(page);
+  await expect(page.locator('#task-w1')).toBeFocused();
+  await page.locator('#task-w1 input').check(); await ready(page);
+  await page.getByRole('button', { name: 'Today', exact: true }).click();
+  await expect(page.locator('#todayTasks h2')).toHaveText('Open tasks (36 of 37)');
+  await expect(page.locator('#todayOpenTasks li')).toHaveCount(36);
+  await expect(page.locator('#todayReading li')).toHaveCount(lessons.length);
+  await page.locator('#todayReading a').first().click();
+  await page.locator('#readingComplete').click(); await ready(page);
+  await page.getByRole('button', { name: 'Today', exact: true }).click();
+  await expect(page.locator('#todayReading li')).toHaveCount(lessons.length - 1);
+  await expect(page.locator('#todayTasks h2')).toHaveText('Open tasks (36 of 37)');
+});
+test('selected reading precedes the catalog and reflows with readable type at 200 percent', async ({ page }) => {
+  const lesson = lessons[0];
+  await page.goto(`./#lessons/${lesson.id}/${lesson.version}`); await ready(page);
+  await expect(page.locator('#lessonReader > :first-child')).toHaveClass(/lesson-body/);
+  await expect(page.locator('.lesson-index')).not.toHaveAttribute('open');
+  await expect(page.locator('.lesson-body > .warn')).toBeVisible();
+  const type = await page.locator('.lesson-body section p').first().evaluate(el => {
+    const s = getComputedStyle(el); return { size: parseFloat(s.fontSize), height: parseFloat(s.lineHeight), width: el.clientWidth };
+  });
+  expect(type.size).toBe(18); expect(type.height / type.size).toBeCloseTo(1.65);
+  expect(type.width).toBeLessThan(800);
+  // Half the available CSS viewport models the reflow of a 200% browser zoom.
+  const original = page.viewportSize();
+  await page.setViewportSize({ width: Math.floor(original.width / 2), height: original.height });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('.section-index > summary').focus(); await page.keyboard.press('Enter');
+  await page.locator('.reading-sections button').first().focus(); await page.keyboard.press('Enter');
+  await expect(page.locator('#reading-section-0')).toBeFocused();
+  await page.locator('#readingComplete').click(); await ready(page);
+  await expect(page.locator('#readingStatus')).toContainText('Reading complete');
+  await page.getByRole('button', { name: 'Today', exact: true }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

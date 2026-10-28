@@ -1,6 +1,6 @@
 # Readability and Today: design proposal
 
-2026-10-28 · [Issue #46](https://github.com/tomthemaker/ciso-journey/issues/46) · Proposed, pending implementation and independent review. This is a design brief, not a claim of completed acceptance or an educator/legal review.
+2026-10-28 · [Issue #46](https://github.com/tomthemaker/ciso-journey/issues/46) · Design increment approved at `e0292f6`; runtime implementation is pending fresh independent review. [Implementation and evidence](../product/UX_READABILITY.md). This brief records the approved design, not an educator/legal review.
 
 ## Assessment: synthetic baseline
 
@@ -66,4 +66,4 @@ Reader: move the selected lesson to the top of its route; keep the lesson catalo
 
 ## Acceptance and validation plan
 
-Implementation must capture comparable synthetic before/after desktop and 390px screenshots, plus 200% zoom, including empty and populated due/unread/open states and a long lesson; inspect actual text measure, computed type, contrast and overflow. Check due-before-new, overdue carryover, unavailable revision, reveal-before-rating, failed-save retry, reading/task independence, navigation, keyboard focus, labels, settings and recovery. Run fast unit/type/build checks and the critical local desktop/mobile browser flows, including Pages subpath, with no browser installation in CI. Confirm all 37 IDs, six legacy scores and v1/full backups remain compatible. Record candidate SHA and checks in the implementation PR and obtain a fresh independent task review. This design-only candidate cannot provide after screenshots or claim issue acceptance.
+Implementation must capture comparable synthetic before/after desktop and 390px screenshots, plus 200% zoom, including empty and populated due/unread/open states and a long lesson; inspect actual text measure, computed type, contrast and overflow. Check due-before-new, overdue carryover, unavailable revision, reveal-before-rating, failed-save retry, reading/task independence, navigation, keyboard focus, labels, settings and recovery. Run fast unit/type/build checks and the critical local desktop/mobile browser flows, including Pages subpath, with no browser installation in CI. Confirm all 37 IDs, six legacy scores and v1/full backups remain compatible. Record candidate SHA and checks in the implementation PR and obtain a fresh independent task review. The initial design-only candidate did not provide after screenshots; the linked implementation evidence records the subsequent runtime validation.

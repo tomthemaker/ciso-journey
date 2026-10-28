@@ -31,6 +31,7 @@ function controls(): void {
   recoveryButton.hidden = !storage?.recovery;
 }
 function showError(error: unknown): void {
+  document.body.dataset.storageError = "true";
   status.textContent = recoveryMessage(error);
   controls();
 }
@@ -59,6 +60,7 @@ const changed: Change = async edit => {
   try {
     await storage.save(candidate);
     state = candidate;
+    document.body.dataset.storageError = "false";
     status.textContent = "Progress saved in this browser. Export regular backups.";
     return true;
   } catch (error) {
@@ -82,6 +84,7 @@ async function load(): Promise<void> {
   try {
     storage ??= new LearnerStorage();
     state = await storage.load();
+    document.body.dataset.storageError = "false";
     status.textContent = "Progress stored in this browser. Export regular backups.";
   } catch (error) {
     // No fabricated empty learner: retain known committed state, or block the learning views.
@@ -122,6 +125,7 @@ importFile.addEventListener("change", async () => {
       storage ??= new LearnerStorage();
       await storage.save(candidate);
       state = candidate;
+      document.body.dataset.storageError = "false";
       status.textContent = "Backup imported and saved in this browser.";
       alert("Backup imported successfully.");
     }

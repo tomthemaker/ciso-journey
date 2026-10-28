@@ -93,7 +93,8 @@ for (const refresh of ['button', 'tab return']) test(`unrevealed new card yields
   await expect(page.locator('#todayMessage')).toContainText('Again saved');
   await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
   const before = await snapshot(page);
-  await page.clock.setSystemTime(new Date('2026-10-28T08:01:01.000Z'));
+  // The installed clock still ticks during UI work; advance past the actual committed due instant.
+  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards[0].schedule.due) + 1000));
   if (refresh === 'button') await page.locator('#todayRefresh').click();
   else {
     await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
@@ -117,7 +118,8 @@ test('newly due work preserves a revealed prompt and failed rating; retry and du
   await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
   const before = await snapshot(page);
   await page.locator('#todayReveal').click();
-  await page.clock.setSystemTime(new Date('2026-10-28T08:01:01.000Z'));
+  // The installed clock still ticks during UI work; advance past the actual committed due instant.
+  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards[0].schedule.due) + 1000));
   await page.locator('#todayRefresh').click();
   await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 4 allowed new cards');
   await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
