@@ -6,6 +6,11 @@ import type { LearnerState } from './types.ts';
 
 export const latestRecords = (bundle: ContentBundle, kind: string): ContentRecord[] => bundle.records.filter(record =>
   record.kind === kind && !bundle.records.some(other => other.id === record.id && other.version > record.version));
+/** Bulk enrollment is for new card IDs, never an implicit adoption of a revision. */
+export function cardsForBulkEnrollment(cards: ContentRecord[], state: LearnerState): ContentRecord[] {
+  const enrolledIds = new Set(state.reviewProgress?.cards.map(card => card.contentRef.id) ?? []);
+  return cards.filter(card => !enrolledIds.has(card.id));
+}
 /** Unknown historical revisions stay in the scheduler and backup, never silently use today's answer. */
 export function availableCard(bundle: ContentBundle, ref: { id: string; version: number }): ContentRecord | undefined {
   const record = findContent(bundle, ref);

@@ -7,7 +7,7 @@ import { questionHash } from './question-attempts';
 import { caseHash } from './scenario-responses';
 import { createReviewActions, enrollCard, estimatedRecall, ratingMeaning, setCardStatus, setNewCardLimit } from './reviews';
 import type { RecallRating, ReviewInput } from './reviews';
-import { availableCard, latestRecords, todayPlan } from './today-plan';
+import { availableCard, cardsForBulkEnrollment, latestRecords, todayPlan } from './today-plan';
 import type { Change, LearnerState } from './types';
 import { phases } from './data';
 
@@ -163,14 +163,18 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     form.addEventListener('submit', event => { event.preventDefault(); const limit = Number(input.value); void mutate(candidate => setNewCardLimit(candidate, limit)).then(() => { if (state?.reviewProgress?.settings.newCardsPerDay === limit) capDraft = undefined; }); });
     deck.append(form, node('p', {}, 'Limits apply only to first ratings of new cards. Due and overdue reviews remain available even at zero. Suspending or archiving keeps exact schedules and history; restoring keeps the original due date.'));
     const cards = latestRecords(bundle, 'card').filter(record => effectiveStatus(bundle, record, now.slice(0, 10)) !== 'retired');
-    const missing = cards.filter(record => !state!.reviewProgress?.cards.some(item => contentKey(item.contentRef) === contentKey(record)));
+    const missing = cardsForBulkEnrollment(cards, state);
     if (missing.length) deck.append(button('todayEnrollAll', `Enroll ${missing.length} foundation draft cards`, () => { const at = new Date().toISOString(); void mutate(candidate => { for (const record of missing) enrollCard(candidate, { id: record.id, version: record.version }, at); }); }));
     const list = node('ul', { class: 'today-deck' });
     const all = [...cards.map(record => ({ ref: { id: record.id, version: record.version }, title: record.title })), ...(state.reviewProgress?.cards ?? []).filter(item => !cards.some(record => contentKey(record) === contentKey(item.contentRef))).map(item => ({ ref: item.contentRef, title: availableCard(bundle, item.contentRef)?.title ?? 'Unavailable exact revision' }))];
     for (const { ref, title } of all) {
       const enrolled = state.reviewProgress?.cards.find(item => contentKey(item.contentRef) === contentKey(ref)), li = node('li');
       li.append(node('span', {}, `${title} · ${contentKey(ref)} · ${enrolled?.status ?? 'not enrolled'} `));
-      if (!enrolled) li.append(button(`enroll-${ref.id}-${ref.version}`, 'Enroll', () => { void mutate(candidate => enrollCard(candidate, ref, new Date().toISOString())); }));
+      if (!enrolled) {
+        const hasOtherRevision = state.reviewProgress?.cards.some(item => item.contentRef.id === ref.id) ?? false;
+        if (hasOtherRevision) li.append(node('span', {}, 'New revision: enrolling starts a separate schedule; existing revisions and their reviews remain. '));
+        li.append(button(`enroll-${ref.id}-${ref.version}`, hasOtherRevision ? 'Enroll this revision' : 'Enroll', () => { void mutate(candidate => enrollCard(candidate, ref, new Date().toISOString())); }));
+      }
       else {
         for (const [status, label] of [['active', 'Restore'], ['suspended', 'Suspend'], ['archived', 'Archive']] as const) if (enrolled.status !== status)
           li.append(button(`${status}-${ref.id}-${ref.version}`, label, () => { void mutate(candidate => setCardStatus(candidate, ref, status)); }));

@@ -112,13 +112,23 @@ test('unknown and incompatible historical scenario/rubric refs survive import/re
   await expect(page.locator('.case-example')).toHaveCount(0);
   expect((await snapshot(page)).data).toEqual(backup.data); expect(errors).toEqual([]);
 });
-test('legacy lesson case links keep v1 exact and offer an explicit optional v2', async ({ page }) => {
+test('legacy lesson case links keep v1 exact and offer the current case revision', async ({ page }) => {
   const lesson = bundle.records.find(r => r.kind === 'lesson' && r.payload.practiceRefs.some(ref => ref.id === scenario.id));
   await page.goto('./#lessons/' + lesson.id + '/1'); await ready(page);
   const details = page.locator('.lesson-body details').filter({ has: page.locator('a[href^="#cases/"]') });
   await details.locator('summary').click(); await details.getByRole('link', { name: 'Attempt this executive case' }).click();
   await expect(page.locator('#caseHeading')).toBeFocused(); expect(page.url()).toContain('/scenario-foundation-decision/1');
   await expect(page.locator('.case-body')).toContainText('rubric-foundation-case@1');
-  await page.getByRole('link', { name: 'Optional newer case revision v2', exact: false }).click();
-  await expect(page.locator('.case-body')).toContainText('rubric-foundation-case@2');
+  await page.getByRole('link', { name: 'Optional newer case revision v3', exact: false }).click();
+  await expect(page.locator('.case-body')).toContainText('rubric-foundation-case@3');
+});
+
+
+test('current lesson links the revised case and rubric without changing the historical route', async ({ page }) => {
+  const lesson = bundle.records.find(r => r.kind === 'lesson' && r.version === 2 && r.payload.practiceRefs.some(ref => ref.id === scenario.id));
+  await page.goto('./#lessons/' + lesson.id + '/' + lesson.version); await ready(page);
+  const details = page.locator('.lesson-body details').filter({ has: page.locator('a[href^="#cases/"]') });
+  await details.locator('summary').click(); await details.getByRole('link', { name: 'Attempt this executive case' }).click();
+  await expect(page).toHaveURL(/#cases\/scenario-foundation-decision\/3$/);
+  await expect(page.locator('.case-body')).toContainText('rubric-foundation-case@3');
 });

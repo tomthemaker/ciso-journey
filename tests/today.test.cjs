@@ -1,11 +1,27 @@
 const { test } = require('node:test');
 const assert = require('node:assert/strict');
-const { todayPlan, availableCard } = require('../src/today-plan.ts');
+const { todayPlan, availableCard, cardsForBulkEnrollment } = require('../src/today-plan.ts');
 const { enrollCard, applyReview, setNewCardLimit, setCardStatus } = require('../src/reviews.ts');
 const bundle = require('../content/foundation.v1.json');
 const cards = bundle.records.filter(record => record.kind === 'card');
 const empty = () => ({ completed: {}, scores: {}, journal: [], achievements: [] });
 const now = '2026-10-28T08:00:00.000Z';
+
+test('bulk enrollment does not silently add a new schedule for an existing card ID', () => {
+  for (const status of ['active', 'suspended', 'archived']) {
+    const state = empty(), original = cards[0], revised = { ...original, version: original.version + 1 };
+    enrollCard(state, original, now);
+    applyReview(state, { eventId: 'old-revision', contentRef: original, rating: 'Good', now });
+    setCardStatus(state, original, status);
+    const history = structuredClone(state.reviewProgress);
+    assert.deepEqual(cardsForBulkEnrollment([revised, cards[1]], state).map(card => card.id), [cards[1].id]);
+    assert.deepEqual(state.reviewProgress, history);
+    enrollCard(state, revised, now);
+    assert.deepEqual(state.reviewProgress.events, history.events);
+    assert.deepEqual(state.reviewProgress.cards[0], history.cards[0]);
+    assert.equal(state.reviewProgress.cards[1].schedule.reps, 0);
+  }
+});
 
 test('Today chooses the overdue lesson and related question/case before an unread lesson; capped new work stays separate', () => {
   const state = empty(), later = cards.find(record => record.taskIds[0] === 'w2');
