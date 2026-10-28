@@ -21,6 +21,8 @@ const key = value => `${value?.id}@${value?.version}`;
 const all = rule => value => list(value) && value.every(rule);
 const nonempty = rule => value => all(rule)(value) && value.length > 0;
 export const publicationStates = ['draft', 'source-checked', 'independently-reviewed', 'published', 'stale', 'retired'];
+// Provider documentation uses exact hosts; do not admit sibling subdomains or cloud storage.
+const cloudDocumentationHosts = new Set(['aws.amazon.com', 'docs.aws.amazon.com', 'learn.microsoft.com']);
 const shapes = {
   lesson: { sections: nonempty(object), prerequisiteRefs: all(ref), estimatedMinutes: positive, workedExample: text, misconceptions: nonempty(text), practiceRefs: nonempty(ref), conceptRefs: nonempty(ref) },
   concept: { definition: text, misconception: text },
@@ -112,7 +114,7 @@ export function validateContent(bundle, { curriculum = loadCurriculum(), previou
       check(actors.has(p.verifierId), `${label}: unknown source verifier`);
       check(record.sourceRefs.length === 0, `${label}: sources cannot cite other content`);
       const hostname = new URL(p.url).hostname;
-      check(/(^|\.)(nist\.gov|iso\.org|isc2\.org|sitecorecloud\.io|isaca\.org|edoeb\.admin\.ch|fedlex\.admin\.ch|eur-lex\.europa\.eu)$/.test(hostname), `${label}: primary publisher URL required`);
+      check(cloudDocumentationHosts.has(hostname) || /(^|\.)(nist\.gov|iso\.org|isc2\.org|sitecorecloud\.io|isaca\.org|edoeb\.admin\.ch|fedlex\.admin\.ch|eur-lex\.europa\.eu)$/.test(hostname), `${label}: primary publisher URL required`);
       if (p.sourceKind === 'authoritative-law') check(/(^|\.)(fedlex\.admin\.ch|eur-lex\.europa\.eu)$/.test(hostname), `${label}: authoritative legal text URL required`);
       check(p.checkedAt <= asOf && p.reviewDueAt > p.checkedAt, `${label}: invalid review dates`);
       const maxDays = p.sourceKind === 'authoritative-law' ? 90 : 366;

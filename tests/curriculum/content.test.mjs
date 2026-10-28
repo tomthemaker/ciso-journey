@@ -85,6 +85,54 @@ test('invalid dates, unsafe/non-primary URLs and overlong cadence are rejected',
   rejects(data => { get(data, 'source-nist').payload.url = 'https://example.com/article'; }, /primary publisher/);
   rejects(data => { get(data, 'source-nist').payload.reviewDueAt = '2029-01-01'; }, /cadence exceeded/);
 });
+const cloudSourceUrls = [
+  'https://aws.amazon.com/compliance/shared-responsibility-model/',
+  'https://docs.aws.amazon.com/AmazonS3/latest/userguide/security.html',
+  'https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility',
+];
+const cloudSource = (data, url) => Object.assign(get(data, 'source-nist').payload, {
+  publisher: 'Synthetic provider source', url, c01SourceId: null,
+});
+test('exact official cloud documentation hosts support draft references', () => {
+  for (const url of cloudSourceUrls) {
+    const data = loadContent();
+    cloudSource(data, url);
+    assert.deepEqual(validate(data), [], url);
+    assert.equal(get(data, 'source-nist').payload.verification, 'metadata-only');
+    assert.ok(data.editorial.every(item => item.status === 'draft' && item.reviews.length === 0));
+  }
+});
+test('cloud publisher scope excludes spoof suffixes, sibling/subdomains and user-controlled storage', () => {
+  for (const hostname of [
+    'aws.amazon.com.evil.example', 'docs.aws.amazon.com.evil.example', 'learn.microsoft.com.evil.example',
+    'evilaws.amazon.com', 'evildocs.aws.amazon.com', 'evillearn.microsoft.com',
+    'example.aws.amazon.com', 'example.docs.aws.amazon.com', 'example.learn.microsoft.com',
+    'amazon.com', 'www.amazon.com', 'microsoft.com', 'www.microsoft.com', 'azure.microsoft.com',
+    'amazonaws.com', 's3.amazonaws.com', 'example.s3.amazonaws.com', 'example.blob.core.windows.net',
+  ]) rejects(data => cloudSource(data, `https://${hostname}/reference`), /primary publisher/);
+  rejects(data => cloudSource(data, 'https://aws.amazon.com@evil.example/reference'), /url/);
+  rejects(data => cloudSource(data, 'http://learn.microsoft.com/reference'), /url/);
+});
+test('cloud sources retain legal, verification, challenge and independent human review gates', () => {
+  for (const url of cloudSourceUrls) {
+    rejects(data => {
+      cloudSource(data, url);
+      Object.assign(get(data, 'source-nist').payload, { sourceKind: 'authoritative-law', reviewDueAt: '2027-01-25' });
+    }, /authoritative legal text URL required/);
+    rejects(data => { cloudSource(data, url); status(data, 'card-control', 'source-checked'); }, /source text not checked/);
+    rejects(data => {
+      cloudSource(data, url);
+      get(data, 'source-nist').payload.verification = 'authoritative-text';
+      status(data, 'card-control', 'independently-reviewed');
+    }, /independent educator approval required/);
+    const data = withReviews();
+    cloudSource(data, url);
+    status(data, 'card-control', 'independently-reviewed');
+    assert.deepEqual(validate(data), [], url);
+    data.editorial.find(item => item.ref.id === 'source-nist').unresolvedChallenges.push('Synthetic provider source dispute');
+    assert.match(validate(data).join('\n'), /overdue\/expired content must be stale/);
+  }
+});
 test('expiry propagates; CISM and CISSP boundary dates are exclusive', () => {
   const data = withReviews();
   for (const item of data.editorial) item.status = 'published';
