@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>CISO Journey — Learning Tracker</title>
   </head>
-  <body>
+  <body data-storage-blocked="true">
     <main class="shell">
       <header class="top">
         <div class="brand">
@@ -26,6 +26,11 @@
           /><button id="resetBtn" class="btn">Reset</button>
         </div>
       </header>
+      <section class="storage-panel" aria-label="Browser storage">
+        <p id="storageStatus" role="status">Loading saved progress…</p>
+        <button id="retryStorageBtn" class="btn">Retry storage</button>
+        <button id="recoveryBtn" class="btn" hidden>Download recovery copy</button>
+      </section>
       <section class="hero">
         <div class="card">
           <div class="eyebrow">Your executive security development</div>

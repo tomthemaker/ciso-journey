@@ -35,18 +35,18 @@ Fast unit checks run with `npm test`. CI adds typecheck/build; critical browser 
 - Learning journal and achievement/evidence log
 - Curated links to official security frameworks and certification programs
 - JSON export/import backups
-- Browser localStorage persistence; responsive layout; no analytics/tracking
+- Transactional IndexedDB persistence; responsive layout; no analytics/tracking
 
 ## Notes about data
 
-Data is saved in your current browser's localStorage. Switching browser or device, or clearing site data, may lose progress. Use **Export backup** regularly. Importing a backup replaces existing local progress. The app does not synchronize across devices.
+Data is saved in your current browser's IndexedDB. Existing `ciso-journey-v1` data migrates atomically and its original bytes remain untouched as a historical recovery copy. Use **Export backup** regularly: exports use version 2, and imports accept versions 1 and 2. Storage failures show recovery steps instead of resetting progress. Switching browser/device or clearing site data can lose progress; the app does not synchronize across devices. See [storage, backup compatibility and recovery](docs/product/F03_STORAGE_AND_RECOVERY.md).
 
 ## Security and privacy
 
 The browser loads static HTML, JavaScript and CSS assets; no learner data is sent to a service. External framework links open in new tabs when clicked. Imported JSON is parsed as data and rendered with `textContent`, not injected as HTML. Only import backups you trust. No authentication is provided because this prototype stores data only in your browser.
 
 ## Learning resources per roadmap task (v1.1)
-Every roadmap task includes expandable learning suggestions, with LinkedIn Learning as the preferred platform, official standards, and Coursera discovery links. Verified LinkedIn courses are linked directly; targeted LinkedIn and Coursera course searches are provided to accommodate catalog changes. Progress storage continues to use `ciso-journey-v1`, preserving prior progress in the same browser and origin. If moving between file locations/browsers, export a JSON backup from the old app and import it into the updated one.
+Every roadmap task includes expandable learning suggestions, with LinkedIn Learning as the preferred platform, official standards, and Coursera discovery links. Verified LinkedIn courses are linked directly; targeted LinkedIn and Coursera course searches are provided to accommodate catalog changes. Prior `ciso-journey-v1` progress is preserved through the IndexedDB migration in the same browser and origin. If moving between file locations/browsers, export a JSON backup from the old app and import it into the updated one.
 
 ## Recommended next feature for Codex: Resource-level learning and mastery tracking
 
@@ -64,7 +64,7 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 
 1. Keep the current task IDs (`w1`–`w12`, `p2a`–`p6e`) stable and give each resource a **stable ID** rather than using a URL or array index as the sole identity. Existing `taskLearningResources` entries can be converted into records with `id`, `taskId`, `platform`, `title`, `url`, `type`, and `isCustom` fields. Treat search-result links as **discovery suggestions**, not courses the learner has actually completed.
 2. Add separate state collections such as `resourceProgress` (`resourceId` → status, completedAt, notes, evidenceUrl), `taskMastery` (`taskId` → level, evidence, assessedAt), and `customResources`. Avoid encoding these in the existing `completed` object.
-3. **Backward compatibility is mandatory:** current localStorage key is `ciso-journey-v1`; existing data shape includes `completed`, `scores`, `journal`, and `achievements`. Load old data safely, use defaults for new fields, and preserve the meaning of previously checked-off roadmap tasks. Do not silently reset or reinterpret historical completions. Keep importing existing version-1 JSON backups; use a documented migration if changing backup versions.
+3. **Backward compatibility is mandatory:** the original localStorage key is `ciso-journey-v1`; existing data shape includes `completed`, `scores`, `journal`, and `achievements`. Load old data safely, use defaults for new fields, and preserve the meaning of previously checked-off roadmap tasks. Do not silently reset or reinterpret historical completions. Keep importing existing version-1 JSON backups; use a documented migration if changing backup versions.
 4. Use accessible controls and clear visual differentiation for resource status versus demonstrated mastery. Make updating a resource status possible directly from its expanded roadmap panel.
 5. Maintain local-first operation, no accounts or analytics, safe rendering of imported data, and working JSON export/import including the new fields.
 6. Add tests for migration from v1, backup round-trips, resource/task independence, custom-resource editing, and handling of removed or renamed resource URLs.
@@ -80,11 +80,11 @@ Every roadmap task includes expandable learning suggestions, with LinkedIn Learn
 
 ## CISO Journey 2.0 planning
 
-A comprehensive learning platform is planned; this increment introduces lightweight TypeScript modules and a static Vite build while retaining the v1 data format. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
+A comprehensive learning platform is planned; the current foundation uses lightweight TypeScript modules, a static Vite build and transactional storage while retaining v1 import/data compatibility. Start with the [evaluated delivery plan](docs/product/PLAN.md), [goal evaluation](docs/product/EVALUATION.md), [shared product memory](docs/product/MEMORY.md) and [GitHub backlog](docs/planning/BACKLOG.md). Original lessons, explained questions, FSRS retrieval and executive practice will ship incrementally while preserving existing progress. LinkedIn Learning will supplement the teaching.
 
 ## Preservation checks and recovery
 
-[F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1 payload before replacing progress; unsupported or malformed files leave current state untouched.
+[F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1/v2 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
 The app has no framework or runtime package dependency. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
 

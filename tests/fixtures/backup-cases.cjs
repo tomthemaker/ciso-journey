@@ -3,7 +3,7 @@ const allComplete = require('./v1/all-complete.json');
 const bad = mutate => { const backup = structuredClone(allComplete); mutate(backup); return JSON.stringify(backup); };
 const malformedInputs = [
   ['truncated JSON', '{truncated'], ['null envelope', 'null'], ['array envelope', '[]'], ['missing envelope fields', '{}'],
-  ['wrong app', bad(b => { b.app = 'Other app'; })], ['future version', bad(b => { b.version = 2; })], ['string version', bad(b => { b.version = '1'; })],
+  ['wrong app', bad(b => { b.app = 'Other app'; })], ['future version', bad(b => { b.version = 3; })], ['string version', bad(b => { b.version = '1'; })],
   ['null data', bad(b => { b.data = null; })], ['missing completed', bad(b => { delete b.data.completed; })],
   ['null completed', bad(b => { b.data.completed = null; })], ['array completed', bad(b => { b.data.completed = []; })], ['string completion', bad(b => { b.data.completed.w1 = 'true'; })],
   ['null scores', bad(b => { b.data.scores = null; })], ['array scores', bad(b => { b.data.scores = []; })], ['out-of-range score', bad(b => { b.data.scores.Governance = 5; })], ['string score', bad(b => { b.data.scores.Governance = '2'; })], ['fractional score', bad(b => { b.data.scores.Governance = 1.5; })],

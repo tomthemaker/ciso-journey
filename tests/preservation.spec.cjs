@@ -8,7 +8,20 @@ const empty = require('./fixtures/v1/empty.json');
 const { malformedInputs } = require('./fixtures/backup-cases.cjs');
 const KEY = 'ciso-journey-v1';
 const tasks = inventory.phases.flatMap(phase => phase.tasks);
-const stored = page => page.evaluate(key => localStorage.getItem(key), KEY);
+const stored = async page => {
+  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+  return page.evaluate(() => new Promise((resolve, reject) => {
+    const request = indexedDB.open('ciso-journey', 1);
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => {
+      const db = request.result;
+      const tx = db.transaction('snapshots');
+      const read = tx.objectStore('snapshots').get('current');
+      tx.oncomplete = () => { db.close(); resolve(JSON.stringify(read.result.data)); };
+      tx.onabort = () => { db.close(); reject(tx.error); };
+    };
+  }));
+};
 
 async function importText(page, text, accept = true) {
   const dialogs = [];
@@ -39,6 +52,7 @@ async function confirmAction(page, action, accept = true) {
 test.beforeEach(async ({ page }) => {
   page.on('pageerror', error => { throw error; });
   await page.goto('./');
+  await expect(page.locator('body')).toHaveAttribute('data-storage-blocked', 'false');
 });
 
 test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work', async ({ page }) => {
@@ -110,7 +124,7 @@ test('v1 fixtures render safely and real downloads round-trip every value', asyn
       expect(await page.evaluate(() => window.importExecuted)).toBeUndefined();
       const exported = await exportBackup(page);
       expect(exported.app).toBe('CISO Journey');
-      expect(exported.version).toBe(1);
+      expect(exported.version).toBe(2);
       expect(Number.isFinite(Date.parse(exported.exportedAt))).toBe(true);
       expect(exported.data).toEqual(backup.data);
       await importBackup(page, empty);
@@ -122,11 +136,20 @@ test('v1 fixtures render safely and real downloads round-trip every value', asyn
 
 test('existing storage bytes, default scores and extra fields survive', async ({ page }) => {
   const original = JSON.stringify(mixed.data, null, 2);
-  await page.evaluate(({ key, original }) => localStorage.setItem(key, original), { key: KEY, original });
+  await page.evaluate(({ key, original }) => new Promise(resolve => {
+    localStorage.setItem(key, original);
+    const request = indexedDB.open('ciso-journey', 1);
+    request.onsuccess = () => {
+      const db = request.result;
+      const tx = db.transaction('snapshots', 'readwrite');
+      tx.objectStore('snapshots').clear();
+      tx.oncomplete = () => { db.close(); resolve(); };
+    };
+  }), { key: KEY, original });
   await page.reload();
-  expect(await stored(page)).toBe(original);
-  expect((await exportBackup(page)).data).toEqual(mixed.data);
   await expect(page.locator('#statLogs')).toHaveText('2');
+  expect(await page.evaluate(key => localStorage.getItem(key), KEY)).toBe(original);
+  expect((await exportBackup(page)).data).toEqual(mixed.data);
 
   // Defaults and extensions also survive the real import/export path.
   const backup = structuredClone(mixed);
@@ -170,7 +193,7 @@ test('cancelled import and failed persistence leave storage and live state untou
   expect((await importBackup(page, allComplete, false)).map(dialog => dialog.type)).toEqual(['confirm']);
   expect(await stored(page)).toBe(original);
   expect((await exportBackup(page)).data).toEqual(mixed.data);
-  await page.evaluate(() => { Storage.prototype.setItem = () => { throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); }; });
+  await page.evaluate(() => { IDBObjectStore.prototype.put = () => { throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); }; });
   const dialogs = await importBackup(page, allComplete);
   expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
   expect(dialogs[1].message).toContain('Could not import backup:');
