@@ -1,3 +1,4 @@
+import type { ReadingProgress } from "./reading-progress.ts";
 /** Legacy v1 values remain independent of future resource/recall/assessment records. */
 export type Task = [id: string, title: string, outcome: string];
 export interface Phase {
@@ -28,6 +29,7 @@ export interface LearnerState {
   scores: Record<string, number>;
   journal: HistoryEntry[];
   achievements: HistoryEntry[];
+  readingProgress?: ReadingProgress;
   // Preserve extra JSON fields from compatible v1 backups.
   [key: string]: unknown;
 }

@@ -2,7 +2,7 @@
 export function bindNavigation(): void {
   const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>(".tab"));
   function showSection(): void {
-    const requested = location.hash.slice(1);
+    const requested = location.hash.slice(1).split("/")[0];
     const section = tabs.some((tab) => tab.dataset.tab === requested)
       ? requested
       : "roadmap";

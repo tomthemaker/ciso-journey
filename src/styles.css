@@ -501,3 +501,18 @@ body[data-storage-blocked="true"] .hero,
 body[data-storage-blocked="true"] .tabs,
 body[data-storage-blocked="true"] .view { display: none !important; }
 @media print { .storage-panel { display: none; } }
+
+.lesson-body { max-width: 80ch; margin-inline: auto; width: 100%; }
+.lesson-body h2, .lesson-body h3 { scroll-margin-top: 16px; }
+.lesson-body h3 { margin-top: 28px; }
+.lesson-body p { white-space: pre-wrap; }
+.lesson-body, .lesson-catalog { overflow-wrap: anywhere; }
+.lesson-body li { margin-bottom: 12px; }
+.lesson-body li p { margin: 6px 0; }
+.lesson-body summary { cursor: pointer; padding: 10px 0; }
+.lesson-catalog li { padding-block: 8px; }
+.lesson-catalog a, .lesson-body a { color: var(--accent); text-underline-offset: 3px; }
+.reading-sections { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 20px; }
+.reading-sections button { text-align: left; white-space: normal; max-width: 100%; }
+.reading-progress { border-block: 1px solid var(--line); padding-block: 16px; margin-block: 24px; }
+a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
