@@ -1,0 +1,1683 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w5-cloud-draft-2026-10-28.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w5-author",
+      "kind": "ai",
+      "role": "C04 w5 original draft author and technical source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w5-nist-cloud",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST cloud service models",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf",
+        "edition": "SP 800-145, September 2011",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": "2011-09-28",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Section 2, Service Models, printed pp. 2–3; official CSRC final entry also inspected. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-nist-container",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST application container risks and countermeasures",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-190.pdf",
+        "edition": "SP 800-190, September 2017",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": "2017-09-25",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Sections 2.2–2.3, 3.1–3.5 and 4.1–4.5; official CSRC final entry also inspected. Architectural foundation, not current CSP configuration instructions. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-nist-ssdf",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST Secure Software Development Framework",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf",
+        "edition": "SP 800-218, SSDF version 1.1, February 2022",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": "2022-02-03",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "PO.2, PO.3, PO.5, PS.1–PS.3, PW.4, PW.7–PW.9 and RV.1–RV.2; official CSRC final entry also inspected. Pinned edition, not a claim about future revisions. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-aws-responsibility",
+      "version": 1,
+      "kind": "source",
+      "title": "AWS shared responsibility",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Amazon Web Services",
+        "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+        "edition": "Living web guidance, inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Understanding the AWS Shared Responsibility Model; EC2 guest OS/security groups and service-dependent responsibilities. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-eks-security",
+      "version": 1,
+      "kind": "source",
+      "title": "Amazon EKS security responsibilities",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Amazon Web Services",
+        "url": "https://docs.aws.amazon.com/eks/latest/best-practices/security.html",
+        "edition": "Amazon EKS Best Practices Guide, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Understanding the Shared Responsibility Model: managed control plane, self-managed workers, managed node groups and Fargate. Managed node-group AMI rollout remains customer responsibility. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-rds-security",
+      "version": 1,
+      "kind": "source",
+      "title": "Amazon RDS security responsibilities",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Amazon Web Services",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.html",
+        "edition": "Amazon RDS User Guide, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Security in Amazon RDS: security of/in the cloud and customer configuration/management responsibilities. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-rds-maintenance",
+      "version": 1,
+      "kind": "source",
+      "title": "Amazon RDS maintenance operations",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Amazon Web Services",
+        "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html",
+        "edition": "Amazon RDS User Guide, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Overview of DB instance maintenance updates; Viewing pending maintenance; Maintenance window; Operating system updates. Required/available maintenance and engine-specific timing need confirmation. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-azure-responsibility",
+      "version": 1,
+      "kind": "source",
+      "title": "Microsoft Azure shared responsibility",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Microsoft",
+        "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+        "edition": "Microsoft Learn, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Division of responsibility, responsibility matrix and responsibilities you always retain. Page text available despite generic authorization banner; no authenticated access used. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-aks-security",
+      "version": 1,
+      "kind": "source",
+      "title": "Azure Kubernetes Service security concepts",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Microsoft",
+        "url": "https://learn.microsoft.com/en-us/azure/aks/concepts-security",
+        "edition": "Microsoft Learn AKS security concepts, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Build security; Registry security; Cluster security; Node security. Standard/Automatic modes differ; customers still govern application images and identity. Page text available despite generic authorization banner. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w5-aks-best-practices",
+      "version": 1,
+      "kind": "source",
+      "title": "Azure Kubernetes Service operational security",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "publisher": "Microsoft",
+        "url": "https://learn.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security",
+        "edition": "Microsoft Learn AKS cluster security best practices, living web edition inspected 2026-10-28",
+        "jurisdiction": "Technical guidance; globally illustrative, no legal applicability asserted",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-01-26",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AKS cluster mode security responsibilities; secure API-server access; secure container access; upgrade and node update sections. Page text available despite generic authorization banner. Official text retrieved and inspected on 2026-10-28 by the AI author. See docs/curriculum/drafts/w5.md for coverage and inspection limits. Technical inspection is not independent educator/legal review.",
+        "verifierId": "ai-c04-w5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching, fictional examples and assessment items; no quotations, copied figures or tables. Linked primary material remains attributed to its publisher; no third-party or commercial reproduction rights asserted.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w5-responsibility",
+      "version": 1,
+      "kind": "concept",
+      "title": "Responsibility follows a defined service boundary",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-cloud",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-azure-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "definition": "Shared responsibility allocates concrete security activities between the provider and customer for the selected service and mode. A contracted supplier may perform customer activities, but the customer still needs a named internal risk owner, evidence and escalation. Specify the component and action rather than assigning an entire topic such as patching to one party.",
+        "misconception": "Calling a service managed transfers every security activity and business risk to its provider."
+      }
+    },
+    {
+      "id": "concept-w5-container-boundary",
+      "version": 1,
+      "kind": "concept",
+      "title": "Container packaging and host security are separate",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-best-practices",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "definition": "A container image packages application code and its dependencies; the runtime executes it under the selected isolation model. Ordinary Linux containers on one node share that node’s kernel. Image fixes, node fixes and control-plane fixes are separate activities. Managed services and sandboxed runtimes change particular boundaries, so a container label alone does not assign ownership.",
+        "misconception": "Updating the Kubernetes control plane fixes every image dependency and worker-node kernel."
+      }
+    },
+    {
+      "id": "concept-w5-artifact-assurance",
+      "version": 1,
+      "kind": "concept",
+      "title": "Artifact integrity has a limited claim",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "definition": "An image digest identifies particular content. Signature verification against a trusted signer can support integrity and origin claims under the trust policy. Provenance records describe the claimed source, inputs and build process. Each requires a trusted verification path; none alone proves benign behaviour, absence of vulnerabilities or suitability for deployment.",
+        "misconception": "A signed image is necessarily secure because a trusted organisation signed it."
+      }
+    },
+    {
+      "id": "card-w5-1",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve the managed-service boundary",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-azure-responsibility",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "prompt": "In ordinary EC2 or Azure Virtual Machines, who owns guest operating-system patching?",
+        "answer": "The customer owns guest OS patching. The provider secures underlying infrastructure; a contracted operator can perform patching, but its execution and evidence need customer oversight.",
+        "conceptRef": {
+          "id": "concept-w5-responsibility",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w5-2",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve the image–node distinction",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "prompt": "Does replacing an application container image patch the worker node’s kernel?",
+        "answer": "No. The image contains application components; the running kernel belongs to the node or selected runtime environment. Confirm that environment’s update owner and rollout process separately.",
+        "conceptRef": {
+          "id": "concept-w5-container-boundary",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w5-3",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve the signature limit",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "prompt": "Does a valid image signature prove that the image has no vulnerabilities?",
+        "answer": "No. Verification under a trusted policy supports an integrity/origin claim. An approved signer may sign vulnerable or malicious content, so component assessment, review and runtime controls remain necessary.",
+        "conceptRef": {
+          "id": "concept-w5-artifact-assurance",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "rubric-w5-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Six-control responsibility answer",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-maintenance",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "allocation",
+            "description": "Allocate the six named controls across ordinary RDS and EKS with EC2 managed node groups.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a workload or assigns everything to the provider."
+              },
+              {
+                "score": 1,
+                "descriptor": "Allocates all six controls for both workloads with credible provider/customer actions and identifies the image supplier’s patch contribution."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also names internal accountable roles and distinguishes supplier delivery from customer rollout, including EKS node-image upgrades and RDS maintenance coordination."
+              }
+            ]
+          },
+          {
+            "id": "confirmation",
+            "description": "Expose at least two service assumptions and their verification.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats the word managed as sufficient evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names two concrete assumptions requiring confirmation with the provider."
+              },
+              {
+                "score": 2,
+                "descriptor": "For each, states the service/mode detail to check, the official evidence needed, an internal owner and what decision changes if it is false."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w5-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Three-check supply-chain answer",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "stages",
+            "description": "Propose exactly three checks covering source, dependency, build and deployment.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Misses a delivery stage or lists products without checks."
+              },
+              {
+                "score": 1,
+                "descriptor": "Three concrete checks collectively cover all four stages, with a sensible combined check."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also links the approved source/dependency input to the built digest and to the admitted deployment, using both allowed and rejected test evidence."
+              }
+            ]
+          },
+          {
+            "id": "evidence",
+            "description": "Give an owner, retained evidence and detection limit for every check.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "An owner, evidence or limitation is missing from one or more checks."
+              },
+              {
+                "score": 1,
+                "descriptor": "Every check has an operational owner, a concrete evidence item and a relevant limitation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also explains why signatures and a clean scan can miss harmful content, and names a revisit trigger and decision owner for unresolved risk."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w5-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Executive signature decision answer",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "claim",
+            "description": "Evaluate the supplier’s signature claim.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Accepts the signature as proof of safety or treats signature verification as useless."
+              },
+              {
+                "score": 1,
+                "descriptor": "Explains integrity/origin under trusted verification and the limit concerning vulnerabilities or malicious logic."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also distinguishes trust in the signer/build from component safety and asks for the exact digest, verification-policy result and relevant assessment evidence."
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "description": "Give a bounded business decision.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Releases or rejects without a reason or accountable owner."
+              },
+              {
+                "score": 1,
+                "descriptor": "States a justified release/defer decision, one residual risk, a named accountable role and a revisit condition."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also weighs delay against exposure, assigns a concrete next evidence action and explicitly limits what the evidence and self-assessment establish."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w5-exercise",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Cloud responsibility and delivery review",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-maintenance",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "matrix",
+            "description": "Allocate all six controls for both selected workloads.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Missing controls, a workload or credible ownership."
+              },
+              {
+                "score": 1,
+                "descriptor": "Six rows cover both workloads, separating provider/customer/supplier actions and naming internal accountable roles."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also resolves handoffs between supplier image repair, customer rollout and provider service operation, with evidence for each row."
+              }
+            ]
+          },
+          {
+            "id": "assumptions",
+            "description": "Confirm service boundaries.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No concrete boundary assumptions."
+              },
+              {
+                "score": 1,
+                "descriptor": "At least two assumptions name the service/mode and the provider evidence needed."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also assigns confirmation owners and explains how a false assumption changes controls or the release decision."
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "description": "Design three checks spanning four stages.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Source, dependency, build or deployment is absent."
+              },
+              {
+                "score": 1,
+                "descriptor": "Exactly three checks collectively cover all four stages; each has an owner, evidence and limitation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also traces approved inputs to an immutable deployed digest and specifies allowed/rejected tests; explicitly rejects signature/scan certainty."
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "description": "Recommend and bound the next action.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No business decision or treats completion as competence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Justifies a decision with business impact, residual risk, accountable role and dated review or event trigger."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also compares the cost of delay and exposure, defines a safe stop/rollback condition and states the evidence’s limits and assessment provenance."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w5-1",
+      "version": 1,
+      "kind": "question",
+      "title": "AWS managed-node patch handoff",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A team runs EKS on EC2 managed node groups, using an EKS-optimised machine image. AWS has published a patched image. Which action belongs to the customer in this stated mode?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "a",
+            "text": "Upgrade the managed node group to the patched machine image and verify rollout.",
+            "explanation": "Correct. AWS maintains the optimised image; the customer initiates the managed node-group upgrade and verifies workload continuity and node state."
+          },
+          {
+            "id": "b",
+            "text": "Patch the provider-managed Kubernetes control-plane hosts directly.",
+            "explanation": "AWS manages the EKS control plane. Customer node-group rollout does not grant control over those hosts."
+          },
+          {
+            "id": "c",
+            "text": "Rebuild only the application image because it includes the node kernel.",
+            "explanation": "The application image does not replace the worker-node kernel. Image and node updates address different components."
+          },
+          {
+            "id": "d",
+            "text": "Wait because every managed node group automatically installs each published machine image.",
+            "explanation": "The stated EKS managed-node mode requires customer upgrade action; do not infer Fargate or another service mode’s responsibilities."
+          }
+        ],
+        "correctOptionId": "a",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w5-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Azure privileged deployment risk",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-best-practices",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "An AKS application image passes signature verification against an approved supplier key. Its manifest requests unnecessary privileged container access. Which conclusion is supported?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "a",
+            "text": "The signature approves privileged access because it covers the image.",
+            "explanation": "Image integrity/origin does not authorise the deployment’s privileges or establish their necessity."
+          },
+          {
+            "id": "b",
+            "text": "A managed cluster makes the privileged request irrelevant to workload security.",
+            "explanation": "Workload privilege and policy remain relevant even when a provider manages more cluster operations."
+          },
+          {
+            "id": "c",
+            "text": "The customer must assess and constrain workload privileges; a signature does not establish a safe manifest.",
+            "explanation": "Correct. Verify the selected mode’s policy enforcement and require only needed permissions. Signed content can still be vulnerable or unsuitable."
+          },
+          {
+            "id": "d",
+            "text": "Replacing Azure with EC2 would eliminate the need to assess workload privileges.",
+            "explanation": "Changing provider or service model changes operational ownership, not the need to assess excessive privileges."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w5-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Allocate a concrete cloud boundary",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-maintenance",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional Larch Dispatch uses ordinary Amazon RDS for PostgreSQL (not RDS Custom) and EKS on EC2 managed node groups. An image supplier supplies the application and base-image fixes but does not operate the cloud account. Allocate provider, customer and supplier actions for six controls: physical infrastructure; platform/node and application patching; identity/authorisation; network exposure; data/key/recovery protection; logging/incident response. Name internal accountable roles. Flag at least two service assumptions requiring provider confirmation, what evidence and owner will confirm each, and what changes if either is false. Distinguish supplier fix delivery from rollout.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w5-question-3",
+          "version": 1
+        },
+        "annotatedExample": "Physical infrastructure: AWS operates facilities/underlying hosts for both services; the customer cloud owner records the service scope. The image supplier has no facility role. Patching: AWS maintains the ordinary RDS platform; the database owner checks pending maintenance, engine support and application compatibility. For EKS, AWS manages the control plane and provides patched optimised node images; the platform owner upgrades the managed node group. The application owner deploys repaired application images for EKS; the supplier supplies those repairs and dependency information. A supplied fix is not a completed rollout. Identity: the customer identity and database/application owners approve database grants, AWS permissions and Kubernetes access; AWS operates the service mechanisms; the supplier receives no standing administrator access. Network: the customer network owner restricts RDS connections and EKS API/workload paths; AWS operates underlying networking. Data/key/recovery: the data and recovery owners choose access, supported encryption/key settings and recoverability targets and test restoration; AWS operates selected storage/backup functions. Logging/response: service teams enable and collect relevant logs, test alerts and own escalation; AWS handles its infrastructure incidents, and the supplier supports image-vulnerability investigation. For the last three rows the image supplier has no routine operational permission in the stated arrangement.\n\nFirst confirm that this is ordinary RDS rather than RDS Custom and which engine/maintenance actions are available or mandatory: the database owner checks the exact service documentation and pending-maintenance evidence with AWS support if unclear. If the service is Custom, revise the OS/maintenance allocation before approving it. Second confirm EKS compute is EC2 managed node groups rather than Fargate or Auto Mode: the platform owner checks the deployed compute configuration against current EKS guidance. A different mode changes the infrastructure update handoff. Retain configuration snapshots and dated support clarification; the customer service owner remains accountable for the business consequence. Annotation: all six rows allocate activities for both workloads without claiming that the supplier operates the account or that one generic patching label is sufficient."
+      }
+    },
+    {
+      "id": "question-w5-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Review three supply-chain checks",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A fictional containerised appointment service has budget for three release checks. Propose exactly three checks that collectively cover source, dependency, build and deployment. State which stages each covers, its owner, evidence and what it fails to detect. For the highest anchors, trace approved inputs to the built and deployed digest; include allowed and rejected tests, explain signature and scan limits, and name an unresolved-risk decision owner and revisit trigger.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w5-question-4",
+          "version": 1
+        },
+        "annotatedExample": "Check 1 combines source and dependency review. The application lead requires a reviewed source commit, locked dependency versions and a component inventory assessed against known vulnerabilities and supplier notices. Retain review approvals, lockfile/inventory and the dated triage result. It can miss malicious business logic, unknown vulnerabilities and unrecorded components.\n\nCheck 2 assesses build integrity. The build-platform owner uses restricted, short-lived build credentials and an isolated build job, retaining the input commit, dependency inputs, build identity, output digest and verified signed provenance under an approved trust policy. This links the release to check 1. Test that the approved build produces acceptable verification evidence and an unapproved build identity fails verification. A compromised approved builder or signing key can still produce trusted-looking evidence; a signature is not a vulnerability assessment.\n\nCheck 3 enforces deployment policy. The platform owner admits only the reviewed digest with the expected trusted verification evidence and required nonprivileged configuration. In isolation, test the approved deployment succeeds and an unsigned/unapproved digest and unnecessary privileged manifest are denied. Retain admission decisions, deployed digest and test results. This cannot detect every application flaw, credential misuse or later runtime compromise. The service owner decides whether to defer release or accept bounded residual risk after the three evidence sets are compared. Revisit on a new critical dependency advisory, failed rejection test or signing-key concern. Annotation: the first combined check permits four-stage coverage with three checks; no single green result is treated as a safety guarantee."
+      }
+    },
+    {
+      "id": "question-w5-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Challenge an executive safety claim",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "format": "open",
+        "prompt": "A supplier says: “Our signed container means the release is safe.” Write a brief executive response for a fictional delivery service. Explain the useful signature claim and its limits, request the exact digest, verification-policy result and relevant assessment evidence, and give a justified release/defer decision with a next evidence action, accountable role, residual risk and revisit condition. For the top anchors, weigh the cost of delay against exposure and state what this evidence and self-assessment cannot establish.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w5-question-5",
+          "version": 1
+        },
+        "annotatedExample": "A signature verified under our trusted policy supports a claim about the origin and integrity of this particular image. It does not establish that its dependencies or business logic are safe, or that the deployment grants only necessary privileges. Please supply the exact digest, trusted-signer verification result, build/input record, current component assessment and explanation of unresolved findings.\n\nI would defer this fictional release until the application lead confirms the relevant component finding and the platform lead demonstrates that an unapproved digest and unnecessary privileged manifest are rejected. Delay postpones a dispatch improvement; releasing without those checks could expose order data or interrupt delivery. The service owner is accountable for that tradeoff and any time-limited exception. Even after checks, unknown vulnerabilities and compromise of an approved builder remain possible. Revisit at tomorrow’s release review, or earlier if a new advisory or verification failure appears. Annotation: the decision is conditional on missing evidence, not on an assertion that signatures are useless. This response and its rubric are self-assessed practice; neither signature evidence nor completion proves competence or future security."
+      }
+    },
+    {
+      "id": "scenario-w5-cloud-review",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Practical cloud responsibility and supply-chain review",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-maintenance",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "brief": "Fictional Larch Dispatch plans ordinary RDS for PostgreSQL (not RDS Custom) and EKS with EC2 managed node groups. A supplier delivers application and base-image fixes, but has no cloud-account operations role. The COO wants evidence before authorising production. Use the six control areas from the lesson: physical infrastructure; platform/node/application patching; identity/authorisation; network exposure; data/key/recovery protection; logging/incident response.",
+        "deliverable": "Produce six responsibility rows covering both workloads with provider/customer/supplier actions, internal accountable roles and evidence. Flag at least two service/mode assumptions, confirming owner, provider evidence and changed action if false. Design exactly three checks spanning source, dependency, build and deployment with owner/evidence/limitation for each. For top anchors trace inputs to the deployed digest, test allowed/rejected deployments, explain signature/scan limits, compare delay/exposure, give a business decision, residual risk, safe stop/rollback condition and dated/event-triggered review. State self-assessment provenance and evidence limits.",
+        "constraints": [
+          "Use only fictional facts and synthetic data in an isolated test plan; do not operate a real cloud account or submit employer evidence.",
+          "Keep the selected RDS/EKS modes explicit; if proposing a different mode, revise the allocation and cite its exact official boundary.",
+          "No paid course or external account is required. No legal, mastery, readiness or independent-review claim follows from completion."
+        ],
+        "rubricRef": {
+          "id": "rubric-w5-exercise",
+          "version": 1
+        },
+        "annotatedExample": "For both stated workloads, record six rows. (1) AWS operates facilities and underlying infrastructure; the customer cloud owner retains dated service-scope documentation. The image supplier has no facility role. (2) AWS maintains the RDS platform and EKS control plane, and supplies optimised node images; the customer database owner retains pending-maintenance and compatibility results, and the platform owner retains managed-node upgrade results. The supplier delivers repaired application/base-image components; the application owner retains deployment tests and the repaired running digest. (3) AWS supplies identity mechanisms; customer identity, database and platform owners approve access and retain role/grant exports plus allowed/denied tests. The supplier has no standing administrator access. (4) AWS operates underlying networking; the customer network owner configures and tests RDS, cluster-management and workload paths, retaining rules and connection-test results. (5) AWS operates selected storage/recovery functions; customer data/key/recovery owners retain access/key configuration and an isolated usable-restore result against their targets. The image supplier has no routine role in rows 4–5. (6) AWS handles infrastructure incidents; customer service teams retain configured-log and test-alert results and an escalation record. The supplier investigates image findings and delivers repairs. Confirm ordinary RDS versus Custom and EC2 managed node groups versus alternative EKS modes before approving the allocation. The database owner checks the exact RDS service and maintenance evidence, obtaining provider clarification if needed; Custom changes the OS-maintenance allocation. The platform owner checks deployed compute against current EKS guidance; a switch to Fargate changes node-infrastructure ownership. Revise the handoff before relying on either assumption if it is false.\n\nFor delivery, (1) the application lead reviews the approved commit and locked components, retaining approvals/inventory/dated triage; malicious logic and unknown flaws may escape. (2) The build owner restricts credentials and verifies build evidence tying those inputs to the output digest; retain build identity, inputs and verification result. A compromised approved builder can still sign harmful content. (3) The platform owner admits only that approved digest with verified trust evidence and limited privileges; retain deployment/admission results. Test an approved nonprivileged deployment succeeds, an unapproved digest and unnecessary privileged manifest fail. Application flaws and later credential misuse remain possible. A clean scan covers known detectable findings at that time, not all vulnerabilities.\n\nRecommend a synthetic pre-release test before production approval. One day of delay postpones dispatch improvements; proceeding without proven rejection paths may expose order data and interrupt dispatch. The service owner is accountable for that tradeoff and time-limited exceptions. Stop if the test reaches production data or credentials. For a later authorised rollout, the platform owner retains the prior approved digest/configuration and a tested rollback path; stop or roll back when agreed business acceptance or denial checks fail. Revisit at tomorrow’s review, earlier on a critical advisory, failed rejection or key-trust concern. Annotation: this example covers each exercise criterion; another allocation or release decision needs equivalent service-specific evidence. It is self-reported fictional practice with rubric self-assessment, not independent educator review or proof of future security."
+      }
+    },
+    {
+      "id": "lesson-w5-cloud",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Week 5 · Allocate cloud responsibility and review the delivery chain",
+      "authorIds": [
+        "ai-c04-w5-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w5"
+      ],
+      "objectiveIds": [
+        "obj-w5-1",
+        "obj-w5-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w5-nist-cloud",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-container",
+          "version": 1
+        },
+        {
+          "id": "source-w5-nist-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aws-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-eks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-rds-maintenance",
+          "version": 1
+        },
+        {
+          "id": "source-w5-azure-responsibility",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-security",
+          "version": 1
+        },
+        {
+          "id": "source-w5-aks-best-practices",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w5 AI-authored draft; no independent educator/legal approval or publication.",
+      "priorAttemptImpact": "New draft ID; existing versions and attempts remain unchanged. Future attempts must retain this exact reference.",
+      "scheduleImpact": "No enrollment, scheduler reset or schedule retargeting.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Begin with the service and the business consequence",
+            "body": "A cloud contract can remove hardware work while leaving an exposed database untouched. The leadership question is which activity is performed by whom, how its result is checked and who decides what to do when it fails. This lesson supports the weekly outcome: review shared responsibility and key AWS/Azure risks. You will allocate six controls across a managed database and a container workload, then propose three delivery checks covering four stages. All organisations and decisions here are fictional; these are technical governance examples, not legal obligations."
+          },
+          {
+            "heading": "Define the boundary before assigning an owner",
+            "body": "Infrastructure as a service (IaaS) supplies computing resources on which the customer manages operating systems and applications. EC2 and Azure Virtual Machines illustrate this boundary: the provider operates underlying infrastructure, while the customer manages the guest OS, software and selected network rules. Platform as a service (PaaS) moves more platform operation to the provider; software as a service (SaaS) supplies an application. These categories orient the discussion but do not replace the selected service’s documentation. “Managed” alone does not identify a patching, recovery or logging owner.\n\nSeparate the provider, the customer and an additional software or operations supplier. A supplier may repair an image or perform contracted operations. The customer still needs an internal accountable role to approve access, demand evidence and escalate failure. Responsibility here means an operational activity; it does not determine contractual liability. Write “platform team rolls out the patched node image” rather than “patching is shared.”"
+          },
+          {
+            "heading": "Containers introduce several distinct update boundaries",
+            "body": "A container image packages application files and dependencies. A registry stores images; a runtime executes them; an orchestrator such as Kubernetes schedules workloads and manages their desired state. Its control plane exposes management functions, while worker nodes execute workloads. Ordinary Linux containers on a node share its kernel: an application-image rebuild does not replace that kernel. Privileged workloads or sensitive host mounts can expand the consequences of compromise. Alternative isolation technologies and managed modes require their own assessment.\n\nA node machine image is the template used to start its operating system and associated software; it is different from an application container image. EKS manages its Kubernetes control plane. With EC2 managed node groups, AWS supplies updated optimised machine images and the customer upgrades the node groups. Fargate assumes additional infrastructure responsibilities. AKS also manages control-plane components; AKS Standard and Automatic differ in baseline configuration and operational ownership. Confirm the actual mode and node-update process. None of these labels transfers the customer’s application-image, data-access and workload-permission decisions wholesale."
+          },
+          {
+            "heading": "Worked executive example 1 · Six controls for an AWS service",
+            "body": "Larch Dispatch runs ordinary RDS for PostgreSQL, not RDS Custom, and its application on EKS EC2 managed node groups. An external image supplier provides application repairs without operating the account. The COO wants an explicit allocation before funding the migration.\n\n1. Physical infrastructure: AWS operates facilities and underlying infrastructure for both services. The customer cloud owner verifies the selected services’ scope; the image supplier has no physical-control activity.\n2. Patching: AWS operates RDS platform maintenance; the database owner checks engine support, pending actions and compatibility. AWS operates the EKS control plane and supplies optimised node images; the platform owner upgrades node groups. The supplier repairs application/base-image components; the application owner rebuilds, tests and deploys the approved image.\n3. Identity and authorisation: AWS operates service mechanisms; the customer identity, database and platform owners approve permissions and test denied actions. The supplier has no standing administrator access.\n4. Network exposure: AWS operates underlying networking; the customer network owner restricts database connections, cluster management and workload paths.\n5. Data, keys and recovery: AWS operates selected storage and recovery mechanisms; customer data/key/recovery owners configure permitted access and supported protection, set targets and test usable recovery.\n6. Logging and incident response: AWS handles its infrastructure incidents; customer service teams select and retain relevant logs, test alerts and lead their response. The supplier investigates image findings and provides repairs. It has no routine operational role in rows 4–5.\n\nThe database owner must confirm ordinary versus Custom service boundaries and engine-specific maintenance timing. The platform owner must confirm managed-node compute rather than Fargate or another mode. Retain configuration and official service evidence, seeking provider clarification where ambiguous. A changed answer changes the allocation. The COO funds database maintenance coordination and node rollout testing because a supplier-delivered fix alone does not keep dispatch available."
+          },
+          {
+            "heading": "AWS and Azure risks follow the configured path",
+            "body": "An overly broad AWS permission or Azure role can let a compromised account change data or controls. A reachable RDS endpoint or AKS management endpoint creates a network path; authentication and authorisation must still constrain actions. Network restriction alone does not prove application permission is correct. A vulnerable base image, exposed secret or unnecessary workload privilege can undermine a managed cluster. Enable the relevant diagnostic evidence, assign response ownership and test both allowed and denied actions. Provider infrastructure assurance does not establish that these customer settings are correct.\n\nFor Azure, check the selected AKS mode’s baseline and configured policy rather than assuming that every cluster has identical defaults. For either provider, identify key and identity dependencies before recovery testing. A backup feature and encrypted storage do not establish a usable restore or prevent an authorised plaintext export. These are service risks to investigate, not a claim that one provider is inherently safer."
+          },
+          {
+            "heading": "Three checks can span four delivery stages",
+            "body": "A software supply chain includes source code, dependencies, build systems and deployment. Dependencies include base images and libraries. A software bill of materials (SBOM) inventories components; it does not prove that the inventory is complete or that those components are safe. A digest identifies image content. A signature checked against a trusted signer supports integrity/origin under that policy. Provenance describes claimed build inputs and process. A compromised trusted builder or signer can still produce harmful content.\n\nFirst combine source and dependency checks: require reviewed changes, locked inputs, component inventory and dated vulnerability triage. The application lead retains approvals and findings; unknown flaws or malicious logic may escape. Second check build integrity: restrict build access and credentials, record the approved inputs and output digest, and verify build evidence under a defined trust policy. The build owner retains those records; a compromised approved builder remains a limitation. Third enforce deployment policy: admit the approved digest with required verification and limited privileges. The platform owner retains admission and runtime-configuration evidence; this does not detect every application flaw or later credential misuse. Together the checks cover four stages without pretending three scans provide universal assurance."
+          },
+          {
+            "heading": "Worked executive example 2 · A signed Azure release",
+            "body": "A fictional appointments service uses AKS Standard. Its supplier presents a valid signature and requests a privileged deployment. The operations director asks for immediate release before the morning booking peak. The security lead requests the exact digest, trusted-signer policy result, input/build record and current component findings. The platform team tests that the approved nonprivileged deployment works and that an unapproved digest and unnecessary privileged manifest are denied.\n\nThe director defers this candidate until the excessive privilege is removed and the three check owners produce their evidence. The delay postpones an improvement, while the proposed privilege could widen an attacker’s access after compromise. The service owner records this tradeoff, residual unknown vulnerabilities and a review the next morning. A failed rejection test or signing-key concern triggers earlier review. A green signature was useful evidence of a narrower claim; it never justified the manifest’s permissions."
+          },
+          {
+            "heading": "Practice · Make the handoffs and limits reviewable",
+            "body": "Complete scenario-w5-cloud-review using the two specified workloads and six control rows. For each row distinguish provider/customer/supplier activities, internal accountable role and evidence. Identify at least two assumptions requiring provider confirmation, the confirming owner and what changes if false. Propose exactly three checks spanning source, dependency, build and deployment; each needs an owner, retained evidence and a limitation.\n\nFor the highest rubric anchors, explain supplier-fix/customer-rollout handoffs, trace approved inputs to the deployed digest, test allowed and rejected deployments, and reject signature/scan certainty. Compare delay with exposure; give an accountable business decision, residual risk, safe stop/rollback condition and dated or event-triggered review. Keep the exercise synthetic and isolated. Reading, resource use, legacy task completion, card recall, question attempts and applied self-assessment remain separate. No completion or score establishes mastery, certification readiness or independent review."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w3-architecture",
+            "version": 2
+          },
+          {
+            "id": "lesson-w4-data",
+            "version": 2
+          }
+        ],
+        "estimatedMinutes": 55,
+        "workedExample": "For ordinary RDS and EKS EC2 managed node groups, separate provider infrastructure/platform operation, customer configuration and rollout, and supplier image repairs. In an AKS Standard release, a valid image signature does not justify unnecessary workload privileges; the service owner bounds release with evidence and a revisit condition.",
+        "misconceptions": [
+          "Managed means every patch, permission, backup and response is the provider’s responsibility.",
+          "An application-image rebuild patches the node kernel or every container service has the same ownership boundary.",
+          "A signed image, SBOM or clean vulnerability scan establishes that a release is safe."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w5-1",
+            "version": 1
+          },
+          {
+            "id": "question-w5-2",
+            "version": 1
+          },
+          {
+            "id": "question-w5-3",
+            "version": 1
+          },
+          {
+            "id": "question-w5-4",
+            "version": 1
+          },
+          {
+            "id": "question-w5-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w5-cloud-review",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w5-responsibility",
+            "version": 1
+          },
+          {
+            "id": "concept-w5-container-boundary",
+            "version": 1
+          },
+          {
+            "id": "concept-w5-artifact-assurance",
+            "version": 1
+          }
+        ]
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w5-nist-cloud",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-nist-container",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-nist-ssdf",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-aws-responsibility",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-eks-security",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-rds-security",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-rds-maintenance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-azure-responsibility",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-aks-security",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w5-aks-best-practices",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w5-responsibility",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w5-container-boundary",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w5-artifact-assurance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w5-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w5-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w5-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w5-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w5-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w5-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w5-exercise",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w5-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w5-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w5-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w5-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w5-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w5-cloud-review",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w5-cloud",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
