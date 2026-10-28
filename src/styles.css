@@ -516,3 +516,13 @@ body[data-storage-blocked="true"] .view { display: none !important; }
 .reading-sections button { text-align: left; white-space: normal; max-width: 100%; }
 .reading-progress { border-block: 1px solid var(--line); padding-block: 16px; margin-block: 24px; }
 a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+/* Resource forms share the existing task panel and remain usable on narrow screens. */
+.resource-card { margin: 12px 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px; }
+.resource-card a, .resource-history, .resource-discovery { overflow-wrap: anywhere; }
+.resource-card form { margin: 12px 0; }
+.resource-card .field { margin-bottom: 10px; }
+.resource-card select, .resource-card input, .resource-card textarea, .resource-edit input, .resource-edit select { width: 100%; min-width: 0; }
+.resource-notes { white-space: pre-wrap; }
+.resource-history li { margin: 10px 0; }
+.resource-discovery { margin: 18px 0; }
