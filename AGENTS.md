@@ -14,7 +14,11 @@ Keep CI fast: run unit tests and type/build checks when present. Run critical br
 
 Use one orchestrator agent only to distribute tasks and oversee the process: scope work, manage dependencies, hand off context, track GitHub status and arrange reviews. The orchestrator does not implement tasks or approve deliverables.
 
+For each task, the orchestrator explicitly selects the implementation model and reasoning effort from task scope and risk, and records a brief rationale in the handoff. Defaults: routine triage or small documentation edits use `gpt-6-luna` at medium effort; standard implementation uses `gpt-6.1-sol` at medium; substantial UI/UX, migrations or reviews use `gpt-6.1-terra` at high; difficult security/architecture work or explicitly requested deep content review uses `gpt-6-astra` at high. A user's explicit model request takes precedence; reasoned escalation is allowed. Use only exact model IDs currently available in the tool catalog; do not invent availability, pricing or guarantees. See D030 and [#48](https://github.com/tomthemaker/ciso-journey/issues/48).
+
 For every task, including documentation and content, the orchestrator spawns a fresh implementation agent with `fork_turns="none"`. Keep context small through a compact handoff containing the issue and acceptance criteria, relevant repository/product instructions, base commit, isolated task worktree/branch and required validation. Each implementation run uses its own fresh agent; never reuse an agent for unrelated tasks. A later fix run also uses a new fresh implementation agent with the findings and current candidate in its compact handoff.
+
+Keep handoffs and outputs concise and task-specific. When a remaining-context metric is observable, checkpoint near 50% remaining; use only supported compaction controls and never claim compaction or control that is unavailable.
 
 Implementation and review use separate fresh agents and isolated worktrees. Reviewers inspect the exact candidate in a separate read-only worktree; they report findings without implementing fixes. The orchestrator coordinates the transitions and evidence below.
 
