@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp6-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp6-author",
+      "kind": "ai",
+      "role": "Original A02 comp-6 case/rubric author and official technical-source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp6-nist-measures-v1",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-55 Volume 1: Identifying and Selecting Measures",
+      "authorIds": [
+        "ai-a02-comp6-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-6 draft for issue 79; no learner has been assessed against this revision.",
+      "priorAttemptImpact": "No prior attempts are changed or regraded; any future attempt must retain this exact revision.",
+      "scheduleImpact": "No recall enrollment, schedule reset or automatic learning-progress change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-55v1.pdf",
+        "edition": "NIST SP 800-55v1, Volume 1 — Identifying and Selecting Measures; December 2024 final (2024-12-04)",
+        "jurisdiction": "United States publication; voluntary measurement guidance used for a fictional case, with no legal applicability conclusion",
+        "publicationDate": "2024-12-04",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official final landing-page history, https://csrc.nist.gov/pubs/sp/800/55/v1/final, and official PDF text on 2026-10-29. Authors: Katherine Schroeder, Hung Trinh, Victoria Yan Pillitteri. Sections 3.1.1–3.1.5, printed pp.12–16: documentation, reporting, data management, data quality and uncertainty; section 3.2, pp.16–17: consistent and repeatable measures. Successful curl HTTPS download: 1,130,125 bytes; SHA-256 29435d0db5af6dcb307e3de10e843c6eef474a0e7ae1e8993ab60af3cfc1bd04. Final history lists 2024-12-04, superseding SP 800-55 Rev.1 (2008); January 2024 initial drafts are superseded. These locators support repeatable, contextual measures and accountable decisions; all case numbers, thresholds and options are original fictional assumptions. Recheck immediately on an official update or substantive source challenge. AI source inspection is not independent educator/legal approval.",
+        "verifierId": "ai-a02-comp6-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrase and original fictional case only; no copied passage, table or diagram. PDF Authority notice (third PDF page) states no US copyright and requests attribution. NIST Technical Series rights page inspected: https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications. Foreign rights and third-party material may differ; no independent rights clearance claimed.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-a02-comp6-nist-measures-v2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-55 Volume 2: Developing an Information Security Measurement Program",
+      "authorIds": [
+        "ai-a02-comp6-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-6 draft for issue 79; no learner has been assessed against this revision.",
+      "priorAttemptImpact": "No prior attempts are changed or regraded; any future attempt must retain this exact revision.",
+      "scheduleImpact": "No recall enrollment, schedule reset or automatic learning-progress change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-55v2.pdf",
+        "edition": "NIST SP 800-55v2, Volume 2 — Developing an Information Security Measurement Program; December 2024 final (2024-12-04)",
+        "jurisdiction": "United States publication; voluntary measurement guidance used for a fictional case, with no legal applicability conclusion",
+        "publicationDate": "2024-12-04",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official final landing-page history, https://csrc.nist.gov/pubs/sp/800/55/v2/final, and official PDF text on 2026-10-29. Authors: Katherine Schroeder, Hung Trinh, Victoria Yan Pillitteri. Section 2.4, printed pp.6–9: responsibilities; section 2.6, pp.9–10: communication; section 2.7.3, p.11: data management; section 3, pp.12–22: implementation, collection/analysis and corrective action. Successful curl HTTPS download: 1,321,210 bytes; SHA-256 a5d935325735e158ff5878c633069568cc2b1f1b629aa75963cae3b300362bc7. Final history lists 2024-12-04, superseding SP 800-55 Rev.1 (2008); January 2024 initial drafts are superseded. These locators support repeatable, contextual measures and accountable decisions; all case numbers, thresholds and options are original fictional assumptions. Recheck immediately on an official update or substantive source challenge. AI source inspection is not independent educator/legal approval.",
+        "verifierId": "ai-a02-comp6-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrase and original fictional case only; no copied passage, table or diagram. PDF Authority notice (third PDF page) states no US copyright and requests attribution. NIST Technical Series rights page inspected: https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications. Foreign rights and third-party material may differ; no independent rights clearance claimed.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "scenario-a02-comp6-board-brief",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Comp-6: defend a dispatch security decision with reproducible measures",
+      "authorIds": [
+        "ai-a02-comp6-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11",
+        "p5d",
+        "p5e"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2",
+        "obj-p5d-1",
+        "obj-p5e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp6-nist-measures-v1",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp6-nist-measures-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-6 draft for issue 79; no learner has been assessed against this revision.",
+      "priorAttemptImpact": "No prior attempts are changed or regraded; any future attempt must retain this exact revision.",
+      "scheduleImpact": "No recall enrollment, schedule reset or automatic learning-progress change.",
+      "payload": {
+        "brief": "Morrow Parts is a wholly fictional distributor. You are its CISO preparing the 2 October 2026 board meeting. Dispatch depends on four services: dispatch application, inventory database, order queue and label gateway. The COO says a dispatch interruption longer than 120 minutes can miss the daily carrier collection. The CFO estimates that one missed collection would delay CHF 180,000–260,000 of orders and require CHF 12,000–20,000 of extra handling. Delayed orders are not automatically lost revenue; these ranges are scenario estimates, not observed losses or annual expected loss. Supplier administrators can change dispatch configurations; stolen access or an unpatched dispatch service could disrupt shipments. Recovery and investigation controls limit different parts of that exposure.\n\nEvidence pack. All counts, systems, roles and dates below are invented. No employer data is required. Windows are UTC: August [2026-08-01T00:00:00Z, 2026-09-01T00:00:00Z), September [2026-09-01T00:00:00Z, 2026-10-01T00:00:00Z). A month-end account snapshot means the state immediately before the window ends. Use unrounded counts and round displayed percentages to one decimal when needed. A zero denominator means not measurable, never automatic success.\n\nE1 — Access export. The identity manager joined the identity-provider and remote-gateway exports by unique account ID and manually checked enforcement settings. August: 70 known enabled human supplier administrator accounts, 14 without enforced phishing-resistant MFA (authentication designed to resist credential phishing). September: 90 known enabled accounts, 18 without that enforcement. Of the same 70 accounts seen in both snapshots, 12 lacked it in September. The extra 20 accounts were discovered on a previously omitted remote gateway, not newly created in September; six lack enforcement. Disabled accounts and nonhuman service accounts are excluded. This is a known-account population, not proof of complete enterprise inventory; other unidentified access paths remain possible. There is no reliable August state for the 20 discovered accounts.\n\nE2 — Patch deadline register and verified deployment tickets. Count unique critical dispatch patch items whose original management-agreed due timestamp falls in the reporting month; an item is on time only if verified deployment occurred by that timestamp. One item is one patch requirement for one service; reopened tickets keep the same item ID and original due time. August: 40 due, 32 verified on time, four late, four still open past due at cutoff. September: 50 due, 36 verified on time, four late, ten still open past due. A proposed slide says 90% on time, using only the 40 September items eventually completed by cutoff. August's published 80% included all due items. Criticality and original deadline rules did not change; workload and patch complexity may have changed. These are separate monthly work cohorts, not the same patches tested twice. The operations manager owns deployment; the CISO can check, but cannot independently authorize outages.\n\nE3 — Exercise calendar and business acceptance sheets. Four recovery exercises were scheduled in each month, one per named service, with the same isolated test scope and requirements: usable service within 120 minutes from declared test start and recovered data no older than 30 minutes at that start. August: three met both; the inventory test took 135 minutes with 20-minute data age. September: dispatch 95/20 minutes, inventory 165/25, queue 105/15; label gateway was cancelled for launch work and has no result. Report against all four planned exercises, including the missed one. The continuity manager owns the calendar and acceptance sheets. No production-wide failover or supplier-loss exercise has been performed; tests do not establish live recovery probability.\n\nE4 — Collector heartbeat log and fixed feed register. The four services each require one daily security-log feed. A feed-day is healthy only when the collector records at least one authenticated heartbeat in that UTC day. August: 124 healthy feed-days out of 4 × 31 expected. September: 90 healthy out of 4 × 30; the label gateway feed was disconnected for all 30 days. Scope and heartbeat rules were unchanged. The SOC lead owns these records. Recorded deduplicated alerts fell from 80 in August to 30 in September under the same alert rules. Traffic and attack activity are unknown. A heartbeat proves receipt of a heartbeat, not complete event capture, correct detection or safety. Missing gateway records cannot be reconstructed from the supplied evidence.\n\nChoice and authority. For 2–30 October, at most CHF 50,000 of additional cash and 20 internal engineering person-days are available. The same engineers support the sales launch planned for 12 October. Option A, focused repair and evidence checks: CHF 40,000 and 20 days, allocated six access, six patch, four logging and four recovery days. It is expected to reduce identified exposure and repair reporting, with no guarantee of finishing every item. Option B, central reporting platform pilot: CHF 45,000 and 20 days, improving automated reconciliation and report traceability if integrations work; access enforcement, patching and recovery repairs remain deferred. Both postpone the launch to 26 October. Option C, manual reconciliation and tightly scheduled supplier access as an interim measure: CHF 10,000 and eight days; launch moves to 19 October, with most patch, recovery and logging gaps retained. Such access restrictions may slow supplier support; their effectiveness needs checking. These are mutually exclusive packages within this month's capacity. The CFO estimates delayed launch contribution of CHF 6,000 per week; it is an uncertain opportunity cost outside the additional-cash cap. No avoided-loss probability or proven investment return is available. The board can approve these packages and a launch delay beyond one week; the COO can authorize C within delegated CHF 10,000/eight-day/one-week limits, but cannot approve A or B alone. The sales director asks you to remove the ten open patch items and label the alert decline a security improvement to protect the launch narrative. No financial bonus or legal duty is assumed. The board may reject your recommendation; it needs an honest statement of the remaining exposure.",
+        "deliverable": "Prepare a decision brief for a five-minute board discussion, plus a four-row measure appendix. Use only the fictional evidence; identify any extra information as a request, not a fact. No external course or lesson is needed.\n\n1. Open with the requested board decision, cash, internal days, launch effect and accountable executive. Compare A, B and C on benefit, cost, feasibility, uncertainty and residual exposure. Show the separate estimated opportunity cost and one sensitivity that could change your choice; do not invent a return on investment. Explain why a rejected option remains credible and when it would be reconsidered. Address the sales director's request explicitly, including preservation of the correction and escalation if pressure persists.\n2. Define four measures from E1–E4. For each give purpose and linked risk treatment; numerator, denominator, inclusion/exclusion rules and unit; formula and both months' counts/results; exact snapshot or interval, source, owner and collection/reporting cadence. Identify at least one risk indicator and one control performance indicator. Propose an action threshold for each, briefly justify each threshold using this scenario, name who should accept it and what happens when it is crossed. They are fictional proposals, not NIST requirements. Include zero-denominator handling.\n3. Interpret the changes: reconcile E1's common-account cohort and newly discovered population, correct E2's incomplete denominator, report E3's failed and missed exercises, and explain why E4 and the alert count cannot establish reduced risk. State at least one limit and a concrete data-quality check for each measure, explain how a bad input could mislead the board, and identify evidence needed for stronger claims and what cannot be concluded about causation or enterprise-wide risk. Link the control gaps to dispatch impact without converting delayed orders into lost revenue or asserting a breach probability.\n4. Give dated actions, accountable owners, verification evidence and an oversight return date. State who can approve spending, operational changes and residual exposure in this fictional authority model; separate the CISO's advice from authorization. Provide escalation and a fallback if capacity or results disappoint, address operational harm from configuration changes, and state which unknowns should return to the board. State what this single response can demonstrate and keep applied self-assessment separate from legacy self-ratings, task/resource completion, question attempts and recall. Justified alternative decisions can earn the highest anchors; matching the model's wording or option is unnecessary.",
+        "constraints": [
+          "Assessment is limited to this fictional comp-6 response and the mapped objectives; no universal readiness, accreditation, certification, legal applicability or educator/legal approval claim.",
+          "Cash and engineering capacity are separate constraints. No option combination or assumed extra staff; any revised package requires a new explicit feasibility check and authorized decision.",
+          "Retain original deadlines, missed exercises, known-population qualifiers and missing records. Missing or zero-denominator evidence is not success; no invented causal attribution, breach odds or avoided-loss calculation.",
+          "Use response-scoped Recognize/Explain/Apply/Lead anchors per criterion; do not average them into a competency or readiness percentage. An incomplete or unsupported response may be below Recognize; do not force a rating.",
+          "All content remains AI-authored draft. Independent task review is separate from human content publication. #15 and #17 remain open; no quarterly assessment, portfolio, runtime registration or learner-state integration is delivered."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp6-board-brief",
+          "version": 1
+        },
+        "annotatedExample": "BOARD BRIEF — 2 October 2026. Decision requested: approve A, CHF 40,000 and 20 engineering days through 30 October, with the COO accountable and the launch moved from 12 to 26 October. Reserve the remaining CHF 10,000 cash; it does not create extra engineering capacity. The four allocations sum to 20 days. The board must authorize this package and two-week delay; the CISO recommends and verifies evidence. The COO must approve operational change windows and own the recorded residual-exposure decision within that mandate. Material scope, spend or delay beyond the mandate returns to the board.\n\nWhy now: known supplier access without phishing-resistant MFA could permit a stolen account to change dispatch settings; overdue critical patches leave another possible entry path. A slow or untested recovery can prolong disruption, and missing logs can impair investigation. The evidence does not show exploitation or prove that these gaps caused any interruption. The COO's 120-minute tolerance and CFO's CHF 180,000–260,000 delayed orders / CHF 12,000–20,000 handling estimate explain the business priority. Delayed order value is neither lost revenue nor an estimate of expected cyber loss.\n\nA addresses the identified control gaps and measurement integrity together; completion remains uncertain. B is credible if recurring data reconciliation is the main constraint: CHF 45,000/20 days buys a reporting pilot, but uncertain integrations and deferred control repairs make it less suitable this month. Reconsider B after repaired controls and a measured collection burden justify it. C, CHF 10,000/eight days, protects more launch capacity and enables interim access checks, but retains most patch, recovery and visibility exposure and can delay supplier support. A/B each carry estimated CHF 12,000 opportunity cost (two weeks × CHF 6,000), giving illustrative cash-plus-opportunity totals of CHF 52,000/57,000; C carries CHF 6,000, giving CHF 16,000. These totals omit unpriced risk and internal labor valuation, and opportunity cost is not a cash-cap breach or certain loss. No package has a demonstrated return. If delayed-launch contribution were CHF 20,000 per week rather than CHF 6,000, A's illustrative total becomes CHF 80,000 and C's CHF 30,000. I would ask the board to reconsider C as a time-limited bridge with explicit retained exposure and the checks below; the cost change alone does not prove C preferable.\n\nThe sales request would conceal late work and imply an unsupported safety gain. Keep the 50-item denominator and show the missing feed beside alert counts. Retain the proposed slide as a labelled superseded draft, record the correction, and have the CFO verify the arithmetic before board circulation. Escalate pressure to suppress it to the chair if unresolved.\n\nOversight: by 9 October the identity manager reconciles gateway/identity exports and records enforcement tests; operations freezes original patch deadlines and supplies verified-deployment evidence; the SOC lead restores gateway forwarding and checks sample events end to end. By 16 October the continuity manager reruns the inventory and missed label exercises with signed start, recovery, data-age and business-acceptance records. The COO agrees supplier support windows and can roll back a harmful configuration change while retaining restricted access and recording the exposure; security success cannot justify an unsafe dispatch change. CISO reports weekly counts and exceptions to the COO; the COO returns to the board on 30 October with the four measures, actual spend/days, unresolved items and a next decision. Any forecast above 20 days, CHF 50,000 or 26 October, or a failed retest, triggers an immediate COO/chair escalation before further discretionary commitments. If A cannot proceed, request a revised board decision; C may be authorized only within the COO's stated delegation, with remaining gaps and a 9 October reconsideration. Do not silently combine packages or mark unfinished repairs complete.\n\nMEASURE APPENDIX. Common collection rules: retain the E1–E4 frozen inputs and calculation sheet for each UTC window; report counts alongside rates. Owners collect the snapshot/monthly totals, monitor the relevant exception queue daily and report weekly operational exceptions plus a monthly board summary. All thresholds below are proposed for COO acceptance under the board mandate on 2 October, subject to the 30 October review, and are local action triggers, not external standards. If a denominator is zero, report not measurable with its cause and request an owner check; never label it 100% success.\n\nM1 — Known access exposure (risk indicator, not breach probability), linked to access enforcement/removal. Formula: 100 × known enabled human supplier admin accounts lacking enforced phishing-resistant MFA / all known enabled human supplier admin accounts, at each month-end snapshot. E1 identity-provider/remote-gateway join and enforcement review; identity manager owns it. Disabled and service accounts excluded. August 14/70 = 20.0%; September 18/90 = 20.0%. In the common 70, missing enforcement falls from 14/70 = 20.0% to 12/70 = 17.1%; six of the 20 discovered accounts lack it, so 12 + 6 = 18. The unchanged aggregate hides six newly discovered exposures and a net increase of four known exposed accounts, while the common cohort improves by two accounts. Without the omitted gateway's August state we cannot infer the enterprise trend. Proposed threshold: any known enabled supplier admin account lacking enforcement triggers owner verification and a COO-approved restriction or dated exception within one working day. Reason: each such account can change dispatch configuration; a zero-exception trigger is appropriate for this narrow privileged population, not a universal safety target. Check joins against gateway account IDs and test an allowed/denied authentication pair; duplicates or assuming configured MFA is enforced could understate exposure. Unknown access paths remain outside this denominator even if it reaches zero.\n\nM2 — Timely patch treatment (control performance), linked to verified deployment. Formula: 100 × due items verified by original due timestamp / all unique critical dispatch patch items with original due timestamp in the monthly UTC window. E2 register plus deployment tickets; operations manager owns it. Exclude items due in other months, never overdue open items; reopened records keep the same ID. August 32/40 = 80.0%; September 36/50 = 72.0%, an 8.0 percentage-point decrease. The proposed 36/40 = 90.0% excludes ten open items and cannot be compared with August's definition. Proposed trigger below 90% prompts a COO-approved patch window/reprioritization within five working days. Rationale: an interim 90% planning trigger forces attention when more than one in ten due obligations misses its agreed time while the constrained team repairs this backlog; it does not make a 90% result safe, excuse any critical overdue item or reset a due date. Urgent individual exposures still go directly to the COO. Match every register item to verification timestamps and inspect reopened/late records; excluded open work would falsely suggest improvement. Cohorts and complexity differ, so 72% does not isolate engineer performance or quantify risk reduction. Continue reporting overdue counts and ages separately.\n\nM3 — Recovery exercises meeting both limits (tested control performance), linked to recovery repair and retesting. Formula: 100 × exercises with service usable within 120 minutes AND data age at test start at most 30 minutes / all four scheduled monthly service exercises. E3 calendar and acceptance sheets; continuity manager owns it. August 3/4 = 75.0%; September 2/4 = 50.0%, down 25.0 percentage points. September inventory fails time (165 > 120) despite acceptable data age (25); the label exercise is missed, not a pass or an observed failure. Proposed trigger: any failed or missed exercise requires a dated repair/retest plan in two working days and COO review. Reason: each named service supports dispatch and a skipped test leaves its capability unobserved; the 120/30 limits are supplied business assumptions, not inferred from NIST. Reconcile calendar to signed results and verify clocks and acceptance timestamps; dropping cancelled tests would inflate success. Four isolated tests are a small planned set, not a random sample; no production or supplier-loss recovery guarantee follows.\n\nM4 — Observed log-feed availability (implementation/measurement-confidence indicator), linked to restoring forwarding and testing capture. Formula: 100 × healthy feed-days / (four registered feeds × calendar days in the monthly UTC window). Each feed-day needs its authenticated heartbeat; E4 heartbeat log/register, SOC lead owner. August 124/124 = 100.0%; September 90/120 = 75.0%, down 25.0 percentage points. Missing 30 gateway days explain the collection gap, not the fall in alerts. Proposed trigger below 100% in any daily four-feed check prompts same-day SOC investigation and escalation to the COO if not restored within 24 hours. Reason: all four dispatch dependencies are needed for investigation; a full day without a required source creates a material blind interval. This is a collection expectation, not a zero-risk threshold. Reconcile the fixed register daily and test delivery of a known sample event as well as heartbeat authenticity; healthy heartbeats with missing event types could overstate visibility. Recorded alerts fell by 50, but missing collection, traffic and attack variation prevent an inference of safer operations or attribution to A, which has not begun. Even restored feeds do not prove complete coverage or effective detection.\n\nASSESSMENT NOTE. This response can demonstrate scoped definition, interpretation and defense of a board decision in one fictional case. Lead anchors describe the response's decision discipline; they do not establish organization-wide leadership or readiness. Preserve its exact scenario/rubric version and record any self-assessment as self-assessment. Keep the six legacy self-ratings, resource reading, task completion, recall estimates, question attempts and applied rubric evidence separate. Obtain feedback and further varied evidence before a broader appraisal."
+      }
+    },
+    {
+      "id": "rubric-a02-comp6-board-brief",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Comp-6 board brief: response-scoped Recognize / Explain / Apply / Lead",
+      "authorIds": [
+        "ai-a02-comp6-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w11",
+        "p5d",
+        "p5e"
+      ],
+      "objectiveIds": [
+        "obj-w11-1",
+        "obj-w11-2",
+        "obj-p5d-1",
+        "obj-p5e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp6-nist-measures-v1",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp6-nist-measures-v2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-6 draft for issue 79; no learner has been assessed against this revision.",
+      "priorAttemptImpact": "No prior attempts are changed or regraded; any future attempt must retain this exact revision.",
+      "scheduleImpact": "No recall enrollment, schedule reset or automatic learning-progress change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "measures",
+            "description": "Reproduce four measures and make each an accountable decision aid (obj-w11-1; obj-p5d-1).",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies the four evidence areas and distinguishes a risk indicator from a control performance indicator, but definitions, populations or counts remain incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains why scope, original deadlines, missed tests and feed-days matter; describes formulas and owners, but one or more measures cannot yet be independently reproduced."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: defines all four measures with correct counts/results, population/inclusion rules, unit, UTC window or snapshot, source, owner and cadence; handles zero denominators and links each to a treatment. Proposes an actionable threshold for each."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and justifies each proposed threshold from the fictional business need, assigns its acceptance authority and resulting action, and specifies a concrete input-quality check for each measure. The report retains counts and unknowns so a favorable rate cannot conceal an exposure or missing evidence."
+              }
+            ]
+          },
+          {
+            "id": "interpretation",
+            "description": "Explain changes, business consequences and evidence limits without inventing causation (obj-w11-2; obj-p5d-1).",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: notices the patch denominator omission, newly discovered accounts, missed test or logging gap, but still leaves unsupported improvement claims or confuses delayed orders with loss."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains at least two reporting problems and plausible dispatch effects, but does not fully reconcile changing populations or all four measures and their limitations."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: reconciles 12 common-cohort plus six discovered exposures; corrects patching to 36/50; counts recovery against all four plans; explains reduced log coverage alongside alerts. States each measure's limits and traces gaps to dispatch impact without breach odds, false causal attribution or treating delayed orders as lost revenue."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and explains how a bad input for each measure could alter the board's interpretation, identifies the missing evidence needed for stronger trend/coverage claims and states what even successful repair or retest would leave unknown. Separates within-cohort change, discovery and different monthly work cohorts."
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "description": "Defend a feasible board request and handle stakeholder pressure (obj-p5e-1; obj-w11-2).",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: names an option or resource limit, but the request lacks cost, authority or a defensible comparison."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: compares plausible benefits and tradeoffs for the three options and acknowledges sales pressure, but leaves a cash/capacity, residual-exposure or uncertainty assumption unresolved."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: requests an authorized, feasible choice with cash, person-days, launch effect and accountable executive; compares A/B/C on benefits, costs, feasibility, uncertainty and remaining exposure. Rejects concealed late work and unsupported alert claims; shows opportunity cost separately without inventing return or avoided loss."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and works through one stated cost/capacity/evidence sensitivity that could change the choice, explains when a credible rejected option would be reconsidered and preserves/escalates the correction under sales pressure. Any well-supported option can qualify; the model's preferred A is not required."
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "description": "Make the decision verifiable and keep assessment claims scoped (obj-w11-2; obj-p5d-1; obj-p5e-1).",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: lists an owner or follow-up task but leaves completion evidence and authority unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains need for owned actions, oversight and a limited self-assessment, but dates, verification, escalation or fallback remain incomplete."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: assigns dated actions, owners, verification records and a board return date; distinguishes CISO advice, board package approval and COO operational authority. States retained exposure, escalation/fallback, and keeps this applied response separate from legacy ratings and other learning signals."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and gives specific capacity/results triggers, a fallback within the stated delegation or a fresh approval request, and an operationally safe way to handle harmful changes. States remaining unknowns at the return decision and limits Lead to this response, without a readiness percentage or implied independent review."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp6-nist-measures-v1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-a02-comp6-nist-measures-v2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp6-board-brief",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp6-board-brief",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
