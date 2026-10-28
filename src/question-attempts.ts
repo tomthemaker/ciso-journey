@@ -31,6 +31,15 @@ const nonempty = (value: unknown): value is string => typeof value === 'string' 
 const ref = (value: unknown): value is ContentRef => object(value) && slug(value.id) && Number.isSafeInteger(value.version) && Number(value.version) > 0;
 const instant = (value: unknown): value is string => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString() === value;
 const unique = (values: string[]): boolean => new Set(values).size === values.length;
+/** Imported historical refs may resolve to a different kind or an incompatible shape. */
+export function resolveRubric(bundle: ContentBundle, reference: ContentRef | null | undefined): Rubric | undefined {
+  const record = reference ? findContent(bundle, reference) : undefined;
+  if (record?.kind !== 'rubric' || !object(record.payload) || !Array.isArray(record.payload.criteria) || !record.payload.criteria.length ||
+    !record.payload.criteria.every(criterion => object(criterion) && slug(criterion.id) && nonempty(criterion.description) &&
+      Array.isArray(criterion.levels) && criterion.levels.length > 0 && criterion.levels.every(level =>
+        object(level) && Number.isSafeInteger(level.score) && Number(level.score) >= 0 && nonempty(level.descriptor)))) return undefined;
+  return record as Rubric;
+}
 function invalid(): never { throw new Error('Invalid or unsupported question attempts. Current progress has not changed.'); }
 /** Structural validation also accepts historical refs unavailable in today's installed bundle. */
 export function validateQuestionAttempts(value: unknown): asserts value is QuestionAttempts {
@@ -77,8 +86,8 @@ export function appendAttempt(state: LearnerState, attempt: QuestionAttempt): vo
 export function appendSelfAssessment(state: LearnerState, bundle: ContentBundle, attemptId: string, ratings: RubricSelfAssessment['ratings'], id: string, assessedAt: string): void {
   const candidate = structuredClone(state.questionAttempts);
   const attempt = candidate?.attempts.find(item => item.id === attemptId);
-  const rubric = attempt?.rubricRef ? findContent(bundle, attempt.rubricRef) as Rubric | undefined : undefined;
-  if (!candidate || !attempt || !rubric || rubric.kind !== 'rubric' || ratings.length !== rubric.payload.criteria.length ||
+  const rubric = resolveRubric(bundle, attempt?.rubricRef);
+  if (!candidate || !attempt || !rubric || ratings.length !== rubric.payload.criteria.length ||
     !rubric.payload.criteria.every(criterion => ratings.some(rating => rating.criterionId === criterion.id && criterion.levels.some(level => level.score === rating.score)))) throw new Error('Choose one rubric anchor for every criterion.');
   candidate.selfAssessments.push({ id, attemptId, assessedAt, rubricRef: copyRef(rubric), provenance: 'self-assessment', ratings: structuredClone(ratings) });
   validateQuestionAttempts(candidate);

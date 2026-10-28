@@ -2,9 +2,9 @@ const { test, before } = require('node:test');
 const assert = require('node:assert/strict');
 const bundle = require('../content/foundation.v1.json');
 const mixed = require('./fixtures/v1/mixed-progress.json');
-let createAttempt, appendAttempt, appendSelfAssessment, validateBackup, createBackup, questionRoute;
+let createAttempt, appendAttempt, appendSelfAssessment, validateBackup, createBackup, questionRoute, resolveRubric;
 before(async () => {
-  ({ createAttempt, appendAttempt, appendSelfAssessment, questionRoute } = await import('../src/question-attempts.ts'));
+  ({ createAttempt, appendAttempt, appendSelfAssessment, questionRoute, resolveRubric } = await import('../src/question-attempts.ts'));
   ({ validateBackup, createBackup } = await import('../src/backup.ts'));
 });
 const mcq = bundle.records.find(r => r.kind === 'question' && r.payload.format === 'mcq');
@@ -62,6 +62,46 @@ test('v1/v2 backups preserve attempts, historical refs, reading, and compatible 
   old.contentVersion = 'historical-bundle'; old.extension = ['retained'];
   for (const version of [1, 2]) assert.deepEqual(validateBackup({ ...createBackup(state), version }), state);
   for (const version of [1, 2]) assert.deepEqual(validateBackup({ ...mixed, version }), mixed.data);
+});
+test('imported incompatible or unavailable rubric refs retain selections without resolving unsafe rubric data', () => {
+  const state = structuredClone(mixed.data), question = constructed[0];
+  appendAttempt(state, make(question, 'Synthetic response'));
+  const rubric = resolveRubric(bundle, question.payload.rubricRef);
+  assert.equal(rubric.kind, 'rubric');
+  const ratings = rubric.payload.criteria.map(c => ({ criterionId: c.id, score: c.levels[0].score }));
+  appendSelfAssessment(state, bundle, 'synthetic-attempt', ratings, 'assessment', date);
+  for (const reference of [{ id: 'source-security-principles', version: 1 }, { id: 'rubric-unavailable', version: 7 }]) {
+    const imported = structuredClone(state);
+    imported.questionAttempts.attempts[0].rubricRef = reference;
+    imported.questionAttempts.selfAssessments[0].rubricRef = reference;
+    assert.deepEqual(validateBackup(createBackup(imported)), imported);
+    assert.equal(resolveRubric(bundle, reference), undefined);
+    imported.questionAttempts.selfAssessments = [];
+    const before = structuredClone(imported);
+    assert.throws(() => appendSelfAssessment(imported, bundle, 'synthetic-attempt', ratings, 'assessment', date), /every criterion/);
+    assert.deepEqual(imported, before);
+  }
+});
+test('rubric resolution checks criterion and anchor shape before rendering or recording new selections', () => {
+  const reference = constructed[0].payload.rubricRef;
+  for (const alter of [
+    r => { r.payload = null; },
+    r => { r.payload.criteria = undefined; },
+    r => { r.payload.criteria = {}; },
+    r => { r.payload.criteria = [null]; },
+    r => { r.payload.criteria[0].description = null; },
+    r => { r.payload.criteria[0].levels = undefined; },
+    r => { r.payload.criteria[0].levels = [null]; },
+    r => { r.payload.criteria[0].levels[0].descriptor = null; },
+  ]) {
+    const incompatible = structuredClone(bundle);
+    alter(incompatible.records.find(r => r.id === reference.id && r.version === reference.version));
+    assert.equal(resolveRubric(incompatible, reference), undefined);
+    const state = structuredClone(mixed.data);
+    appendAttempt(state, make(constructed[0], 'Synthetic response'));
+    assert.throws(() => appendSelfAssessment(state, incompatible, 'synthetic-attempt', [], 'assessment', date), /every criterion/);
+    assert.deepEqual(state.questionAttempts.selfAssessments, []);
+  }
 });
 test('malformed/future provenance and dangling or duplicate assessment reject entire imports without mutation', () => {
   const state = structuredClone(mixed.data), question = constructed[0];

@@ -130,3 +130,48 @@ test('aborted writes keep drafts and hide feedback until retry commits; imported
   await link.click();
   await expect(page.locator('#questionHeading')).toBeFocused();
 });
+
+test('real imports and reloads preserve incompatible and missing historical rubrics without blocking controls', async ({ page }) => {
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  const question = questions.find(r => r.payload.format === 'open');
+  const rubric = bundle.records.find(r => r.id === question.payload.rubricRef.id);
+  await page.goto(route(question)); await ready(page);
+  await page.locator('#questionResponse').fill('Synthetic historical response.');
+  await page.locator('#submitAttempt').click();
+  const form = page.getByRole('form', { name: 'Self-assess attempt 1' });
+  for (const criterion of rubric.payload.criteria) await form.getByLabel(criterion.description, { exact: true }).selectOption(String(criterion.levels[0].score));
+  await form.getByRole('button', { name: 'Save rubric self-assessment' }).click();
+  const original = await snapshot(page);
+  for (const reference of [{ id: 'source-security-principles', version: 1 }, { id: 'rubric-unavailable', version: 7 }]) {
+    for (const assessed of [true, false]) {
+      const backup = { ...mixed, version: 2, data: structuredClone(original.data) };
+      backup.data.questionAttempts.attempts[0].rubricRef = reference;
+      backup.data.questionAttempts.selfAssessments[0].rubricRef = reference;
+      if (!assessed) backup.data.questionAttempts.selfAssessments = [];
+      await importBackup(page, backup);
+      expect(errors).toEqual([]);
+      for (const reload of [false, true]) {
+        if (reload) await page.reload();
+        await ready(page);
+        await expect(page.locator('#importBtn')).toBeEnabled();
+        await expect(page.locator('#submitAttempt')).toBeEnabled();
+        await expect(page.locator('.attempt-result')).toContainText('exact rubric revision ' + reference.id + '@' + reference.version + ' is unavailable or incompatible');
+        await expect(page.getByRole('button', { name: 'Save rubric self-assessment' })).toHaveCount(0);
+        if (assessed) {
+          for (const rating of backup.data.questionAttempts.selfAssessments[0].ratings) await expect(page.locator('.attempt-result')).toContainText(rating.criterionId + ': ' + rating.score + ' — Exact anchor unavailable');
+        }
+        expect((await snapshot(page)).data).toEqual(backup.data);
+      }
+    }
+  }
+  // A stored format must match the resolved question before using keyed options or examples.
+  const incompatibleQuestion = { ...mixed, version: 2, data: structuredClone(original.data) };
+  Object.assign(incompatibleQuestion.data.questionAttempts.attempts[0], { format: 'mcq', response: 'a', provenance: 'keyed-mcq', correct: true, rubricRef: null });
+  incompatibleQuestion.data.questionAttempts.selfAssessments = [];
+  await importBackup(page, incompatibleQuestion); await page.reload(); await ready(page);
+  await expect(page.locator('.attempt-result')).toContainText('exact question revision is unavailable or incompatible');
+  await expect(page.locator('.option-feedback')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Annotated example', exact: true })).toHaveCount(0);
+  expect((await snapshot(page)).data).toEqual(incompatibleQuestion.data);
+  expect(errors).toEqual([]);
+});

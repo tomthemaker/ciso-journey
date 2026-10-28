@@ -2,7 +2,7 @@ import { node, byId } from './dom';
 import { contentKey, findContent, safeHttps } from './content';
 import type { ContentBundle, ContentRecord } from './content';
 import { effectiveStatus } from './content-status';
-import { appendAttempt, appendSelfAssessment, createAttempt, questionHash, questionRoute } from './question-attempts';
+import { appendAttempt, appendSelfAssessment, createAttempt, questionHash, questionRoute, resolveRubric } from './question-attempts';
 import type { Question, QuestionAttempt, Rubric } from './question-attempts';
 import type { Change, LearnerState } from './types';
 
@@ -27,8 +27,8 @@ function feedback(parent: HTMLElement, bundle: ContentBundle, attempt: QuestionA
   paragraph(parent, `Submitted ${attempt.submittedAt} · ${contentKey(attempt.contentRef)} · ${attempt.contentVersion} · ${attempt.curriculumVersion}`);
   paragraph(parent, `Objectives: ${attempt.objectiveIds.join(', ')}. Provenance: ${attempt.provenance}.`);
   paragraph(parent, `Your answer: ${attempt.response}`);
-  if (!question || question.kind !== 'question') {
-    paragraph(parent, 'The exact question revision is unavailable in this bundle. Its answer and provenance are retained; feedback cannot use a newer revision.');
+  if (!question || question.kind !== 'question' || question.payload.format !== attempt.format) {
+    paragraph(parent, 'The exact question revision is unavailable or incompatible in this bundle. Its answer and provenance are retained; feedback cannot use a newer revision.');
     return;
   }
   if (attempt.format === 'mcq') {
@@ -74,8 +74,8 @@ export function bindQuestions(bundle: ContentBundle, objectives: Objectives, cha
     article.append(node('h3', {}, 'Learning objectives'));
     for (const id of question.objectiveIds) paragraph(article, `${id}: ${objectives.find(item => item.id === id)?.statement ?? id}`);
     paragraph(article, question.payload.prompt);
-    const rubric = question.payload.rubricRef ? findContent(bundle, question.payload.rubricRef) as Rubric | undefined : undefined;
-    if (rubric?.kind === 'rubric') { rubricView(article, rubric); status(article, bundle, rubric); }
+    const rubric = resolveRubric(bundle, question.payload.rubricRef);
+    if (rubric) { rubricView(article, rubric); status(article, bundle, rubric); }
     const retired = effectiveStatus(bundle, question, new Date().toISOString().slice(0, 10)) === 'retired';
     const key = contentKey(question);
     const form = node('form', { 'aria-label': 'Attempt question' });
@@ -128,14 +128,15 @@ export function bindQuestions(bundle: ContentBundle, objectives: Objectives, cha
       details.append(node('summary', {}, `Attempt ${attempts.length - index} · ${contentKey(attempt.contentRef)} · ${attempt.submittedAt}`));
       feedback(details, bundle, attempt);
       const assessment = state?.questionAttempts?.selfAssessments.find(item => item.attemptId === attempt.id);
-      const pinnedRubric = attempt.rubricRef ? findContent(bundle, attempt.rubricRef) as Rubric | undefined : undefined;
+      const pinnedRubric = resolveRubric(bundle, attempt.rubricRef);
+      if (attempt.rubricRef && !pinnedRubric) paragraph(details, `The exact rubric revision ${contentKey(attempt.rubricRef)} is unavailable or incompatible in this bundle. Saved selections are retained; new self-assessment requires the exact rubric.`);
       if (assessment) {
         paragraph(details, `Self-assessment · ${assessment.assessedAt} · ${contentKey(assessment.rubricRef)}. Learner-selected rubric anchors; no independent review or applied mastery.`);
         for (const rating of assessment.ratings) {
           const criterion = pinnedRubric?.payload.criteria.find(item => item.id === rating.criterionId);
           paragraph(details, `${criterion?.description ?? rating.criterionId}: ${rating.score} — ${criterion?.levels.find(level => level.score === rating.score)?.descriptor ?? 'Exact anchor unavailable'}`);
         }
-      } else if (pinnedRubric?.kind === 'rubric' && attempt.format !== 'mcq') {
+      } else if (pinnedRubric && attempt.format !== 'mcq') {
         const ratings = ratingDrafts.get(attempt.id) ?? new Map<string, string>();
         ratingDrafts.set(attempt.id, ratings);
         const assessmentForm = node('form', { 'aria-label': `Self-assess attempt ${attempts.length - index}` });
