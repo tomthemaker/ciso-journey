@@ -12,7 +12,7 @@ module.exports = defineConfig({
     { name: 'mobile-chromium', use: { ...devices['Pixel 7'] } }
   ],
   webServer: {
-    command: 'node scripts/serve-build.mjs',
+    command: 'node scripts/build-review-harness.mjs && node scripts/serve-build.mjs',
     url: 'http://127.0.0.1:4174/ciso-journey/',
     reuseExistingServer: false
   }
