@@ -37,3 +37,10 @@ export interface V1Backup {
   exportedAt: string;
   data: LearnerState;
 }
+
+/** Version 2 keeps the full legacy data namespace, including unknown JSON fields.
+ * Future learning records require their own versioned validation before use. */
+export interface Backup extends Omit<V1Backup, "version"> {
+  version: 2;
+}
+export type Change = (edit: (candidate: LearnerState) => void) => Promise<boolean>;
