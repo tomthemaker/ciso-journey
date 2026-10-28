@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp5-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp5-author",
+      "kind": "ai",
+      "role": "Issue 78 original incident-tabletop draft author and technical-source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp5-incident-response",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-61 Rev. 3: incident response within cybersecurity risk management",
+      "authorIds": [
+        "ai-a02-comp5-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-5 draft for issue 78. AI-authored; no independent educator or legal approval.",
+      "priorAttemptImpact": "New optional draft reference; no prior response, attempt, assessment or legacy score is regraded, replaced or inferred.",
+      "scheduleImpact": "No card, enrollment or schedule change.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r3.pdf",
+        "edition": "SP 800-61 Rev. 3, April 2025 final; CSF 2.0 Community Profile",
+        "jurisdiction": "United States technical guidance; voluntary illustrative use in this fictional case, without a legal applicability claim",
+        "publicationDate": "2025-04-03",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-01-27",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official final entry https://csrc.nist.gov/pubs/sp/800/61/r3/final and official 48-page PDF inspected 2026-10-29. Final history date is 2025-04-03. Locators: sections 2.1–2.3; Table 2 GV.RR-02; Table 3 RS.MA-02 through RS.MA-05, RS.AN-06/07, RS.CO-02/03, RC.RP-01 through RC.RP-06. Use for authority, response tradeoffs, protected records and recovery acceptance. Supersedes Rev. 2; its former four-phase model is not taught as a current Rev. 3 requirement. No mandatory compliance assertion. AI inspection of source text is separate from independent educator/legal review.",
+        "verifierId": "ai-a02-comp5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original case, explanations, artifacts and rubric; no copied source prose, figures, tables, assessment items or third-party material. Attribute NIST through exact references. No endorsement or broad reuse permission is claimed.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-a02-comp5-event-recovery",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-184: recovery dependencies and exercised capability",
+      "authorIds": [
+        "ai-a02-comp5-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-5 draft for issue 78. AI-authored; no independent educator or legal approval.",
+      "priorAttemptImpact": "New optional draft reference; no prior response, attempt, assessment or legacy score is regraded, replaced or inferred.",
+      "scheduleImpact": "No card, enrollment or schedule change.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-184.pdf",
+        "edition": "SP 800-184, December 2016 final; stable recovery concepts only",
+        "jurisdiction": "United States technical guidance; voluntary illustrative use in this fictional case, without a legal applicability claim",
+        "publicationDate": "2016-12-22",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-01-27",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official final entry https://csrc.nist.gov/pubs/sp/800/184/final and official 53-page PDF inspected 2026-10-29. Final history date is 2016-12-22. Locators: section 2.1 dependency-aware priorities, section 2.3 trustworthy restoration, section 2.4 communications, sections 3.1–3.2 exercises and corrective actions. Older references to CSF 1.x categories and SP 800-61 Rev. 2 are historical context, not the case's current incident model. Use Rev. 3 for current incident-response framing; this source supports stable recovery planning only. AI inspection of source text is separate from independent educator/legal review.",
+        "verifierId": "ai-a02-comp5-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original case, explanations, artifacts and rubric; no copied source prose, figures, tables, assessment items or third-party material. Attribute NIST through exact references. No endorsement or broad reuse permission is claimed.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "scenario-a02-comp5-operations",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Bracken Components: contain harm and recover accountable services",
+      "authorIds": [
+        "ai-a02-comp5-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p4c",
+        "p4d",
+        "p4e"
+      ],
+      "objectiveIds": [
+        "obj-p4c-1",
+        "obj-p4d-1",
+        "obj-p4e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp5-incident-response",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp5-event-recovery",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-5 draft for issue 78. AI-authored; no independent educator or legal approval.",
+      "priorAttemptImpact": "New optional draft reference; no prior response, attempt, assessment or legacy score is regraded, replaced or inferred.",
+      "scheduleImpact": "No card, enrollment or schedule change.",
+      "payload": {
+        "brief": "AI-authored draft. This self-contained fictional tabletop concerns comp-5, Security operations. Allow about 60 minutes: 10 minutes to read, 25 for three decisions, 15 for recovery/after-action work, 10 for self-feedback. Work alone by writing the roles' positions or assign role players; either way record the simulated disagreement and resolution. No real systems or employer evidence are needed. Read only the evidence available at each decision, then continue. The annotated response is feedback to read after committing your own answer.\n\nWorking terms. Containment limits further harm; it can also interrupt useful work. A recovery time objective (RTO) is the agreed target for restoring a usable service after disruption. A recovery point objective (RPO) expresses the tolerated gap between disruption and the latest recoverable data point. Neither is proof of actual capability. For this exercise measure outage from 08:00 to the service owner's acceptance, and data gap from the recovered point to 08:00. Record operational workarounds separately from acceptance of the full service. These are fictional exercise conventions and approved business targets, not universal incident rules.\n\nOrganization and authority. Bracken Components distributes spare parts to small manufacturers. You advise its incident commander. The COO has delegated incident declaration, severity assignment, containment and recovery coordination to the duty security manager, the incident commander (IC). The infrastructure lead is also the recovery lead and executes isolation and rebuilding; the identity lead handles account/session revocation; the forensic analyst preserves and interprets evidence. The IC may interrupt affected services immediately to limit spreading harm, including emergency broad isolation, recording the reason and notifying the COO. The COO approves continued business interruption and deviations from the agreed service targets after advice from service owners. Production restoration requires IC security authorization and the relevant service owner's business acceptance; the recovery lead cannot approve alone. The communications lead sends approved customer/partner updates on an unaffected phone bridge. Qualified legal counsel and the privacy lead assess unresolved reporting, contractual and data-handling questions; they do not delay urgent containment while those questions are researched. No law, notification deadline, ransom payment authority or applicable jurisdiction is supplied. Do not infer one.\n\nE1 — service impact sheet, approved last month. All three services become unusable at 08:00. Dispatch: RTO 2 hours, RPO 30 minutes; missing the 10:00 carrier pickup delays 70 queued orders until tomorrow. Dependencies are a validated order/stock snapshot, clean warehouse access and the external carrier label API. Order acceptance: RTO 4 hours, RPO 15 minutes; lost orders require customer reconciliation, and incoming requests can be queued by phone without promising stock. Dependencies are a clean identity path and the order database. Customer status: RTO 8 hours, RPO 4 hours; prolonged silence increases duplicate requests. Dependencies are a validated dispatch feed and an external messaging supplier. An approved general delay message can be sent manually, without customer-record exports. Dispatch can use a validated read-only order snapshot without reopening order acceptance; the three full services do not have to recover in architecture order. Each service still needs a business transaction test before acceptance.\n\nE2 — architecture/resource sheet. Integration host M1 synchronizes orders, dispatch and status. Its service identity can write those databases and has an obsolete local backup-admin grant, separate from its central identity permissions. One infrastructure recovery team can work on only one full service at a time; the identity lead and one forensic analyst can work in parallel. An isolated restore network and a controlled offline administration path exist, but their credentials and integrity must be checked. The carrier normally takes 40 minutes to activate new API credentials; that is an estimate, not a confirmed appointment. The messaging supplier has not confirmed availability. No tested end-to-end recovery duration is supplied. Unaffected stock scanners can continue local work if the wider warehouse network stays connected.\n\nE3 — initial evidence packet, available by 08:10. Identity log: M1's token was used from an unrecognized endpoint at 07:40. Its logging agent was paused 07:20–07:45; the initial entry time is unknown. Database monitor: unexpected bulk writes began at 07:52. At 08:00 operators reported encrypted database files and a ransom note demanding contact. The note's claim that customer data was stolen is uncorroborated. A network log has an unusual outbound transfer but cannot identify its contents. This supports a serious operational incident; neither attribution nor confirmed disclosure follows from it. A midnight offline rebuild image and a 07:00 immutable data backup exist; immutability prevents modification of that copy, not inclusion of an earlier compromise. A newer 07:50 snapshot may contain compromised changes. No backup has yet passed restoration/integrity tests. The provider says its storage platform is healthy; that does not verify Bracken's accounts or data.\n\nDecision 1 — 08:10. Declare a provisional severity and decide containment. Fictional policy calls a loss of a critical service with suspected privileged compromise Major, requiring the IC to activate service owners, COO and response specialists now. Confirmed spread into an additional trust zone or failed containment requires immediate strategy reassessment and broader isolation if needed. Compare targeted isolation of M1, revocation of sessions/tokens, removal of its separate local grant and restriction of backup administration, against broad separation of the shared identity/warehouse network. Targeted action preserves scanners and the controlled recovery path but may miss another foothold. Broad separation reduces connected exposure but stops scanners and requires an estimated extra 45 minutes to establish an alternate recovery identity path. Neither option proves the attacker is gone. Decide what evidence to retain without leaving active harm uncontained. Explain a trigger for changing your decision.\n\nE4 — inject at 08:45, after logging decision 1. The backup audit now shows M1's local admin grant deleted a disposable test snapshot at 08:03. The 07:00 immutable copy still exists. A staged restore of that copy can be prepared on the isolated network; production integrity, compromised access paths and data reconciliation remain unresolved. The forensic analyst can investigate the 07:50 snapshot, but estimates at least 90 additional minutes and gives no assurance it will be usable. The COO asks whether a newer point could avoid missing orders; the dispatch owner asks for the 10:00 pickup. No actual release time is known.\n\nDecision 2 — 08:45. Select a recovery point/strategy and rank the three services, including dependencies and supplier confirmation. Compare rebuilding from the qualified 07:00 copy after checks with delaying for investigation of 07:50; holding all restoration while a wider compromise is investigated is also credible if supported by your threat assumptions. State the data loss and delay each option could cause, which decision belongs to the IC or COO, and when to ask the COO to accept a target miss. Do not treat either backup as already clean. State one meaningful recovery test and acceptance owner for each service.\n\nE5 — inject at 09:30, after logging decision 2. This staged-test evidence does not override an earlier choice to hold broader isolation. In a staged branch, the identity lead has revoked the known token/session, removed the local grant and restricted management access. Reuse of the old token is denied on the isolated network; a new restricted recovery identity succeeds. No new suspicious write was observed in that branch for 20 minutes, but the logging gap and possible other footholds remain unresolved. Carrier credential activation is still awaiting confirmation. The dispatch owner proposes reconnecting the staged application because its login screen works. A customer asks whether data was stolen.\n\nDecision 3 — 09:30. Authorize a conditional production release or hold it, naming the still-required security and business evidence, a rollback/stop trigger and the authorizers. Address the carrier dependency and the limits of the 20-minute observation. Draft a short factual customer update with its approver and next update time, and assign legal/privacy questions for qualified review. A login screen is insufficient proof of usable dispatch or trustworthy data.\n\nE6 — reveal only after decision 3, at the simulated 12:15 debrief. The controller supplies one reference branch for measurement regardless of your chosen strategy. This is synthetic comparison evidence, not a prediction of your branch or a claim of real execution. In that reference branch all three services recovered to the 07:00 data point, with no later records yet reconciled. The controller records completed security checks and successful owner transaction tests, and acceptance times: dispatch 10:20, order acceptance 11:30, customer status 12:00. Data submitted 07:00–08:00 still requires reconciliation; do not count unverified phone requests as restored records. Calculate each outage and data gap, compare them with E1, then write an improvement report. The remaining investigation and reconciliation can stay open even when a scoped service is accepted. End-of-recovery criteria and incident closure must be explicit, with separate owners; acceptance is not proof that the entire incident is resolved.",
+        "deliverable": "Produce one tabletop record, about two pages plus a compact recovery table. (1) Record the roles, their competing requests and your provisional severity, at least three evidence-backed observations, two material unknowns and who will resolve them. (2) Log decisions at 08:10, 08:45 and 09:30 before reading the next inject. For each use: time | available evidence IDs | decision and credible alternative | reason/tradeoff | assumptions/uncertainty | accountable authorizer and executing owner | next review time or trigger. Include evidence preservation and the consequence of containment for service continuity. (3) Rank dispatch, order acceptance and customer status. For each record its RTO/RPO, dependencies including supplier uncertainty, selected recovery point, prerequisite checks, a realistic transaction/integrity test, security authorization and business acceptance owner; define a release stop/rollback trigger. (4) Write a 2–3 sentence customer update at 09:30 with approver/next update, and assign unresolved notification/contract/data questions to qualified roles without inventing legal duties. (5) Using E6 as a separate reference branch, report all three RTO/RPO comparisons. Write a short after-action report separating observed exercise results from assumptions: what worked, what failed or remains unknown, at least two corrective actions with owner, deadline relative to the exercise and retest evidence, plus criteria/owners for ending recovery and closing the incident. Use rubric-a02-comp5-operations@1 for separate criterion feedback. Explain why a justified alternative differs from the example; no exact wording or single containment choice is required.",
+        "constraints": [
+          "Use only fictional evidence. Mark assumptions and requests for further evidence; do not invent attribution, clean-system assurance, breach confirmation, notification law, ransom payment authority or a supplier commitment.",
+          "Write each timed decision before reading its next inject; solo role simulation is acceptable. E6 is a separate synthetic reference branch for calculations, not a forecast or a performed test of the learner's plan.",
+          "Accept a justified alternative to the annotated response when it handles evidence, authority, tradeoffs, dependencies and reconsideration. Containment or release choices alone are not keyed answers.",
+          "Preserve evidence and restrict incident records. Describe checks and role decisions; do not connect to real systems, pay/contact an extortionist, execute destructive actions or put real learner/employer material in this public artifact.",
+          "Use Recognize/Explain/Apply/Lead only as criterion-level descriptions of this response. No sum, pass threshold, global competency rating, independent review, certification readiness or publication approval follows.",
+          "Task completion, resource completion, reading, recall, question attempts and applied scenario assessment remain separate. This unregistered draft changes none of them; human educator/legal publication gates and parent issue 17 remain open."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp5-operations",
+          "version": 1
+        },
+        "annotatedExample": "One defensible response, not a keyed answer. Tabletop roles: the IC chairs; infrastructure wants a stable rebuild, dispatch wants pickup, the COO wants continuity, and the forensic analyst wants retained evidence. My adviser recommendation cannot substitute for their delegated authorization.\n\n08:10 | E1–E3 | Declare Major under the supplied policy: three unusable services, suspected privileged use, destructive writes. That is enough to act without proving who sent the ransom note. The note's theft claim and the network transfer leave disclosure uncertain. Ask the forensic analyst to correlate logs and preserve the logging-gap boundaries; ask the identity lead to investigate session/account scope. IC authorizes immediate M1 network isolation, token/session revocation, removal of the local backup grant and backup-management restriction; infrastructure/identity leads execute and verify both central and local paths. Analyst captures available volatile data when safe, copies identity/network/backup logs, preserves the note and relevant disk snapshots without rebooting/reimaging the evidence originals. Record collector, UTC collection time, source, handling/transfers and integrity checks; restrict evidence to the response team and preserve originals separately from analysis copies under the exercise preservation procedure. If capture would delay stopping destructive activity, contain first and document what was lost. Do not keep M1 connected just to watch it.\n\nAlternative: broad network separation would block more reachable paths, at the cost of scanner availability and the estimated 45-minute recovery-path delay. I initially recommend targeted action because the observed route is M1 and a controlled restore boundary exists, not because spread is disproved. IC reviews immediately on a new affected zone, continued writes, failed revocation or evidence that the recovery path is compromised; any such result can justify broad isolation without waiting for the next meeting. COO receives Major escalation now and reviews interruption at 08:30. Qualified counsel/privacy receive the uncertain data/contract/reporting questions now; they determine what facts and jurisdictions are relevant. Annotation: both urgent action and uncertainty are visible, and an alternative has a real operational cost. A broader initial isolation earns equal credit when its assumptions, authority and continuity effects are defended.\n\n08:45 | E1–E4 | The deletion confirms a separate backup privilege path, so disabling the central account alone was insufficient. IC authorizes isolated rebuild preparation using the 07:00 backup only after restoration-asset checks; analyst and recovery lead compare trustworthy configuration, inspect for known compromise/corruption, verify backup provenance and isolate originals. Rebuild from a verified image, repair the known credential/local-grant/management paths and test whether compromised access is denied. Earlier entry and additional persistence remain open; inability to establish a trustworthy recovery boundary means hold and broaden investigation/rebuild. Immutability and a matching digest alone do not prove a clean source.\n\nI rank dispatch, order acceptance, customer status, after establishing clean identity/management access and the validated snapshot dispatch needs. Dispatch's pickup creates the earliest impact, and it can use a read-only snapshot without reopening order intake. Only one team restores full services serially; do not promise parallel completion. The recovery lead asks the carrier for a confirmed credential time now, with a 09:00 checkpoint; a missed checkpoint goes to IC/COO for pickup alternatives and target-miss planning. Order owner queues phone requests for later duplicate/stock reconciliation without silently marking them accepted. Communications sends the approved general delay message while status recovery waits; messaging-supplier confirmation is a later gate. Alternative: spend at least 90 minutes investigating 07:50 to reduce the possible data gap. That copy may include hostile writes, so its recency is not a safety argument. I retain it for analysis but prioritize a qualified older point. COO is asked now to accept likely data-target misses and possible pickup delay, with service owners explaining unreconciled-order consequences; the team may not rewrite targets to declare success. Different recovery order is defensible if its business assumptions and dependency effects are explicit.\n\nRecovery table. Dispatch | RTO 2h / RPO 30m | 07:00 proposed | clean warehouse identity, validated order/stock snapshot, confirmed carrier credentials | owner: dispatch manager; test a synthetic order through stock check and carrier label generation, reconcile expected order/stock values and prevent duplicate labels. Order acceptance | RTO 4h / RPO 15m | 07:00 proposed | clean identity and order database | owner: order service manager; test submit/read-back with correct stock, permissions and duplicate handling; reconcile missing-period records separately. Customer status | RTO 8h / RPO 4h | 07:00 proposed | validated dispatch feed, confirmed messaging supplier | owner: customer service manager; test a synthetic update to the correct intended recipient, matching the dispatch state without duplicate messages. For all three, the recovery lead retains backup/configuration checks and test results; the IC authorizes security release and each named service owner records business acceptance time. Unexpected write, failed integrity/authorization test, incorrect transaction or unresolved required supplier capability stops release; after reconnect it triggers isolation/rollback to the controlled environment and renewed IC review. A rollback must not replay suspect data or destroy evidence.\n\n09:30 | E1–E5 | Hold production dispatch now. A working login and 20 quiet minutes do not demonstrate safe business transactions, complete containment or carrier readiness. IC can authorize a staged release only after the trust boundary, repaired known paths, restoration integrity and required transaction/dependency checks are evidenced, with service-owner acceptance; the COO approves any continued target deviation, not a technical bypass. The additional foothold question remains with the analyst and IC; if evidence undermines the clean boundary, hold even if the pickup is lost. Recovery lead reviews at 09:45 and immediately on the stop triggers. Do not turn this conditional authorization into a claim that checks have passed. Alternative: prolong full isolation while establishing wider scope; it is credible with a defined investigation question, owner, review time and continuity mitigation. An unsupported indefinite wait is not a decision.\n\nCustomer update, proposed by communications for IC factual approval and counsel/privacy advice: 'Our order and dispatch services are interrupted, and we are checking recovery options. We are investigating an unverified claim about customer data and cannot yet confirm whether data was taken. We will provide another update at 10:00 on the approved phone channel.' COO receives a separate operational update on pickup/reconciliation risk; the carrier gets the credential question without unnecessary customer records. Counsel/privacy assess possible duties, contracts and any external disclosures with available facts. No legal deadline or applicability conclusion is inferred. Annotation: the statement communicates uncertainty without calling unconfirmed theft false or confirmed, and names a concrete next update.\n\n12:15 reference-branch debrief | E6 | Dispatch outage is 08:00–10:20 = 2h20m, 20m beyond its 2h RTO. Orders: 3h30m, within 4h. Status: 4h, within 8h. All restored points are 07:00, giving a 60m data gap. Dispatch exceeds its 30m RPO by 30m; orders exceed its 15m RPO by 45m; status meets its 4h RPO. A faster application restart would not change these owner-acceptance measurements. The missing hour still needs reconstruction and reconciliation; one synthetic branch cannot demonstrate all future capability or validate my alternative plan.\n\nAfter-action report. Worked in the controller branch: separate IC/security and owner/transaction acceptance gave usable-service timestamps. Failed: dispatch's time target and two data targets; the local backup grant also defeated central-only access assumptions. Unknown: initial entry, full data-transfer contents, other footholds and time to reconcile missing records. Within 2 working days, the identity lead inventories/removes obsolete local backup grants and tests central plus local denial with retained synthetic audit evidence; IC verifies. Within 5 working days, the recovery lead and dispatch owner exercise replacement carrier credentials and a complete order-to-label restore; retain actual start, clean data point and owner acceptance, plus the 2h/30m comparisons. Within 10 working days, the database/order owners test a newer recoverable data point and gap reconciliation using synthetic duplicate/missing orders; retain integrity checks, point timestamp, reconciliation results and the 15m RPO comparison. These are proposed corrective deadlines, not evidence that work happened. IC tracks closure of actions and reopens failed retests.\n\nEnd recovery only when IC and service owners accept the restored scope against recorded security/business criteria, identify outstanding data gaps with owners/COO acceptance and put monitoring/rollback arrangements in place. Incident closure additionally needs the IC to review the investigation findings, unresolved questions and any counsel/privacy disposition, and the COO to accept or assign remaining risk/actions; recovered service alone is insufficient. Annotation: this is an exercise improvement report with testable proposals and honest limits, not a live incident report, a completed corrective program or independent proof of professional readiness."
+      }
+    },
+    {
+      "id": "rubric-a02-comp5-operations",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Comp-5 tabletop response: evidence, decisions and recovery",
+      "authorIds": [
+        "ai-a02-comp5-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p4c",
+        "p4d",
+        "p4e"
+      ],
+      "objectiveIds": [
+        "obj-p4c-1",
+        "obj-p4d-1",
+        "obj-p4e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp5-incident-response",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp5-event-recovery",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-5 draft for issue 78. AI-authored; no independent educator or legal approval.",
+      "priorAttemptImpact": "New optional draft reference; no prior response, attempt, assessment or legacy score is regraded, replaced or inferred.",
+      "scheduleImpact": "No card, enrollment or schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "evidence-and-severity",
+            "description": "In the tabletop record, separate observations, assumptions and unknowns; use the fictional severity/escalation policy.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable response to this criterion, or an unsupported assertion replaces the requested evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies a concrete incident observation and a material unknown, without treating a ransom claim as proof."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains why observed service loss and suspected privilege use support Major, and why theft/entry scope remain uncertain."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Uses at least three evidence-backed observations and two material unknowns, assigns their investigation owners and activates the stated Major escalation."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and explains how new evidence or failed containment changes the priority/strategy, naming a review trigger without claiming attribution or complete scope."
+              }
+            ]
+          },
+          {
+            "id": "decisions-authority-and-preservation",
+            "description": "Supply three timed decision-log entries comparing credible alternatives, service-continuity costs, authority, execution and safe evidence handling.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable response to this criterion, or an unsupported assertion replaces the requested evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies a containment/recovery option and an accountable incident role."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains a credible alternative and its continuity or evidence cost, and distinguishes advice from authorization."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Records all three timed decisions using the requested fields, compares a credible alternative at each, names authorized and executing roles, and protects evidence originals/provenance while allowing urgent harm reduction."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and records the simulated role disagreement/resolution, conditional escalation/review at each decision, and how evidence limits or continuity needs could justify a different authorized option. No credit requires the example's specific choice."
+              }
+            ]
+          },
+          {
+            "id": "recovery-priorities-and-tests",
+            "description": "Rank three services with dependencies, recovery points, supplier uncertainty, release/rollback gates and accountable acceptance.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable response to this criterion, or an unsupported assertion replaces the requested evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies the three services and distinguishes an RTO target from an RPO target."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains a plausible recovery order and why a newer backup or working login alone is insufficient."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Ranks all three using E1 impact/targets; records each requested recovery-table field, supplier dependencies and a meaningful transaction/integrity test; requires IC security authorization and named service-owner acceptance with a stop/rollback trigger."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and defends the dependency-aware order under the one-team constraint, sets a supplier/uncertainty checkpoint and escalation, and explains how failed trust or business tests change release or recovery-point decisions despite target pressure."
+              }
+            ]
+          },
+          {
+            "id": "communication-and-qualified-escalation",
+            "description": "Write the requested factual customer update and assign unresolved data/reporting/contract questions without inventing duties.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable response to this criterion, or an unsupported assertion replaces the requested evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies that the data-theft claim is unverified and names a relevant qualified role."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains why service interruption can be reported while disclosure/applicability remains uncertain."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Provides the requested 2–3 sentence update with approver and next update time; distinguishes verified facts from unknowns, uses an available channel and assigns unresolved questions to counsel/privacy."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and coordinates the proposed customer message with an accountable operational/partner update or decision request, limiting unnecessary data sharing and avoiding unsupported reassurance or legal conclusions."
+              }
+            ]
+          },
+          {
+            "id": "measurement-and-improvement",
+            "description": "Evaluate E6 separately, report all RTO/RPO results, and produce an after-action report with corrective actions and closure criteria.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable response to this criterion, or an unsupported assertion replaces the requested evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies an actual reference-branch result and a gap or limitation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains the difference between targets, owner-acceptance measurements and unverified workarounds, and identifies a corrective need."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Correctly reports all three outages and data gaps against E1; separates E6 evidence from the learner's untested plan; gives what worked, failure/unknowns, at least two actions with owner, relative deadline and retest evidence, and explicit recovery/incident closure criteria with owners."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and connects the corrective actions to the demonstrated time/data/access gaps, defines how failed retests or unresolved risk are tracked/escalated, and limits conclusions to this response and synthetic branch without claiming completed remediation or general readiness."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp5-incident-response",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-a02-comp5-event-recovery",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp5-operations",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp5-operations",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
