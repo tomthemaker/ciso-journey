@@ -1,12 +1,17 @@
 {
   "schemaVersion": 1,
-  "contentVersion": "foundation-2026-10-28.1",
+  "contentVersion": "foundation-2026-10-28.2",
   "curriculumVersion": "c01-2026-10-27.2",
   "actors": [
     {
       "id": "ai-foundation-author",
       "kind": "ai",
       "role": "Original foundation pilot author and official technical-source inspector; not independent educator/legal reviewer"
+    },
+    {
+      "id": "ai-a01-author",
+      "kind": "ai",
+      "role": "A01 executive simulation draft author"
     }
   ],
   "records": [
@@ -4195,6 +4200,279 @@
         ],
         "assessmentProvenance": "self-assessment"
       }
+    },
+    {
+      "id": "rubric-foundation-case",
+      "version": 2,
+      "kind": "rubric",
+      "title": "Foundation executive case · Recognize / Explain / Apply / Lead",
+      "authorIds": [
+        "ai-a01-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "objectiveIds": [
+        "obj-w1-1",
+        "obj-w1-2",
+        "obj-w2-1",
+        "obj-w2-2",
+        "obj-w3-1",
+        "obj-w3-2",
+        "obj-w4-1",
+        "obj-w4-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-security-principles",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-authentication",
+          "version": 1
+        },
+        {
+          "id": "source-zero-trust",
+          "version": 1
+        },
+        {
+          "id": "source-key-management",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": {
+        "id": "rubric-foundation-case",
+        "version": 1
+      },
+      "changeNote": "A01: add an executive response workflow and Recognize/Explain/Apply/Lead self-assessment anchors. Original version 1 remains immutable and addressable. AI-authored draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Keep every prior response and assessment pinned to its original scenario and rubric. Version 2 is optional new practice; no reassessment or mastery inferred.",
+      "scheduleImpact": "No scheduler change; card recall remains separate.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "impact",
+            "description": "Business impact: two causal risk chains, CIA effects and prioritisation.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies assets and confidentiality/availability concerns, but causal links are incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: connects two service/assets, threats, weaknesses and consequences with CIA reasoning; distinguishes facts from assumptions."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: uses both chains to prioritise the fictional service consequences without invented probabilities or loss figures."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also identifies a business decision owner and the missing evidence that could reverse the priority; avoids certainty beyond the case."
+              }
+            ]
+          },
+          {
+            "id": "options",
+            "description": "Options and tradeoffs: compare identity, architecture and data safeguards.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: names alternative controls without explaining their limits or operating costs."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: compares at least two feasible pilot options and explains one security benefit and operational tradeoff for each."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: includes two end-to-end flows with identities and three owned boundaries; contrasts flat/segmented reachability, plus two control failure modes and safe rollout tests."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also explains why the rejected option is deferred, how dispatch and bounded emergency access continue, and what evidence would justify changing the choice."
+              }
+            ]
+          },
+          {
+            "id": "accountability",
+            "description": "Accountability: decision authority, access lifecycle and delivery owners.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: names a team or role, but does not distinguish accountable decision authority from execution."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: names one accountable business role and responsible technical owners for the recommended action."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: assigns joiner/mover/leaver trigger, approval, execution and local verification; separates user, administrator and service permissions/safeguards."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also specifies allowed/denied and session-revocation verification, an escalation owner and a dated decision checkpoint without claiming actual approval."
+              }
+            ]
+          },
+          {
+            "id": "recommendation",
+            "description": "Recommendation: bounded action, data handling and revisit condition.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: states a preferred action without a bounded plan."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: ties the recommendation to business impact and names a concrete revisit condition."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: fits the two-week/one-path/one-test constraint and includes restricted address handling, encryption at rest/in transit, named key custody/recovery and authorised-plaintext limitations."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also defines acceptance/rollback conditions and a checkpoint; explains trusted digest reference and remaining lifecycle copies without claiming universal assurance."
+              }
+            ]
+          },
+          {
+            "id": "residual-risk",
+            "description": "Residual risk: uncertainty, acceptance and follow-up.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: acknowledges that some risk remains."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: states a specific remaining threat path and an important unknown after the proposed controls."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: relates remaining paths to the chosen safeguards, including legitimate-session misuse and shared identity/key dependencies; assigns a follow-up owner."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also asks the accountable role to accept or escalate the bounded exposure, supplies an expiry/revisit trigger and explains the uncertainty that could change that decision."
+              }
+            ]
+          },
+          {
+            "id": "evidence",
+            "description": "Evidence: separate recovery measurements, safe verification and provenance.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies that backup completion alone is insufficient evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: reports measured RTO 3h15m against 4h and measured RPO 90m against 60m; separates targets from observed capability."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: specifies one isolated synthetic follow-up test with identity/key dependencies, timing, integrity/business acceptance, a newer recovery point and owned action for the RPO miss; records evidence metadata."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also identifies reviewer/measurement scope, limitations and an owned checkpoint; clearly distinguishes self-reported/self-assessed evidence from actual independent review and avoids readiness claims."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-foundation-decision",
+      "version": 2,
+      "kind": "scenario",
+      "title": "Alder Supply · a bounded executive protection decision",
+      "authorIds": [
+        "ai-a01-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w1",
+        "w2",
+        "w3",
+        "w4"
+      ],
+      "objectiveIds": [
+        "obj-w1-1",
+        "obj-w1-2",
+        "obj-w2-1",
+        "obj-w2-2",
+        "obj-w3-1",
+        "obj-w3-2",
+        "obj-w4-1",
+        "obj-w4-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-security-principles",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        },
+        {
+          "id": "source-authentication",
+          "version": 1
+        },
+        {
+          "id": "source-zero-trust",
+          "version": 1
+        },
+        {
+          "id": "source-key-management",
+          "version": 1
+        },
+        {
+          "id": "source-recovery",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": {
+        "id": "scenario-foundation-decision",
+        "version": 1
+      },
+      "changeNote": "A01: add an executive response workflow and Recognize/Explain/Apply/Lead self-assessment anchors. Original version 1 remains immutable and addressable. AI-authored draft; no independent educator or legal approval.",
+      "priorAttemptImpact": "Keep every prior response and assessment pinned to its original scenario and rubric. Version 2 is optional new practice; no reassessment or mastery inferred.",
+      "scheduleImpact": "No scheduler change; card recall remains separate.",
+      "payload": {
+        "brief": "Fictional Alder Supply accepts customer orders through a public portal and dispatches stock from managed warehouse terminals. The order API and inventory API use separate service identities but share an identity provider. A warehouse terminal can reach the backup console in the flat network. A contractor moved from support to reporting; its old local backup-admin role and a session remain active. A courier export contains delivery addresses. Disk encryption is enabled, but export handling and key recovery ownership are unclear. The COO sets a four-hour RTO and one-hour RPO for usable order-to-dispatch service. In an isolated synthetic exercise, disruption starts at 12:00, the usable point is 10:30, technical restore finishes 14:20, key permissions are fixed at 15:00 and business acceptance is 15:15. The next two-week pilot can change one management path and conduct one follow-up recovery test. No real incident frequency, financial loss or legal applicability is known.",
+        "deliverable": "Write an executive decision response in five fields (business impact; options and tradeoffs; accountable owner and responsibilities; recommendation and revisit condition; residual risk and uncertainty), plus evidence title, optional private HTTPS link and notes. Include two CIA risk chains; two service flows with identities and at least three owned boundaries; joiner/mover/leaver responsibilities and user/admin/service safeguards; two control failure modes and rollout checks; classified-address handling and key recovery; both recovery measurements and one safe follow-up test. A text flow sketch is sufficient. Compare at least two feasible options and explain the rejected option. Use rubric-foundation-case@2: Recognize, Explain, Apply and Lead are descriptive anchors per criterion, not an overall pass score or the six legacy 0–4 self-ratings. Leave unevidenced criteria unassessed and revise through a new response.",
+        "constraints": [
+          "Use only the invented facts; identify assumptions and missing evidence rather than inventing probabilities, law or employer details.",
+          "Do not connect to real systems, use real learner/employer artifacts or run destructive tests. Draw and describe synthetic allowed/denied checks.",
+          "Keep resource/task completion, card recall, question attempts and applied assessment distinct. This is self-assessment, not independent review or certification evidence.",
+          "State how the pilot preserves required dispatch work and handles emergency access; do not leave a universal bypass.",
+          "All teaching remains AI-authored draft pending independent educator review; unresolved source/claim concerns block validated publication."
+        ],
+        "rubricRef": {
+          "id": "rubric-foundation-case",
+          "version": 2
+        },
+        "annotatedExample": "Business impact. Chain 1: order-to-dispatch service depends on usable orders and recoverable copies; a compromised warehouse terminal reaches backup management and abuses the contractor’s stale local privilege/session; copy deletion can prevent recovery and interrupt dispatch (availability, with possible order-integrity loss). Chain 2: deliveries depend on the address export; a compromised clerk session uses excessive export permissions; unnecessary disclosure can harm customers (confidentiality). The facts establish exposure and the exercise timings, not attack frequency, monetary loss or legal applicability. Prioritise recoverability because the stated business service has explicit recovery targets; ask for export scope and recovery-point evidence before comparing broader losses.\n\nOptions and tradeoffs. Option A restricts the backup-management path and verifies the permitted administrator path. It reduces terminal-to-console lateral movement but costs network/operations testing and may block emergency recovery if the allowed path is wrong. A broad exception or compromised approved administrator can defeat it. Option B first narrows courier-export permissions and handling. It reduces disclosure but needs dispatch workflow checks and leaves the console reachable. A legitimate authorised export can still be misused. Recommend A within the one-path constraint; defer B’s implementation and ask the data owner for its scope now. Removing an obsolete role/session is an immediate lifecycle correction, not a second network path change. If that correction cannot be completed within available capacity, the COO must reprioritise explicitly. If export evidence shows an urgent wider exposure, revisit A rather than claiming it is always the right choice.\n\nFlow sketch for the options. Customer browser with customer session → public entry [entry boundary: gateway owner validates session/request] → order API using a scoped workload identity [application boundary: application owner checks order permission] → order database [data boundary: database owner grants only required operations]. Managed warehouse terminal with warehouse-user session → internal entry [network owner restricts reachable services; application still authorises the user] → inventory API with a separate scoped service identity → stock database [application/database owners enforce scoped read/write]. Response traffic follows these authorised flows; neither grants backup administration. A separate named administrator, from the approved management entry with time-limited elevation, reaches the backup console; the backup job uses its own scoped recovery identity. In the flat design the terminal can reach the console; segmentation blocks that route but deliberately retains the authorised management route. Network policy and time-limited privilege are two controls: a wrong rule can block dispatch/recovery or leave an exception, while late privilege/session removal can leave access. Before rollout, describe synthetic permitted dispatch/admin checks and denied terminal-to-console/obsolete-role checks. Record results and retain a narrow time-limited emergency path; never allow a universal bypass.\n\nAccountable owner and responsibilities. Propose the COO as accountable for the service risk and pilot choice; this example records no real approval. Network owner executes the management-path change; backup-service owner verifies legitimate recovery and denied terminal access. HR/contract management triggers joiner, mover and leaver events, the receiving service owner approves needed permissions, IAM executes central changes, and each application owner checks local roles and sessions. For this mover, remove old backup-admin permissions, revoke the existing local session and test denied backup actions plus allowed reporting. The same process verifies joiner least privilege and leaver removal. Users receive dispatch/reporting rights with appropriate strong authentication; administrators use separate time-limited access and protected emergency credentials; service identities use restricted permissions and managed credential rotation, not shared human passwords. Authentication establishes identity; each application must still authorise actions. The backup owner escalates any failed removal or denied emergency recovery to the COO at the pilot checkpoint.\n\nRecommendation and revisit condition. During the next two weeks, pilot only the restricted backup-management path and conduct one isolated synthetic follow-up recovery test. Start with allowed dispatch/admin and denied terminal/obsolete-role checks; roll back the network rule to the documented prior rule if required dispatch fails, with the COO explicitly deciding the temporary exposure and an expiry. For the fictional restricted addresses, the data owner limits export recipients, access and retained copies; the platform owner protects storage and transit, and the key custodian owns key access, rotation and tested recovery. Disk encryption does not prevent a permitted plaintext export to the wrong person. A digest comparison needs a trusted reference and does not establish origin by itself; inventory export, temporary and backup copies through disposal. Revisit at day 14, earlier if a critical permitted/denied check fails, recovery misses its targets, or new export evidence changes priority.\n\nResidual risk and uncertainty. An approved administrator/session can still misuse management access, export disclosure remains possible, and the shared identity provider or unavailable keys can stop recovery. The backup owner documents these paths and dependency tests; the data owner investigates export scope. Ask the COO to accept the limited pilot exposure until day 14 or escalate for more resources; do not treat a technical fix as business acceptance. Unknown incident frequency, recoverable-point age and emergency-path reliability limit assurance. A failed dependency test or wider export scope triggers a new decision.\n\nEvidence metadata. Title: Synthetic Alder pilot plan and recovery worksheet. Link: optional local private HTTPS reference; no document is uploaded. Notes: baseline exercise disruption 12:00, technical restore 14:20, key access 15:00, business acceptance 15:15. RTO is measured to usable business acceptance: 3h15m, meeting the 4h target. The 10:30 usable point is 90 minutes before disruption: RPO misses the 60-minute target by 30 minutes, so recent orders may be lost. The recovery lead owns one repeat in an isolated environment using synthetic orders, with identity/key dependencies, restore timestamps, integrity reconciliation and an accepted order-to-dispatch transaction. The database owner prepares a newer usable point and records its age at disruption. Keep the timing/allowed-denied results and limits in private notes; the COO reviews the day-14 result and funds or reprioritises remediation if the RPO still misses. A named reviewer could independently inspect that specific evidence later; none has done so here. This response and its rubric selections are self-reported/self-assessed, with no independent review.\n\nAnnotation: this is one defensible worked response. The Lead anchors describe the scope of reasoning evidenced in this fictional response, not proof of professional leadership. Different choices can be justified by explicit tradeoffs and evidence. One bounded test cannot establish future recovery, legal compliance, mastery or certification readiness."
+      }
     }
   ],
   "editorial": [
@@ -4841,6 +5119,24 @@
       "ref": {
         "id": "rubric-w4-question-5",
         "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-foundation-case",
+        "version": 2
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-foundation-decision",
+        "version": 2
       },
       "status": "draft",
       "reviews": [],

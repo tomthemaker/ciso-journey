@@ -533,3 +533,8 @@ a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 
 .resource-notes { white-space: pre-wrap; }
 .resource-history li { margin: 10px 0; }
 .resource-discovery { margin: 18px 0; }
+
+.case-body { margin-top: 16px; }
+.case-body input, .case-body textarea, .case-body select { width: 100%; min-width: 0; max-width: 100%; }
+.case-body select option { white-space: normal; }
+.case-result, .case-example { border-top: 1px solid var(--line); margin-top: 16px; }

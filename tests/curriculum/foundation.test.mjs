@@ -124,7 +124,7 @@ test('short response anchors exclude unrelated weekly work while examples retain
 
 test('the cross-week executive case preserves targets, separate measurements and criterion-based self-feedback', () => {
   const scenario = bundle.records.find(record => record.kind === 'scenario');
-  assert.equal(bundle.records.filter(record => record.kind === 'scenario').length, 1);
+  assert.equal(new Set(bundle.records.filter(record => record.kind === 'scenario').map(record => record.id)).size, 1);
   assert.deepEqual(scenario.taskIds, ['w1', 'w2', 'w3', 'w4']);
   assert.equal(scenario.objectiveIds.length, 8);
   const rubric = resolve(scenario.payload.rubricRef);
@@ -145,4 +145,24 @@ test('real pilot cannot acquire validated publication through a metadata-only or
   changed.editorial.find(item => item.ref.id === source.id).unresolvedChallenges.push('Substantive authentication claim requires recheck.');
   assert.equal(effectiveStatus(changed, lesson, asOf), 'stale');
   assert.match(validateContent(changed, { asOf }).join('\n'), /overdue\/expired content must be stale/);
+});
+
+test('A01 appends an optional executive case and six Recognize/Explain/Apply/Lead criteria without replacing v1', () => {
+  const scenario = resolve({ id: 'scenario-foundation-decision', version: 2 });
+  const original = resolve({ id: scenario.id, version: 1 });
+  assert.deepEqual(scenario.supersedes, { id: original.id, version: 1 });
+  assert.equal(scenario.payload.brief, original.payload.brief);
+  assert.deepEqual(scenario.objectiveIds, original.objectiveIds);
+  assert.deepEqual(original.payload.rubricRef, { id: 'rubric-foundation-case', version: 1 });
+  const rubric = resolve(scenario.payload.rubricRef);
+  assert.equal(rubric.payload.assessmentProvenance, 'self-assessment');
+  assert.deepEqual(rubric.payload.criteria.map(c => c.id), ['impact', 'options', 'accountability', 'recommendation', 'residual-risk', 'evidence']);
+  for (const criterion of rubric.payload.criteria) {
+    assert.deepEqual(criterion.levels.map(l => l.score), [1, 2, 3, 4]);
+    assert.deepEqual(criterion.levels.map(l => l.descriptor.split(':')[0]), ['Recognize', 'Explain', 'Apply', 'Lead']);
+  }
+  assert.match(scenario.payload.annotatedExample, /Option A.*Option B.*tradeoff/s);
+  assert.match(scenario.payload.annotatedExample, /RTO.*3h15m.*90 minutes.*RPO/s);
+  assert.match(scenario.payload.annotatedExample, /no independent review/);
+  assert.match(scenario.priorAttemptImpact, /original scenario and rubric/);
 });
