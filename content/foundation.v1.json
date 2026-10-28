@@ -4535,7 +4535,7 @@
         "id": "scenario-foundation-decision",
         "version": 2
       },
-      "changeNote": "Clarifies case choices, assumptions, recovery measurements and authentication; aligns the displayed rubric reference. Changed fields: /brief, /deliverable, /constraints/2, /constraints/4, /rubricRef, /annotatedExample.",
+      "changeNote": "Clarifies case choices, assumptions, recovery measurements and authentication; aligns the displayed rubric reference. Changed fields: /brief, /deliverable, /constraints/1, /constraints/2, /constraints/4, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical case responses and assessments remain pinned to scenario-foundation-decision@2; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this scenario revision.",
       "payload": {
@@ -4543,7 +4543,7 @@
         "deliverable": "Write an executive decision response in five fields: business impact; options and tradeoffs; accountable owner and responsibilities; recommendation and revisit condition; and residual risk and uncertainty. Add an evidence title, an optional private HTTPS link and notes. Explain two risk chains and their effects on confidentiality, integrity or availability. Sketch two service flows showing the identities involved and at least three boundaries. For each boundary, name who maintains it and what decision it enforces. Explain who handles access when people join, move and leave, and distinguish safeguards for users, administrators and services. Describe two control failure modes and rollout checks, restricted-address handling and key recovery. Report both recovery measurements and propose one safe follow-up test. Compare at least two feasible options and explain why you defer one. Use rubric-foundation-case@3. Its Recognize, Explain, Apply and Lead anchors describe each criterion; they are not an overall pass score or the six legacy 0–4 self-ratings. Leave criteria without evidence unassessed and revise through a new response.",
         "constraints": [
           "Use only the invented facts; identify assumptions and missing evidence rather than inventing probabilities, law or employer details.",
-          "Do not connect to real systems, use real learner/employer artifacts or run destructive tests. Draw and describe synthetic allowed/denied checks.",
+          "Do not connect to real systems, use real learner or employer artifacts or run destructive tests. Draw and describe synthetic allowed and denied checks.",
           "Record resource and task completion, card recall, question attempts and applied assessment separately. This exercise is a self-assessment; it is not an independent review or certification evidence.",
           "State how the pilot preserves required dispatch work and handles emergency access; do not leave a universal bypass.",
           "This teaching is an AI-authored draft awaiting independent educator review. An unresolved concern about a source or claim prevents validated publication."
@@ -5251,7 +5251,7 @@
           },
           {
             "heading": "obj-w1-2 · Build a chain that can support a decision",
-            "body": "Write the chain as service → asset → threat → vulnerability → consequence → control. State a plausible mechanism between each pair. A risk chain is stronger when it explains how harm would occur, rather than merely placing nouns beside arrows. A control should interrupt that mechanism, reduce harm or improve detection/recovery. Name who can make it operate and what evidence would show it did. Ask what harm could still occur even if the control works as intended. This is the risk that remains after the control is in place, or residual risk.\n\nDo not convert uncertainty into invented precision. If no loss history or likelihood data exists, say that the exposure is plausible and identify the next evidence to collect. Compare options by the business outcome they change, their cost and their limitations. Avoiding a risky service, reducing exposure, sharing some financial consequences and consciously retaining residual risk are different decisions; a security analyst should present the choice to the accountable business owner. Insurance, for example, does not restore an unavailable order system or make an unsafe process safe."
+            "body": "Write the chain as service → asset → threat → vulnerability → consequence → control. State a plausible mechanism between each pair. A risk chain is stronger when it explains how harm would occur, rather than merely placing nouns beside arrows. A control should interrupt that mechanism, reduce harm or improve detection or recovery. Name who can make it operate and what evidence would show it did. Ask what harm could still occur even if the control works as intended. This is the risk that remains after the control is in place, or residual risk.\n\nDo not convert uncertainty into invented precision. If no loss history or likelihood data exists, say that the exposure is plausible and identify the next evidence to collect. Compare options by the business outcome they change, their cost and their limitations. Avoiding a risky service, reducing exposure, sharing some financial consequences and consciously retaining residual risk are different decisions; a security analyst should present the choice to the accountable business owner. Insurance, for example, does not restore an unavailable order system or make an unsafe process safe."
           },
           {
             "heading": "Worked example for obj-w1-2 · Two chains and an executive choice",
@@ -5354,11 +5354,11 @@
           },
           {
             "heading": "obj-w2-1 · Separate authentication from authorisation through the lifecycle",
-            "body": "Authentication checks that someone signing in controls an authenticator linked to the account, such as a password or security key. Successful authentication does not show that the account is still needed or has permission to read a particular record. Authorisation evaluates permission for an action on a resource, usually with role and context. An authenticated sales user may read assigned customers while being denied payroll. Authentication and authorisation may occur in different components, and the application must enforce its own data/action rules even when a central identity provider performs sign-in.\n\nA joiner needs a reliable employment or contract trigger, a manager-approved role and creation of the account and assignment of access in the application, known as provisioning, with a recorded owner. A mover needs a comparison of old and new duties: remove obsolete access as well as adding the new role. A leaver needs timely account disablement, downstream account removal and treatment of sessions, tokens and shared secrets where applicable. Human resources (HR) reports changes in a person’s employment or contract; managers and data/service owners approve business need; IAM operators execute provisioning; application owners verify enforcement. Use reconciliation, a comparison of expected and actual accounts and access, because manual apps and failed connectors can escape the central process. Reviews should test samples and exceptions, not just count closed tickets."
+            "body": "Authentication checks that someone signing in controls an authenticator linked to the account, such as a password or security key. Successful authentication does not show that the account is still needed or has permission to read a particular record. Authorisation evaluates permission for an action on a resource, usually with role and context. An authenticated sales user may read assigned customers while being denied payroll. Authentication and authorisation may occur in different components, and the application must enforce its own rules for access to data and actions even when a central identity provider performs sign-in.\n\nA joiner needs a reliable employment or contract trigger, a manager-approved role and creation of the account and assignment of access in the application, known as provisioning, with a recorded owner. A mover needs a comparison of old and new duties: remove obsolete access as well as adding the new role. A leaver needs timely account disablement, downstream account removal and treatment of sessions, tokens and shared secrets where applicable. Human resources (HR) reports changes in a person’s employment or contract; managers and data/service owners approve business need; IAM operators execute provisioning; application owners verify enforcement. Use reconciliation, a comparison of expected and actual accounts and access, because manual apps and failed connectors can escape the central process. Reviews should test samples and exceptions, not just count closed tickets."
           },
           {
             "heading": "Worked example for obj-w2-1 · Joiner, mover and leaver",
-            "body": "Mira joins sales. HR creates the relationship event, the sales manager approves assigned-customer access, IAM provisions her identity and the customer relationship management (CRM) application owner tests that Mira can view her region but cannot export payroll. Her authenticator proves account control at sign-in; the CRM permission check determines which records she can access.\n\nMira moves to purchasing. The purchasing manager approves supplier access; the sales manager confirms the old sales duty has ended. IAM removes the old group and adds the new one. The CRM owner checks cached sessions and local roles instead of assuming the directory group is sufficient. When Mira leaves, HR sends the dated trigger, IAM disables login and revokes relevant sessions/tokens, and each application owner verifies removal. The team also checks any local sessions and tokens that could remain usable. The procurement integration runs under a separate service identity, so it stays operational while any secrets Mira could access are reviewed. A sample denied login and denied API request provide better evidence than a ticket marked done."
+            "body": "Mira joins sales. HR creates the relationship event, the sales manager approves assigned-customer access, IAM provisions her identity and the customer relationship management (CRM) application owner tests that Mira can view her region but cannot export payroll. Her authenticator proves account control at sign-in; the CRM permission check determines which records she can access.\n\nMira moves to purchasing. The purchasing manager approves supplier access; the sales manager confirms the old sales duty has ended. IAM removes the old group and adds the new one. The CRM owner checks cached sessions and local roles instead of assuming the directory group is sufficient. When Mira leaves, HR sends the dated trigger, IAM disables login and revokes relevant sessions and tokens, and each application owner verifies removal. The team also checks any local sessions and tokens that could remain usable. The procurement integration runs under a separate service identity, so it stays operational while any secrets Mira could access are reviewed. A sample denied login and denied API request provide better evidence than a ticket marked done."
           },
           {
             "heading": "obj-w2-2 · Match safeguards to three access paths",
@@ -5370,7 +5370,7 @@
           },
           {
             "heading": "Practice · Draw the IAM reference architecture",
-            "body": "Draw HR/contract triggers → manager/service-owner approval → identity provider/provisioning → application permission enforcement. Trace one joiner, mover and leaver, including a manually managed application and an active session. On the same page show normal user, administrator and service paths. For each path, annotate authentication, permitted action, powerful-access safeguards, owner and residual risk. Add one negative test: an action that must be denied. For the highest rubric anchors, explain how to handle a failed provisioning change, active sessions and a comparison of expected with actual access. Test an allowed and a denied action for each significant role change. Explain emergency access, recovery and a testable operational tradeoff. Use the week 2 rubric and questions to check for missing removal steps or a machine identity incorrectly treated as a human. Do not use real staff names, credentials or employer screenshots."
+            "body": "Draw HR or contract trigger → manager or service-owner approval → account creation through the identity provider → application permission enforcement. Trace one joiner, mover and leaver, including a manually managed application and an active session. On the same page show normal user, administrator and service paths. For each path, annotate authentication, permitted action, powerful-access safeguards, owner and residual risk. Add one negative test: an action that must be denied. For the highest rubric anchors, explain how to handle a failed provisioning change, active sessions and a comparison of expected with actual access. Test an allowed and a denied action for each significant role change. Explain emergency access, recovery and a testable operational tradeoff. Use the week 2 rubric and questions to check for missing removal steps or a machine identity incorrectly treated as a human. Do not use real staff names, credentials or employer screenshots."
           },
           {
             "heading": "Optional supplementary LinkedIn study",
@@ -5459,7 +5459,7 @@
         "id": "lesson-w3-architecture",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/0/body, /sections/1/body, /sections/2/body, /sections/3/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
+      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /sections/0/body, /sections/1/body, /sections/2/body, /sections/3/body, /sections/4/body, /sections/5/body, /prerequisiteRefs/0, /prerequisiteRefs/1, /workedExample, /practiceRefs/0, /practiceRefs/1, /practiceRefs/2, /practiceRefs/3, /practiceRefs/4, /conceptRefs/0, /conceptRefs/1, /conceptRefs/2.",
       "priorAttemptImpact": "Historical reading records remain pinned to lesson-w3-architecture@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this lesson revision.",
       "payload": {
@@ -5470,7 +5470,7 @@
           },
           {
             "heading": "obj-w3-1 · Trace two flows through explicit boundaries",
-            "body": "For each flow, write subject → endpoint/workload → entry point → application → data/dependency, then draw response and management paths where relevant. Label what travels, such as a request, token or record; distinguish a human identity from a workload identity, the identity software uses to access another service. A trust boundary separates areas governed by different controls or assumptions about trust, such as an unmanaged internet client entering a managed service, an employee device reaching an application, or an application accessing a database. At each boundary ask which component enforces the decision, what identity/context it sees and who owns its policy. Mark an unknown as unknown instead of filling it with a product logo.\n\nUse basic network reasoning to check the sketch. Name resolution tells a client which address to reach; routing moves packets; a network rule may allow only a named source/destination/service; encrypted transport protects the channel when correctly configured. None alone authorises a business transaction. Endpoints need maintained configurations, vulnerability handling and useful detection; a compromised device may send apparently legitimate requests. The purpose of this first diagram is to expose dependencies and policy gaps for a technical owner to validate, not to produce a deployable firewall configuration."
+            "body": "For each flow, write subject → endpoint or workload → entry point → application → data or dependency, then draw response and management paths where relevant. Label what travels, such as a request, token or record; distinguish a human identity from a workload identity, the identity software uses to access another service. A trust boundary separates areas governed by different controls or assumptions about trust, such as an unmanaged internet client entering a managed service, an employee device reaching an application, or an application accessing a database. At each boundary ask which component enforces the decision, what identity and context it sees and who owns its policy. Mark an unknown as unknown instead of filling it with a product logo.\n\nUse basic network reasoning to check the sketch. Name resolution tells a client which address to reach; routing moves packets; a network rule may allow only a named source, destination and service; encrypted transport protects the channel when correctly configured. None alone authorises a business transaction. Endpoints need maintained configurations, vulnerability handling and useful detection; a compromised device may send apparently legitimate requests. The purpose of this first diagram is to expose dependencies and policy gaps for a technical owner to validate, not to produce a deployable firewall configuration."
           },
           {
             "heading": "Worked example for obj-w3-1 · Customer order and warehouse update",
@@ -5482,7 +5482,7 @@
           },
           {
             "heading": "Worked example for obj-w3-2 · A limited redesign with two controls",
-            "body": "Flat baseline: a stolen terminal session can attempt connections to the backup console; a reused administrator credential may then permit backup deletion. Proposed control 1: the network owner restricts backup management access to a dedicated administration path and tests a denied connection from the terminal segment. Failure mode: a broad emergency rule silently restores reachability. Tradeoff: troubleshooting and new service onboarding take more planning.\n\nProposed control 2: the backup service owner requires a separate time-limited administrator grant and verifies the managed administration endpoint before accepting destructive actions where supported. Failure mode: a compromised approved administrator session still performs permitted harm. Tradeoff: urgent restoration may depend on the identity/elevation service. In the new design the terminal-to-console path is blocked, but the approved administrator-to-console path remains and must be monitored and recoverable.\n\nThe CIO approves a staged pilot: observe required flows, test synthetic business transactions and denied paths, then restrict one segment with a rollback plan. The team measures blocked legitimate work and reachable unwanted paths, not the number of appliances installed. This tests assumptions before expanding a design that might disrupt dispatch."
+            "body": "Flat baseline: a stolen terminal session can attempt connections to the backup console; a reused administrator credential may then permit backup deletion. Proposed control 1: the network owner restricts backup management access to a dedicated administration path and tests a denied connection from the terminal segment. Failure mode: a broad emergency rule silently restores reachability. Tradeoff: troubleshooting and new service onboarding take more planning.\n\nProposed control 2: the backup service owner requires a separate time-limited administrator grant and verifies the managed administration endpoint before accepting destructive actions where supported. Failure mode: a compromised approved administrator session still performs permitted harm. Tradeoff: urgent restoration may depend on the identity and elevation service. In the new design the terminal-to-console path is blocked, but the approved administrator-to-console path remains and must be monitored and recoverable.\n\nThe CIO approves a staged pilot: observe required flows, test synthetic business transactions and denied paths, then restrict one segment with a rollback plan. The team measures blocked legitimate work and reachable unwanted paths, not the number of appliances installed. This tests assumptions before expanding a design that might disrupt dispatch."
           },
           {
             "heading": "Practice · Create the enterprise architecture outcome",
@@ -5594,7 +5594,7 @@
           },
           {
             "heading": "obj-w4-1 · Turn classification into handling and cryptographic decisions",
-            "body": "Classify information according to consequences, using labels defined by the organisation. For this exercise use public, internal and restricted. Explain why a customer delivery dataset is restricted, who approves access and which handling actions follow: limit bulk exports, protect approved transfers, restrict backup readers and define retention/disposal with the appropriate owner. A label without these rules changes nothing. Integrity and availability can be critical even for public data, such as published product safety instructions.\n\nEncryption transforms plaintext into ciphertext that can be recovered with appropriate key material. At-rest protection addresses stored copies under a stated threat model; encrypted transport addresses data travelling between endpoints. Neither prevents an authorised application from producing plaintext for an allowed user, so permissions and endpoint controls still matter. Hashing produces a digest rather than recoverable ciphertext. Comparing a file digest to a trustworthy expected digest can reveal changes, but an attacker who replaces both the file and its untrusted digest can defeat that check. Authenticity requires evidence of origin, such as a trusted reference or a cryptographic method designed to authenticate the data; do not treat a bare hash as proof of who created a record.\n\nManaging keys requires clear responsibilities. Decide who may use each key, who may change those permissions, what to do if a key is lost or exposed, and how to recover access to the data. Separate data ownership from technical key custody and test their coordination. Keys may be managed by a platform service, but the organisation still must understand permissions, recovery dependencies and supported lifecycle functions. This introductory assessment does not select algorithms, prescribe key-use periods (cryptoperiods) or assert platform compliance."
+            "body": "Classify information according to consequences, using labels defined by the organisation. For this exercise use public, internal and restricted. Explain why a customer delivery dataset is restricted, who approves access and which handling actions follow: limit bulk exports, protect approved transfers, restrict backup readers and define retention and disposal with the appropriate owner. A label without these rules changes nothing. Integrity and availability can be critical even for public data, such as published product safety instructions.\n\nEncryption transforms plaintext into ciphertext that can be recovered with appropriate key material. At-rest protection addresses stored copies under a stated threat model; encrypted transport addresses data travelling between endpoints. Neither prevents an authorised application from producing plaintext for an allowed user, so permissions and endpoint controls still matter. Hashing produces a digest rather than recoverable ciphertext. Comparing a file digest to a trustworthy expected digest can reveal changes, but an attacker who replaces both the file and its untrusted digest can defeat that check. Authenticity requires evidence of origin, such as a trusted reference or a cryptographic method designed to authenticate the data; do not treat a bare hash as proof of who created a record.\n\nManaging keys requires clear responsibilities. Decide who may use each key, who may change those permissions, what to do if a key is lost or exposed, and how to recover access to the data. Separate data ownership from technical key custody and test their coordination. Keys may be managed by a platform service, but the organisation still must understand permissions, recovery dependencies and supported lifecycle functions. This introductory assessment does not select algorithms, prescribe key-use periods (cryptoperiods) or assert platform compliance."
           },
           {
             "heading": "Worked example for obj-w4-1 · A classified order export",
@@ -5610,7 +5610,7 @@
           },
           {
             "heading": "Practice · Assess protection and plan a restore",
-            "body": "Choose a fictional order or appointment dataset. Record its classification rationale, access rule, at-rest and in-transit safeguards, key owner and a residual risk. Explain what a hash can and cannot establish. Then write an exercise plan with explicit RTO/RPO, when timing starts and ends, recovery-point measurement, isolated environment, restore owner, dependencies on keys and identity access, integrity checks and a business acceptance transaction. Name the evidence and who decides what to do after a missed target. For the highest rubric anchors, trace copies through their lifecycle, explain why a digest needs a trusted reference, check a worked result against both objectives, and state stop conditions, follow-up ownership and the limits of one exercise. Complete the cross-week executive case using this assessment and your earlier risk, identity and architecture work. Keep resource consumption, task completion, card recall and rubric-based assessment separate."
+            "body": "Choose a fictional order or appointment dataset. Record its classification rationale, access rule, at-rest and in-transit safeguards, key owner and a residual risk. Explain what a hash can and cannot establish. Then write an exercise plan with explicit RTO and RPO, when timing starts and ends, recovery-point measurement, isolated environment, restore owner, dependencies on keys and identity access, integrity checks and a business acceptance transaction. Name the evidence and who decides what to do after a missed target. For the highest rubric anchors, trace copies through their lifecycle, explain why a digest needs a trusted reference, check a worked result against both objectives, and state stop conditions, follow-up ownership and the limits of one exercise. Complete the cross-week executive case using this assessment and your earlier risk, identity and architecture work. Keep resource consumption, task completion, card recall and rubric-based assessment separate."
           },
           {
             "heading": "Optional supplementary LinkedIn study",
@@ -5895,7 +5895,7 @@
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
         "format": "open",
-        "prompt": "For a normal user, a privileged administrator and a service job, choose one authentication/credential safeguard, one permission safeguard and one residual risk per path. Explain why two passwords are not multifactor authentication (MFA).",
+        "prompt": "For a normal user, a privileged administrator and a service job, choose one authentication or credential safeguard, one permission safeguard and one residual risk per path. Explain why two passwords are not multifactor authentication (MFA).",
         "difficulty": "intermediate",
         "options": [],
         "correctOptionId": null,
@@ -5936,12 +5936,12 @@
         "id": "question-w2-5",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /rubricRef, /annotatedExample.",
+      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /prompt, /rubricRef, /annotatedExample.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w2-5@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
         "format": "scenario",
-        "prompt": "A support director proposes removing all standing administrator access tomorrow. Dispatch needs urgent maintenance during identity-service outages. Recommend a bounded rollout and explain the remaining risk.",
+        "prompt": "A support director proposes removing all standing administrator access tomorrow. Dispatch needs urgent maintenance during identity-service outages. Recommend a rollout limited in scope and duration and explain the remaining risk.",
         "difficulty": "intermediate",
         "options": [],
         "correctOptionId": null,
@@ -6083,7 +6083,7 @@
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
         "format": "scenario",
-        "prompt": "A chief financial officer (CFO) says a restricted label and disk encryption are sufficient protection for a courier export. Write a control assessment including classification, permissions, data in transit/at rest, key owner and a residual risk. Explain the authorised-user limitation.",
+        "prompt": "A chief financial officer (CFO) says a restricted label and disk encryption are sufficient protection for a courier export. Write a control assessment including classification, permissions, data in transit and at rest, key owner and a residual risk. Explain the authorised-user limitation.",
         "difficulty": "intermediate",
         "options": [],
         "correctOptionId": null,
@@ -6977,7 +6977,7 @@
         "id": "question-w3-2",
         "version": 1
       },
-      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/1/explanation, /options/2/explanation, /options/3/explanation.",
+      "changeNote": "Revises teaching and pinned dependencies. Changed fields: /options/1/text, /options/1/explanation, /options/2/explanation, /options/3/explanation.",
       "priorAttemptImpact": "Historical question attempts and self-assessments remain pinned to question-w3-2@1; no automatic regrading, retargeting or deletion.",
       "scheduleImpact": "No card schedule is reset or retargeted by this question revision.",
       "payload": {
@@ -6992,7 +6992,7 @@
           },
           {
             "id": "b",
-            "text": "The application/API with the relevant customer and record context.",
+            "text": "The application or API with the relevant customer and record context.",
             "explanation": "The application can evaluate the business permission; the gateway and database enforce different decisions."
           },
           {
@@ -7146,7 +7146,7 @@
               },
               {
                 "score": 2,
-                "descriptor": "The response explains a credible risk that remains in the bounded emergency or approved administrative path."
+                "descriptor": "The response explains a credible risk that remains in the limited emergency or approved administrative path."
               }
             ]
           }
@@ -8188,7 +8188,7 @@
               },
               {
                 "score": 2,
-                "descriptor": "The response explains the classification rationale, scoped export permissions, protection at rest and in transit, and accountable key custody."
+                "descriptor": "The response explains the classification rationale, export permissions limited to the required records, protection at rest and in transit, and accountable key custody."
               }
             ]
           },
