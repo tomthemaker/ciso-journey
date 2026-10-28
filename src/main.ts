@@ -1,4 +1,5 @@
 import "./styles.css";
+import { bindToday } from "./today";
 import { bindCases } from "./cases";
 import { bindQuestions } from "./questions";
 import { bindReader } from "./lessons";
@@ -22,8 +23,8 @@ function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
   document.body.dataset.storageBusy = String(busy);
   for (const control of document.querySelectorAll<HTMLInputElement | HTMLButtonElement | HTMLSelectElement | HTMLTextAreaElement>(
-    "#readingComplete, #questionBank fieldset, #caseBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
-  )) control.disabled = busy || !state || control.dataset.retired === "true";
+    "#todayStudy fieldset, #readingComplete, #questionBank fieldset, #caseBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
+  )) control.disabled = busy || !state || control.dataset.retired === "true" || control.dataset.pending === "true";
   byId("importBtn", "button").disabled = busy;
   byId("exportBtn", "button").disabled = !state;
   byId("retryStorageBtn", "button").disabled = busy;
@@ -34,6 +35,7 @@ function showError(error: unknown): void {
   controls();
 }
 function renderAll(): void {
+  renderToday(state);
   renderLessons(state);
   renderQuestions(state);
   renderCases(state);
@@ -69,6 +71,7 @@ const changed: Change = async edit => {
   }
 };
 bindNavigation();
+const renderToday = bindToday(lessonBundle, changed);
 const renderLessons = bindReader(lessonBundle, lessonObjectives, changed);
 const renderQuestions = bindQuestions(lessonBundle, lessonObjectives, changed);
 const renderCases = bindCases(lessonBundle, lessonObjectives, changed);
