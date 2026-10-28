@@ -1,0 +1,557 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c02-example-2026-10-28.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-drafter",
+      "kind": "ai",
+      "role": "Synthetic example author"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-nist",
+      "version": 1,
+      "kind": "source",
+      "title": "Synthetic contract example: source-nist",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [],
+      "taskIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "CSF 2.0",
+        "jurisdiction": "Global",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-27",
+        "reviewDueAt": "2027-10-27",
+        "verification": "metadata-only",
+        "verificationEvidence": "C01 metadata/scope check only; this example does not assert teaching verification.",
+        "verifierId": "ai-drafter",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrase only; inspect source license before reuse.",
+        "c01SourceId": "src-nist"
+      }
+    },
+    {
+      "id": "concept-control",
+      "version": 1,
+      "kind": "concept",
+      "title": "Synthetic contract example: concept-control",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "definition": "A safeguard changes a risk; it does not guarantee that loss cannot occur.",
+        "misconception": "A deployed safeguard eliminates all residual risk."
+      }
+    },
+    {
+      "id": "concept-control",
+      "version": 2,
+      "kind": "concept",
+      "title": "Synthetic contract example: concept-control",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": {
+        "id": "concept-control",
+        "version": 1
+      },
+      "changeNote": "Clarifies that a control has limitations; prior wording retained.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "definition": "A safeguard changes a risk within stated limits; its owner must evaluate residual exposure.",
+        "misconception": "A deployed safeguard eliminates all residual risk."
+      }
+    },
+    {
+      "id": "rubric-classify",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Synthetic contract example: rubric-classify",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "reasoning",
+            "description": "Connect a safeguard to a specific exposure and limitation.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Names a safeguard without a reason."
+              },
+              {
+                "score": 1,
+                "descriptor": "Explains the exposure addressed and one limitation."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-classify",
+      "version": 1,
+      "kind": "question",
+      "title": "Synthetic contract example: question-classify",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "In a fictional shop, which item is a safeguard?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "a",
+            "text": "A tested restore procedure.",
+            "explanation": "A procedure can reduce the impact of lost data."
+          },
+          {
+            "id": "b",
+            "text": "The possibility of losing order data.",
+            "explanation": "This describes an exposure, rather than the safeguard that addresses it."
+          }
+        ],
+        "correctOptionId": "a",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-explain",
+      "version": 1,
+      "kind": "question",
+      "title": "Synthetic contract example: question-explain",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "format": "open",
+        "prompt": "Explain one limitation of a fictional restore procedure.",
+        "difficulty": "introductory",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-classify",
+          "version": 1
+        },
+        "annotatedExample": "Example reasoning: a restore procedure needs a usable backup and a practiced owner; naming the procedure alone gives no assurance."
+      }
+    },
+    {
+      "id": "question-scenario",
+      "version": 1,
+      "kind": "question",
+      "title": "Synthetic contract example: question-scenario",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A fictional shop has a backup but no restore owner. Explain the missing decision.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-classify",
+          "version": 1
+        },
+        "annotatedExample": "Example reasoning: assign an owner to test recovery against the business need; state the remaining uncertainty."
+      }
+    },
+    {
+      "id": "card-control",
+      "version": 1,
+      "kind": "card",
+      "title": "Synthetic contract example: card-control",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "prompt": "Why state a safeguard limitation?",
+        "answer": "To keep residual exposure visible when deciding whether the safeguard is sufficient.",
+        "conceptRef": {
+          "id": "concept-control",
+          "version": 2
+        }
+      }
+    },
+    {
+      "id": "scenario-shop",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Synthetic contract example: scenario-shop",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "brief": "A fictional shop depends on order records. A backup exists but has not been restored.",
+        "deliverable": "A short decision note naming one safeguard, owner and limitation.",
+        "constraints": [
+          "Use invented business facts only."
+        ],
+        "rubricRef": {
+          "id": "rubric-classify",
+          "version": 1
+        },
+        "annotatedExample": "A restore test owned by the service owner can expose recovery gaps; the test does not prove all future restores will succeed."
+      }
+    },
+    {
+      "id": "lesson-controls",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Synthetic contract example: lesson-controls",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Synthetic specimen only",
+            "body": "Identify the business exposure before selecting a safeguard. State what the safeguard changes and where uncertainty remains."
+          }
+        ],
+        "prerequisiteRefs": [],
+        "estimatedMinutes": 5,
+        "workedExample": "The fictional shop tests restoration before relying on a backup.",
+        "misconceptions": [
+          "A checked task or completed resource demonstrates applied competence."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-classify",
+            "version": 1
+          },
+          {
+            "id": "question-explain",
+            "version": 1
+          },
+          {
+            "id": "scenario-shop",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-control",
+            "version": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "mapping-control",
+      "version": 1,
+      "kind": "mapping",
+      "title": "Synthetic contract example: mapping-control",
+      "authorIds": [
+        "ai-drafter"
+      ],
+      "authoredAt": "2026-10-28",
+      "objectiveIds": [
+        "obj-w1-1"
+      ],
+      "taskIds": [
+        "w1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-nist",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial synthetic example; not a published lesson.",
+      "priorAttemptImpact": "No reassessment implied; earlier attempts retain their shown version.",
+      "scheduleImpact": "No automatic reset or schedule change.",
+      "payload": {
+        "frameworkVersionId": "nist-csf-2.0",
+        "targetIds": [
+          "ID.RA"
+        ],
+        "validFrom": "2024-02-26",
+        "validUntilExclusive": null,
+        "rationale": "Provisional thematic alignment for discussing safeguards and risk decisions.",
+        "limitation": "Alignment only; no equivalence, accreditation or validated competence."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-nist",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-control",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-control",
+        "version": 2
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-classify",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-classify",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-explain",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-scenario",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-control",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-shop",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-controls",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "mapping-control",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
