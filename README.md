@@ -2,6 +2,8 @@
 
 A local-first web application for tracking an executive CISO development roadmap.
 
+The weeks 1–4 learning loop is a **provisional AI-authored pilot**, with independent educator review outstanding. Read the [pilot notes and private recovery steps](docs/product/FOUNDATION_RELEASE_NOTES.md) and [release-gate evidence and limitations](docs/product/G01_RELEASE_GATE.md). No validated teaching release or readiness assessment is claimed.
+
 ## Start
 
 Use Node 24.4.1+ and the Vite development server:
@@ -86,7 +88,7 @@ A comprehensive learning platform is planned; the current foundation uses lightw
 
 [F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1/v2 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
-The app has no framework or runtime package dependency. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
+The app uses plain DOM TypeScript and pinned `ts-fsrs` for retrieval scheduling. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
 
 CI runs only unit/type/build checks. Run local browser checks during implementation and independent review of runtime/test changes and before release; record exact-candidate results in the PR. See the [validation policy](AGENTS.md#validation-policy).
 
