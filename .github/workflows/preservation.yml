@@ -9,6 +9,7 @@ on:
       - assets/**
       - tests/**
       - curriculum/**
+      - content/**
       - scripts/**
       - .nvmrc
       - package.json
