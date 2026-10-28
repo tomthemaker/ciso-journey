@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp2-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp2-author",
+      "kind": "ai",
+      "role": "A02 comp-2 original executive-case draft author and bounded NIST technical-source inspector; not independent educator or legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp2-risk-analysis",
+      "version": 1,
+      "kind": "source",
+      "title": "Risk identification and analysis · NIST IR 8286A Rev. 1",
+      "authorIds": [
+        "ai-a02-comp2-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial A02 comp-2 AI-authored executive case draft for #74 / #17. Unregistered and unmerged; no independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID. Preserve all existing revisions and historical references; no attempt, assessment or legacy score is changed.",
+      "scheduleImpact": "No card enrollment, scheduler or recall change. Applied assessment remains separate.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8286Ar1.pdf",
+        "edition": "NIST IR 8286A Rev. 1, December 2025 final",
+        "jurisdiction": "United States technical guidance; methods used for fictional risk practice without legal applicability claims",
+        "publicationDate": "2025-12-18",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspection 2026-10-29: official CSRC final page and history identify 2025-12-18 final, distinct from February draft. Exact PDF title/history and sections 2.1.1–2.1.2 (printed pp. 13–16), 2.2.4–2.2.5 (pp. 41–44), 2.3.1–2.3.2 (pp. 47–50) inspected for scope, risk factors, data quality and estimates. Receipt: 3,209,917 bytes, SHA-256 8701ddb49e2a60fb9a1d7131ff0333706507644137b8a0f1b2a320921ef8ad40. Inspection is limited to those methods, not all statistical examples, and supplies no human educator approval.",
+        "verifierId": "ai-a02-comp2-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original fictional evidence, response and rubric; technical methods attributed to this edition. No source table, diagram or substantial quotation reproduced. NIST employee works, foreign rights and third-party material have distinct rights conditions; inspect notices before reuse. Source inspection is not blanket rights clearance.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-a02-comp2-risk-response",
+      "version": 1,
+      "kind": "source",
+      "title": "Risk responses and ownership · NIST IR 8286B-upd1",
+      "authorIds": [
+        "ai-a02-comp2-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial A02 comp-2 AI-authored executive case draft for #74 / #17. Unregistered and unmerged; no independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID. Preserve all existing revisions and historical references; no attempt, assessment or legacy score is changed.",
+      "scheduleImpact": "No card enrollment, scheduler or recall change. Applied assessment remains separate.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8286B-upd1.pdf",
+        "edition": "NIST IR 8286B-upd1, February 2025 updated final",
+        "jurisdiction": "United States technical guidance; methods used for fictional risk practice without legal applicability claims",
+        "publicationDate": "2025-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspection 2026-10-29: official CSRC final landing history and PDF edition identify February 26, 2025 updated final superseding February 2022. Sections 2.3.1–2.3.6 (printed pp. 21–29) and 2.4.2–2.4.4 (pp. 32–34) inspected for response mechanisms, combinations, retained exposure, explicit acceptance, response owner and status. Receipt: 1,998,246 bytes, SHA-256 28ad23fe12632b1de11f5fe366032466819ff467a3a396503e52cafcedb95aa9. This is bounded technical-source inspection by an AI actor, not legal advice or independent educator approval.",
+        "verifierId": "ai-a02-comp2-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original fictional evidence, response and rubric; technical methods attributed to this edition. No source table, diagram or substantial quotation reproduced. NIST employee works, foreign rights and third-party material have distinct rights conditions; inspect notices before reuse. Source inspection is not blanket rights clearance.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "rubric-a02-comp2-risk-decision",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Comp-2 · Risk register and treatment decision self-assessment",
+      "authorIds": [
+        "ai-a02-comp2-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp2-risk-analysis",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp2-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial A02 comp-2 AI-authored executive case draft for #74 / #17. Unregistered and unmerged; no independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID. Preserve all existing revisions and historical references; no attempt, assessment or legacy score is changed.",
+      "scheduleImpact": "No card enrollment, scheduler or recall change. Applied assessment remains separate.",
+      "payload": {
+        "assessmentProvenance": "self-assessment",
+        "criteria": [
+          {
+            "id": "bounded-entries",
+            "description": "Three distinct causal entries with business ownership, event, window and population.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies at least one relevant event and business consequence, but the three entries or their boundaries are incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains three different event-to-consequence paths, but leaves some event, period, population or business-owner boundaries unclear."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: All three entries state objective, concrete event, enabling condition, business consequence, business owner, assessment date, window and affected population; hypotheses remain distinct from observed tests."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and explains one plausible interaction between entries without adding overlapping consequences as independent losses."
+              }
+            ]
+          },
+          {
+            "id": "separate-risk-factors",
+            "description": "Evidence-based likelihood, consequence and existing controls for each entry.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Names likelihood, consequence and a control, but confuses exposure opportunities with harmful outcomes or planned with existing safeguards."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Distinguishes those factors and explains a relevant control mechanism, but does not ground every entry in supplied evidence."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Each entry gives a defensible likelihood judgment for its defined harmful event/window/population, separate conditional consequence and evidenced existing controls, including their limits; no invented rate, monetary loss or control result."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and identifies which factor a proposed control would change and why the magnitude cannot yet be established."
+              }
+            ]
+          },
+          {
+            "id": "uncertainty-and-test",
+            "description": "Assumptions, evidential confidence and an actionable information request.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Recognizes that information is missing but presents guesses as established observations or bounds."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains at least one material assumption and evidence gap, but omits them or confidence reasons for some entries."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Each entry separates facts, assumptions and unknowns and states confidence with a reason. One specific evidence request for the selected entry names a feasible method and decision relevance."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and states two plausible results of that request and how each would change the treatment recommendation or its conditions; confidence is not a probability or consequence size."
+              }
+            ]
+          },
+          {
+            "id": "four-options",
+            "description": "Accept, avoid, transfer/share and mitigate compared for the same selected event.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Names at least two options but omits their mechanisms or retained exposure."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains all four mechanisms but leaves one or more business effects, feasibility constraints or retained/replacement exposures unclear."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: All four options compare the same event/window/population, including mechanism, business benefit or cost, feasibility/resource demand and retained/replacement exposure. Recommendation uses supplied constraints and can combine options."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and explains why the strongest competing feasible option is less suitable now, plus a condition under which it would become preferable."
+              }
+            ]
+          },
+          {
+            "id": "authority-and-action",
+            "description": "A decision request that separates risk owner, accepting authority and action delivery.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Identifies a responsible role but leaves acceptance or action authority ambiguous."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains the role boundaries but omits an entry's status, proposed action, action owner or required authority."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: All entries name proposed/pending status, action and action owner, business owner and accepting authority. The selected recommendation makes a concrete request and immediate action within CISO delegation, referring exceptions to the authorized role."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and resolves the stated competition for two staff half-days, explicitly naming deferred work and an escalation if its residual exposure cannot wait."
+              }
+            ]
+          },
+          {
+            "id": "residual-and-review",
+            "description": "Current versus forecast residual exposure, dated review and decision triggers.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: Recognizes retained risk but implies that a planned test or transfer already proves risk reduction."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: Explains why some exposure remains but leaves some entries without a residual statement or useful review condition."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: Each entry distinguishes current exposure under existing controls from forecast exposure after action, names remaining paths/uncertainties, gives a dated review before relevant use and a specific event trigger; no acceptance or successful reduction is invented."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: Meets Apply and defines observable evidence needed before crediting the selected treatment, together with a stop/escalate condition if the evidence or operational capacity is inadequate."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "scenario-a02-comp2-risk-decision",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Mosslight Forums · Decide which risk treatment to investigate first",
+      "authorIds": [
+        "ai-a02-comp2-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp2-risk-analysis",
+          "version": 1
+        },
+        {
+          "id": "source-a02-comp2-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial A02 comp-2 AI-authored executive case draft for #74 / #17. Unregistered and unmerged; no independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID. Preserve all existing revisions and historical references; no attempt, assessment or legacy score is changed.",
+      "scheduleImpact": "No card enrollment, scheduler or recall change. Applied assessment remains separate.",
+      "payload": {
+        "brief": "Fictional case: Mosslight Forums organizes eight one-day professional meetings scheduled between 2026-11-16 and 2027-01-29. Each expects 120–180 attendees. Assessment date: 2026-10-29; assessment window: 2026-11-01 through 2027-01-31. The business goal is to admit ticket holders on time, give accurate venue information and release only approved teaching material. The following E1–E5 are invented exercise evidence, not learner or employer records.\n\nE1 — Venue notices. A coordinator receives requests to change venue details by email, then uses an individual publishing account with multi-factor authentication (MFA) to update the attendee notice. No separate verification of a requester's identity is required. Three genuine requests arrived in the preceding six weeks. In an authorized 2026-10-23 tabletop test, one coordinator accepted a forged request and prepared an incorrect venue notice; the exercise controller stopped publication. No real harmful publication or attack frequency is established. A venue contact directory was last verified on 2026-09-01; its continuing accuracy has not been tested. The events director estimates that people following an incorrect notice could miss the opening session; the number affected and correction time depend on when it is noticed.\n\nE2 — Admission device. One company laptop at each meeting caches the ticket list for scanning when the network is unavailable. An IT inventory dated 2026-10-22 confirms endpoint protection and daily ticket-list synchronization. No malware-blocking or recovery result is supplied. Staff use the same laptop to open organizer email attachments. No independent admission list is currently issued. A supplier-assisted restore took 75 minutes in an April rehearsal with an older application; the current version has not been tested. The events director says a staffed, printed minimum-data admission list might allow admission during recovery, but capacity and handling have not been rehearsed.\n\nE3 — Unreleased material. Speaker draft slides go into a private preparation folder, then an editor copies approved files to a public download folder. A 2026-10-21 test with a synthetic draft showed that the public folder immediately served a mistakenly copied file without a release approval step. Folder permissions restrict copying to the editorial team; a daily file report lists copies, with no documented response timing. The first planned public file release is 2026-11-12. No real draft disclosure is reported. Speaker agreements and consequences of early release have not been assessed; do not infer contractual or legal duties. Early release could remove a speaker's control over unfinished work, require correction and harm the relationship. Draft content varies, so business effect cannot be inferred from file count alone.\n\nE4 — Resources and alternatives. Before the first meeting, only two staff half-days are available across the three proposed assessments or pilots; this is a shared limit. Estimates supplied by the teams: verifying venue contacts and running a simulated forged-request/callback pilot needs both half-days, with one coordinator and one event assistant; a current-version admission recovery/fallback rehearsal also needs both half-days, with an IT technician and an event assistant; a release-approval pilot for draft slides needs one half-day, with an editor. These estimates include pilot preparation and observation, not permanent deployment. The assistant cannot support both full pilots before the first meeting. The events director estimates one to four genuine venue-change requests per meeting in the upcoming window, with 5–10 minutes per callback if a verified contact answers. This is a workload assumption, not an attacker rate or guaranteed service level. Holding a change until the verified contact answers can leave an outdated venue notice in place. An external event agency offers to handle venue notices, but onboarding takes four weeks; no coverage, service terms or assurance evidence has been evaluated.\n\nE5 — Fictional governance. Leadership supports meetings with controlled disruption and approved publication. The events director owns accurate venue notices and admission; the editorial director owns release of speaker material. The events director may accept admission delay exposure only when evidence supports a delay of at most 30 minutes. Longer or unbounded admission delays, public venue misinformation and unintended release of drafts require CEO acceptance. No such acceptance has occurred. The CISO may gather evidence and coordinate safe tests using the two half-days with the relevant director's scheduling approval, and recommend changes. The CISO cannot cancel a meeting, change production publication procedures, buy a service, accept the CEO exceptions or promise new staff. The CEO can authorize a temporary halt of venue-change publication or additional resources; procurement and the CEO must approve any agency arrangement.\n\nMethod note. Assess the likelihood of a concrete harmful event occurring at least once within the named population and window, considering current controls; do not substitute the probability of a forged message, attachment or copying opportunity. Qualitative reasoning is sufficient: state why the path is credible and what evidence limits its likelihood assessment. You may conclude that the relative likelihood of two events cannot be established. If using low/medium/high, define your ordering and support it; no numerical scale or calibrated probabilities are supplied. Consequence means what would follow if that event occurred. Confidence describes support for the judgment. Existing controls operate now; proposed pilots and changes do not yet reduce current risk.",
+        "deliverable": "Write a register of exactly three entries: R1 an attacker-induced incorrect venue notice, R2 malware preventing timely ticket validation, and R3 accidental early public release of an unapproved speaker draft. For each state: objective; concrete event and enabling condition; assessment date, future window and population; business owner; evidenced existing controls and limits; likelihood reasoning for the harmful event; separate consequence scope or range with assumptions; key unknown and confidence rationale; proposed action, action owner and pending decision status; accepting authority; current exposure and forecast residual exposure after action; dated review before relevant use and an event trigger.\n\nSelect one entry for a four-row accept / avoid / transfer or share / mitigate comparison. Use the same event, population and window throughout. Each row must give mechanism, business effects, feasibility and resource demand, and retained or replacement exposure. Recommend an immediate action within CISO authority and a distinct decision request to the authorized role. Account for the two shared staff half-days: name work deferred, the resulting exposure and escalation if waiting is unacceptable. Explain the strongest feasible alternative and when it would become preferable.\n\nFor the selected entry request one specific piece of evidence with a feasible collection method; explain two plausible results and their effects on the recommendation. State how the proposed control changes likelihood or consequence, what evidence is needed before crediting it, and a stop/escalate condition if it fails or staff cannot operate it. Explain one interaction between register entries without double-counting. These are the complete response scope for all Recognize/Explain/Apply/Lead anchors. No additional policy, financial model, numerical total or enterprise-wide assessment is required.",
+        "constraints": [
+          "Use only the fictional E1–E5 evidence. Add assumptions explicitly; do not invent employer evidence, attack rates, money estimates, contract terms or incidents.",
+          "The supplied headcounts, dates, workload estimates and historical test duration have defined scope. Do not turn them into calibrated probabilities, guaranteed bounds or expected losses. Ordering labels are optional and cannot be multiplied into meaningful units.",
+          "No acceptance, scheduling approval, production control, contract or staff allocation has yet been authorized. Recommendations must respect E5. A later safe pilot does not itself implement the production safeguard.",
+          "The three entries contribute to a cyber-risk discussion; they are not a complete enterprise assessment. Do not infer legal duties, financial advice, ISO conformance, certification or readiness.",
+          "All criteria assess only the requested case response, including its explicitly requested decision and evidence extensions. Justified alternatives are acceptable. No automatic mastery or change to learner progress is implied."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp2-risk-decision",
+          "version": 1
+        },
+        "annotatedExample": "One defensible response follows. It prioritizes R1 because the supplied rehearsal exposes a direct publication path and venue errors can affect the first meeting; it does not claim that R1 has the greatest measured annual loss or highest probability. A justified alternative, including prioritizing admission recovery, can satisfy the rubric. All entries are assessed on 2026-10-29 for 2026-11-01 through 2027-01-31. Current exposure below already considers existing controls; no hypothetical uncontrolled baseline is calculated. Decisions and pilot scheduling remain proposed, not approved.\n\nR1 — Correct venue information. Event/population: an external attacker impersonates a venue contact and induces at least one incorrect public venue notice among the eight meetings' notices in the window. Enabling condition: email requests can reach publication without independent identity verification. Business owner: events director. Existing controls: individual MFA publishing accounts restrict direct account access, but do not verify a message acted on by an authorized coordinator. E1's stopped tabletop shows one human workflow failure, not an observed attack or harmful notice. Likelihood: a credible path persists under current controls; the chance of harmful publication cannot be quantified because targeting, delivery, coordinator behavior across shifts and correction timing are unknown. Three genuine requests are workflow evidence, not three attack attempts. Consequence if it happens: some recipients may travel to the wrong venue and miss an opening session, with correction work and relationship harm. The affected subset of 120–180 attendees at a meeting and duration are unknown; reaching all eight meetings is not assumed. Confidence: moderate that this workflow can admit a forged request, low in the future event frequency and consequence extent. Assumptions: the tested workflow is still used; the directory may be out of date.\nStatus/action: mitigation pilot proposed, scheduling and CEO direction pending. CISO coordinates; coordinator verifies contacts and event assistant helps observe the callback pilot, requiring the two half-days in E4. CEO is accepting authority for misinformation; the events director owns the scenario, not that exception decision. Forecast residual: if verified callbacks operate effectively, some impersonated requests could be rejected before publication; unavailable contacts, directory compromise, staff bypass and authorized-person mistakes remain. No reduction is credited now. Review: 2026-11-09, before first use, or immediately after a failed identity check, changed directory entry or bypass. [The event includes publication and harm potential, rather than merely receiving a suspicious email.]\n\nR2 — Timely admission. Event/population: malware from an organizer email attachment disables a meeting's admission laptop, preventing ticket validation long enough to delay admission at least once among the eight meetings in the window. Enabling conditions: email and offline ticket validation share the laptop, and no independent admission route currently operates. Owner: events director. Existing controls: E2 confirms endpoint protection and synchronized lists, but no blocking test; synchronization on the same disabled device is not an independent fallback. Likelihood: plausible, but no attachment-malware exposure rate, protection effectiveness or current recovery evidence is supplied, so no defensible numerical or relative likelihood ranking follows. Consequence if successful: admission delay and staff diversion. The older 75-minute rehearsal is a relevant warning, not a current duration forecast or maximum; delay beyond 30 minutes remains plausible, with actual attendee queues depending on incident timing and fallback capacity. Confidence: low in current delay duration; known device dependence supports the causal path. Assumptions: the cached list is otherwise available, and there is no unreported alternate device.\nStatus/action: current-version recovery/fallback rehearsal proposed and deferred under the initial two-half-day allocation. IT technician would own technical recovery; event assistant would support observed admission flow under events-director scheduling. CEO acceptance is required while delay beyond 30 minutes or unbounded delay remains; neither the CISO nor events director can accept it on present evidence. Forecast residual: a tested independent list might permit some admission during recovery but can be stale, misused or too slow; restore dependencies remain. Review: 2026-11-10 for CEO direction before the first meeting, or immediately after a protection alert, rehearsal failure or application change. Deferral leaves today's exposure intact. [An old observed duration is kept separate from a forecast for the changed system.]\n\nR3 — Controlled release. Event/population: an editor accidentally copies at least one unapproved speaker draft into the public download folder across the eight meetings' draft-release workflows during the window. Enabling condition: no approval barrier separates a copy from public serving. Owner: editorial director. Existing controls: restricted editorial copying rights limit who can trigger this path; E3's daily report may detect a copy after serving, but response effectiveness is unproven. Likelihood: credible because a synthetic miscopy immediately served a file; real error opportunities and staff checking behavior are unknown, so the test does not supply a future rate. Consequence: early exposure of unfinished material, correction effort and damaged speaker trust; file count does not measure sensitivity, and no monetary or contractual consequence is asserted. Confidence: strong in the tested exposure mechanism, low in real-world frequency and business extent. Assumptions: current permissions and workflow match the test.\nStatus/action: release-approval pilot proposed, initially deferred; editor owns pilot delivery with editorial-director scheduling, requiring one half-day. CEO accepts retained unintended-release exposure. Forecast residual: separating approval from public release could stop some accidental copies if all publication paths enforce it; approval errors and other paths remain. Review: 2026-11-06 for pending CEO direction before the first planned public file release, or immediately after an unapproved file is served or permissions change. [No claim that a permissions list or report prevents an authorized editor's error.]\n\nR1 comparison — Same eight-meeting population and window:\nAccept: ask the CEO explicitly to retain the existing workflow and its exposure for a defined period, with monitoring and revisit conditions. It preserves fast last-minute updates and uses no pilot half-days, but leaves the demonstrated impersonation path and attendee disruption. No acceptance exists; omission or delay is not an acceptance record.\nAvoid: seek CEO authority to halt email-initiated venue-change publication temporarily. This removes the specified email-to-notice path while the halt is enforced, but a genuine venue change could leave attendees following an outdated notice. Staff must handle held requests and communication; the business cost may be material. It cannot be ordered by the CISO and does not remove all venue-information errors.\nTransfer/share: evaluate having the agency handle notices and take specified correction obligations. It may move operational work and some agreed consequences, but four-week onboarding misses the first meeting; fees, terms, exclusions and agency performance are unknown. Mosslight retains attendee trust, coordination, uncovered consequences and oversight. Procurement/CEO approval and evidence are needed; this is an evaluation option, not a contract or insurance recommendation.\nMitigate: verify known venue contacts and run a safe callback pilot before applying any production change. It uses both half-days. If later authorized and consistently operated, callbacks through independently verified contact details can interrupt impersonation before publication, primarily changing harmful-event likelihood. They do not guarantee less harm after an incorrect notice is published. They may delay authentic requests, and the per-request workload and contact availability remain assumptions. The pilot itself has no immediate protective effect.\n\nDecision request: seek events-director approval to schedule the R1 pilot by 2026-11-05 and CEO direction on interim R1 exposure and on the deferred R2/R3 exposures. Ask the CEO to authorize a production callback requirement only if evidence and staffing support it, or decide a bounded halt/other response; no CEO exception is accepted by this memo. CISO's immediate permitted action is to gather evidence and coordinate scheduling, without changing production or committing resources outside the stated delegation. The proposed pilot consumes the two half-days; do not silently claim time for the R2 rehearsal or R3 pilot as well. Seek extra capacity or an explicit change of priority from the CEO if either deferred risk cannot wait for its pre-use review. As a proposed allocation, this does not authorize continued exposure.\n\nEvidence request: in a safe simulation, verify every venue contact needed for the eight meetings against a trusted independent channel, then have the coordinator handle synthetic forged and genuine change requests while observing callback routing, verification before simulated release, missed contacts and elapsed staff time. Do not send real attendee notices. Result A: all simulated releases require the verified callback, known contacts answer within the assumed workload and genuine notices can be updated in time. This supports a request for an authorized, staffed rollout and later checks across shifts; it does not establish an attack probability or permanent effectiveness. Result B: contacts cannot be verified promptly, the coordinator bypasses the check or genuine updates are delayed beyond operational needs. Stop the rollout request, retain the current assessment and escalate a bounded halt or revised design/resources to the CEO. Credit risk reduction only after authorized operation and evidence of coverage across actual publication paths; a passed pilot alone is insufficient.\n\nStrongest competing feasible option: temporary avoidance is preferable if a safe verification process cannot be staffed before the first meeting or an active forged request exposes immediate harm. For now a pilot offers evidence while preserving the ability to publish needed changes; a halt can itself preserve wrong venue information. Ask the CEO to decide this tradeoff rather than assuming speed always outweighs integrity.\nInteraction: R1 callback work and R2 admission preparation compete for the same assistant; simultaneous disruption could strain the events director's response. That dependency may increase disruption, but overlapping missed-session and delay consequences must not be added as independent losses. No aggregate score or probability is calculated.\n\nAssessment note: the anchors judge this written response and its stated evidence. Missing criteria remain unassessed until a new response supplies evidence; there is no pass total. Self-assessment is separate from legacy scores, task/resource completion, reading, card recall and question attempts. It establishes no professional readiness or independent review."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp2-risk-analysis",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-a02-comp2-risk-response",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp2-risk-decision",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp2-risk-decision",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
