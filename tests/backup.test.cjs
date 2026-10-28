@@ -75,3 +75,16 @@ for (const kind of ['journal', 'achievements']) {
     });
   }
 }
+
+test('display preference is optional, round-trips and rejects invalid or future values', () => {
+  const backup = structuredClone(mixed);
+  assert.equal(validateBackup(backup).displayPreferences, undefined);
+  for (const theme of ['system', 'light', 'dark']) {
+    backup.data.displayPreferences = { schema: 1, theme };
+    assert.deepEqual(validateBackup(JSON.parse(JSON.stringify(backup))).displayPreferences, { schema: 1, theme });
+  }
+  for (const bad of [null, {}, { schema: 2, theme: 'dark' }, { schema: 1, theme: 'future' }, { schema: 1, theme: null }]) {
+    backup.data.displayPreferences = bad;
+    assert.throws(() => validateBackup(backup), /Invalid display preferences/);
+  }
+});

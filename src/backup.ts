@@ -95,6 +95,11 @@ export function validateState(data: unknown): LearnerState {
   if ("questionAttempts" in data) validateQuestionAttempts(data.questionAttempts);
   if ("resourceProgress" in data) validateResourceProgress(data.resourceProgress);
   if ("readingProgress" in data) validateReadingProgress(data.readingProgress);
+  if ("displayPreferences" in data) {
+    const prefs = data.displayPreferences;
+    if (!record(prefs) || prefs.schema !== 1 || typeof prefs.theme !== "string" || !["system", "light", "dark"].includes(prefs.theme))
+      throw new Error("Invalid display preferences. Current progress has not changed.");
+  }
   const journal = history(data.journal, "journal");
   const achievements = history(data.achievements, "achievements");
   return {

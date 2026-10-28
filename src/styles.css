@@ -619,3 +619,41 @@ body[data-storage-error="false"] #retryStorageBtn { display: none; }
   .filterline { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
+
+/* Paper and ink for long study sessions; controls keep a familiar sans face. */
+@font-face {
+  font-family: "Source Serif 4";
+  src: url('/fonts/SourceSerif4Variable-Roman.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eae6dd; --surface: #f6f3ec; --ink: #252b30;
+  --muted: #4e5c63; --line: #aeb9b8; --accent: #234f69;
+  --light: #dce8e7; --control: #f6f3ec; --control-line: #758887;
+  --warning-bg: #f2e8cb; --warning-ink: #654800;
+  --danger: #8e3030; --shadow: none;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #182126; --surface: #222d32; --ink: #eef0e9;
+  --muted: #c0cecb; --line: #687c7c; --accent: #9acde0;
+  --light: #34494e; --control: #26373d; --control-line: #91a8a7;
+  --warning-bg: #50452d; --warning-ink: #ffe5a1;
+  --danger: #ffb2aa; --shadow: none;
+}
+body { font-family: "Source Serif 4", Georgia, serif; }
+button, input, textarea, select, .theme-control { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.btn, .field input, .field select, .field textarea, .score select, .filterline select, .theme-control select { background: var(--control); color: var(--ink); border-color: var(--control-line); }
+.btn.primary { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+#todayStudy a.primary { color: var(--surface); }
+.stat, .task-resources, .empty, .resource-kind, .progress { background: var(--light); }
+.task, .task-block, .task-resources { border-color: var(--line); }
+.resource-kind { color: var(--ink); }
+.warn { color: var(--warning-ink); background: var(--warning-bg); }
+.content-status { color: var(--warning-ink); }
+.log button { color: var(--danger); }
+.theme-control { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; }
+.theme-control select { min-height: 44px; border: 1px solid var(--control-line); border-radius: 9px; padding: 8px; }

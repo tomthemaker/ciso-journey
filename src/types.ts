@@ -38,6 +38,7 @@ export interface LearnerState {
   questionAttempts?: QuestionAttempts;
   scenarioResponses?: ScenarioResponses;
   resourceProgress?: ResourceProgress;
+  displayPreferences?: { schema: 1; theme: "system" | "light" | "dark" };
   // Preserve extra JSON fields from compatible v1 backups.
   [key: string]: unknown;
 }
