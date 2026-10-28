@@ -95,6 +95,45 @@ test('expiry propagates; CISM and CISSP boundary dates are exclusive', () => {
     assert.equal(effectiveStatus(data, get(data, 'mapping-control'), boundary), 'stale');
   }
 });
+const sourceFailures = {
+  overdue: data => { get(data, 'source-nist').payload.reviewDueAt = asOf; },
+  challenged: data => { data.editorial.find(item => item.ref.id === 'source-nist').unresolvedChallenges.push('Synthetic substantive source challenge'); },
+  'changes-requested': data => { data.editorial.find(item => item.ref.id === 'source-nist').reviews[0].verdict = 'changes-requested'; },
+};
+for (const current of ['source-checked', 'independently-reviewed']) for (const [failure, mutate] of Object.entries(sourceFailures)) {
+  test(`${current} rejects ${failure} source evidence even when its editorial status is draft`, () => {
+    const data = withReviews();
+    const source = get(data, 'source-nist'), card = get(data, 'card-control');
+    status(data, card.id, current);
+    assert.deepEqual(validate(data), []);
+    mutate(data);
+    assert.equal(effectiveStatus(data, source, asOf), 'draft');
+    assert.equal(effectiveStatus(data, card, asOf), 'stale');
+    assert.ok(validate(data).includes('card-control@1: overdue/expired content must be stale'));
+  });
+}
+test('published dependents also propagate draft-source expiry and challenges', () => {
+  for (const mutate of Object.values(sourceFailures)) {
+    const data = withReviews();
+    for (const item of data.editorial) item.status = 'published';
+    assert.deepEqual(validate(data), []);
+    status(data, 'source-nist', 'draft');
+    mutate(data);
+    assert.equal(effectiveStatus(data, get(data, 'card-control'), asOf), 'stale');
+    assert.ok(validate(data).includes('card-control@1: overdue/expired content must be stale'));
+  }
+});
+test('source evidence failures retain draft presentation and addressable historical revisions', () => {
+  for (const mutate of Object.values(sourceFailures)) {
+    const data = withReviews();
+    mutate(data);
+    for (const state of ['draft', 'stale', 'retired']) {
+      status(data, 'card-control', state);
+      assert.equal(effectiveStatus(data, get(data, 'card-control'), asOf), state);
+      assert.deepEqual(validate(data, { previous: structuredClone(data), attempts: [{ id: 'historic', contentRef: { id: 'card-control', version: 1 } }] }), []);
+    }
+  }
+});
 test('legal draft stays provisional until new authoritative text verification and independent legal approval', () => {
   const data = withReviews();
   const source = get(data, 'source-nist');

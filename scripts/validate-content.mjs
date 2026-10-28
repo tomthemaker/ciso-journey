@@ -177,6 +177,14 @@ function contentRefs(record) {
   return [...(record.sourceRefs ?? []), ...(p.conceptRefs ?? []), ...(p.practiceRefs ?? []), ...(p.prerequisiteRefs ?? []), ...(p.conceptRef ? [p.conceptRef] : []), ...(p.rubricRef ? [p.rubricRef] : [])];
 }
 
+// Source evidence can be unusable even while the source is visibly a draft.
+function sourceEvidenceStale(bundle, record, asOf) {
+  if (record?.kind !== 'source') return false;
+  const state = bundle.editorial.find(item => key(item?.ref) === key(record));
+  return record.payload.reviewDueAt <= asOf || state?.unresolvedChallenges.length > 0 ||
+    state?.reviews.some(review => review.verdict === 'changes-requested');
+}
+
 // Expiry propagates through dependencies without erasing historical publication metadata.
 export function effectiveStatus(bundle, record, asOf, curriculum = loadCurriculum(), visited = new Set()) {
   if (!record || !object(record.payload)) return 'stale';
@@ -184,10 +192,10 @@ export function effectiveStatus(bundle, record, asOf, curriculum = loadCurriculu
   if (['draft', 'stale', 'retired'].includes(state) || visited.has(key(record))) return state;
   visited.add(key(record));
   const p = record.payload;
-  if ((record.kind === 'source' && p.reviewDueAt <= asOf) || (record.kind === 'mapping' && ((p.validUntilExclusive && p.validUntilExclusive <= asOf) || (p.validFrom && p.validFrom > asOf)))) return 'stale';
+  if (sourceEvidenceStale(bundle, record, asOf) || (record.kind === 'mapping' && ((p.validUntilExclusive && p.validUntilExclusive <= asOf) || (p.validFrom && p.validFrom > asOf)))) return 'stale';
   for (const target of contentRefs(record)) {
     const dependent = bundle.records.find(item => key(item) === key(target));
-    if (['stale', 'retired'].includes(effectiveStatus(bundle, dependent, asOf, curriculum, visited))) return 'stale';
+    if (sourceEvidenceStale(bundle, dependent, asOf) || ['stale', 'retired'].includes(effectiveStatus(bundle, dependent, asOf, curriculum, visited))) return 'stale';
   }
   return state;
 }
