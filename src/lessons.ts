@@ -2,6 +2,7 @@ import { byId, node } from './dom';
 import { contentHash, contentKey, contentRoute, findContent, safeHttps } from './content';
 import type { ContentBundle, ContentRecord, ContentRef, Lesson } from './content';
 import { effectiveStatus } from './content-status';
+import { questionHash } from './question-attempts';
 import { isRead, setRead } from './reading-progress';
 import type { Change, LearnerState } from './types';
 
@@ -129,6 +130,7 @@ export function renderReader(
       const preview = node('details');
       preview.append(node('summary', {}, `${practice.title} · v${practice.version} · ${effectiveStatus(bundle, practice, asOf)}`),
         node('p', {}, text(practice.payload.prompt ?? practice.payload.brief)), node('p', {}, text(practice.payload.deliverable)));
+      if (practice.kind === 'question') preview.append(node('a', { href: questionHash(practice) }, 'Attempt this question'));
       article.append(preview);
     }
     const complete = isRead(state, lesson);

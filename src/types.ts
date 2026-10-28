@@ -1,3 +1,4 @@
+import type { QuestionAttempts } from "./question-attempts.ts";
 import type { ResourceProgress } from "./resource-progress.ts";
 import type { ReadingProgress } from "./reading-progress.ts";
 /** Legacy v1 values remain independent of future resource/recall/assessment records. */
@@ -31,6 +32,7 @@ export interface LearnerState {
   journal: HistoryEntry[];
   achievements: HistoryEntry[];
   readingProgress?: ReadingProgress;
+  questionAttempts?: QuestionAttempts;
   resourceProgress?: ResourceProgress;
   // Preserve extra JSON fields from compatible v1 backups.
   [key: string]: unknown;
