@@ -516,3 +516,11 @@ body[data-storage-blocked="true"] .view { display: none !important; }
 .reading-sections button { text-align: left; white-space: normal; max-width: 100%; }
 .reading-progress { border-block: 1px solid var(--line); padding-block: 16px; margin-block: 24px; }
 a:focus-visible, button:focus-visible, [tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+
+.question-body { margin-top: 16px; }
+.question-answer { border: 1px solid var(--line); padding: 16px; margin-block: 16px; min-width: 0; }
+.question-option { display: flex; gap: 12px; padding: 12px 0; align-items: baseline; }
+.question-answer textarea { width: 100%; display: block; margin-top: 8px; }
+.attempt-result { border-top: 1px solid var(--line); margin-top: 16px; }
+.question-body select { max-width: 100%; }
+.question-body select option { white-space: normal; }

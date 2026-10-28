@@ -1,3 +1,4 @@
+import { validateQuestionAttempts } from "./question-attempts.ts";
 import { validateReadingProgress } from "./reading-progress.ts";
 import { empty } from "./state.ts";
 import type { HistoryEntry, LearnerState, Backup } from "./types.ts";
@@ -86,6 +87,7 @@ export function validateState(data: unknown): LearnerState {
       "Invalid task completion or competency score. Current progress has not changed.",
     );
   }
+  if ("questionAttempts" in data) validateQuestionAttempts(data.questionAttempts);
   if ("readingProgress" in data) validateReadingProgress(data.readingProgress);
   const journal = history(data.journal, "journal");
   const achievements = history(data.achievements, "achievements");
