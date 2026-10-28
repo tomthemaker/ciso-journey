@@ -1,0 +1,1431 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w9-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w9-author",
+      "kind": "ai",
+      "role": "Original w9 governance draft author and official-source inspector; not independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w9-csf-2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST Cybersecurity Framework 2.0 — governance outcomes",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29, CSF 2.0, February 26, 2024",
+        "jurisdiction": "International voluntary outcome framework; not a statement of Swiss company law",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official PDF title/date, sections 1–2 and Appendix A printed pages 16–17: GV.RM-02/05, GV.RR-01/02, GV.PO-01/02 and GV.OV-01/03. Abstract and overview expressly describe outcomes without prescribing implementation. Supports roles, policy review and oversight; the charter roles, timings and thresholds below are fictional design choices, not prescribed CSF requirements. Source/rights evidence in docs/curriculum/drafts/w9.md; no human educator or legal verification.",
+        "verifierId": "ai-c04-w9-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching and fictional examples; no source passages or diagrams reproduced. NIST Technical Series rights notice inspected 2026-10-29: NIST employee works are not copyright-protected in the US; foreign rights and third-party works require care. See https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications, Technical Series Publications. Attribution is to NIST; no endorsement or conformity claim.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w9-rmf-r2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-37 Revision 2 — assessment and authorization roles",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST), Joint Task Force",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-37r2.pdf",
+        "edition": "NIST SP 800-37 Revision 2, December 2018 final (CSRC final history: December 20, 2018)",
+        "jurisdiction": "US federal RMF context; voluntary adaptation for the fictional nonfederal organization",
+        "publicationDate": "2018-12-20",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official PDF title/date; Scope and Applicability printed page xiii and section 1.2 printed pages 3–4 (nonfederal adaptation); section 3.5 Tasks A-1/A-3/A-4 (impartiality, assessment and reports); section 3.6 Tasks R-2/R-4 (risk analysis and authorization decision); Appendix D printed pages 114–115 and 117 (authorizing official, designated representative and control assessor). CSRC final landing page confirms final date 2018-12-20. Teaching adapts the separation of evidence, advice and authorized risk decisions; it does not import federal authorizing-official duties into Swiss companies. Evidence/limits in docs/curriculum/drafts/w9.md; no human review.",
+        "verifierId": "ai-c04-w9-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original teaching and fictional examples; no source passages or diagrams reproduced. NIST Technical Series rights notice inspected 2026-10-29: NIST employee works are not copyright-protected in the US; foreign rights and third-party works require care. See https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications, Technical Series Publications. Attribution is to NIST; no endorsement or conformity claim.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w9-decision-authority",
+      "version": 1,
+      "kind": "concept",
+      "title": "Decision authority",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A documented permission for a role to make a particular decision within stated scope and limits. Accountability means being answerable for that decision and its follow-up; execution can be assigned to another role.",
+        "misconception": "A job title alone proves unlimited authority."
+      }
+    },
+    {
+      "id": "concept-w9-policy-hierarchy",
+      "version": 1,
+      "kind": "concept",
+      "title": "Policy, standard and procedure",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "In this lesson, a policy states management intent and rules; a standard specifies a required measurable condition; a procedure gives steps for carrying out work. Organizations may use other document names if their meaning and approval route are clear.",
+        "misconception": "A detailed technical procedure automatically authorizes a change to management policy."
+      }
+    },
+    {
+      "id": "concept-w9-bounded-exception",
+      "version": 1,
+      "kind": "concept",
+      "title": "Bounded exception",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "An authorized, recorded departure from a specified internal requirement, limited by scope, accountable owner, expiry, safeguards and evidence for review. It does not erase applicable external obligations.",
+        "misconception": "An exception lasts until someone remembers to remove it."
+      }
+    },
+    {
+      "id": "concept-w9-residual-risk-owner",
+      "version": 1,
+      "kind": "concept",
+      "title": "Residual-risk acceptance",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "An explicit decision by an authorized owner to retain the risk remaining after selected safeguards, within delegated limits and with a review condition. Security advice informs the decision; it does not itself grant acceptance authority.",
+        "misconception": "The CISO automatically accepts every business risk."
+      }
+    },
+    {
+      "id": "concept-w9-assurance-oversight",
+      "version": 1,
+      "kind": "concept",
+      "title": "Assurance and oversight",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "Assurance examines evidence to assess whether controls work as intended; governing oversight uses findings and performance information to challenge decisions and direct improvements. Neither substitutes for operating the controls.",
+        "misconception": "A successful test proves every control or certifies the organization."
+      }
+    },
+    {
+      "id": "concept-w9-ethical-escalation",
+      "version": 1,
+      "kind": "concept",
+      "title": "Ethical escalation",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "Raising an unresolved concern through an appropriate route with accurate facts, uncertainty, affected stakeholders, decision limits and a requested action. An alternate route is needed when the normal recipient is implicated.",
+        "misconception": "Ethical leadership means hiding uncertainty to protect confidence."
+      }
+    },
+    {
+      "id": "lesson-w9-governance",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Governance: who can decide, and on what evidence?",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Start with outcomes and decision rights",
+            "body": "Security governance sets direction, assigns authority and checks whether decisions support the organization’s purposes. A governance charter records these arrangements. Its value appears when two reasonable requests compete: it tells people who can decide, what evidence they need and when they must escalate. An organization chart alone cannot answer those questions.\n\nThe C01 prerequisite is w7’s ownership matrix for six selected CSF categories: identify a desired outcome, an owner and an evidence request. An outcome describes what should be achieved; an implementation is a particular way of achieving it. A category map is not an audit certificate. Bring that matrix forward and ask which owners can authorize decisions. The pinned w7 lesson is a separate draft dependency, not released teaching. The existing w1 pilot foundations provide the asset, consequence and evidence vocabulary recapped here.\n\nBy the end, draft a charter covering policy approval, risk acceptance, incident escalation and assurance. Then resolve two stakeholder conflicts through that charter and document an ethical escalation. All company details and authorities below are invented for learning. The learner’s industry, employer and canton are unknown."
+          },
+          {
+            "heading": "Accountability, advice and delegated authority",
+            "body": "Accountability means being answerable for a decision and its follow-up. Responsibility identifies who performs the work. Delegated authority is permission to decide within limits. A governing body can oversee a security program while executives approve policies and operators implement them. Recording each relationship prevents a committee discussion from becoming an apparent approval that nobody actually gave.\n\nA business owner understands the service’s purpose and consequences; a security adviser explains threats, safeguards and uncertainty. Residual risk is the risk remaining after selected safeguards. Acceptance belongs to a role authorized to retain that risk within stated limits. A CISO may hold such authority for a specified scope, but the title alone does not confer it. When a decision exceeds delegation, send it upward rather than dividing the request to make it appear smaller.\n\nNIST CSF 2.0 links leadership accountability, communicated roles, policy and oversight. It describes outcomes rather than a mandatory committee structure. NIST’s RMF separates control assessment from an authorized risk decision in its federal context. We adapt that distinction here; we do not assign federal roles or Swiss legal duties to a fictional company."
+          },
+          {
+            "heading": "Policy, standard and procedure",
+            "body": "A policy states management intent and rules: “privileged access requires individual accountability.” A standard supplies a measurable condition, such as named administrator accounts and specified authentication safeguards. A procedure gives the steps for requesting, approving, provisioning and removing access. Document names vary, so define them in the charter.\n\nApproval routes should match the decision. A technical owner can update provisioning steps within an approved standard. That permission does not authorize removing the policy’s accountability requirement. Link each document to its owner, approver, version and review trigger so a changed procedure does not quietly become a policy exception. Review after relevant incidents, organizational changes or new requirements as well as at planned intervals."
+          },
+          {
+            "heading": "An illustrative charter",
+            "body": "Consider Alder Services, a fictional company operating a customer support portal. Its governing committee approves this charter and risk limits, receives quarterly performance and exception reports, and challenges overdue actions. The CEO approves organization-wide security policy after security, operational and relevant specialist advice. Service owners implement it; the CISO maintains the policy register. Material changes return to the CEO.\n\nUnder clause R, the COO controls portal release scheduling within the approved budget. As portal business owner, the COO may accept a policy exception for one named service for at most 30 days only if there is no suspected active compromise, no unresolved external-obligation concern and no change affecting another service. The record needs safeguards, a named implementation owner, residual-risk reasoning, evidence and an expiry action. Any failed condition goes to the CEO; external-obligation concerns require appropriate specialist advice before a decision. Neither executive approval nor an internal exception cancels external obligations.\n\nUnder clause I, the incident lead may immediately isolate affected portal components on credible compromise indicators, informs the COO and CISO immediately, and escalates suspected customer-data exposure to the CEO and relevant specialists. These are exercise rules, not statutory notification deadlines. The operations team performs containment; the incident lead coordinates it. A deputy acts when the lead is unavailable.\n\nUnder clause A, a competent assurance lead outside portal operations, without involvement in the controls or relevant conflicts of interest, examines selected control evidence and reports limitations directly to the governing committee. The COO owns remediation, with named operators and dates. A CISO’s operational report remains useful, but is labelled as management evidence rather than independent assurance. The committee reviews findings, missed deadlines and repeated exceptions; it does not operate the controls."
+          },
+          {
+            "heading": "Exceptions need an ending",
+            "body": "An exception identifies exactly which internal requirement is unmet and why the normal route is temporarily impractical. Name the service, accounts or activity covered, the decision owner, approver, safeguards, expiry and review evidence. Record what remains uncertain. Otherwise a narrow concession can spread through copying or become permanent through silence.\n\nSpecify the expiry action before approval: restore the requirement, stop the affected activity, or seek a fresh authorized decision based on new evidence. Renewal is a new decision, not an automatic extension. Review sooner if exposure changes or a safeguard fails. Track exceptions together so several individually tolerable concessions do not hide a shared dependency or growing concentration of risk."
+          },
+          {
+            "heading": "Worked executive example 1: delivery versus control",
+            "body": "Sales asks to keep a shared portal administrator login for two weeks to meet a launch date. Security asks to stop all privileged access until named accounts exist. The COO requests evidence of current access, needed tasks and an alternative. The team finds named temporary accounts with activity logging can support the work; testing those accounts takes one day. No compromise or external-obligation concern is identified in this fictional brief.\n\nThe COO chooses the named-account route and moves launch by one day. Clause R would permit a bounded exception only if its conditions were met; it does not require granting one. The decision log records both requests, the affected support team and customers, the tested alternative, the COO’s delegated authority, implementation owner and a check before launch. Security supplied advice; operations provisioned accounts. Recording the reasoning makes the schedule tradeoff visible without pretending that either stakeholder’s first proposal was the only option."
+          },
+          {
+            "heading": "Worked executive example 2: confidence versus truthful reporting",
+            "body": "During a later incident, operations finds credible signs of possible customer-data access. The incident lead asks to isolate the affected component and preserve logs. Sales asks to delay escalation until after a customer meeting and describe the issue internally as harmless maintenance. Exposure is still unconfirmed.\n\nClause I authorizes containment and requires immediate escalation on suspected exposure. The lead isolates the affected component, preserves evidence and records what is known and unknown. The log names customers, responders and sales as affected stakeholders, rejects the requested misleading description, and asks the CEO and relevant specialists to decide further communications using verified facts. This internal route does not determine any external legal reporting duty. If the CEO sought concealment, the charter’s alternate route would be the governing committee chair. An ethical escalation protects accurate decision-making; uncertainty is a reason to investigate and inform the authorized role, not to invent reassurance."
+          },
+          {
+            "heading": "Use the charter, then assess the evidence",
+            "body": "For each conflict, identify the requests, affected stakeholders and available evidence. Cite the relevant charter clause, test the delegation conditions, record a decision or referral, and assign action and review owners. Distinguish a concern raised from a final decision made. A useful log lets a later reader reconstruct why the route was appropriate.\n\nDraft the practical charter and two decision entries in the linked exercise. Its top anchors require only the specified authority, scope, follow-up and ethical-escalation evidence; they do not require a complete legal analysis or a production security program. Reading completion, retrieval-card ratings, question attempts and rubric self-assessment are separate signals. None establishes professional readiness or independent assurance."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w1-foundations",
+            "version": 2
+          },
+          {
+            "id": "lesson-w7-csf-capability-map",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 70,
+        "workedExample": "The two worked examples in the reading trace a launch-access dispute and a suspected-exposure dispute from competing requests through charter clauses to a recorded decision or escalation. They illustrate bounded authority, alternatives, factual uncertainty and stakeholder consequences; they are not real employer incidents.",
+        "misconceptions": [
+          "A committee meeting automatically constitutes approval: record the authorized decision role and actual decision.",
+          "The CISO owns every risk: advice and acceptance authority are different, and delegation has limits.",
+          "An exception permanently changes policy: specify scope, expiry and the action at expiry.",
+          "Assurance operates controls: operators implement; assurance examines evidence and governing oversight challenges results."
+        ],
+        "practiceRefs": [
+          {
+            "id": "scenario-w9-charter",
+            "version": 1
+          },
+          {
+            "id": "question-w9-authority",
+            "version": 1
+          },
+          {
+            "id": "question-w9-documents",
+            "version": 1
+          },
+          {
+            "id": "question-w9-exception",
+            "version": 1
+          },
+          {
+            "id": "question-w9-incident",
+            "version": 1
+          },
+          {
+            "id": "question-w9-assurance",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w9-decision-authority",
+            "version": 1
+          },
+          {
+            "id": "concept-w9-policy-hierarchy",
+            "version": 1
+          },
+          {
+            "id": "concept-w9-bounded-exception",
+            "version": 1
+          },
+          {
+            "id": "concept-w9-residual-risk-owner",
+            "version": 1
+          },
+          {
+            "id": "concept-w9-assurance-oversight",
+            "version": 1
+          },
+          {
+            "id": "concept-w9-ethical-escalation",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "card-w9-authority",
+      "version": 1,
+      "kind": "card",
+      "title": "Delegated authority",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "What makes a role’s decision authority bounded?",
+        "answer": "A documented decision scope and limits, with a route for requests that exceed them. A title alone is insufficient.",
+        "conceptRef": {
+          "id": "concept-w9-decision-authority",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w9-exception",
+      "version": 1,
+      "kind": "card",
+      "title": "Exception expiry",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "Why must an exception specify an action at expiry?",
+        "answer": "So the departure cannot continue through silence: restore the requirement, stop the affected activity, or seek a fresh authorized decision.",
+        "conceptRef": {
+          "id": "concept-w9-bounded-exception",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w9-acceptance",
+      "version": 1,
+      "kind": "card",
+      "title": "Advice and acceptance",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "Does a security adviser’s recommendation itself accept residual risk?",
+        "answer": "No. Acceptance requires an explicit decision by a role with authority for that scope and risk; advice informs it.",
+        "conceptRef": {
+          "id": "concept-w9-residual-risk-owner",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w9-assurance",
+      "version": 1,
+      "kind": "card",
+      "title": "Assurance and oversight",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "How does assurance support governing oversight?",
+        "answer": "Assurance assesses selected evidence and reports findings and limitations; oversight uses them to challenge decisions and direct improvements.",
+        "conceptRef": {
+          "id": "concept-w9-assurance-oversight",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "rubric-w9-exception",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Review one exception request only",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "assessmentProvenance": "rubric-assessment",
+        "criteria": [
+          {
+            "id": "route",
+            "description": "Apply clause R to the stated request.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats the CISO signature or service owner request as sufficient approval."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognizes the cross-service limit but leaves the route or interim handling unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Cites clause R: two services exceed COO delegation, so refers to CEO; pauses the requested shared exception pending an authorized decision, while allowing ordinary compliant operation."
+              }
+            ]
+          },
+          {
+            "id": "bounded-record",
+            "description": "Specify a reviewable exception record; no full charter is required.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Provides no meaningful bounds."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names an owner and expiry but omits the requirement, scope, safeguards or evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Records requirement and two-service scope, accountable business owner, authorized approver, proposed safeguards, residual-risk reasoning, review evidence and expiry action; identifies these as proposals until approved."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubric-w9-incident",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Resolve one incident conflict only",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "assessmentProvenance": "rubric-assessment",
+        "criteria": [
+          {
+            "id": "authority-action",
+            "description": "Use the given incident authority.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Delays escalation or makes unsupported claims of harmlessness."
+              },
+              {
+                "score": 1,
+                "descriptor": "Escalates or contains, but does not connect both to clause I."
+              },
+              {
+                "score": 2,
+                "descriptor": "Cites clause I for immediate isolation and escalation on suspected exposure; assigns incident lead coordination and operations execution without waiting for confirmation."
+              }
+            ]
+          },
+          {
+            "id": "ethical-log",
+            "description": "Record a truthful ethical escalation.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Conceals the concern or invents facts."
+              },
+              {
+                "score": 1,
+                "descriptor": "Records uncertainty and a recipient but omits stakeholders or the requested action."
+              },
+              {
+                "score": 2,
+                "descriptor": "Logs both requests, customers/responders/sales as affected stakeholders, known indicators and unconfirmed exposure; rejects misleading wording, names CEO/specialist route and asks for investigation and fact-based communications. No external-law conclusion is required."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubric-w9-assurance",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Explain the assurance conflict only",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "assessmentProvenance": "rubric-assessment",
+        "criteria": [
+          {
+            "id": "separation",
+            "description": "Explain the specific role conflict and repair.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Calls the operating manager’s own check independent assurance."
+              },
+              {
+                "score": 1,
+                "descriptor": "Identifies self-review but proposes no workable evidence/reporter route."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains the self-review risk; assigns a competent assessor outside portal operations without involvement in those controls or relevant conflicts, with access to evidence and direct reporting to the governing committee, while the COO retains remediation accountability. An external assessor or another competent non-operating team is acceptable."
+              }
+            ]
+          },
+          {
+            "id": "limits",
+            "description": "State one useful evidence item and its limit.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims the arrangement proves compliance or certifies the company."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names evidence or a limitation alone."
+              },
+              {
+                "score": 2,
+                "descriptor": "Names a relevant item, such as sampled access-review records, and explains that sampling or a limited period cannot establish every control’s effectiveness."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubric-w9-charter",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Charter and two decision entries",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "assessmentProvenance": "rubric-assessment",
+        "criteria": [
+          {
+            "id": "four-roles",
+            "description": "Assign the four required decision types.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Leaves two or more types without an accountable role."
+              },
+              {
+                "score": 1,
+                "descriptor": "Assigns policy approval, risk acceptance, incident escalation and assurance, but one route or accountability is ambiguous."
+              },
+              {
+                "score": 2,
+                "descriptor": "Assigns all four to identifiable accountable roles; distinguishes approval/acceptance from advice, execution and governing oversight. Titles may differ from the illustrative charter if the authority is coherent."
+              }
+            ]
+          },
+          {
+            "id": "bounds-review",
+            "description": "Make authority and exceptions usable.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Gives unlimited authority or permanent exceptions."
+              },
+              {
+                "score": 1,
+                "descriptor": "States limits and some exception fields but leaves expiry handling or assurance follow-up unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "States delegation limits and escalation triggers/recipient; bounds exceptions by requirement, scope, owner, approver, safeguards, residual-risk reasoning, expiry action and review evidence; assigns assurance reporting and remediation follow-up."
+              }
+            ]
+          },
+          {
+            "id": "two-conflicts",
+            "description": "Resolve the two specified stakeholder conflicts.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Handles neither conflict through delegated authority."
+              },
+              {
+                "score": 1,
+                "descriptor": "Records both conflicts but only one decision cites authority or tests the limits."
+              },
+              {
+                "score": 2,
+                "descriptor": "Provides two separate entries, each citing its own charter clause and delegated decision/referral route, conflicting requests, affected stakeholders, evidence/uncertainty, decision reasoning, action owner and review condition. Refusal, deferral or an alternative is acceptable when justified."
+              }
+            ]
+          },
+          {
+            "id": "ethical-escalation",
+            "description": "Document an ethical route for the reporting conflict.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Agrees to conceal indicators or falsely labels them harmless."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects misleading reporting but omits the recipient, rationale or requested action."
+              },
+              {
+                "score": 2,
+                "descriptor": "Records the reporting pressure, uncertainty and stakeholder harm concern; routes it to an authorized recipient with a fact-based action request, and provides an alternate recipient if the normal recipient is implicated. No legal opinion, extra scenario or production implementation is required."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "question-w9-authority",
+      "version": 1,
+      "kind": "question",
+      "title": "Who can accept the risk?",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A CISO recommends a temporary portal exception. The fictional charter delegates acceptance to the COO within clause R. All clause R conditions are met. Which statement correctly describes the decision?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "a",
+            "text": "The CISO recommendation itself accepts the risk.",
+            "explanation": "Incorrect. Security advice informs acceptance; it is not the delegated COO decision."
+          },
+          {
+            "id": "b",
+            "text": "The COO may explicitly accept within clause R, recording conditions and follow-up.",
+            "explanation": "Correct. The charter grants this role a bounded decision; approval and evidence must still be recorded."
+          },
+          {
+            "id": "c",
+            "text": "Only the governing committee may decide because it oversees security.",
+            "explanation": "Incorrect for this charter. Oversight does not cancel the stated COO delegation; a failed limit would require the defined escalation route."
+          },
+          {
+            "id": "d",
+            "text": "The operator accepts the risk by implementing the safeguard.",
+            "explanation": "Incorrect. Performing implementation does not confer the business decision authority."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w9-documents",
+      "version": 1,
+      "kind": "question",
+      "title": "Which document grants the change?",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "The policy requires individual accountability for privileged access. A technical owner may update provisioning procedures within the standard. They rewrite the procedure to permit an untraceable shared administrator account. What is the strongest governance objection?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "a",
+            "text": "A procedure update cannot by itself authorize departure from the policy requirement.",
+            "explanation": "Correct. The technical owner’s editing permission is bounded by the approved requirement; the policy-change or exception route is needed."
+          },
+          {
+            "id": "b",
+            "text": "Every procedure change must go to the governing committee.",
+            "explanation": "Incorrect. That universal rule is absent; delegated routine changes can be appropriate."
+          },
+          {
+            "id": "c",
+            "text": "Any document called a standard automatically overrides a policy.",
+            "explanation": "Incorrect. Names alone establish no authority; the organization must define the hierarchy and route."
+          },
+          {
+            "id": "d",
+            "text": "An urgent delivery date converts the procedure into an approved exception.",
+            "explanation": "Incorrect. Urgency explains a request, but does not supply approval, limits or expiry."
+          }
+        ],
+        "correctOptionId": "a",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w9-exception",
+      "version": 1,
+      "kind": "question",
+      "title": "An exception crossing the delegation boundary",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Use the illustrative charter clause R: COO acceptance covers one named service for at most 30 days, with its other stated conditions. A portal owner requests one 14-day exception covering both the portal and billing service, with no compromise indicators. The CISO has signed an advisory note. State the decision route and interim handling, then list the fields needed for a reviewable exception record. Do not draft a full charter.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w9-exception",
+          "version": 1
+        },
+        "annotatedExample": "Two services exceed clause R even though 14 days is within its time limit. Refer to CEO rather than treating the CISO note as acceptance. Keep the requested departure on hold; compliant service work may continue. Proposed record: unmet requirement; portal and billing scope; accountable business owner and authorized approver; safeguards and implementation owner; residual-risk reasoning; evidence to review; expiry date and restore/stop/new-decision action. Annotation: the route follows scope, not the reassuring duration; the fields are proposals until authorized."
+      }
+    },
+    {
+      "id": "question-w9-incident",
+      "version": 1,
+      "kind": "question",
+      "title": "Respond to pressure to hide uncertainty",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Use illustrative clause I. Credible indicators suggest possible portal customer-data access; exposure is unconfirmed. The incident lead requests containment and escalation. Sales requests waiting until a customer meeting ends and calling it harmless maintenance internally. Write one decision/escalation entry: cite authority, immediate actions, conflicting requests, affected stakeholders, known/unknown facts, recipient and requested action. Do not determine external legal reporting duties.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w9-incident",
+          "version": 1
+        },
+        "annotatedExample": "Clause I permits the lead to isolate the affected component immediately; operations executes containment and preserves logs. Suspected exposure triggers immediate CEO/CISO/COO and relevant specialist escalation through the charter route, despite sales’ requested delay. Customers, responders and sales are affected. Indicators are credible; exposure is not confirmed. I reject the harmless-maintenance description because it suppresses uncertainty. Ask the CEO and specialists to coordinate investigation and accurate communications based on verified facts. Annotation: this is one internal ethical escalation; it makes no unsupported notification-law claim."
+      }
+    },
+    {
+      "id": "question-w9-assurance",
+      "version": 1,
+      "kind": "question",
+      "title": "Repair an assurance conflict",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "format": "open",
+        "prompt": "A portal operations manager tests their team’s own controls, calls the report independent assurance and sends it only to the COO. Explain the conflict, propose an assessor/reporting arrangement that preserves operational remediation ownership, and name one useful evidence item plus its limitation. Use the illustrative charter’s governing committee; no full charter or legal analysis is required.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w9-assurance",
+          "version": 1
+        },
+        "annotatedExample": "The manager’s checks are management evidence, but self-review is not independent assurance. A competent assessor outside portal operations, without involvement in the controls or relevant conflicts of interest, should inspect evidence and report findings/limitations directly to the governing committee; the COO remains accountable for remediation performed by operators. Sampled access-review records could show whether selected reviews occurred, but cannot establish that every account or every control was effective. Annotation: another competent non-operating team or an external assessor is acceptable; title choice alone does not establish independence."
+      }
+    },
+    {
+      "id": "scenario-w9-charter",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Draft a charter and resolve two conflicts",
+      "authorIds": [
+        "ai-c04-w9-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w9-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-w9-rmf-r2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w9 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "No prior attempts exist for this new ID; do not regrade or retarget historical attempts.",
+      "scheduleImpact": "No existing schedule changes; cards require separate explicit enrollment.",
+      "payload": {
+        "brief": "Alder Services is fictional; no industry, canton or legal exposure is assumed. It runs a customer support portal and has a governing committee, CEO, COO/business owner, CISO adviser, incident lead/deputy, operators and an assurance lead outside portal operations. You may retain these roles or justify equivalent roles. Conflict 1: sales requests a two-week shared administrator login to protect a launch date; security requests no privileged access until named accounts exist. A named-account alternative is feasible after one day of testing; no compromise or external-obligation concern is stated. Conflict 2: credible indicators suggest possible customer-data access; exposure is unconfirmed. The incident lead requests containment/escalation; sales requests waiting until a customer meeting ends and using the description harmless maintenance.",
+        "deliverable": "Produce a concise security governance charter and two separate decision/escalation log entries. The charter must assign policy approval, residual-risk acceptance, incident escalation and assurance; distinguish oversight, advice and execution; define delegation limits/escalation, bounded exception review/expiry, assurance reporting and remediation follow-up. Each log entry must cite your charter authority, requests/stakeholders, evidence/uncertainty, route, reasoning, action owner and review condition. In the second entry document an ethical escalation and an alternate route if the usual recipient is implicated. These requested fields constitute the top rubric anchors; no additional scenarios, legal opinion or production implementation is required.",
+        "constraints": [
+          "Use fictional or synthetic details only; do not upload employer evidence, notes, credentials or learner backups.",
+          "State any changed role/delegation assumptions. Justified refusal, deferral or safer alternative is acceptable; do not assume every exception must be granted.",
+          "Internal exception approval cannot cancel external obligations. Flag unresolved applicability for specialist advice; do not invent Swiss/federal legal requirements.",
+          "Keep governing oversight separate from operating the controls, and label management evidence accurately.",
+          "Assess only the requested charter and two entries with this rubric. Reading, task completion, recall, questions and self-assessment remain separate; no educator/legal approval or readiness claim."
+        ],
+        "rubricRef": {
+          "id": "rubric-w9-charter",
+          "version": 1
+        },
+        "annotatedExample": "Illustrative charter: committee owns charter/risk-limit oversight and quarterly review; CEO approves policy; COO owns portal implementation and release scheduling within the approved budget under clause R, and may accept exceptions for one service, at most 30 days, with no compromise, external-obligation uncertainty or cross-service effect; otherwise refer to CEO with specialist advice where relevant. CISO advises and keeps records; operators implement. Clause I gives lead/deputy immediate isolation authority and suspected-exposure escalation to CEO/COO/CISO and specialists; committee chair is the alternate if CEO is implicated. Clause A gives a competent assurance lead without involvement in portal controls or relevant conflicts evidence access and direct committee reporting; COO owns dated remediation. Exception record requires requirement, scope, owner/approver, safeguards, residual risk, evidence, expiry and restore/stop/new-decision action; failed safeguards trigger earlier review. Entry 1: sales versus security; support staff/customers affected; named accounts feasible after testing. COO cites R, declines shared login and authorizes the compliant alternative with one-day launch delay; operations provisions, security checks traceability before launch. Entry 2: containment versus sales delay/misleading description; customers/responders/sales affected; access possible, unconfirmed. Lead cites I, isolates affected component, preserves logs and immediately escalates facts/uncertainty to CEO and specialists for investigation/accurate communications; use committee chair if CEO seeks concealment. Lead coordinates response, operations executes, review after initial triage or changed evidence. Annotation: both decisions cite authority, each has owners/review conditions, and only the second requires ethical escalation; equivalent coherent charter roles and justified alternatives are acceptable."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w9-csf-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w9-rmf-r2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-decision-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-policy-hierarchy",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-bounded-exception",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-residual-risk-owner",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-assurance-oversight",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w9-ethical-escalation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w9-governance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w9-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w9-exception",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w9-acceptance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w9-assurance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w9-exception",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w9-incident",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w9-assurance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w9-charter",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w9-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w9-documents",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w9-exception",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w9-incident",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w9-assurance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w9-charter",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
