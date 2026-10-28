@@ -1,0 +1,264 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp4-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp4-author",
+      "kind": "ai",
+      "role": "Original A02 comp-4 case/rubric author and public assessment-method source inspector; not an independent educator or legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp4-assessment-method",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-53A Rev. 5: assessment method, scope and findings",
+      "authorIds": [
+        "ai-a02-comp4-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-4 AI draft; no delivered or assessed revision is replaced.",
+      "priorAttemptImpact": "No existing attempt changes; any future response must retain its exact scenario and rubric references.",
+      "scheduleImpact": "No recall enrollment, reset or schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST), Joint Task Force",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53Ar5.pdf",
+        "edition": "SP 800-53A Revision 5, January 2022 PDF; current landing page also announces supplemental Release 5.2.0 (2025-08-27). Only the PDF methodology sections are used.",
+        "jurisdiction": "United States federal guidance; voluntary methodological reference for this fictional exercise, with no applicability determination.",
+        "publicationDate": "2022-01-25",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspection on 2026-10-29 through public web PDF text: title/January 2022 edition and authority/rights at PDF pages 2–3; sections 2.4.1–2.4.2, printed pp. 11–12 (PDF pages 22–23), and 3.3–3.4, printed pp. 30–33 (PDF pages 41–44). Inspected https://csrc.nist.gov/pubs/sp/800/53/a/r5/final for publication history (2022-01-25) and 2025-08-27 Release 5.2.0 notice. No current supplemental procedure catalog or ISO text was inspected or reproduced. Local Python PDF retrieval returned HTTP 403; web PDF text inspection succeeded. Method inspection is not independent educator or legal approval.",
+        "verifierId": "ai-a02-comp4-author",
+        "sourceKind": "official-reference",
+        "copyright": "PDF authority page states no copyright in the United States and requests attribution. Original paraphrase credits NIST SP 800-53A Rev. 5; no NIST table, diagram, assessment procedure or licensed ISO requirement reproduced. No worldwide rights or endorsement claim.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "rubric-a02-comp4-isms",
+      "version": 1,
+      "kind": "rubric",
+      "title": "ISMS gap memo: Recognize / Explain / Apply / Lead",
+      "authorIds": [
+        "ai-a02-comp4-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p3a",
+        "p3c",
+        "p3e"
+      ],
+      "objectiveIds": [
+        "obj-p3a-1",
+        "obj-p3c-1",
+        "obj-p3e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp4-assessment-method",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-4 AI draft; no delivered or assessed revision is replaced.",
+      "priorAttemptImpact": "No existing attempt changes; any future response must retain its exact scenario and rubric references.",
+      "scheduleImpact": "No recall enrollment, reset or schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "scope-authority",
+            "description": "Scope, organizational criteria and decision authority (obj-p3a-1). Score each criterion separately at the highest fully evidenced cumulative anchor. Use 0 if Recognize is not yet evidenced; distinguish omitted material from an incorrect claim in feedback. Missing work is not inferred from job title, confidence or prior scores; no total or competency classification is defined.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Recognize is not yet evidenced in this response; record what is missing or incorrect."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: This response identifies the fictional ISMS service or one internal requirement, with important boundary or authority gaps."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: This response explains the July–September boundary, exclusions, shared dependencies and why board requirements outrank procedures."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: This response applies the boundary/hierarchy to all three findings, identifies the operations director as acceptance authority and avoids actual law, ISO-conformity or certification claims."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: In addition to Apply, this response states the evidence cutoff and L08 follow-through, preserves dependency limits and requests scoped, expiring acceptance rather than claiming authority or approval."
+              }
+            ]
+          },
+          {
+            "id": "evidence-findings",
+            "description": "Three control findings: design, operation, evidence and limits (obj-p3c-1). Score each criterion separately at the highest fully evidenced cumulative anchor. Use 0 if Recognize is not yet evidenced; distinguish omitted material from an incorrect claim in feedback. Missing work is not inferred from job title, confidence or prior scores; no total or competency classification is defined.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Recognize is not yet evidenced in this response; record what is missing or incorrect."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: This response identifies a supplied gap or evidence item without consistently separating design and operation."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: This response explains a policy/design conflict, observed operating deviation and evidence insufficiency using case records."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: This response assesses R1–R3 separately with E01–E08 traceability: R1 sampled elapsed times and lateness, R2 routine conflict and permitted emergency result, R3 reported July/August results and September retention/operation distinction; states sample selection, missing populations/raw evidence and no population-rate inference."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: In addition to Apply, this response labels examination versus unperformed interview/test, identifies unverified completeness, requests evidence that could revise each finding and explains why a new test cannot prove historical operation or erase an observed deviation."
+              }
+            ]
+          },
+          {
+            "id": "options-decision",
+            "description": "Feasible alternatives, consequences and conditional recommendation. Score each criterion separately at the highest fully evidenced cumulative anchor. Use 0 if Recognize is not yet evidenced; distinguish omitted material from an incorrect claim in feedback. Missing work is not inferred from job title, confidence or prior scores; no total or competency classification is defined.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Recognize is not yet evidenced in this response; record what is missing or incorrect."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: This response names an action or alternative without a grounded tradeoff."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: This response explains benefits and costs of two approaches using the supplied business consequences."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: This response compares two feasible six-day plans, identifies deferred work and service costs, chooses one with evidence-based rationale and treats estimates and acceptance as proposals."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: In addition to Apply, this response explains a concrete evidence trigger for changing the choice, addresses interim access/deployment restrictions or justified continued operation and gives acceptance scope, expiry and escalation. Defensible alternatives receive equal credit; no exact preferred plan is required."
+              }
+            ]
+          },
+          {
+            "id": "actions-assurance",
+            "description": "Three-finding management/action calendar and response limits (obj-p3e-1). Score each criterion separately at the highest fully evidenced cumulative anchor. Use 0 if Recognize is not yet evidenced; distinguish omitted material from an incorrect claim in feedback. Missing work is not inferred from job title, confidence or prior scores; no total or competency classification is defined.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Recognize is not yet evidenced in this response; record what is missing or incorrect."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: This response names an owner or follow-up but omits closure evidence or dates."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: This response explains actions for three findings and the distinction between remediation and verification."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: This response gives each finding an owner, date, dependency, closure evidence and verifier separate from execution; schedules November 12 management decisions and a dated follow-up, with authorized isolated synthetic tests and historical findings retained."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: In addition to Apply, this response makes follow-up coverage and escalation explicit, distinguishes proposed checks from completed work and evidence of remediation from past operation, and limits rubric conclusions to this response without changing progress, recall or legacy ratings or claiming readiness."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-a02-comp4-isms",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Larch Dispatch: an ISMS evidence and gap assessment",
+      "authorIds": [
+        "ai-a02-comp4-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p3a",
+        "p3c",
+        "p3e"
+      ],
+      "objectiveIds": [
+        "obj-p3a-1",
+        "obj-p3c-1",
+        "obj-p3e-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp4-assessment-method",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-4 AI draft; no delivered or assessed revision is replaced.",
+      "priorAttemptImpact": "No existing attempt changes; any future response must retain its exact scenario and rubric references.",
+      "scheduleImpact": "No recall enrollment, reset or schedule change.",
+      "payload": {
+        "brief": "AI-authored draft. Everything about Larch Dispatch, its people, requirements, dates and records below is FICTIONAL. This is a mock ISMS gap assessment against organizational requirements invented for this case. ISMS means information security management system. R1–R3 are not ISO or NIST mandates, legal obligations or certification criteria. No real employer evidence is needed.\n\nASSESSMENT BOUNDARY AND AUTHORITY — On 2026-10-29 the operations director asks you, the fictional internal assurance analyst, to assess three controls for events in 2026-07-01 through 2026-09-30. Evidence collected by 2026-10-29 may show follow-through after September. Scope approved by the fictional board on 2026-06-30 covers order intake and dispatch, their production cloud service, privileged workforce/supplier identities, deployment pipeline and backup/restore arrangements. The cloud provider operates infrastructure; Larch operates tenant identities, changes and recovery. The identity service, provider support and key service are dependencies/interfaces to record, not automatically assured third parties. Payroll and the public marketing site are outside this assessment; make no conclusion about them. Internal hierarchy: board charter and R1–R3 requirements take precedence over operating procedures P1–P3; logs and tickets are evidence, not authority to relax requirements.\n\nFICTIONAL ORGANIZATIONAL REQUIREMENTS — All effective 2026-07-01:\nR1: For every departing employee or supplier person with privileged production access, disable their account and invalidate active sessions within four elapsed hours of their notified access-end time. People Operations or the supplier owner notifies the IAM team at least 24 hours before that time. IAM executes; the service owner verifies.\nR2: Every routine production deployment needs approval recorded before release by a reviewer other than its author. For emergency deployments, prior duty technical-director authorization and review by a different engineer by the end of the next business day replace routine approval. The engineering manager owns the process.\nR3: For each calendar month, the recovery lead performs an isolated dispatch-service restore using a backup, identity and key dependencies. Retain timing, restored data age and integrity results plus service-owner acceptance. The fictional targets are restoration within four hours from test start and restored data no more than 60 minutes old at test start. Daily backup-job success alone does not meet R3. The operations director owns recovery risk.\n\nSUPPLIED FICTIONAL EVIDENCE REGISTER — Custodian names are roles; record IDs are local case locators, not C02 content references. Treat supplied extracts as the stated case facts. Their authenticity and completeness have not been independently verified.\nE01 — Board secretary, signed charter and requirement register v1, 2026-06-30: scope, hierarchy, R1–R3 and responsibilities as above. Only the operations director may temporarily accept resulting dispatch-service risk, with a reason, scope and expiry; the analyst may recommend, never grant acceptance or certification.\nE02 — IAM lead, approved P1 v2, 2026-07-01: covers employee and supplier privileged accounts, prior notification, four-hour account/session deadline, manual account mapping and service-owner verification. It is a plausible design for R1; no live mechanism test has been supplied.\nE03 — People Operations and supplier owner, population manifest exported 2026-10-02: eight privileged access-end events, L01 (July 3), L02 (July 14), L03 (July 28), L04 (August 10), L05 (August 21), L06 (September 8), L07 (September 28), L08 (September 30). L01–L07 are employees; L08 is the sole supplier person. The custodians say they reconciled the HR roster, supplier-end register and privileged-account inventory. The underlying reconciliation files are unavailable in this pack. The IAM lead selected L02, L07 and L08 to cover two employee dates and the sole supplier case. This is a judgmental, custodian-selected sample of three of eight, not random or statistically representative.\nE04 — IAM lead, three linked notice/ticket/audit extracts exported 2026-10-02; all times UTC. Each notice arrived 48 hours before its access-end time. L02: access end July 14 10:00; disabled 12:00; sessions invalidated 12:10; service owner signed July 14 13:00. L07: access end September 28 17:00; disabled 18:30; sessions invalidated 18:35; owner signed September 29 09:00. L08: access end September 30 12:00; disabled October 1 12:00; sessions invalidated October 1 12:05; owner signed October 2 09:00. The supplier ticket was queued to the wrong manual inbox. These extracts show late removal for L08; they do not show account misuse. No records for the other five events or separate live-session test are supplied.\nE05 — Engineering manager, approved P2 v1, 2026-07-01: routine authors may approve their own deployments; emergency releases require duty technical-director authorization before release and another engineer's review next business day. The routine branch conflicts with R2 even if staff follow P2 exactly.\nE06 — Release custodian, deployment manifest and three selected ticket/pipeline extracts, 2026-10-03: manifest lists 22 deployments (20 routine, two emergency). Custodian chose routine C03 and C16 and emergency C22. C03: author Engineer A; approval Engineer A July 16 09:10; deployment 09:20. C16: author Engineer B; approval Engineer B September 10 14:00; deployment 14:15. No other reviewer approvals appear in either supplied record. C22: emergency author Engineer B, duty director authorization September 25 15:00, deployment 15:20, Engineer C review September 28 11:00 (the next business day in the fictional calendar, with no intervening holiday). The other 19 records and an independent completeness reconciliation are absent. No actual unauthorized modification or loss is reported.\nE07 — Recovery lead, approved P3 v1, 2026-07-01: specifies every R3 step, targets and monthly evidence retention. July 23 signed test report: isolated dispatch service, identity/key dependencies exercised, restoration 2 hours 20 minutes, data age 40 minutes, integrity checks passed, service owner accepted. August 20 signed report: same stated scope, restoration 2 hours 40 minutes, data age 45 minutes, integrity checks passed, service owner accepted. These are reports, not analyst-witnessed tests; raw output is not supplied.\nE08 — Recovery lead, September dashboard exported October 2: 30/30 scheduled backup jobs succeeded. Manager's September 30 summary says recovery green. The evidence index contains no September restore report; the lead recalls a test but cannot supply timing, data-age, integrity or acceptance records by October 29. This supports an evidence-retention gap and insufficient evidence of September restore operation, not proof that no restore occurred or that restoration would fail.\nE09 — Operations director, planning note October 29: continued dispatch matters; excessive privilege could expose customer orders or permit changes, unauthorized deployments could disrupt dispatch, and unverified restoration leaves outage duration uncertain. No probabilities or monetary losses are provided. Six engineering days are available before a November 12 management checkpoint. Estimated options: fix/manual-verify supplier removal (two days), enforce independent routine approvals (two), perform a safe isolated restore and retain evidence (two); broader independent evidence assessment (four days); automated supplier offboarding (eight days). These are estimates, not completed work. Do not use production customer data in a test. The director can restrict risky deployments or access while evidence is obtained; stopping all dispatch also has service costs.\n\nMETHOD NOTE — Credit: NIST SP 800-53A Rev. 5, sections 2.4 and 3.3–3.4. Examine documents/records, interview responsible roles, and test behavior where justified. Specify what is assessed and how much is covered. Record the unmet criterion separately from insufficient evidence. Findings inform management's risk response; assessors do not accept business risk for management. This exercise's design/operation labels and findings are original teaching choices, not a reproduction of NIST assessment procedures. A written design can meet a requirement while execution fails; a report can support a limited conclusion without proving every event met it. A new test cannot recreate missing historical evidence.",
+        "deliverable": "Produce one mock gap-analysis memo using scenario-a02-comp4-isms@1 and rubric-a02-comp4-isms@1. Use only the supplied fictional facts; identify assumptions and proposed future checks explicitly. Include all five requested parts, including the decision extensions used by the Lead anchors:\n1. Define period, service boundary, exclusions, dependencies and internal policy hierarchy; name the decision authority and disclaim actual legal/certification conclusions.\n2. Give a three-row R1/R2/R3 findings table. For each: requirement and accountable owner; evidence IDs and method actually possible from this pack; separate design and operating conclusions; observed deviation versus missing evidence; consequence and limits. State population, sample/selection limits and unverified completeness. Calculate R1 sampled removal elapsed times and explain the emergency R2 result and monthly R3 evidence.\n3. Compare two feasible uses of the six engineering days, with benefits, deferred work, service costs and uncertainty. Choose one, explain what could change your choice, and request any temporary risk acceptance from the authorized role with scope and expiry. A justified alternative, including restricting access/deployments while investigating, is allowed; do not invent approvals.\n4. Turn the three findings into an action/calendar register: owner, target date, dependency, closure evidence and verifier for each, November 12 management decision, and a dated follow-up. Name evidence requests that could change a finding. Proposed tests must be isolated, synthetic and authorized; no actual testing is requested.\n5. State what this response can and cannot assure. Retain historical findings when new checks succeed; distinguish evidence of remediation from evidence of past operation. Explain that this response's rubric assessment does not complete tasks/resources, measure recall, replace six legacy ratings or establish general competence/readiness. No required word count or exact phrasing.",
+        "constraints": [
+          "Use fictional case facts only; no real learner, employer, credential or customer evidence.",
+          "R1–R3 are invented organizational criteria. No actual Swiss/EU applicability, licensed ISO clause mapping, certification or accreditation conclusion is requested or supported.",
+          "Evaluate supplied records and propose checks; do not conduct or claim real interviews, production tests, remediation, acceptance or independent field review.",
+          "The six engineering days and November 12 checkpoint constrain the recommendation; an evidence-based alternative is allowed.",
+          "All new records stay AI-authored draft with no educator/legal approval. Assess the response only; do not infer mastery or update separate progress/legacy signals."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp4-isms",
+          "version": 1
+        },
+        "annotatedExample": "ANNOTATED DEFENSIBLE RESPONSE — One permitted decision, not an exact-text key.\n\nScope and authority. I assess the three R1–R3 controls for July–September access-end events, deployments and monthly restores for order intake/dispatch. I use the October evidence for event follow-through, including L08's October removal. Payroll/marketing and provider-wide operations are excluded. Shared identity, cloud, pipeline and key interfaces remain dependencies. E01 board requirements outrank P1–P3. I recommend to the operations director, who alone can accept scoped temporary dispatch risk here. No legal applicability, ISO conformity, certification or provider assurance conclusion follows. [Annotation: declares the assessment boundary and actual fictional authority; does not substitute standards for criteria.]\n\nF1 / R1 — Service owner accountable for access verification; IAM executes. Examine E01–E04: P1 covers the stated R1 criteria on paper, so no design defect is established by this pack; actual mechanism behavior remains untested. L02 removal completed when sessions were invalidated, 2 hours 10 minutes after access end; L07 completed in 1 hour 35 minutes; both meet four hours in these extracts. L08 account disablement took 24 hours and session invalidation 24 hours 5 minutes, so complete removal was 20 hours 5 minutes beyond the four-hour deadline despite timely notice. This is an observed operating deviation, not just missing documentation. The wrong inbox is the supplied immediate routing explanation, not a proven complete root cause. Residual privilege could permit order access or change; misuse is unknown. Three of eight events were selected by the custodian, with five unexamined and source reconciliation unverified. I cannot estimate a population failure rate or conclude all other departures passed. [Annotation: design adequacy and an actual execution failure can coexist; 2/3 sampled successes do not establish 67% organizational compliance.]\n\nF2 / R2 — Engineering manager accountable. Examine E01, E05 and E06. P2's routine self-approval is a design conflict with R2. C03 and C16 show the same operating deviation from R2: their authors supplied the only recorded approvals. Following a defective procedure does not meet the superior requirement. C22's separate duty director authorized before release and Engineer C reviewed next business day, meeting the supplied emergency criteria for this record. Two routine plus one emergency records out of 22, selected by a custodian, do not establish rates or completeness. Unreviewed changes could disrupt dispatch; no damaging change is established. Ask for the other 19 records and an independently reconciled pipeline manifest, plus interview the manager about P2 approval. [Annotation: distinguishes the emergency path, policy defect and sampled routine operation instead of marking every deployment failed.]\n\nF3 / R3 — Operations director accountable for recovery risk; recovery lead executes. Examine E01, E07 and E08. P3 addresses R3 on paper. July and August reports support those reported monthly tests within four hours and 60-minute data age, with integrity/acceptance, subject to absent raw output and no witnessed execution. September has no retained qualifying report: the evidence-retention requirement is unmet in this pack and September operating effectiveness is undetermined. Daily job successes and a green summary do not measure restore time, data age, integrity or acceptance. A test might have happened; I cannot conclude it did not, failed, or passed. Request dated raw results, key/identity exercise records and service-owner acceptance, and interview the lead. A newly successful test would improve current evidence but cannot prove September operation or erase the historical retention gap. [Annotation: reports both a concrete documentation gap and a distinct limit on operational inference.]\n\nOptions and decision. Plan A uses two days on supplier routing/manual verification, two on approval enforcement and two on an isolated restore. It addresses each immediate gap within six days, but manual removal needs continued staff effort and targeted checks do not supply broad independent assurance. Plan B uses four days on broader independent evidence assessment and two on supplier removal. It may reveal hidden defects and improve population confidence, but change enforcement and a new restore wait beyond November 12; restricting risky routine deployments reduces exposure but delays dispatch changes. Neither plan promises complete remediation or evidence recovery. I choose A because it acts on an observed privilege lapse, a known design conflict and unverified recovery while keeping dispatch available. Eight-day offboarding automation exceeds this budget and is deferred. If population reconciliation shows widespread unmanaged accounts, or restore evidence indicates severe recovery failure, I would ask the director to reprioritize or restrict affected access/changes. I request, rather than claim, director acceptance of the remaining defined dispatch exposure through November 12 with daily escalation of new exceptions; at that checkpoint require renewed dated authority or restriction/escalation under E01. [Annotation: B or a justified restricted-operation plan can earn equal credit if the same capacity, consequences and authority are addressed.]\n\nAction and review calendar (proposed, no action claimed completed).\nF1: IAM lead owns correction by November 5, dependent on supplier-owner/People Operations reconciliation of all eight events and current privileged accounts. Verify and contain any current residual access first. Closure evidence: corrected routing, retained notices and timestamps for reviewed events, and an authorized synthetic departure test showing both account and active-session removal within four hours, signed by a service owner who did not execute it. Record historical lateness separately; expand investigation if more exceptions appear.\nF2: Engineering manager owns P2 correction and approval enforcement by November 9, dependent on approved R2-consistent workflow and an emergency route that can remain available. Closure evidence: revised procedure, a synthetic self-approval attempt denied, separate-author approval accepted, and an emergency authorization/follow-up walkthrough; an assurance analyst separate from execution verifies. Reconcile all 22 historical deployments and preserve identified exceptions; test the gate before applying it to production releases.\nF3: Recovery lead owns evidence retrieval by November 5 and an isolated synthetic restore by November 10, dependent on test-environment identity/key access, service-owner authorization and synthetic data. Retain measured duration/data age, integrity output and owner acceptance, including any misses. A service owner separate from execution verifies; the missing September history stays open unless qualifying historical evidence is recovered. The new test is a verification step, not proof of past operation.\nNovember 12: operations director reviews all three findings, day estimates/actual use, unrecovered evidence and verification results; decides acceptance, additional resources or restrictions with a recorded scope and expiry. November 26: the assurance analyst checks subsequent supplier departures (or a repeat synthetic test if none), all intervening routine/emergency releases and November recovery evidence against R1–R3; report actual coverage and any overdue action to the director. [Annotation: each finding has an owner, date, dependencies, evidence and separate verifier; tests are proposals using synthetic data.]\n\nAssurance statement. This memo evaluates supplied fictional records; custodian selection, missing raw evidence and unverified populations limit it. It reports neither an independent field assessment nor whole-ISMS effectiveness. New evidence can revise confidence or findings with an audit trail. Assess only this response against the rubric, recording missing evidence and per-criterion anchors. Reading, resources, task completion, recall, question attempts and legacy ratings remain separate. Even a Lead anchor is a quality judgment about this response, not proof that the learner led implementation or is professionally or certification ready. [Annotation: all conclusions and assessment remain bounded by evidence and provenance.]"
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp4-assessment-method",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp4-isms",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp4-isms",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
