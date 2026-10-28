@@ -1,0 +1,1431 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w12-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w12-author",
+      "kind": "ai",
+      "role": "Original w12 integrated-assessment draft author and official-source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w12-risk-assessment",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST guide to conducting risk assessments",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf",
+        "edition": "NIST SP 800-30 Rev. 1, September 2012",
+        "jurisdiction": "United States guidance; voluntary illustrative adaptation outside its federal scope",
+        "publicationDate": "2012-09-17",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official PDF title/authority, section 3.1 selected purpose/scope/assumption tasks pp. 24–26, section 3.2 uncertainty pp. 35–36, section 3.3 p. 37, Appendix J pp. J-1–J-2 and Appendix K pp. K-1–K-2 inspected through official web PDF text extraction on 2026-10-29. CSRC final record confirms 2012-09-17. Supports scoped risk communication, limitations, response tradeoffs and traceable supporting information. Federal guidance is voluntarily adapted to a fictional company; no claim that its report format is mandatory. No direct PDF download receipt is claimed.",
+        "verifierId": "ai-c04-w12-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrases, fictional examples and original assessment items only; no reproduced tables, figures or framework text. Attribute NIST by exact reference. NIST Technical Series notice distinguishes US employee works, foreign rights and third-party works; source inspection is not rights clearance for future reproduction.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w12-csf-2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST Cybersecurity Framework 2.0",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29 / CSF 2.0, February 2024",
+        "jurisdiction": "United States guidance; voluntary illustrative adaptation outside its federal scope",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official PDF title/date, section 3.1 pp. 6–7, section 5 selected communication/risk-integration discussion pp. 10–13 and Appendix A GV.OV / ID.IM pp. 17/19 inspected through official web PDF extraction on 2026-10-29. Supports contextual outcomes, communication between executives/managers/practitioners, oversight and improvement from evaluations/exercises. Three-decision report, evidence labels, six learner-competency gaps and capacity figures are original teaching adaptations, not NIST scoring rules. No direct PDF download receipt is claimed.",
+        "verifierId": "ai-c04-w12-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrases, fictional examples and original assessment items only; no reproduced tables, figures or framework text. Attribute NIST by exact reference. NIST Technical Series notice distinguishes US employee works, foreign rights and third-party works; source inspection is not rights clearance for future reproduction.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w12-scope",
+      "version": 1,
+      "kind": "concept",
+      "title": "Assessment boundary",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "definition": "The service, period, environments, evidence and decisions to which an assessment applies, with explicit exclusions.",
+        "misconception": "One tested component establishes the condition of the entire enterprise."
+      }
+    },
+    {
+      "id": "concept-w12-traceability",
+      "version": 1,
+      "kind": "concept",
+      "title": "Evidence-to-decision trace",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "definition": "An inspectable link from a dated, versioned evidence item through a bounded finding and risk mechanism to a decision and accountable authority.",
+        "misconception": "A citation alone proves the conclusion even when it covers a different system or period."
+      }
+    },
+    {
+      "id": "concept-w12-priority",
+      "version": 1,
+      "kind": "concept",
+      "title": "Conditional priority",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "definition": "An explained ordering of decisions using consequence, exposure, uncertainty, urgency, dependencies and available capacity, with conditions for revision.",
+        "misconception": "A risk label or decimal score settles ordering without examining dependencies."
+      }
+    },
+    {
+      "id": "concept-w12-defense",
+      "version": 1,
+      "kind": "concept",
+      "title": "Recommendation defense",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "definition": "A comparison of a proposed action with a feasible alternative using benefits, costs, assumptions, uncertainty and risks remaining after each choice.",
+        "misconception": "Defending a recommendation means hiding evidence that would change it."
+      }
+    },
+    {
+      "id": "concept-w12-gaps",
+      "version": 1,
+      "kind": "concept",
+      "title": "Competency evidence gap",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "definition": "A specific limitation in what an observed artifact can demonstrate about one competency, distinguished from a learning need and followed by a relevant practice or evidence check.",
+        "misconception": "Strong recall, a completed course or one report proves all six competencies."
+      }
+    },
+    {
+      "id": "card-w12-boundary",
+      "version": 1,
+      "kind": "card",
+      "title": "W12 retrieval · boundary",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "prompt": "A restore test covered one version of the order service. What must qualify the assessment conclusion?",
+        "answer": "Name that service/version, test date, scenario and acceptance result; identify excluded systems and failure modes. One scoped result does not establish enterprise-wide recovery.",
+        "conceptRef": {
+          "id": "concept-w12-scope",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w12-trace",
+      "version": 1,
+      "kind": "card",
+      "title": "W12 retrieval · trace",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "prompt": "Reconstruct the evidence-to-decision chain for a failed synthetic access test.",
+        "answer": "Identify evidence/version/date and method; state the observed access and limits; explain the plausible disclosure mechanism and business consequence; name the requested action, authorized decision maker, implementer and verification evidence.",
+        "conceptRef": {
+          "id": "concept-w12-traceability",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w12-priority",
+      "version": 1,
+      "kind": "card",
+      "title": "W12 retrieval · priority",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "prompt": "What makes an ordering of three security decisions defensible under limited capacity?",
+        "answer": "Explain comparable consequence/exposure, uncertainty, urgency, dependencies and effort. Allocate feasible capacity and state evidence or events that would change the order; do not rank only by a label.",
+        "conceptRef": {
+          "id": "concept-w12-priority",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w12-defense",
+      "version": 1,
+      "kind": "card",
+      "title": "W12 retrieval · defense",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "prompt": "What must a recommendation defense reveal about a feasible alternative?",
+        "answer": "Compare benefit, cost, uncertainty and residual risk on the same scope. State the assumption driving the choice and a concrete condition under which the alternative becomes preferable.",
+        "conceptRef": {
+          "id": "concept-w12-defense",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-w12-1",
+      "version": 1,
+      "kind": "question",
+      "title": "W12 question 1",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "One isolated restore of order-service version 3 met a four-hour RTO but missed its one-hour RPO. Which report statement is supported?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "All recovery controls are effective because the service returned within four hours.",
+            "explanation": "Incorrect. Meeting the time target does not repair the data-loss gap; one service/test does not cover all controls."
+          },
+          {
+            "id": "b",
+            "text": "For the tested version and scenario, restoration met the RTO and missed the RPO; broader recoverability remains untested.",
+            "explanation": "Correct. It retains the two distinct results and the tested boundary without extending assurance."
+          },
+          {
+            "id": "c",
+            "text": "The missed RPO proves every backup is corrupt.",
+            "explanation": "Incorrect. A recovery-point age outside the target does not by itself demonstrate corruption."
+          },
+          {
+            "id": "d",
+            "text": "Remove the result until another test produces an overall pass.",
+            "explanation": "Incorrect. Suppressing contrary evidence prevents a traceable decision; report the failure and follow-up."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w12-2",
+      "version": 1,
+      "kind": "question",
+      "title": "W12 question 2",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A learner completed all resources, answered four of five questions correctly and self-rated governance 3/4. No observed stakeholder decision has been assessed. Which conclusion is defensible?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Average the three signals into an executive readiness percentage.",
+            "explanation": "Incorrect. These signals measure different things and have no justified common scale or readiness threshold."
+          },
+          {
+            "id": "b",
+            "text": "Question accuracy proves independent application of governance authority.",
+            "explanation": "Incorrect. These attempts show performance on particular items, not an observed authority decision."
+          },
+          {
+            "id": "c",
+            "text": "Record participation, item performance and self-rating separately; practice and assess an authority decision to address the applied-evidence gap.",
+            "explanation": "Correct. The next exercise targets the missing evidence while retaining each signal and its provenance."
+          },
+          {
+            "id": "d",
+            "text": "Discard the self-rating because only recall matters.",
+            "explanation": "Incorrect. A self-rating can inform reflection if labelled; recall also cannot establish applied governance."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-w12-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Bounded finding and evidence follow-up",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "finding",
+            "description": "State the supported result and its boundary.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Declares universal recovery success or fails to distinguish targets."
+              },
+              {
+                "score": 1,
+                "descriptor": "Correctly distinguishes RTO and RPO for the supplied test."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also identifies test version/date and excludes untested scenarios."
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "description": "Request a decision with an evidence check.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No relevant follow-up or unauthorized production change."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names a relevant action and owner to investigate/fix the recovery-point gap."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also names authorized approver, safe acceptance test and uncertainty that the test will address."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w12-3",
+      "version": 1,
+      "kind": "question",
+      "title": "W12 question 3",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional E-R v2, dated 2026-10-20, records an isolated synthetic order-service v3 restore: disruption 12:00, recovered data point 10:30, business acceptance 15:15. Targets are RTO four hours and RPO one hour. The COO approves recovery changes and the recovery lead implements. Write one bounded finding and one proposed decision. Include measured results, version/date, excluded scope, action/owner/approver, safe acceptance evidence and a remaining uncertainty.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w12-question-3",
+          "version": 1
+        },
+        "annotatedExample": "E-R@2 (2026-10-20), order-service v3: elapsed recovery 3h15 met the four-hour RTO; recovery point was 90 minutes old, missing the one-hour RPO. Other services and failure modes were not tested. Ask the COO to authorize the recovery lead to investigate recoverable-point frequency and repeat an isolated synthetic full-chain restore with a usable point no older than one hour and business acceptance within four hours. Unknown: whether the proposed point is recoverable through the key/identity dependencies. Annotation: the decision requests evidence for that uncertainty rather than assuming frequent copies guarantee usable recovery."
+      }
+    },
+    {
+      "id": "rubric-w12-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Scoped recommendation defense",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "comparison",
+            "description": "Compare feasible actions using supplied scope and capacity.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Asserts a preferred product or ignores a supplied alternative."
+              },
+              {
+                "score": 1,
+                "descriptor": "Compares disclosure-path reduction and recoverable data-loss reduction with their effort."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also states uncertainty and residual risk for each choice."
+              }
+            ]
+          },
+          {
+            "id": "decision",
+            "description": "Explain a conditional choice and authority.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No reasoned choice or assumes adviser can approve."
+              },
+              {
+                "score": 1,
+                "descriptor": "Chooses a feasible order and asks the COO to authorize it."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also states the driving assumption and specific evidence that would reverse the order."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w12-4",
+      "version": 1,
+      "kind": "question",
+      "title": "W12 question 4",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A synthetic test demonstrates an unintended export download by a test account; production exploitation is unknown. A restore test also missed its RPO. The COO can authorize one three-day team slot now: restrict/test the export role, or investigate/retest recoverable points. Both can start safely; the second slot is next week. Defend one first action against the other, comparing benefit, effort, uncertainty and residual risk for both; state the driving assumption, approving authority and a concrete reversal condition. No report or six-competency table is requested.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w12-question-4",
+          "version": 1
+        },
+        "annotatedExample": "Recommend the export restriction/test first, subject to COO approval: the test gives a concrete access path to reduce within the same three-day capacity. Recovery work could instead reduce outage-related data loss, but its result depends on usable points. Exploitation frequency and achievable recovery improvement are unknown. Restricting exports leaves the RPO gap; doing recovery first leaves unintended export access. My assumption is that exposure can persist until restriction and no nearer recovery-dependent deadline is known. If evidence shows the test role cannot reach the production data path while an imminent migration depends on the failed recovery chain, reverse the order after COO review. Annotation: either ordering earns the same anchor when its assumptions, tradeoffs and reversal evidence are coherent; this is a decision under supplied uncertainty."
+      }
+    },
+    {
+      "id": "rubric-w12-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Six-competency learning and evidence plan",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "six-gaps",
+            "description": "Give a distinct evidence gap, learning need and next exercise for each named competency.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a competency or treats one artifact as proof of all six."
+              },
+              {
+                "score": 1,
+                "descriptor": "Provides all six rows with relevant gaps and exercises."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes absent evidence from a learning need in every row and specifies an observable success check."
+              }
+            ]
+          },
+          {
+            "id": "signals",
+            "description": "Separate learning signals.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims readiness from an aggregate or conflates signals."
+              },
+              {
+                "score": 1,
+                "descriptor": "Separates self-rating, question results, recall estimate and applied evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also distinguishes task/resource completion and identifies the supplied report as draft self-assessed work."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w12-5",
+      "version": 1,
+      "kind": "question",
+      "title": "W12 question 5",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "format": "open",
+        "prompt": "Your only applied artifact is a draft, self-assessed report containing a scope, three proposed decisions and a source list. No control execution, risk sensitivity analysis, delegated decision, applicability review, incident exercise or audience response is observed. For each of the six competencies (Security architecture; Cyber-risk management; Governance; Compliance; Security operations; Executive reporting), give one evidence gap, one learning need, one next exercise and an observable success check. Treat learning needs as hypotheses to investigate. Explain why resource/task completion, self-rating, question results, recall estimate and this applied artifact remain separate. No owner/timeline or full report is required.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w12-question-5",
+          "version": 1
+        },
+        "annotatedExample": "Architecture: execution unobserved; possible need to learn test-boundary design; simulate an access-path test, checking allowed/denied paths. Risk: sensitivity unobserved; possible need to learn assumption testing; vary one loss assumption and explain any changed order. Governance: delegation unobserved; possible need to learn escalation; resolve a fictional exception against stated limits, naming a valid authority. Compliance: applicability unverified; possible need to learn scope research; draft facts/questions for a qualified reviewer, separating confirmed facts from unanswered legal scope. Operations: response unobserved; possible need to learn handoffs; run a tabletop and check timed escalation/acceptance evidence. Reporting: audience response absent; possible need to learn decision communication; give a five-minute defense and check whether a peer can restate the request, owner and uncertainty. Resource/task completion records participation; self-rating records perception; attempts record item performance; recall estimate is model output; the report is versioned self-assessed evidence. Annotation: possible learning needs are not diagnosed deficiencies, and neither this plan nor a sum of signals establishes readiness."
+      }
+    },
+    {
+      "id": "lesson-w12-integrated-assessment",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Week 12 · Write and defend a scoped CISO assessment",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "A report supports a bounded decision",
+            "body": "A chief information security officer (CISO) assessment explains what leaders should decide, why the available evidence supports those choices, and what could make the advice wrong. It is more than a summary of weekly terminology. Start with a named service, business purpose, assessment date, system versions and period of evidence. State exclusions and the decision horizon. A report about one order service cannot establish company-wide security. NIST SP 800-30 Rev. 1 supports explicit assessment scope, assumptions, uncertainty and communication; its example report is adaptable guidance. CSF 2.0 supports contextual oversight and improvement. Neither source supplies a universal individual readiness percentage or the three-decision teaching format used here."
+          },
+          {
+            "heading": "Reconstruct the foundation evidence before writing",
+            "body": "Bring the recovery assessment from week 4, cloud responsibility review from week 5, current/target profile and backlog from week 8, governance decisions from week 9, risk analysis from week 10 and scorecard narrative from week 11. Their prerequisites supply architecture, identity and threat context. Check whether they describe the same service, period and assumptions. A fictional substitute is acceptable when an artifact is missing; label it. Do not turn missing work into an invented successful test.\n\nGive each item an evidence ID, revision, date, producer, method, service boundary and limitation. Preserve the original observation. Separate a proposed control, a configuration observation and an observed test result. For example, a provider document explains a responsibility boundary but does not prove that the customer configured its role correctly. If two artifacts disagree, identify the discrepancy and request reconciliation; do not choose whichever makes the report greener."
+          },
+          {
+            "heading": "Turn observations into three prioritized decisions",
+            "body": "Build a chain for each decision: evidence, bounded finding, plausible risk mechanism, business consequence, proposed response and requested authority. Add an implementation owner, effort, dependency, deadline and acceptance evidence. Distinguish the adviser recommending a response from the executive authorized to approve spending or accept residual risk. A committee can oversee delivery without operating the controls. Existing delegation limits determine escalation; a report cannot create authority merely by naming someone.\n\nExplain the ordering using consequence, exposure, urgency, uncertainty and capacity. A severe but uncertain scenario may justify gathering evidence before buying a large control; a reproducible harmful access path may justify bounded containment while investigation continues. Separate priority from sequence: a high-priority restoration action may depend on identity access being fixed first. Do not add overlapping loss estimates as if independent. State the event or new evidence that would change the order."
+          },
+          {
+            "heading": "Worked executive example 1 · Three decisions from six artifacts",
+            "body": "Fictional Alder Order Services assesses only order-service v3 on 29 October 2026 for the next 30 days. E1@2 is an isolated restore on 20 October: three hours fifteen minutes against a four-hour recovery time objective (RTO), but a ninety-minute recovery point against a one-hour recovery point objective (RPO). RTO limits the target time to a usable service; RPO limits the target age of recovered updates at disruption. E2@1 is a 22 October cloud-role test: an unintended test account downloaded a synthetic export; production exploitation is unknown. E3@1 is a 23 October profile whose access outcome lacks acceptance evidence. E4@1 is the approved fictional charter: the chief operating officer (COO) authorizes this service's changes within ten team-days; the chief executive officer (CEO) resolves excess capacity or wider residual-risk decisions; CISO advises. E5@1 is a 24 October risk register linking unintended export access to possible disclosure and stale recovery points to lost orders, without reliable annual loss estimates. E6@1 is a 25 October dashboard covering eight of twelve interfaces; it excludes four new interfaces and cannot show enterprise-wide improvement.\n\nDecision 1: ask the COO to allocate three days to the cloud owner to restrict the export role and test allowed/denied paths by 2 November. E2/E3/E5 show a concrete access path; retain uncertainty about exploitation and other paths. Decision 2: allocate four days to the recovery lead to investigate recoverable points and repeat an isolated full-chain restore by 9 November, accepting only business-usable recovery meeting both targets. E1/E5 justify the data-loss concern; keys and identity access remain dependencies. Decision 3: allocate three days to the service owner to reconcile the twelve-interface inventory/profile and dashboard by 12 November, with sampled evidence for every claimed covered interface and explicit unknowns. E3/E6 show incomplete visibility that could conceal control gaps and misdirect investment; the condition of the four interfaces remains unknown. The COO approves the ten-day allocation; CISO tracks evidence, and the oversight committee reviews unresolved gaps. Changes outside delegation go to the CEO."
+          },
+          {
+            "heading": "Worked executive example 2 · Defend and qualify the recommendation",
+            "body": "The chief financial officer (CFO) proposes using the first three-day slot for additional recovery-point investigation instead of export restriction. The CISO compares both against the same service and horizon. Restriction addresses a demonstrated synthetic access path with a specific retest; recovery investigation may reduce lost orders but does not close that path. Both consume three days initially; the complete recovery package in the report still needs four. Neither has a defensible annual benefit figure. Restriction leaves the recovery-point gap and unknown alternative access paths. Recovery-first leaves the export path and uncertain recoverability.\n\nThe recommendation assumes the access path remains relevant and no imminent recovery-dependent change dominates the next week. Evidence that the synthetic role has no equivalent production path, combined with a scheduled migration depending on failed recovery, would favor recovery-first. Ask the COO to review that evidence before changing the sequence. The report promises investigation and tests, not elimination of risk. If sales asks for an unsupported all-green claim, retain the caveat and use the charter's escalation route. Record the disputed claim and evidence without asserting misconduct from disagreement alone."
+          },
+          {
+            "heading": "Legal applicability remains a question until verified",
+            "body": "Include one explicit Swiss/EU question: which facts about establishments, affected people, processing, service, sector, contracts and AI use must a qualified reviewer establish before deciding which obligations apply? Do not infer FADP, GDPR, NIS2, DORA or AI Act applicability from a Swiss address, a cloud region or a framework mapping. Assign an internal fact-gathering owner and a specialist follow-up date; keep the answer unresolved. This lesson states no legal obligation or deadline. An internal risk acceptance cannot settle an unresolved external requirement."
+          },
+          {
+            "heading": "Assess gaps across six competencies",
+            "body": "For each competency, distinguish evidence not yet observed from a possible learning need. The report may demonstrate clear reasoning while leaving execution untested. Architecture: a boundary diagram supports discussion; an access-path test is still needed, with practice designing allowed/denied checks. Cyber-risk management: a register supports ordering; sensitivity to uncertain assumptions needs an exercise. Governance: a charter describes authority; resolving a bounded exception tests its use. Compliance: a source list supports research; applicability facts and qualified interpretation remain open, requiring scope-research practice. Security operations: a restore log shows one exercise; incident handoffs need a tabletop. Executive reporting: a draft presents requests; audience comprehension needs a timed defense and feedback.\n\nRecord a next observable task, success evidence, responsible learner or reviewer and date for each gap. Do not call an unobserved skill a proven deficiency. Keep resource consumption, task completion, self-rating, question attempts, model-estimated recall and applied assessment separate. A rubric evaluates this artifact at its exact revision and declared provenance. It neither rewrites the six legacy scores nor certifies occupational or exam readiness."
+          },
+          {
+            "heading": "Practice · Submit a report and defense",
+            "body": "Use the weekly scenario's fictional evidence or labelled synthetic replacements. Produce a short report with scope, evidence register and exactly three ordered decisions. Include authority, owners, resources, dependencies, dates, acceptance evidence, uncertainty and a review trigger. Defend one recommendation against a feasible alternative using benefit, cost, uncertainty, residual risk and a reversal condition. Add an unresolved Swiss/EU applicability question and six competency rows separating learning and evidence gaps with dated follow-up. These are the requested top rubric anchors; no production action or legal opinion is required. Read the question-specific rubrics separately from the weekly report rubric. Self-assess what the submitted work demonstrates and preserve its version; completion alone does not supply independent approval."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w4-data",
+            "version": 2
+          },
+          {
+            "id": "lesson-w5-cloud",
+            "version": 1
+          },
+          {
+            "id": "lesson-w8-csf-profiles",
+            "version": 1
+          },
+          {
+            "id": "lesson-w9-governance",
+            "version": 1
+          },
+          {
+            "id": "lesson-w10-risk-register",
+            "version": 1
+          },
+          {
+            "id": "lesson-w11-executive-scorecard",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 65,
+        "workedExample": "The two worked executive examples in the sections show a ten-day allocation across export restriction, recovery validation and evidence reconciliation, followed by a conditional comparison with recovery-first. All facts, authority, capacity and dates are fictional; no production evidence is supplied.",
+        "misconceptions": [
+          "A technically correct source citation establishes that a control operated in the assessed environment.",
+          "One green dashboard or one recovery target establishes enterprise-wide security.",
+          "A CISO recommendation itself authorizes spending, accepts risk or settles legal applicability.",
+          "Combining recall, completion and self-ratings yields a validated readiness percentage."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w12-1",
+            "version": 1
+          },
+          {
+            "id": "question-w12-2",
+            "version": 1
+          },
+          {
+            "id": "question-w12-3",
+            "version": 1
+          },
+          {
+            "id": "question-w12-4",
+            "version": 1
+          },
+          {
+            "id": "question-w12-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w12-assessment",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w12-scope",
+            "version": 1
+          },
+          {
+            "id": "concept-w12-traceability",
+            "version": 1
+          },
+          {
+            "id": "concept-w12-priority",
+            "version": 1
+          },
+          {
+            "id": "concept-w12-defense",
+            "version": 1
+          },
+          {
+            "id": "concept-w12-gaps",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubric-w12-assessment",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Scoped report, recommendation defense and gap plan",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "scope-evidence",
+            "description": "Define scope and an inspectable evidence register.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No boundary or fabricated/unqualified evidence."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names service/version/date/horizon/exclusions and identifies six foundation evidence items with limitations."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also records item revision/date/producer/method, labels synthetic substitutes and reconciles or explicitly follows up mismatched scope or findings."
+              }
+            ]
+          },
+          {
+            "id": "three-decisions",
+            "description": "Justify exactly three ordered evidence-linked decisions.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Missing decisions or recommendations detached from evidence/risk."
+              },
+              {
+                "score": 1,
+                "descriptor": "Three ordered decisions each trace evidence to a bounded finding, risk mechanism and consequence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also explains ordering by exposure/consequence/urgency/uncertainty, dependencies and feasible resources; does not double-count overlapping loss."
+              }
+            ]
+          },
+          {
+            "id": "accountability",
+            "description": "Make authority, execution and verification explicit.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Adviser assumed to approve or no accountable owners."
+              },
+              {
+                "score": 1,
+                "descriptor": "Each decision names authorized approver and implementer, deadline and acceptance evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also respects delegation/escalation limits, assigns oversight/follow-up and states residual uncertainty with a dated review/event trigger."
+              }
+            ]
+          },
+          {
+            "id": "defense",
+            "description": "Defend one recommendation against one feasible alternative.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No feasible alternative or unsupported certainty."
+              },
+              {
+                "score": 1,
+                "descriptor": "Compares benefit, cost, uncertainty and residual risk for both choices within the same scope."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also identifies the driving assumption and specific evidence/event that would reverse the choice, while keeping capacity/dependencies coherent."
+              }
+            ]
+          },
+          {
+            "id": "applicability",
+            "description": "Pose and route an unresolved Swiss/EU applicability question.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Asserts applicability or compliance without facts/review."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names a meaningful applicability question and leaves it unresolved."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also lists facts needed and assigns an internal fact owner, specialist route and follow-up date without inventing obligations."
+              }
+            ]
+          },
+          {
+            "id": "six-gap-plan",
+            "description": "Distinguish six competency gaps and learning signals.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits a competency or claims readiness from completion/recall."
+              },
+              {
+                "score": 1,
+                "descriptor": "All six named competencies have a supported observation, evidence gap, possible learning need and next practice."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also gives observable success evidence, owner and date for every row; keeps self-rating, attempts, recall estimate, resource/task completion and applied self-assessment distinct."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w12-assessment",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Deliver and defend a short CISO assessment",
+      "authorIds": [
+        "ai-c04-w12-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w12"
+      ],
+      "objectiveIds": [
+        "obj-w12-1",
+        "obj-w12-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w12-risk-assessment",
+          "version": 1
+        },
+        {
+          "id": "source-w12-csf-2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original w12 AI-authored draft; no published or historical revision changed.",
+      "priorAttemptImpact": "New ID; preserve all historical attempts and their exact references. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes; any new card enrollment is separate and explicit.",
+      "payload": {
+        "brief": "All evidence is fictional; it summarizes foundation artifact types, not real learner or employer work. Alder Order Services assesses order-service v3 on 29 October 2026 for 30 days; other services and adversarial production testing are excluded. Evidence register: E1@2, 20 October, recovery lead, isolated synthetic restore: RTO 4h, actual 3h15; RPO 1h, point 90min old; keys/identity must work, other failures untested. E2@1, 22 October, cloud owner, synthetic role test: unintended test account downloaded export; equivalent production reach and exploitation unknown. E3@1, 23 October, CISO, six-outcome current/target profile/backlog: export access acceptance evidence missing and recovery improvement planned; scope matches v3 but inventory update pending. E4@1, 23 October, CEO, fictional charter approval: COO authorizes this service's changes within ten team-days, cloud owner/recovery lead/service owner execute, CISO advises, committee oversees; excess resources, wider effects and risk decisions outside delegation escalate to CEO. E5@1, 24 October, risk analyst, scenario register: unauthorized export could disclose customer orders; stale recovery points could lose orders; annual likelihood/loss uncertain and not independently additive. E6@1, 25 October, service owner, dashboard extract: eight of twelve interfaces covered; four new interfaces excluded; no comparable earlier all-twelve measure, so risk trend unproven. One team has ten days total over the horizon. Export restriction/testing requires three days, recoverable-point investigation/full-chain test four days, inventory/profile/dashboard reconciliation three days; other reasonable estimates need explanation. No compromise is confirmed. Industry, establishments, processing reach, contractual requirements and AI use have not been established.",
+        "deliverable": "Produce a short report, evidence register, defense and six-row gap plan. State scope/version/date/horizon/exclusions. Preserve all six evidence IDs/revisions/dates/producers/methods and their limitations; explicitly resolve or follow up mismatches and label any synthetic replacement. Give exactly three ordered decisions, each linking evidence to finding, risk mechanism and business consequence, with an authorized approver, implementer, effort/resources, dependencies, deadline and observable acceptance evidence. Explain priority using exposure, consequence, urgency and uncertainty without double-counting loss; keep total effort feasible, assigning oversight and residual-uncertainty review dates/event triggers. Defend one recommendation against one feasible alternative on benefit, cost, uncertainty and residual risk; state the driving assumption and reversal evidence. Include one unresolved Swiss/EU applicability question, facts needed, internal fact owner, qualified specialist route and follow-up date. For every competency (Security architecture; Cyber-risk management; Governance; Compliance; Security operations; Executive reporting), record what an artifact supports, an evidence gap, a possible learning need, next practice, success evidence, owner and date. Explain why self-rating, question results, recall estimate, resource/task completion and this self-assessed artifact remain separate. These requested fields define the highest rubric anchors; no extra implementation, legal answer or exam prediction is required.",
+        "constraints": [
+          "Use only fictional/synthetic material; no learner backups, credentials, private notes or employer evidence.",
+          "Justified different priorities, refusal or deferral are acceptable if evidence, authority, assumptions and resource totals are coherent. Dates/thresholds/roles are exercise choices, not NIST or legal requirements.",
+          "If using your own synthetic foundation artifacts, retain the six artifact types and disclose changed facts, boundary and capacity assumptions; never invent an observed result.",
+          "This is a versioned draft self-assessment. No app registration, real execution, automatic legacy-score update, human educator/legal approval or readiness claim."
+        ],
+        "rubricRef": {
+          "id": "rubric-w12-assessment",
+          "version": 1
+        },
+        "annotatedExample": "Scope: order-service v3, assessment 29 October, next 30 days; other services and production attack testing excluded. Register retains E1@2 (20 Oct/recovery lead/isolated test), E2@1 (22 Oct/cloud owner/role test), E3@1 (23 Oct/CISO/profile review), E4@1 (23 Oct/CEO/charter approval), E5@1 (24 Oct/analyst/scenario analysis), E6@1 (25 Oct/service owner/dashboard extract), with the supplied limits. E3 inventory and E6 denominator require reconciliation; neither supports an enterprise improvement claim. Decision 1: COO authorizes cloud owner three days to restrict export permissions and verify allowed/denied synthetic access by 2 Nov. E2/E3/E5 link an observed path and missing acceptance evidence to possible order disclosure. Implementation needs role inventory/test authorization; retain uncertainty about exploitation/other paths. Decision 2: COO authorizes recovery lead four days by 9 Nov to investigate usable points and repeat an isolated business-accepted restore meeting RTO 4h and RPO 1h. E1/E5 show tested data-loss exposure; keys/identity and usable copies are dependencies, frequency alone is not proof. Decision 3: COO authorizes service owner three days by 12 Nov to reconcile all twelve interfaces in the inventory/profile/dashboard, sample support for coverage claims and label remaining unknowns; E3/E6 show incomplete visibility that could conceal control weaknesses and misdirect resource decisions; the four interfaces remain unknown, not proven failures. E5's scenarios are not summed into a precise annual loss. Ten days total fits E4; CISO tracks, committee oversees, CEO handles effects beyond delegation. COO reviews evidence on 13 Nov or earlier after compromise indicators, failed checks or changed scope. Access testing comes first because the path is demonstrated; recovery follows despite its high consequence, with reconciliation supporting later decisions. Priorities remain conditional. Defense: recovery-first could reduce lost-order exposure and uses three initial days of the four-day package, but leaves export access; access-first narrows that path but leaves the RPO gap. Annual benefit is unknown; both require verification. Assumption: access remains relevant and no nearer recovery-dependent deadline dominates. If production equivalence is disproved and an imminent migration requires the failed recovery chain, ask COO to reverse order and replan ten-day capacity. Legal question: what establishments, affected people, processing/service/sector/contracts and AI-use facts are needed to determine relevant Swiss/EU obligations? Service owner gathers facts by 4 Nov; CISO routes to a qualified legal specialist with follow-up 6 Nov; applicability remains unanswered. Six-gap plan (learner owns each practice by 20 Nov; peer/mentor feedback sought, not assumed): Architecture—E2 supports one path; other boundaries untested; possible need to design negative tests; simulate all declared allowed/denied paths and record outcomes. Risk—E5 supports scenarios; sensitivity absent; possible need to test assumptions; vary likelihood/impact inputs and explain changed or stable order. Governance—E4 describes authority; use unobserved; possible need to practice escalation; resolve a fictional exception within stated limits and check authority. Compliance—report poses scope questions; applicability unresolved; possible need to learn fact gathering; submit a fact/question register separating known/unknown for specialist review. Operations—E1 supports one recovery result; incident handoffs absent; possible need to learn coordinated response; tabletop a suspected disclosure with timed handoffs and acceptance checks. Reporting—draft presents decisions; comprehension unknown; possible need to learn concise defense; give a five-minute briefing and ask a peer to restate decision/owner/uncertainty. All success records are future evidence, not completed work. Self-rating, attempts, recall estimate, resource/task completion and this exact-revision self-assessment stay separate. Annotation: the answer links every decision to bounded evidence and authority, preserves contrary results, names review conditions, and states gaps rather than certifying readiness. Coherent alternative ordering can meet the same criteria."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w12-risk-assessment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w12-csf-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w12-scope",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w12-traceability",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w12-priority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w12-defense",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w12-gaps",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w12-boundary",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w12-trace",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w12-priority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w12-defense",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w12-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w12-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w12-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w12-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w12-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w12-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w12-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w12-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w12-integrated-assessment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w12-assessment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w12-assessment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
