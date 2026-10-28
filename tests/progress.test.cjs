@@ -36,4 +36,5 @@ test('rubric versions and criteria never mix; missing anchors are retained as un
   const p = projectProgress(s, bundle, now, zone);
   assert.equal(p.assessments.groups.length, refs.length); assert.equal(p.assessments.unavailable, 1);
   assert.notEqual(p.assessments.groups[0].rubric, p.assessments.groups[1].rubric);
+  assert.match([...p.assessments.groups[0].anchors.keys()][0], /^2026-10-28 — /);
 });

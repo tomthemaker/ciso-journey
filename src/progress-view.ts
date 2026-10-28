@@ -22,7 +22,7 @@ export function renderProgress(state: LearnerState | undefined, bundle: ContentB
   for (const group of p.assessments.groups) {
     const block = node('div', { class: 'progress-rubric' });
     block.append(node('h3', {}, `${group.rubric} / ${group.criterion}`), node('p', {}, group.description));
-    const list = node('ul'); for (const [label, count] of group.anchors) list.append(node('li', {}, `${label} — ${count}`));
+    const list = node('ul'); for (const [label, count] of [...group.anchors].sort(([a], [b]) => a.localeCompare(b))) list.append(node('li', {}, `${label} — ${count}`));
     block.append(list); rubric.append(block);
   }
   section('Participation and evidence', `${p.tasks.done} of ${p.tasks.total} roadmap tasks marked complete; ${p.reading} exact reading revisions marked read. These are current snapshots without historical timestamps. ${p.resources.tracked} resources tracked; ${p.resources.completed} marked completed and ${p.resources.inProgress} in progress as of the instant above. ${p.resources.evidence} latest resource records contain notes or an evidence link; ${p.caseEvidence} case responses contain evidence metadata. Counts do not assess evidence quality.`);

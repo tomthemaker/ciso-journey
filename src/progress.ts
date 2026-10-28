@@ -47,7 +47,7 @@ export function projectProgress(state: LearnerState, bundle: ContentBundle, now:
       if (!criterion || !level) { unavailable++; continue; }
       const key = `${contentKey(assessment.rubricRef)}:${rating.criterionId}`;
       const group = groups.get(key) ?? { rubric: contentKey(assessment.rubricRef), criterion: rating.criterionId, description: criterion.description, anchors: new Map<string, number>() };
-      const label = `${rating.score}: ${level.descriptor}`;
+      const label = `${localDay(assessment.assessedAt, timeZone)} — ${rating.score}: ${level.descriptor}`;
       group.anchors.set(label, (group.anchors.get(label) ?? 0) + 1); groups.set(key, group);
     }
   }

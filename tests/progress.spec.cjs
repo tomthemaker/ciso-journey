@@ -30,3 +30,20 @@ test('committed practice appears separately without changing the saved snapshot'
   await expect(page.locator('#progressReport')).toContainText('No review self-ratings');
   expect(await snapshot()).toEqual(before);
 });
+test('case self-assessment is shown by exact rubric and dated criterion', async ({ page }) => {
+  const bundle = require('../content/foundation.v1.json');
+  const scenario = bundle.records.filter(r => r.kind === 'scenario' && r.id === 'scenario-foundation-decision').sort((a, b) => b.version - a.version)[0];
+  await page.goto(`./#cases/${scenario.id}/${scenario.version}`);
+  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+  for (const key of ['impact', 'options', 'accountableOwner', 'recommendation', 'residualRisk']) await page.locator('#case-' + key).fill('Synthetic practice');
+  await page.getByLabel('Evidence title', { exact: true }).fill('Synthetic evidence');
+  await page.locator('#saveCaseResponse').click();
+  const form = page.getByRole('form', { name: 'Self-assess case response 1' });
+  for (const select of await form.locator('select').all()) await select.selectOption('1');
+  await form.getByRole('button', { name: 'Save case self-assessment' }).click();
+  await expect(form).toHaveCount(0);
+  await page.getByRole('button', { name: 'Progress', exact: true }).click();
+  await expect(page.locator('#progressReport')).toContainText('1 self-assessments');
+  await expect(page.locator('#progressReport')).toContainText(`${scenario.payload.rubricRef.id}@${scenario.payload.rubricRef.version}`);
+  await expect(page.locator('.progress-rubric li').first()).toContainText(/\d{4}-\d{2}-\d{2} — 1:/);
+});
