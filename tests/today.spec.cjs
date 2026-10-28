@@ -86,28 +86,77 @@ test('Today connects original reading, question and case; keyboard review and al
   await expect(page.locator('#todayQueue')).toContainText('0 allowed new cards');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
-test('failed rating retains revealed prompt; retry and duplicate clicks commit a single immutable answer', async ({ page }) => {
-  await page.goto('./#today'); await ready(page); await enroll(page, false);
+for (const refresh of ['button', 'tab return']) test(`unrevealed new card yields to a newly due review on ${refresh} with a positive cap`, async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-10-28T08:00:00.000Z') });
+  await page.goto('./#today'); await ready(page); await enroll(page);
+  await page.locator('#todayReveal').click(); await page.locator('#todayRateAgain').click();
+  await expect(page.locator('#todayMessage')).toContainText('Again saved');
+  await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
+  const before = await snapshot(page);
+  await page.clock.setSystemTime(new Date('2026-10-28T08:01:01.000Z'));
+  if (refresh === 'button') await page.locator('#todayRefresh').click();
+  else {
+    await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
+    await page.getByRole('button', { name: 'Today', exact: true }).click();
+  }
+  await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 4 allowed new cards');
+  await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
+  await expect(page.locator('#todayAnswer, #todayRateGood')).toHaveCount(0);
+  expect(await snapshot(page)).toEqual(before);
+  await page.locator('#todayReveal').click(); await page.locator('#todayRateGood').click();
+  await expect(page.locator('#todayMessage')).toContainText('Good saved');
+  const saved = await snapshot(page);
+  expect(saved.data.reviewProgress.events.map(event => [event.contentRef.id, event.rating])).toEqual([[first.id, 'Again'], [first.id, 'Good']]);
+  await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
+});
+test('newly due work preserves a revealed prompt and failed rating; retry and duplicate clicks commit one immutable answer', async ({ page }) => {
+  await page.clock.install({ time: new Date('2026-10-28T08:00:00.000Z') });
+  await page.goto('./#today'); await ready(page); await enroll(page);
+  await page.locator('#todayReveal').click(); await page.locator('#todayRateAgain').click();
+  await expect(page.locator('#todayMessage')).toContainText('Again saved');
+  await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
   const before = await snapshot(page);
   await page.locator('#todayReveal').click();
+  await page.clock.setSystemTime(new Date('2026-10-28T08:01:01.000Z'));
+  await page.locator('#todayRefresh').click();
+  await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 4 allowed new cards');
+  await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
   await page.evaluate(() => {
     window.todayPut = IDBObjectStore.prototype.put;
     window.abortToday = true;
-    IDBObjectStore.prototype.put = function (...args) { const request = window.todayPut.apply(this, args); request.addEventListener('success', () => { if (window.abortToday) this.transaction.abort(); }); return request; };
+    window.todayAttempts = [];
+    IDBObjectStore.prototype.put = function (...args) {
+      window.todayAttempts.push(structuredClone(args[0].data.reviewProgress.events.at(-1)));
+      const request = window.todayPut.apply(this, args);
+      request.addEventListener('success', () => { if (window.abortToday) this.transaction.abort(); }); return request;
+    };
   });
   await page.locator('#todayRateHard').click();
   await expect(page.locator('#todayMessage')).toContainText('Review not saved');
-  await expect(page.locator('#todayAnswer')).toHaveText(first.payload.answer);
+  await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
   await expect(page.locator('#todayRateHard')).toBeEnabled();
   for (const rating of ['Again', 'Good', 'Easy']) await expect(page.locator('#todayRate' + rating)).toBeDisabled();
   expect(await snapshot(page)).toEqual(before);
+  await page.clock.setSystemTime(new Date('2026-10-28T08:02:02.000Z'));
+  await page.locator('#todayRefresh').click();
+  await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
+  await expect(page.locator('#todayRateHard')).toBeEnabled();
   await page.evaluate(() => { window.abortToday = false; document.querySelector('#todayRateHard').click(); document.querySelector('#todayRateHard').click(); });
   await expect(page.locator('#todayMessage')).toContainText('Hard saved');
   const saved = await snapshot(page);
-  expect(saved.data.reviewProgress.events).toHaveLength(1);
-  expect(saved.data.reviewProgress.events[0].rating).toBe('Hard');
-  expect(saved.data.reviewProgress.cards[0].schedule).toEqual(saved.data.reviewProgress.events[0].after);
+  expect(saved.data.reviewProgress.events).toHaveLength(2);
+  expect(saved.data.reviewProgress.events[0]).toEqual(before.data.reviewProgress.events[0]);
+  expect(new Set(saved.data.reviewProgress.events.map(event => event.id)).size).toBe(2);
+  const answer = saved.data.reviewProgress.events[1];
+  expect(answer.rating).toBe('Hard');
+  expect(answer.contentRef.id).toBe(cards[1].id);
+  const attempts = await page.evaluate(() => window.todayAttempts);
+  expect(attempts).toHaveLength(2);
+  expect(answer).toEqual(attempts[0]); // Exact ID/time/rating/schedule from the aborted write, despite the later clock.
+  expect(attempts[1]).toEqual(attempts[0]);
+  expect(saved.data.reviewProgress.cards[1].schedule).toEqual(answer.after);
   expect(saved.revision).toBe(before.revision + 1);
+  await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   await page.reload(); await ready(page);
   expect((await snapshot(page)).data).toEqual(saved.data);
   await expect(page.locator('#todayAnswer')).toHaveCount(0);

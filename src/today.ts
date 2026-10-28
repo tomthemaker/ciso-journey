@@ -73,8 +73,9 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     study.append(node('p', { id: 'todayMessage', role: 'status' }, message));
     root.append(study);
     const eligible = [...plan.due, ...plan.newCards];
-    // Keep a revealed prompt on failed saves; reset on imported/reset/changed schedules or committed events.
-    if (presentation && (!eligible.some(card => contentKey(card.contentRef) === contentKey(presentation!.ref) && signature(card) === presentation!.signature) || reviews.some(event => event.id === presentation!.eventId))) presentation = undefined;
+    // Unrevealed prompts follow queue priority; preserve eligible revealed answers and same-event retries.
+    const presentedIndex = presentation ? eligible.findIndex(card => contentKey(card.contentRef) === contentKey(presentation!.ref) && signature(card) === presentation!.signature) : -1;
+    if (presentation && (presentedIndex < 0 || (!presentation.revealed && presentedIndex !== 0) || reviews.some(event => event.id === presentation!.eventId))) presentation = undefined;
     const first = eligible[0];
     if (!presentation && first) presentation = { ref: { ...first.contentRef }, signature: signature(first), eventId: crypto.randomUUID(), revealed: false };
     const card = presentation ? availableCard(bundle, presentation.ref) : undefined;
