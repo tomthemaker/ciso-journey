@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-// Temporary specimen resolves to the canonical bundle once C03 is integrated.
-const bundle = require('../content/c02.example.v1.json');
+const bundle = require('../content/foundation.v1.json');
 const lessons = bundle.records.filter(record => record.kind === 'lesson');
 const lesson = lessons[0];
 const hash = ref => `#lessons/${ref.id}/${ref.version}`;
