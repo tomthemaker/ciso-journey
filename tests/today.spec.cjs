@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
 const bundle = require('../content/foundation.v1.json');
-const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version));
+const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version)).sort((a, b) => `${a.id}@${a.version}`.localeCompare(`${b.id}@${b.version}`));
 const first = cards[0];
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
 async function snapshot(page) {
@@ -156,7 +156,7 @@ test('newly due work preserves a revealed prompt and failed rating; retry and du
   expect(attempts).toHaveLength(2);
   expect(answer).toEqual(attempts[0]); // Exact ID/time/rating/schedule from the aborted write, despite the later clock.
   expect(attempts[1]).toEqual(attempts[0]);
-  expect(saved.data.reviewProgress.cards[1].schedule).toEqual(answer.after);
+  expect(saved.data.reviewProgress.cards.find(card => card.contentRef.id === cards[1].id && card.contentRef.version === cards[1].version).schedule).toEqual(answer.after);
   expect(saved.revision).toBe(before.revision + 1);
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   await page.reload(); await ready(page);
