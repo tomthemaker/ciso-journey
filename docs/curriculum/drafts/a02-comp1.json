@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp1-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp1-author",
+      "kind": "ai",
+      "role": "A02 comp-1 original fictional case author and NIST technical-source inspector; not independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp1-zero-trust",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST SP 800-207 — Zero Trust Architecture (August 2020)",
+      "authorIds": [
+        "ai-a02-comp1-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-1 draft for issue #73; no independent educator or legal approval.",
+      "priorAttemptImpact": "New record; no historical response, assessment or content reference changes. Future attempts must retain the exact revision.",
+      "scheduleImpact": "No card enrollment, recall event or schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf",
+        "edition": "NIST SP 800-207, August 2020; final entry dated 2020-08-11",
+        "jurisdiction": "United States guidance; voluntary illustrative use in this fictional case, no legal applicability claim",
+        "publicationDate": "2020-08-11",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official CSRC final entry and official PDF inspected 2026-10-29. Locators: section 2 and 2.1, printed pp. 4–7 (resource access, authentication/authorization and device/context inputs); section 3, pp. 9–10 (decision and enforcement roles); sections 5.1–5.3, pp. 28–29 (policy errors, disruption and permitted credential misuse); sections 7.3.3–7.3.6, pp. 39–40 (workflow tradeoffs and pilot checks). The fictional costs, components, permissions, service limits and test expectations are original case assumptions, not NIST requirements. AI source inspection is not independent educator/legal review. Exact checked URLs and limitations are recorded in a02-comp1.md.",
+        "verifierId": "ai-a02-comp1-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original fictional teaching and text artifact; no quotations, copied diagrams, tables, controls catalog or assessment items. Attribute the checked NIST edition through this exact reference; inspect third-party notices before later reuse.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "scenario-a02-comp1-architecture",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Meridian Parts — decide and test a bounded support architecture",
+      "authorIds": [
+        "ai-a02-comp1-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w2",
+        "w3"
+      ],
+      "objectiveIds": [
+        "obj-w2-1",
+        "obj-w2-2",
+        "obj-w3-1",
+        "obj-w3-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp1-zero-trust",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-1 draft for issue #73; no independent educator or legal approval.",
+      "priorAttemptImpact": "New record; no historical response, assessment or content reference changes. Future attempts must retain the exact revision.",
+      "scheduleImpact": "No card enrollment, recall event or schedule change.",
+      "payload": {
+        "brief": "Fictional case: Meridian Parts is preparing a two-week remote-support pilot for its dispatch application. You advise the chief operating officer (COO), who can approve, condition or delay the pilot. Dispatch integrity and availability matter because an incorrect release sends the wrong parts and an unavailable application stops warehouse work. All evidence below is invented for this exercise; it establishes neither a compromise nor an incident probability.\n\nE1 — Required work and identities. Twelve dispatch operators use managed terminals to view and update orders assigned to their warehouse and release shipments. Their named accounts authenticate through the company identity provider using a password and a hardware security key. The dispatch application checks warehouse assignment and release permission. Its separate dispatch-service identity reads and writes order records in the database; it needs no database administration, identity administration or backup-console rights. The application returns the dispatch result to the operator. A supplier technician needs to read a diagnostic dashboard and ask internal operations to restart a failed worker. Supplier staff do not need order export, database access or an operating-system shell. A named internal operations administrator performs restarts through an existing constrained command launcher on a management host. The launcher permits only the worker restart; it does not provide a general shell. This management host and launcher exist but the new access policy has not been tested.\n\nE2 — Current exposure. A lab export of current network rules shows that supplier virtual private network (VPN) clients and warehouse terminals can open connections to the dispatch application, database listener and backup console on one broadly reachable internal network. Supplier VPN access uses one shared password and has no second factor. Reachability does not prove database or backup authorization, exploitability or successful deletion. The backup console requires a separate administrator identity. No supplier requires backup access. There is no evidence of an actual attack. The plausible chain to assess is a compromised supplier endpoint or VPN credential, internal reachability, then an additional application flaw or excessive privilege enabling an unauthorized action. State that additional condition explicitly.\n\nE3 — Available components and ownership. The identity team can issue named supplier accounts with password plus hardware-key authentication, disable accounts and revoke gateway sessions. A resource gateway can allow only the diagnostic dashboard over HTTPS, check the named identity, hardware-key authentication and a current managed-device signal, and log decisions. Supplier staff can use two company-managed loan laptops during the pilot. Gateway policy can deny new sessions when required identity or device information is unavailable; ending existing sessions must be configured and tested. Application authorization remains separate. The network team can remove the supplier VPN route and deny terminal and supplier access to database and backup management while retaining application-to-database and approved management-host paths. Each capability is available, not demonstrated for this workflow. The application owner owns dashboard permissions and dispatch-service credentials; the operations lead owns the management host, restart launcher and backup administration; the identity and network teams own their respective policies. The COO owns the service decision.\n\nE4 — Capacity and alternatives. There are eight engineer-days and a fictional budget of CHF 10,000 for this pilot. Estimates include access setup, policy changes and synthetic checks; they are planning estimates, not bids or measured benefits. A: retain broad VPN reachability but replace the shared credential with named accounts and hardware keys (two days, CHF 2,000). B: restrict supplier access to the diagnostic gateway, remove the supplier VPN route, restrict management reachability, and have internal operations perform requested restarts (six days, CHF 8,000). C: disable supplier VPN access and defer the remote supplier pilot for fourteen days, retain internal operations support and use the time to test a later design (two days, CHF 1,000 to document and check the temporary workflow). C postpones supplier-assisted diagnosis; the COO can accept that delay. A and B can fit the planned start in seven days if estimates hold. Do not add their estimates together and claim simultaneous delivery within capacity.\n\nE5 — Operational limits and missing evidence. Dispatch must continue during policy deployment; there is one thirty-minute maintenance window before the pilot. Internal operations can attend one supplier diagnostic session daily from 09:00 to 17:00; restart requests outside that window wait until the next staffed period. The COO has not agreed that this support delay is acceptable. In a synthetic staging check, dispatch, dashboard access and an internal restart succeeded with the current rules. Tests of denied access, account revocation, device-signal loss, gateway outage and the proposed network rules have not run. The gateway has one instance for this pilot. Local dispatch does not depend on that gateway, but both dispatch and the diagnostic gateway use the identity provider. An identity-provider failure can prevent new sessions; existing-session behavior is untested. No recovery-time target or demonstrated failover is supplied. The next supplier technician joins on day 1, changes to documentation-only work on day 7 and leaves on day 14. Account, role and session changes need named owners and verification at each event.",
+        "deliverable": "Produce a decision note and a practical architecture/control artifact using only E1–E5. Suggested effort: 60–90 minutes. A text diagram and a table are sufficient; no software purchase, employer material or outside reading is required.\n\n1. State the decision requested of the COO, the service consequences, a recommendation or justified delay, and conditions that would reverse it. Compare A, B and C using their estimates, support constraints, security effects and uncertainty. Do not equate a gateway purchase or segmentation with a complete Zero Trust architecture.\n2. Draw two complete flows: operator-to-dispatch result, and supplier diagnosis-to-internal restart confirmation. Name the human and service identities at each step, requested resources/actions, return or management path, and at least three boundaries overall. Mark the decision and enforcing component at each boundary, plus its owner. Show identity/device signals to the gateway separately from application data traffic. Distinguish authentication, network reachability, application authorization and privileged action. Show the application-to-database identity and the approved management path without permitting supplier access to them.\n3. Add a control matrix with columns: flow/boundary; permitted subject, resource and action; enforcement and owner; denied action; failure mode; operational tradeoff; synthetic test and expected result. Cover the operator, supplier, internal administrator and unattended dispatch service. Justify at least two controls using explicit assumptions that a network location or managed device does not establish permission. Compare an attack path in the flat design with the restricted design and identify a remaining permitted attack path.\n4. Define joiner, mover and leaver approvals, changes and session checks for the technician. Plan allowed and denied tests, revocation, gateway/identity dependency failures, a deployment stop condition, bounded rollback or fallback, accountable acceptance and day-14 review. Label all proposed tests as unexecuted and separate evidence from assumptions.\n\nUse rubric-a02-comp1-architecture@1 per criterion. Its scores 1–4 mean Recognize, Explain, Apply and Lead for this response only. Anchors are cumulative within each criterion; choose the highest fully evidenced anchor. Leave a criterion unassessed if no anchor is evidenced and revise through a new response. There is no total, pass threshold or conversion to the six legacy self-ratings. Save only synthetic evidence metadata if this draft is later integrated; this fragment supplies no assessment or portfolio runtime.",
+        "constraints": [
+          "Use only E1–E5; state assumptions and missing evidence. No real employer artifacts, credentials, learner backups, production connections or destructive tests.",
+          "Choose an option within the stated pilot capacity or explicitly escalate/delay. Do not invent additional funded availability, service guarantees, demonstrated controls or legal obligations.",
+          "This is one response-scoped comp-1 exercise aligned to four C01 objectives, not complete coverage of Security architecture or all six competencies.",
+          "All records remain AI-authored draft. Agent task review is distinct from independent human educator/legal approval; the #15 publication gate and #17 integration work remain open.",
+          "Resource completion, task completion, recall, question attempts, applied self-assessment and the six original 0–4 scores stay separate; this fragment changes none of them."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp1-architecture",
+          "version": 1
+        },
+        "annotatedExample": "Decision note — conditional B, otherwise C. I ask the COO to authorize B within six engineer-days and CHF 8,000 only if its staging and maintenance-window checks pass and the COO explicitly accepts the staffed-hours restart delay through day 14. Two days and CHF 2,000 remain as estimate headroom, not demonstrated contingency sufficiency. If the work exceeds the cap, fails a required check or the support delay is unacceptable, keep supplier remote access disabled under C and escalate the schedule or resource decision. Do not silently switch to A. A improves individual accountability and resistance to a stolen password but preserves unnecessary network reachability. B removes those routes and limits supplier work to diagnosis, at the cost of policy complexity, dependence on the gateway and internal staff availability. C avoids adding supplier access while testing continues, at the cost of delaying supplier-assisted diagnosis. No evidence quantifies which option has the lowest total loss. Annotation: a conditional launch or a justified C decision can both be defensible; an unconditional claim that B is proven safe cannot.\n\nArchitecture artifact — arrows indicate requested traffic and its response. These are proposed restrictions, not observed results.\nF1: managed terminal / named operator → identity provider [B1: identity team authenticates password plus hardware key; this does not grant order rights] → dispatch application over HTTPS [B2: network team permits the application destination; application owner checks assigned warehouse and release permission] → database as dispatch-service [B3: network team permits this service path; database permissions maintained by the application owner allow required order reads/writes, deny administration]. The order result returns through the application to the operator. The operator never receives the service credential. No terminal route to the database listener or backup console is permitted.\nF2: company loan laptop / named supplier → identity provider → diagnostic gateway over HTTPS [B4: identity team configures the access decision using named identity, required authentication and current device signal; network team maintains the gateway path]. Identity and device signals feed the decision; dashboard requests are the data path. The gateway enforces the decision and logs the session; the application owner separately permits only diagnostic reads on the dashboard [B5]. The dashboard result returns through the gateway. The supplier submits a restart request in the support ticket process. During staffed hours the internal operations administrator approves it, authenticates with password plus hardware key, obtains time-limited restart permission, and uses the management host's constrained launcher [B6: operations lead permits only the worker restart]. The launcher uses a separate restricted restart-service credential to invoke that action; confirmation returns to the administrator and supplier through the ticket. This proposed restart-service identity needs only the existing launcher action, no order or backup access; the operations lead must verify that scope before launch. The network team permits only this approved management route. Supplier identity and traffic never enter it. Backup management stays limited to its separate approved internal administrator route. Changes to that route require a separate verified need. Annotation: the ticket is a human approval handoff, not permission for the supplier to impersonate the administrator.\n\nControl matrix — each row gives permission; enforcement/owner; denial; failure/tradeoff; proposed test.\nM1, B1–B2/operator: permit the assigned warehouse's order work after named authentication; identity team authenticates and application owner enforces warehouse/release rights. Deny another warehouse's order and direct management access. A wrong role can still permit an improper release; tight rules can block legitimate cover shifts. Use synthetic operators for allowed assigned release and denied cross-warehouse release; verify both application result and log. Also check the network denial to database and backup management.\nM2, B4–B5/supplier: permit diagnostic reads only, after required authentication and current loan-device signal; identity team owns gateway policy, application owner owns read rights and network team removes the broad VPN route. Deny order export, management destinations and a direct dashboard route bypassing the gateway. A mistaken route or excessive dashboard role defeats the intended restriction; a lost signal or gateway failure blocks support. Test permitted dashboard reads, denied export/direct route/management reachability, and missing device signal. Verify gateway and application decisions, not just a login screen.\nM3, B6/administrator: permit the internal administrator's temporary worker-restart action through the constrained launcher; operations lead owns command scope and credential custody. Deny supplier restart execution and general shell use. A compromised permitted administrator or flawed launcher may misuse the allowed action; approval and time limits slow urgent restarts. Test one allowed synthetic restart with confirmation, denied shell and supplier restart, expiration of elevation, and the ticket-to-person attribution. Protect and rotate the separate restart-service credential; verify it cannot call other management actions.\nM4, B3/unattended service: permit dispatch-service's required order reads/writes; application owner owns permissions, protected credential storage and rotation, network team owns the service path. Deny database administration and backup-console access. A compromised application can still change orders through its permitted service actions; restricting rights or rotating credentials can interrupt dispatch. Test synthetic order success, denied administrative/backup actions, and credential rotation with an allowed transaction afterward. Human MFA is inappropriate for this unattended process; it uses a separately managed service credential.\nAnnotation: M2's resource restriction reduces lateral reachability but can deny support when a dependency fails. M3's temporary privilege reduces standing access but adds a human dependency and cannot prevent every permitted misuse. These are control-specific failure modes and costs, not guarantees.\n\nAttack comparison and residual exposure. In the current flat design, a compromised supplier laptop or shared VPN password gives network access to database and backup listeners. Unauthorized alteration or copy deletion still requires an exploitable flaw, a valid privileged credential or excessive authorization; none is proven. Under B, the supplier cannot use that direct route if the new rules and bypass checks work. A compromised allowed supplier session can still read exposed diagnostics, and a compromised dispatch application can use permitted dispatch-service writes to corrupt orders. A managed laptop and an internal address are inputs, not proof of authorization. Ask the application owner to inspect diagnostic output for unnecessary order data and check actual service privileges; new evidence of overbroad reads or writes may change the launch decision.\n\nLifecycle and deployment evidence. The supplier sponsor requests day-1 diagnostic access; the application owner approves only that role, and identity staff issue the named account, enroll the hardware key and verify allowed diagnosis plus denied management. On day 7 the sponsor reports documentation-only duties; the application owner removes diagnostic rights, identity staff revoke gateway sessions and test that the old session and a new login cannot read diagnostics. On day 14 the sponsor confirms departure, identity staff disable the account and revoke sessions, and the application owner verifies removal of local rights. Do not assume disabling identity-provider login ends an existing application session. Record session termination and denied resource requests. The identity team and application owner jointly verify those boundaries; the COO receives unresolved removal failures.\n\nBefore the maintenance window, network and application owners rehearse all M1–M4 checks in isolated staging with synthetic data. Identity staff simulate gateway loss, missing identity/device signals, revocation of an active supplier session and identity-provider unavailability. Proposed expectations: no new supplier access without required signals; configured revocation ends active supplier access; gateway loss blocks supplier diagnosis while the separate local dispatch path still works when its identity dependency is available. During identity-provider failure verify and record both new and existing dispatch-session behavior; E5 supplies no result or acceptable duration, so the COO must agree an operating limit before launch. Do not invent failover. Test the internal restart path independently of the supplier gateway. These checks remain unexecuted.\n\nThe network team captures the previous rules and applies B in the thirty-minute window with the operations lead present. Stop on failed dispatch, a successful prohibited action, failed revocation, unmet agreed identity-outage behavior, or inability to finish the checks in the window. Disable supplier access first. If a network rollback is needed to restore local dispatch, restore only the documented local service rules; keep supplier VPN access disabled. Internal operations continues the checked C workflow. No universal emergency bypass or supplier shell is authorized. The COO decides whether the resulting support delay is acceptable; otherwise escalate for a new plan. Keep private synthetic test identifiers, expected/observed results, policy versions, operators and timestamps; do not fabricate results. At day 14, the COO reviews access removal, dispatch interruptions, support delays, denied-path results and remaining service/diagnostic exposures before any extension. Revisit earlier for failed control checks, changed technician duties or unavailable internal coverage. Annotation: the response proposes accountability and evidence for this fictional decision. It demonstrates no operational deployment, independent assessment, general competency, legal compliance or certification readiness."
+      }
+    },
+    {
+      "id": "rubric-a02-comp1-architecture",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Architecture response — Recognize / Explain / Apply / Lead",
+      "authorIds": [
+        "ai-a02-comp1-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w2",
+        "w3"
+      ],
+      "objectiveIds": [
+        "obj-w2-1",
+        "obj-w2-2",
+        "obj-w3-1",
+        "obj-w3-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp1-zero-trust",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original A02 comp-1 draft for issue #73; no independent educator or legal approval.",
+      "priorAttemptImpact": "New record; no historical response, assessment or content reference changes. Future attempts must retain the exact revision.",
+      "scheduleImpact": "No card enrollment, recall event or schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "decision",
+            "description": "Compare options and make a constrained executive service decision.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The response names the dispatch service and at least two access options."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: The response also compares A, B and C with a security benefit and operating cost or limitation for each, using E4 estimates."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: The response also makes a recommendation or justified delay within stated capacity, treats estimates as uncertain and resolves the staffed-hours support condition explicitly."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: The response also identifies the COO approval, a cost/capacity or service condition that reverses the choice, and a bounded alternative if the condition fails; it makes no unsupported loss claim."
+              }
+            ]
+          },
+          {
+            "id": "flows",
+            "description": "Produce an architecture artifact with identities, actions and enforcement.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The artifact names dispatch and supplier support resources and an acting identity."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: It also distinguishes authentication, reachable destinations, resource authorization and the internal privileged restart action."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: It also traces both requested end-to-end flows with return or management paths, operator/supplier/administrator/service identities and at least three boundaries whose decisions, enforcing components and owners are explicit; supplier traffic cannot enter the privileged path."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: It also distinguishes identity/device policy signals from application data traffic, identifies gateway and shared identity dependencies, and assigns verification of a potentially ambiguous service or management permission before approval."
+              }
+            ]
+          },
+          {
+            "id": "mechanisms",
+            "description": "Compare attack paths and justify controls without implicit location trust.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The response identifies broad internal reachability and a relevant restricting control."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: It also describes the flat-network attack chain with an explicit additional flaw or privilege assumption and explains how restriction changes that route."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: It also justifies two controls with resource-specific permission, a failure mode and operating tradeoff per control, rejects trust from location or device ownership alone, and names a remaining permitted attack path."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: It also requests specific evidence about that remaining path, names the investigating owner and states how the result could change the decision without claiming complete protection."
+              }
+            ]
+          },
+          {
+            "id": "matrix",
+            "description": "Specify testable controls for human and unattended paths.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The response lists permissions or tests for a relevant access path."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: It also gives controls for operator, supplier, internal administrator and unattended service, distinguishing human MFA from a managed service credential."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: The matrix also includes all requested columns for those paths, a plausible allowed and denied result for each, credential/privilege ownership and a check against direct supplier bypass of the gateway."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: It also binds observed-result evidence to the policy/path tested and explains why a successful login or one allowed transaction cannot establish the denied permissions or all future behavior."
+              }
+            ]
+          },
+          {
+            "id": "lifecycle",
+            "description": "Verify technician access changes at all three lifecycle events.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The response identifies the day-1 joiner, day-7 mover and day-14 leaver events."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: It also assigns permission approval and identity/application changes to named roles and distinguishes account authentication from resource permission."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: It also specifies per-event allowed/denied resource checks, removal of obsolete diagnostic rights and termination tests for existing sessions as well as new login denial."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: It also assigns joint verification across identity and application boundaries, an owner for unresolved removal failures and an escalation condition rather than treating account disablement as proof of session revocation."
+              }
+            ]
+          },
+          {
+            "id": "rollout",
+            "description": "Set evidence, dependency-failure behavior and bounded release conditions.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: The response names a rollout test and a stopping condition."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: It also distinguishes the supplied staging successes from missing tests and assigns rollout and business decision owners."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: It also plans safe synthetic allowed/denied, active-session revocation and gateway/identity/device-signal failure checks, explicit expected behavior or a business limit to agree, a thirty-minute deployment stop, and a bounded fallback that preserves internal work without reopening supplier reachability."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: It also keeps proposed and observed results separate, requires evidence and accountable acceptance before launch, and schedules day-14 review with earlier triggers and remaining exposures; conclusions stay within this response and tested scope."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp1-zero-trust",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp1-architecture",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp1-architecture",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
