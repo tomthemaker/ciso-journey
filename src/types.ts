@@ -30,6 +30,7 @@ export interface HistoryEntry {
 }
 export type HistoryKind = "journal" | "achievements";
 export interface LearnerState {
+  studyPreferences?: import("./study-preferences.ts").StudyPreferences;
   completed: Record<string, boolean>;
   scores: Record<string, number>;
   journal: HistoryEntry[];

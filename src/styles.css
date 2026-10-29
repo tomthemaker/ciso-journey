@@ -715,3 +715,7 @@ body[data-storage-blocked="true"] .overview { display: none; }
   .tabs { flex-wrap: wrap; overflow: visible; }
   .tab { font-size: 14px; padding: 8px 10px; }
 }
+/* Keep private study controls readable within the existing Today surface. */
+#todayStudyForm { display: grid; gap: 8px; min-width: 0; }
+#todayStudyForm input, #todayStudyForm select { min-width: 0; width: 100%; max-width: 100%; }
+#todayStudyForm .btn { justify-self: start; }

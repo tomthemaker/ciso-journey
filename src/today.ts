@@ -1,3 +1,6 @@
+import { createStudyView } from './study-view';
+import { saveStudyPreferences } from './study-preferences';
+import curriculum from '../curriculum/c01.v1.json';
 import { contentHash, contentKey, safeHttps } from './content';
 import type { ContentBundle, ContentRecord, ContentRef } from './content';
 import { effectiveStatus } from './content-status';
@@ -21,16 +24,20 @@ const button = (id: string, label: string, action: () => void): HTMLButtonElemen
 export function bindToday(bundle: ContentBundle, change: Change): (state: LearnerState | undefined) => void {
   const root = byId('todayStudy', 'div'), actions = createReviewActions(change);
   let state: LearnerState | undefined, presentation: Presentation | undefined, pending = false, message = '', capDraft: string | undefined;
+  const studyView = createStudyView(bundle, curriculum.tasks, preferences => mutate(candidate => saveStudyPreferences(candidate, preferences)));
   function provenance(parent: HTMLElement, record: ContentRecord): void {
     parent.append(node('p', { class: 'content-status' }, `${effectiveStatus(bundle, record, new Date().toISOString().slice(0, 10))} · No independent educator or legal approval is claimed.`));
     const details = node('details'); details.append(node('summary', {}, 'Authorship and revision'), node('p', { class: 'side-note' }, `${contentKey(record)} · Authored ${record.authoredAt} by ${record.authorIds.join(', ')}.`)); parent.append(details);
   }
-  async function mutate(edit: (candidate: LearnerState) => void): Promise<void> {
-    if (pending) return;
+  async function mutate(edit: (candidate: LearnerState) => void): Promise<boolean> {
+    if (pending) return false;
+    let saved = false;
+    const focusId = root.contains(document.activeElement) ? document.activeElement?.id : undefined;
     pending = true; render();
-    try { if (!await change(edit)) message = 'Save failed. Committed progress is unchanged; retry when storage is available.'; else message = ''; }
+    try { saved = await change(edit); if (!saved) message = 'Save failed. Committed progress is unchanged; retry when storage is available.'; else message = ''; }
     catch (error) { message = error instanceof Error ? error.message : 'Could not save.'; }
-    finally { pending = false; render(); }
+    finally { pending = false; render(); if (focusId) document.getElementById(focusId)?.focus({ preventScroll: true }); }
+    return saved;
   }
   async function rate(rating: RecallRating): Promise<void> {
     if (pending || !presentation?.revealed) return;
@@ -120,6 +127,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     } else controls.append(node('p', {}, 'No available cards due now. Continue reading or enroll cards in settings. Future reviews return when due.'));
     if (plan.unavailable) study.append(node('p', { class: 'warn' }, `${plan.unavailable} eligible exact card revisions are unavailable in this bundle. History and due dates are retained. Manage them below; no newer answer is substituted.`));
     study.append(button('todayRefresh', 'Refresh due queue', () => render()));
+    root.append(studyView(state, pending, now, !!card));
     const unread = latestRecords(bundle, 'lesson').filter(record => !isRead(state, record));
     const openTasks = phases.flatMap(phase => phase.tasks).filter(([id]) => !state!.completed[id]);
     const reading = node('section', { class: 'today-section', id: 'todayReading' });
@@ -127,7 +135,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     const readingList = node('ul', { class: 'worklist' });
     for (const record of unread) {
       const li = node('li');
-      li.append(node('a', { href: contentHash(record), class: !card && plan.lesson && contentKey(record) === contentKey(plan.lesson) ? 'btn primary' : '' }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
+      li.append(node('a', { href: contentHash(record) }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
       readingList.append(li);
     }
     reading.append(unread.length ? readingList : node('p', {}, 'All current lesson revisions are marked read.'), node('p', { class: 'side-note' }, 'Draft lessons are provisional. Reading completion records participation, not mastery.'));
@@ -135,7 +143,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     const tasks = node('section', { class: 'today-section', id: 'todayTasks' });
     tasks.append(node('h2', {}, `Open tasks (${openTasks.length} of 37)`), node('p', { class: 'side-note' }, 'Incomplete roadmap tasks; these have no assigned due date.'));
     if (openTasks.length) {
-      if (!card && !unread.length) tasks.append(node('a', { href: `#roadmap/${openTasks[0][0]}`, class: 'btn primary' }, 'Continue with an open task'));
+      if (!card && !unread.length) tasks.append(node('a', { href: `#roadmap/${openTasks[0][0]}`, class: 'btn' }, 'Continue with an open task'));
       const taskDetails = node('details', { id: 'todayOpenTasks' }); taskDetails.append(node('summary', {}, `Show all ${openTasks.length} open tasks`));
       const taskList = node('ul', { class: 'worklist' });
       for (const [id, title] of openTasks) { const li = node('li'); li.append(node('a', { href: `#roadmap/${id}` }, title)); taskList.append(li); }
@@ -144,7 +152,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     if (!card && !unread.length && !openTasks.length) tasks.append(node('p', {}, 'No available reviews, unread lessons or open tasks right now. Future reviews return when due.'));
     root.append(tasks);
     const next = node('section', { class: 'today-section' });
-    next.append(node('h2', {}, 'More study'));
+    next.append(node('h2', {}, 'Related study links'), node('p', { class: 'side-note' }, 'Manual links related to the review queue or reading catalog. Check the next-study explanation above for prerequisites and budget.'));
     const links = node('ul', { class: 'worklist' });
     for (const [record, label, href] of [
       [plan.lesson, 'Original lesson', plan.lesson ? contentHash(plan.lesson) : ''],
