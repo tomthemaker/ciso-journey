@@ -3,6 +3,7 @@ import type { ContentBundle } from './content.ts';
 import { resolveRubric } from './question-attempts.ts';
 import { estimatedRecall, localDay } from './reviews.ts';
 import { phases } from './data.ts';
+import { quarter } from './portfolio.ts';
 import type { LearnerState } from './types.ts';
 
 /** Inclusive local calendar window, with UTC instants capped at the snapshot instant. */
@@ -12,8 +13,8 @@ export function windowStart(now: string, timeZone: string, days = 30): string {
   date.setUTCDate(date.getUTCDate() - (days - 1));
   return date.toISOString().slice(0, 10);
 }
-export function projectProgress(state: LearnerState, bundle: ContentBundle, now: string, timeZone: string) {
-  const start = windowStart(now, timeZone), end = localDay(now, timeZone), cutoff = Date.parse(now);
+export function projectProgress(state: LearnerState, bundle: ContentBundle, now: string, timeZone: string, windowDays = 30) {
+  const start = windowStart(now, timeZone, windowDays), end = localDay(now, timeZone), cutoff = Date.parse(now);
   const past = (date: string) => Date.parse(date) <= cutoff;
   const within = (date: string) => past(date) && localDay(date, timeZone) >= start && localDay(date, timeZone) <= end;
   const reviews = state.reviewProgress?.events ?? [];
@@ -53,11 +54,38 @@ export function projectProgress(state: LearnerState, bundle: ContentBundle, now:
   }
   const resources = state.resourceProgress?.entries ?? [];
   const latestResource = resources.map(e => e.progress.filter(p => past(p.recordedAt)).at(-1)).filter(p => p !== undefined);
+  // Portfolio dates are calendar dates, unlike the UTC instants above. Evidence
+  // metadata has no creation date, so it can only be reported as a snapshot.
+  const portfolio = state.portfolio;
+  const eligibleAppraisals = (portfolio?.appraisals ?? []).filter(a => a.date <= end);
+  const responseById = new Map((state.scenarioResponses?.responses ?? []).filter(r => past(r.submittedAt)).map(r => [r.id, r]));
+  const evidenceById = new Map((portfolio?.evidence ?? []).map(e => [e.id, e]));
+  const priorByScope = new Map<string, typeof eligibleAppraisals[number]>();
+  const appraisalHistory = [...eligibleAppraisals].sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id)).map(a => {
+    const scopeKey = JSON.stringify([a.competency, a.provenance, a.scope]);
+    const prior = priorByScope.get(scopeKey);
+    priorByScope.set(scopeKey, a);
+    return {
+      id: a.id, date: a.date, quarter: quarter(a.date), competency: a.competency,
+      provenance: a.provenance, level: a.level, scope: a.scope, rationale: a.rationale,
+      inWindow: a.date >= start,
+      priorSameScope: prior ? { date: prior.date, level: prior.level } : undefined,
+      evidence: a.evidenceIds.map(id => ({ id, title: evidenceById.get(id)?.title, available: evidenceById.has(id) })),
+      responses: a.responseIds.map(id => {
+        const response = responseById.get(id);
+        return { id, submittedAt: response?.submittedAt, scenario: response && contentKey(response.contentRef),
+          rubric: response && contentKey(response.rubricRef),
+          scenarioAvailable: !!response && findContent(bundle, response.contentRef)?.kind === 'scenario',
+          rubricAvailable: !!response && resolveRubric(bundle, response.rubricRef) !== undefined };
+      })
+    };
+  });
   const future = reviews.filter(e => !past(e.reviewedAt)).length + attempts.filter(a => !past(a.submittedAt)).length +
     (state.questionAttempts?.selfAssessments ?? []).filter(a => !past(a.assessedAt)).length +
     (state.scenarioResponses?.responses ?? []).filter(a => !past(a.submittedAt)).length +
     (state.scenarioResponses?.selfAssessments ?? []).filter(a => !past(a.assessedAt)).length +
-    resources.flatMap(e => e.progress).filter(e => !past(e.recordedAt)).length;
+    resources.flatMap(e => e.progress).filter(e => !past(e.recordedAt)).length +
+    (portfolio?.appraisals ?? []).filter(a => a.date > end).length;
   const missingReviews = windowReviews.filter(e => findContent(bundle, e.contentRef)?.kind !== 'card').length;
   const missingQuestions = mcq.filter(a => findContent(bundle, a.contentRef)?.kind !== 'question').length;
   return { start, end, now, timeZone, future, missingReviews, missingQuestions, days: [...days.entries()].sort(([a], [b]) => a.localeCompare(b)), reviews: { total: windowReviews.length, successful: windowReviews.filter(e => e.rating !== 'Again').length, failed: windowReviews.filter(e => e.rating === 'Again').length, unique: new Set(windowReviews.map(e => contentKey(e.contentRef))).size },
@@ -67,6 +95,8 @@ export function projectProgress(state: LearnerState, bundle: ContentBundle, now:
     tasks: { done: phases.flatMap(p => p.tasks).filter(t => state.completed[t[0]]).length, total: phases.flatMap(p => p.tasks).length },
     reading: state.readingProgress?.entries.filter(e => e.completed).length ?? 0,
     resources: { tracked: resources.length, completed: latestResource.filter(p => p.status === 'completed').length, inProgress: latestResource.filter(p => p.status === 'in-progress').length, evidence: latestResource.filter(p => p.evidenceUrl || p.notes.trim()).length },
+    portfolio: { evidence: portfolio?.evidence.length ?? 0, total: appraisalHistory.length,
+      inWindow: appraisalHistory.filter(a => a.inWindow).length, history: appraisalHistory },
     caseEvidence: (state.scenarioResponses?.responses ?? []).filter(r => past(r.submittedAt) && (r.response.evidence.title || r.response.evidence.url || r.response.evidence.notes)).length,
     scores: Object.entries(state.scores) };
 }
