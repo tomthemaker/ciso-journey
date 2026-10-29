@@ -42,7 +42,7 @@ export function createStudyView(bundle: ContentBundle, tasks: StudyTask[], save:
     alternatives.append(alternativesList); section.append(alternatives);
     const details = node('details', { id: 'todayStudySettings', class: 'study-details' });
     details.append(node('summary', {}, 'Study goals, time budget and override'));
-    const fieldset = node('fieldset', { class: 'today-controls' }); fieldset.disabled = pending;
+    const fieldset = node('fieldset', { class: 'today-controls' }); fieldset.disabled = pending; fieldset.dataset.pending = String(pending);
     fieldset.append(node('legend', {}, 'Private study preferences'));
     const form = node('form', { id: 'todayStudyForm', class: 'field' });
     const minutes = node('input', { id: 'todayMinutes', type: 'number', min: '1', max: '480', step: '1', required: '' });
