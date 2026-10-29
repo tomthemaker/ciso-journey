@@ -8,6 +8,7 @@ export interface StudyPreferences {
   goalTaskIds: string[];
   overrideRef?: ContentRef;
   updatedAt: string;
+  [key: string]: unknown;
 }
 export const studyTaskIds = phases.flatMap(phase => phase.tasks.map(([id]) => id));
 const object = (v: unknown): v is Record<string, unknown> => v !== null && typeof v === 'object' && !Array.isArray(v);
@@ -20,5 +21,8 @@ export function validateStudyPreferences(value: unknown): asserts value is Study
 }
 export function saveStudyPreferences(state: LearnerState, preferences: StudyPreferences): void {
   validateStudyPreferences(preferences);
-  state.studyPreferences = structuredClone(preferences);
+  const candidate = { ...structuredClone(state.studyPreferences ?? {}), ...structuredClone(preferences) };
+  if (!('overrideRef' in preferences)) delete candidate.overrideRef;
+  validateStudyPreferences(candidate);
+  state.studyPreferences = candidate;
 }

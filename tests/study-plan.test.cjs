@@ -130,6 +130,10 @@ test('private preferences validate strict primitives, canonical dates and refs; 
   for (const version of [1, 2]) assert.deepEqual(validateBackup({ ...backup, version }).studyPreferences, state.studyPreferences);
   const plan = personalizedPlan(bundle, state, now, tasks);
   assert(plan.warnings.some(reason => reason.includes('unavailable for study')));
+  state.studyPreferences.extension = { syntheticFutureField: true };
+  saveStudyPreferences(state, prefs({ dailyMinutes: 20 }));
+  assert.deepEqual(state.studyPreferences.extension, { syntheticFutureField: true });
+  assert.equal(state.studyPreferences.overrideRef, undefined);
   for (const bad of [{ dailyMinutes: '30' }, { dailyMinutes: 0 }, { dailyMinutes: 481 }, { goalTaskIds: ['p1a'] }, { goalTaskIds: ['w1', 'w1'] }, { updatedAt: '2026-02-30T00:00:00.000Z' }, { overrideRef: null }, { overrideRef: { id: 'lesson-test', version: '1' } }, { overrideRef: { id: '<script>', version: 1 } }, { schemaVersion: 2 }]) {
     assert.throws(() => validateStudyPreferences(prefs(bad)), /study preferences/);
     assert.throws(() => validateBackup({ ...backup, data: { ...state, studyPreferences: prefs(bad) } }), /study preferences/);
