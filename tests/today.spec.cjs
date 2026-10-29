@@ -40,6 +40,7 @@ test('Today connects original reading, question and case; keyboard review and al
   const original = await snapshot(page);
   await expect(page.locator('#todayPrompt')).toHaveCount(0); // Enrollment is explicit.
   await enroll(page); await cap(page, 1);
+  await expect(page.locator('#todayStudy .primary')).toHaveCount(1);
   await expect(page.locator('#todayQueue')).toContainText('0 due or overdue reviews before 1 allowed new cards');
   await expect(page.locator('#todayTime')).toContainText('planning assumptions');
   await expect(page.locator('#todayAnswer, #todayRateAgain, #todayRateHard, #todayRateGood, #todayRateEasy')).toHaveCount(0);

@@ -127,7 +127,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     } else controls.append(node('p', {}, 'No available cards due now. Continue reading or enroll cards in settings. Future reviews return when due.'));
     if (plan.unavailable) study.append(node('p', { class: 'warn' }, `${plan.unavailable} eligible exact card revisions are unavailable in this bundle. History and due dates are retained. Manage them below; no newer answer is substituted.`));
     study.append(button('todayRefresh', 'Refresh due queue', () => render()));
-    root.append(studyView(state, pending, now));
+    root.append(studyView(state, pending, now, !!card));
     const unread = latestRecords(bundle, 'lesson').filter(record => !isRead(state, record));
     const openTasks = phases.flatMap(phase => phase.tasks).filter(([id]) => !state!.completed[id]);
     const reading = node('section', { class: 'today-section', id: 'todayReading' });
@@ -135,7 +135,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     const readingList = node('ul', { class: 'worklist' });
     for (const record of unread) {
       const li = node('li');
-      li.append(node('a', { href: contentHash(record), class: !card && plan.lesson && contentKey(record) === contentKey(plan.lesson) ? 'btn primary' : '' }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
+      li.append(node('a', { href: contentHash(record) }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
       readingList.append(li);
     }
     reading.append(unread.length ? readingList : node('p', {}, 'All current lesson revisions are marked read.'), node('p', { class: 'side-note' }, 'Draft lessons are provisional. Reading completion records participation, not mastery.'));
@@ -143,7 +143,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     const tasks = node('section', { class: 'today-section', id: 'todayTasks' });
     tasks.append(node('h2', {}, `Open tasks (${openTasks.length} of 37)`), node('p', { class: 'side-note' }, 'Incomplete roadmap tasks; these have no assigned due date.'));
     if (openTasks.length) {
-      if (!card && !unread.length) tasks.append(node('a', { href: `#roadmap/${openTasks[0][0]}`, class: 'btn primary' }, 'Continue with an open task'));
+      if (!card && !unread.length) tasks.append(node('a', { href: `#roadmap/${openTasks[0][0]}`, class: 'btn' }, 'Continue with an open task'));
       const taskDetails = node('details', { id: 'todayOpenTasks' }); taskDetails.append(node('summary', {}, `Show all ${openTasks.length} open tasks`));
       const taskList = node('ul', { class: 'worklist' });
       for (const [id, title] of openTasks) { const li = node('li'); li.append(node('a', { href: `#roadmap/${id}` }, title)); taskList.append(li); }

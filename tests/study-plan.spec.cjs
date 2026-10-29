@@ -21,6 +21,7 @@ test('study goals, budget and explicit prerequisite override persist through rel
   await page.goto('./#today'); await ready(page);
   await expect(page.locator('#todaySuggested')).toContainText('Week 1');
   await expect(page.locator('#todayReasons')).toContainText('roadmap order');
+  await expect(page.locator('#todayStudy .primary')).toHaveCount(1);
   const before = await snapshot(page);
   const w4 = bundle.records.filter(r => r.kind === 'lesson' && r.taskIds.includes('w4')).at(-1);
   await settings(page);

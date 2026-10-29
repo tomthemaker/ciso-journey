@@ -12,14 +12,14 @@ import type { LearnerState } from './types.ts';
 
 export function createStudyView(bundle: ContentBundle, tasks: StudyTask[], save: (preferences: StudyPreferences) => Promise<boolean>) {
   let draft: { minutes: string; goals: string[]; choice: string } | undefined;
-  return (state: LearnerState, pending: boolean, now: string): HTMLElement => {
+  return (state: LearnerState, pending: boolean, now: string, reviewActive = false): HTMLElement => {
     const plan = personalizedPlan(bundle, state, now, tasks);
     const section = node('section', { id: 'todayPersonalized', class: 'today-section' });
     section.append(node('h2', {}, 'Your next study'), node('p', { id: 'todayBudget' }, `Daily session budget: ${plan.budget} minutes. Reserve roughly ${plan.queue.due.length} minutes for all due reviews; ${plan.remaining} minutes remain for an activity. Estimates are planning assumptions, not timers or completion evidence.`));
     const href = (record: { id: string; version: number; kind: string }) => record.kind === 'question' ? questionHash(record) : record.kind === 'scenario' ? caseHash(record) : contentHash(record);
     if (plan.selected) {
       const selected = plan.selected;
-      section.append(node('a', { id: 'todaySuggested', href: href(selected.record), class: 'btn primary' }, `${selected.override ? 'Your choice' : 'Suggested'}: ${selected.record.title}`));
+      section.append(node('a', { id: 'todaySuggested', href: href(selected.record), class: reviewActive ? 'btn' : 'btn primary' }, `${selected.override ? 'Your choice' : 'Suggested'}: ${selected.record.title}`));
       section.append(node('p', {}, `About ${selected.minutes} minutes for this ${selected.record.kind}${selected.fits ? '' : '; exceeds the remaining budget'}. Exact revision: ${contentKey(selected.record)}.`));
       const why = node('ul', { id: 'todayReasons' });
       for (const text of [...selected.reasons, ...selected.warnings]) why.append(node('li', {}, text));
