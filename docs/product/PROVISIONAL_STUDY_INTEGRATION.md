@@ -34,4 +34,10 @@ The new unit checks pass the full 341-revision bundle to C02 with the previous 1
 
 Critical local browser checks exercise Pages subpath navigation, all new weekly task/lesson/prerequisite routes, reading participation and MCQ explanations; constructed response/example/rubric feedback; explicit new card enrollment and committed review; all six competency-case responses/self-assessments; and a combined full export/import/reload equality check. Existing preservation/recovery, historical-ref, failure/retry, daily queue, theme/readability, resource and progress checks continue against the complete app. Only synthetic data is used.
 
-Candidate checks and independent review will be recorded in the linked PR. Implementation evidence is not final-candidate approval or educator/legal publication validation.
+## Implementation evidence, 2026-10-29
+
+The first browser collection stopped on a Node/Playwright module-adapter mismatch; the shared local adapter now uses CommonJS consistently. The subsequent complete run passed 88/94 checks: two W7 submission failures exposed the real option-ID mismatch corrected above, two preservation assertions included the new internal study links in the legacy external-resource inventory, and two historical-card tests mixed native dynamic imports with Playwright-transformed CommonJS. The corrected tests preserve the same behavioral assertions. This run already passed both desktop/mobile constructed-response, explicit card review, all-six-case/self-assessment and combined backup flows. These initial results are diagnostic evidence, not an all-pass claim.
+
+Approved UI PR #88 is merged through main `e8b6609505cba4f6e00566d532e9ea15989cb27e`, retaining D036 and D037. The additional merge after UI runtime candidate `1e4e450ff19c77691ce04133f82d427a9b335bc4` changed only its design guide and two synthetic screenshots in this integration worktree; all app, test, configuration and lockfile bytes from that UI candidate remained unchanged by the merge. The corrected complete integration runtime is checked afresh below; no old UI-only browser evidence substitutes for its own checks.
+
+Final candidate checks and independent review will be recorded in the linked PR. Implementation evidence is not final-candidate approval or educator/legal publication validation.

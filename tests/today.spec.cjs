@@ -201,7 +201,7 @@ test('daily cap refreshes at local midnight and newly due reviews appear without
 
 
 test('bulk enrollment leaves an archived earlier revision unchanged; the newer revision is explicit', async ({ page }) => {
-  const { enrollCard, applyReview, setCardStatus } = await import('../src/reviews.ts');
+  const { enrollCard, applyReview, setCardStatus } = require('../src/reviews.ts');
   await page.goto('./#today'); await ready(page);
   const backup = await exported(page), old = { id: first.id, version: first.version - 1 };
   enrollCard(backup.data, old, '2026-10-28T08:00:00.000Z');
