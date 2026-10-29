@@ -1,3 +1,4 @@
+import { validatePortfolio } from "./portfolio.ts";
 import { validateReviewProgress } from "./reviews.ts";
 import { validateScenarioResponses } from "./scenario-responses.ts";
 import { validateQuestionAttempts } from "./question-attempts.ts";
@@ -92,6 +93,7 @@ export function validateState(data: unknown): LearnerState {
   }
   if ("reviewProgress" in data) validateReviewProgress(data.reviewProgress);
   if ("scenarioResponses" in data) validateScenarioResponses(data.scenarioResponses);
+  if ("portfolio" in data) validatePortfolio(data.portfolio, data as unknown as LearnerState);
   if ("questionAttempts" in data) validateQuestionAttempts(data.questionAttempts);
   if ("resourceProgress" in data) validateResourceProgress(data.resourceProgress);
   if ("readingProgress" in data) validateReadingProgress(data.readingProgress);

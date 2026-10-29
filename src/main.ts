@@ -1,5 +1,6 @@
 import "./styles.css";
 import { renderProgress } from "./progress-view";
+import { bindPortfolio } from "./portfolio-view";
 import { bindToday } from "./today";
 import { bindCases } from "./cases";
 import { bindQuestions } from "./questions";
@@ -52,6 +53,7 @@ function renderAll(): void {
   renderLessons(state);
   renderQuestions(state);
   renderCases(state);
+  renderPortfolio(state);
   if (state) {
     renderStats(state);
     renderRoadmap(state, changed);
@@ -85,6 +87,7 @@ const changed: Change = async edit => {
   }
 };
 bindNavigation();
+const renderPortfolio = bindPortfolio(changed);
 const renderToday = bindToday(lessonBundle, changed);
 const renderLessons = bindReader(lessonBundle, lessonObjectives, changed);
 const renderQuestions = bindQuestions(lessonBundle, lessonObjectives, changed);
