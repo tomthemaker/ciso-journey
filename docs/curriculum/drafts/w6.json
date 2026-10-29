@@ -1,0 +1,1494 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w6-draft-2026-10-28.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w6-author",
+      "kind": "ai",
+      "role": "C04 w6 original draft author and official technical-source inspector; not an independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w6-risk",
+      "version": 1,
+      "kind": "source",
+      "title": "Risk assessment: threats, conditions, likelihood and consequences",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf",
+        "edition": "SP 800-30 Revision 1, final September 2012",
+        "jurisdiction": "United States technical guidance; fictional voluntary application, no legal applicability claim",
+        "publicationDate": "2012-09-17",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Section 3.1 preparation and section 3.2 Tasks 2-1 through 2-6 (printed pp. 23–38); Appendix I adversarial-risk template. Supports separating threat sources/events, vulnerabilities and predisposing conditions, likelihood, impact and uncertainty. The local qualitative ranking convention is an original teaching choice, not a prescribed NIST calculation. Official final PDF inspected by the AI author on 2026-10-28; bibliographic final status checked on the NIST publication page. This is source inspection, not independent educator review. See docs/curriculum/drafts/w6.md.",
+        "verifierId": "ai-c04-w6-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples and assessments; no quotations, copied figures or tables. NIST attribution through this exact reference; no claim of NIST endorsement.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w6-engineering",
+      "version": 1,
+      "kind": "source",
+      "title": "Engineering systems around stakeholder loss concerns",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-160v1r1.pdf",
+        "edition": "SP 800-160 Volume 1 Revision 1, final November 2022",
+        "jurisdiction": "United States technical guidance; fictional voluntary application, no legal applicability claim",
+        "publicationDate": "2022-11-16",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Sections 3.4–3.7 assets, loss and protection needs; Appendix E.16 Least Privilege, printed p. 93; Appendix H.2 stakeholder needs SN-3.2 through SN-3.6, printed p. 119. Supports asset/consequence reasoning and constraining human and machine privileges. The fictional architecture and controls are original conditional examples, not a conformity assessment. Official final PDF inspected by the AI author on 2026-10-28; bibliographic final status checked on the NIST publication page. This is source inspection, not independent educator review. See docs/curriculum/drafts/w6.md.",
+        "verifierId": "ai-c04-w6-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples and assessments; no quotations, copied figures or tables. NIST attribution through this exact reference; no claim of NIST endorsement.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w6-ssdf",
+      "version": 1,
+      "kind": "source",
+      "title": "Risk modeling and protected software delivery",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "publisher": "NIST",
+        "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-218.pdf",
+        "edition": "SP 800-218 / SSDF Version 1.1, final February 2022",
+        "jurisdiction": "United States technical guidance; fictional voluntary application, no legal applicability claim",
+        "publicationDate": "2022-02-03",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Table 1 PW.1.1–PW.1.2, printed p. 11: risk modeling and retained decisions; PS.1, printed p. 9, and PS.2.1, printed p. 10: protect code and provide release integrity information. This is the final 1.1 publication; no proposed successor draft is presented as final. Fictional build/control mechanisms remain conditional design examples. Official final PDF inspected by the AI author on 2026-10-28; bibliographic final status checked on the NIST publication page. This is source inspection, not independent educator review. See docs/curriculum/drafts/w6.md.",
+        "verifierId": "ai-c04-w6-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples and assessments; no quotations, copied figures or tables. NIST attribution through this exact reference; no claim of NIST endorsement.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w6-scenario",
+      "version": 1,
+      "kind": "concept",
+      "title": "A threat scenario explains a possible loss",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "definition": "A threat scenario is a conditional account of how a threat source could cause harm to a valued asset. State the actor, entry point, preconditions, attack steps across a trust boundary and business consequence. Distinguish supplied facts, working assumptions and unknowns.",
+        "misconception": "A threat name such as ransomware is not a complete scenario; it leaves the affected service and route to harm unspecified."
+      }
+    },
+    {
+      "id": "concept-w6-boundary",
+      "version": 1,
+      "kind": "concept",
+      "title": "A boundary needs an enforcement decision",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "definition": "A trust boundary separates areas with different control or trust assumptions. An attack path explains how an actor could cross that boundary through a missing, failed or misused decision, including misuse by an already authenticated identity.",
+        "misconception": "Different network colours do not prove separation; an allowed application action can still cross a business authorisation boundary."
+      }
+    },
+    {
+      "id": "concept-w6-priority",
+      "version": 1,
+      "kind": "concept",
+      "title": "Priority is a decision under uncertainty",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "definition": "Compare scenarios within a stated service, time horizon and control baseline. Assess event initiation and resulting harm separately from consequence severity and confidence in the evidence. State the ranking rule and evidence that could change the order; insufficient evidence means unknown likelihood, not low likelihood.",
+        "misconception": "A dramatic worst case or an unexplained numerical score does not establish which scenario deserves the first action."
+      }
+    },
+    {
+      "id": "concept-w6-controls",
+      "version": 1,
+      "kind": "concept",
+      "title": "Prevention and detection act on specified steps",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "definition": "A preventive control blocks or restricts an attack step. A detective control produces a useful signal of a relevant action for an assigned responder. Proposed controls need mechanism-specific tests; a remaining path or uncertain premise is recorded after the proposal.",
+        "misconception": "Collecting logs alone does not show that a relevant event reaches a responder, and an alert does not itself prevent the first loss."
+      }
+    },
+    {
+      "id": "rubric-w6-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 3 · One bounded threat chain",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "chain",
+            "description": "Explain the one requested export scenario, including actor, asset, entry point, preconditions, boundary and business consequence.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response identifies the scenario but leaves a causal link or requested element unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "The response traces a criminal using the assumed clerk session through an overbroad export permission across the clerk-to-bulk-data boundary, exposing customer addresses and causing a business consequence; it identifies the export interface and compromised session as entry/precondition."
+              }
+            ]
+          },
+          {
+            "id": "uncertainty",
+            "description": "Separate one supplied premise from one unknown and name one safe check.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response labels uncertainty but omits either a supplied premise or a relevant safe check."
+              },
+              {
+                "score": 2,
+                "descriptor": "The response identifies the stolen-session/overbroad-permission premises, names an unknown such as session usability or export scope, and proposes a synthetic test of that unknown without presenting the attack as observed."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w6-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 4 · Compare two priorities and treat the first",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "order",
+            "description": "Rank only the two supplied scenarios using likelihood/impact reasoning and a reversal condition.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response chooses a priority but omits a dimension, premise or evidence that could reverse it."
+              },
+              {
+                "score": 2,
+                "descriptor": "The response orders both scenarios, separates plausibility from severity, uses the supplied evidence and assumptions, and names evidence that could reverse the order. Either order earns full credit if the severe deferred exposure is addressed explicitly."
+              }
+            ]
+          },
+          {
+            "id": "controls",
+            "description": "For the first priority only, connect one preventive and one detective control to steps, evidence and remaining exposure.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response gives relevant controls but leaves one mechanism, test, detector responder or remaining exposure unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "For the selected first priority, the response names one blocking/restricting control and its safe behavioral test, one detecting control and its benign-event-to-responder test, and a credible remaining path or uncertainty tied to these controls."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "rubric-w6-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Question 5 · Interpret a detector test",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "evidence",
+            "description": "Explain what the one test supports and does not support.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response recognises a limited detector test but confuses detection with prevention or omits the missing inference."
+              },
+              {
+                "score": 2,
+                "descriptor": "The response states that receipt of one benign alert supports this event-to-responder path, and explains that it does not establish blocking, coverage of all attacks or reduced first-loss impact."
+              }
+            ]
+          },
+          {
+            "id": "follow-up",
+            "description": "Name one specific uncertainty and one bounded follow-up check.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "The response names a concern or a generic check without linking them."
+              },
+              {
+                "score": 2,
+                "descriptor": "The response names one relevant unknown, such as single-record misuse coverage or response delay, and proposes a corresponding synthetic or tabletop check without claiming that it has already passed."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w6-1",
+      "version": 1,
+      "kind": "question",
+      "title": "Question 1 · Choose an explanatory scenario",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "Which statement is a complete, bounded threat scenario rather than a threat label or unsupported conclusion?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Ransomware is our highest risk.",
+            "explanation": "A label and a ranking assertion omit the actor, entry, necessary conditions, boundary and route to a business consequence."
+          },
+          {
+            "id": "b",
+            "text": "Assume a criminal controls a warehouse terminal and its cached administrator credential. Unrestricted management access lets that credential cross into dispatch administration and disable dispatch, delaying shipments.",
+            "explanation": "Correct: the actor, entry, explicit preconditions, management boundary, affected service and business consequence form a conditional causal chain. These assumptions still need checking."
+          },
+          {
+            "id": "c",
+            "text": "We use encryption, so dispatch cannot be interrupted.",
+            "explanation": "Encryption can protect information under particular assumptions; it does not establish availability or eliminate management misuse."
+          },
+          {
+            "id": "d",
+            "text": "A supplier was compromised because its package changed.",
+            "explanation": "A change alone does not establish compromise, and the statement supplies neither a route to the protected asset nor a consequence."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w6-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Question 2 · Match controls to an API boundary",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "Assume an authenticated customer can read another customer's order because the API omits an ownership check. Which proposal most directly prevents that step and tests prevention?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Encrypt the database disk and count completed backups.",
+            "explanation": "Stored-data encryption and backup counts do not authorise per-order reads by an already authenticated customer."
+          },
+          {
+            "id": "b",
+            "text": "Require another sign-in and count successful logins.",
+            "explanation": "Additional authentication does not decide which order an account may read; the missing resource-level check remains."
+          },
+          {
+            "id": "c",
+            "text": "Enforce a server-side ownership check on every lookup; use two synthetic customers to verify own-order access and other-order denial.",
+            "explanation": "Correct: this places enforcement at the missing authorisation decision and tests both permitted work and the forbidden cross-customer request under the tested conditions."
+          },
+          {
+            "id": "d",
+            "text": "Alert on unusually large exports and assume unauthorised reads stop.",
+            "explanation": "An export detector may be useful elsewhere, but it does not block individual order lookup and cannot establish prevention."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w6-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Question 3 · Write one causal export chain",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional premises: a criminal has stolen a clerk session; the session can use the order application's export interface, and the clerk role currently permits bulk export of all customer addresses. Write ONE threat scenario naming actor, entry point, asset, preconditions, boundary crossing and business consequence. Distinguish one supplied premise from one unknown and propose one safe check of that unknown. No ranking or five-scenario register is requested.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w6-question-3",
+          "version": 1
+        },
+        "annotatedExample": "Actor: criminal controlling the assumed stolen clerk session. Entry: the application's export interface. Asset: customer address confidentiality. Preconditions: the session remains usable and the supplied overbroad role permits bulk export. Path/boundary: a session intended for ordinary clerk work invokes bulk export across the clerk-to-whole-customer-dataset permission boundary; downloaded addresses can then be disclosed, causing customer notification/support and investigation work in this fictional business, without asserting a legal notification duty. The stolen session and broad permission are supplied premises, not observed events. Unknown: whether the production session policy allows this action without a further check. A permitted staging test with a synthetic clerk session and synthetic addresses can inspect export scope and any additional authorisation. Annotation: one complete conditional chain and one check satisfy this response; the full weekly ranking is not required."
+      }
+    },
+    {
+      "id": "question-w6-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Question 4 · Prioritise two routes and treat one",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "For the next quarter, compare only A and B. A: a staging test demonstrates cross-customer API reads; production equivalence is unverified; disclosure is serious. B: a malicious dependency might enter production with dispatch-stopping impact; automatic dependency acceptance and production authority are unverified. Rank A and B with explicit likelihood/impact reasoning and a condition that could reverse your order. For your first priority only, give one preventive and one detective control, a safe test for each including the detector's responder, and one remaining exposure or uncertainty. An alternative order is acceptable when justified; explain what happens to a severe deferred exposure.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w6-question-4",
+          "version": 1
+        },
+        "annotatedExample": "I provisionally rank A before B for the quarter because a relevant failure has been demonstrated in staging and disclosure is serious; production equivalence remains an assumption. B's severe outage consequence warrants immediate investigation, but both acceptance and authority links are unknown. Confirmed unattended dependency promotion with production authority, or proof that A's check is already enforced in production, could reverse the order. For A, the application owner enforces per-order ownership and tests own-order allowance plus other-order denial with two synthetic staging customers. Operations detects repeated cross-customer denials and injects harmless denied requests to verify the alert reaches its duty responder. Remaining exposure: single-record misuse or previously disclosed addresses; the alert does not prevent the first loss. Annotation: the response covers exactly two priorities and treats the first; no five-row register is needed. A B-first answer can also be strong if it explains why severe potential loss outweighs uncertainty and specifies suitable controls/tests for B."
+      }
+    },
+    {
+      "id": "question-w6-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Question 5 · Do not overclaim a successful alert",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "format": "open",
+        "prompt": "A harmless staging export event produced an alert that reached the duty analyst in five minutes. A manager says this proves that customer-data theft is prevented. Explain what the evidence supports and what it does not support. Name ONE remaining uncertainty and ONE bounded follow-up check. No new scenario register or control pair is requested.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w6-question-5",
+          "version": 1
+        },
+        "annotatedExample": "The result supports the tested event-to-alert-to-analyst route and a five-minute delivery time for that event under staging conditions. It does not show an export was blocked, that all theft paths trigger this detector, or that the analyst can stop loss before it happens. One uncertainty is whether permitted single-record reads produce any relevant signal. In staging, use a synthetic account and records to exercise the defined benign read pattern and inspect its telemetry and alert handling; record a lack of signal honestly. Annotation: one linked uncertainty/check is enough; the question does not require a new treatment programme. Another relevant uncertainty and corresponding safe check can earn full credit."
+      }
+    },
+    {
+      "id": "card-w6-chain",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve the scenario structure",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "prompt": "What must a threat scenario explain beyond a threat name?",
+        "answer": "Identify actor, entry point, valued asset and preconditions; trace actions across a trust boundary to asset loss and a business consequence. Label assumptions and unknowns so the route remains conditional.",
+        "conceptRef": {
+          "id": "concept-w6-scenario",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w6-priority",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve the ranking distinction",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "prompt": "When ranking five threat scenarios, how do likelihood and impact differ, and what makes the order reviewable?",
+        "answer": "Likelihood concerns initiation and resulting harm under the stated conditions; impact concerns consequence severity. State the horizon, control baseline, ranking rule, assumptions and evidence that could change the order. Qualitative labels are not measured probabilities.",
+        "conceptRef": {
+          "id": "concept-w6-priority",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w6-controls",
+      "version": 1,
+      "kind": "card",
+      "title": "Retrieve mechanism-specific evidence",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "prompt": "For a high-priority attack step, what evidence distinguishes a proposed preventive control from a tested detector?",
+        "answer": "Prevention needs a safe behavioral test of blocked misuse and permitted work. Detection needs a benign relevant event traced through telemetry and the alert to an assigned responder. Record scope and remaining exposure; an alert alone does not prove prevention.",
+        "conceptRef": {
+          "id": "concept-w6-controls",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "rubric-w6-register",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Five-scenario register and treatment note · scoped self-assessment",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1",
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "five-chains",
+            "description": "Five distinct causal scenarios with actor, entry point, asset, preconditions, boundary, consequence, evidence and uncertainty.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "There are five plausible rows, but some repeat the same cause/control problem or omit a requested causal element, evidence or uncertainty."
+              },
+              {
+                "score": 2,
+                "descriptor": "Five distinct rows each name actor, entry, asset and preconditions, trace at least one control/trust boundary to a business consequence, identify a supplied premise or assumption, give a safe evidence check and state residual uncertainty. A threat label alone is insufficient."
+              }
+            ]
+          },
+          {
+            "id": "ranking",
+            "description": "Order all five within the quarter and current-control baseline, using an explicit rule and challenge conditions.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "All five are ordered with some rationale, but the rule, likelihood/impact distinction, assumptions or potential reversal is unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "All five are ordered with a consistent stated action rule; per-row likelihood or explicit unknowns, impact and confidence are distinguished using supplied premises and actor/access assumptions. At least one evidence-driven reversal condition and prompt investigation of any severe deferred exposure are explicit. Different justified orders qualify; low confidence is not treated as low likelihood."
+              }
+            ]
+          },
+          {
+            "id": "top-two-controls",
+            "description": "For each of the top two only, connect preventive/detective mechanisms, ownership, safe evidence and remaining risk.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "The requested reasoning is absent or contradicts the stated premises."
+              },
+              {
+                "score": 1,
+                "descriptor": "Both priorities have controls, but a mechanism, owner, safe test, detector responder or remaining path is missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "For each top-two scenario, one preventive and one detective control target named steps and have responsible owners; allowed/denied synthetic checks test prevention, and a benign-event-to-named-responder check tests detection. Each has a concrete remaining path or uncertainty and an owned next check. No controls for the other three are required."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w6-register",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Practice · Five realistic threat scenarios",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1",
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "brief": "Larch Parts is a fictional distributor. Scope: the next quarter's dispatch service, associated order/finance records and its software delivery; no physical sabotage or legal analysis. Supplied premises: a staging API test allowed cross-customer order reads; warehouse terminals can reach the dispatch management interface, and a recent internal review found a cached administrator credential there. In this exercise those findings are true, but production equivalence and credential usability still need checking. Finance accepts supplier-bank change requests by email; whether separate confirmation is enforced is unknown. Build tooling uses supplier dependencies; package approval and promotion authority are unknown. Clerks need individual order access; bulk-export scope and monitoring are unknown. There is no evidence here of an actual attack, malicious supplier or dishonest employee. Assume customer disclosure/payment diversion is serious and a full-day dispatch stoppage severe. State any additional assumption and change it if a safe check disproves it.",
+        "deliverable": "Write a five-row threat register with FIVE DISTINCT actor/entry/asset/preconditions/attack-path/business-consequence chains, each crossing at least one named trust or control boundary. For every row identify supplied premises versus assumptions, one safe evidence check and one residual uncertainty. Rank all five for the stated quarter/current controls; state the ranking rule, per-row likelihood/impact rationale, a possible reversal and how you handle any severe deferred exposure. For EACH of your TOP TWO only, propose one preventive and one detective control linked to named steps, assign owners, specify an allowed/denied synthetic prevention check and a benign event traced to a named detector responder, and state the remaining path or uncertainty with an owned next check. These requested elements are also the highest rubric anchors. Controls for the other three are optional and unscored.",
+        "constraints": [
+          "Use fictional premises and synthetic evidence only; no real learners, employers, credentials, targets or operational exploitation.",
+          "Keep the same quarter, service scope and current-control baseline for all five rankings; label all added assumptions.",
+          "Do not report a planned test as executed, equate an alert with prevention, or infer task completion, mastery or legal/certification readiness from self-assessment."
+        ],
+        "rubricRef": {
+          "id": "rubric-w6-register",
+          "version": 1
+        },
+        "annotatedExample": "Illustrative register, not evidence of actual incidents. Scope is the next quarter under the supplied current-control baseline. Event initiation likelihood is unknown for all five: no local actor-frequency data is supplied. Each route is conditional on the stated actor/access assumption; confidence in an enabling condition differs from the probability of an attack. Rule for the action order: prioritise credible routes with demonstrated enabling conditions, compare impact within that group, then order the remaining routes by the stated business concern and request evidence. Severe unresolved routes receive prompt investigation in parallel. This produces a reviewable priority order under uncertainty, not a total risk score.\n\nS1 · Cross-customer order disclosure. Actor: abusive authenticated customer. Entry: public order-lookup API. Asset: other customers' order/address confidentiality. Preconditions: a valid customer session and missing per-order check in production, the latter an assumption from the supplied staging finding. Path: customer requests another customer's order → API accepts the wrong ownership context across the customer-to-other-customer-data boundary → order data is returned. Impact: serious disclosure, investigation and customer-support work. Evidence: two synthetic customers in an authorised staging check, plus configuration comparison with production. Uncertainty: representativeness of staging and coverage of other lookup routes. Rank 2: the supplied staging failure supports conditional success if the production-equivalence assumption holds; serious rather than dispatch-stopping harm. Initiation remains unknown. Confidence is limited by the missing production comparison.\n\nS2 · Supplier payment diversion. Actor: criminal controlling or impersonating a supplier mailbox, an explicit assumption. Entry: emailed bank-change request to finance. Asset: integrity of supplier payment instructions and company funds. Preconditions: staff can update bank details without independently confirming them, an unknown. Path: untrusted request crosses supplier-message-to-approved-payment-instruction boundary → clerk updates the finance record → later payment could go to the criminal. Impact: serious payment loss and supplier dispute. Evidence: tabletop a synthetic request through the documented approval process without sending money. Uncertainty: actual independent confirmation and payment-release checks. Rank 3: serious; the business owner provisionally prioritises this direct funds-loss route ahead of the two remaining unresolved routes. Harm likelihood and confidence remain uncertain because both finance safeguards are unverified; this is a stated action preference, not a measured likelihood comparison.\n\nS3 · Dispatch administration misuse. Actor: criminal controlling a warehouse terminal, an explicit assumption. Entry: that terminal's network/management connection. Asset: dispatch availability. Preconditions: the supplied management reachability, the supplied cached credential and its assumed continuing administrator validity. Path: terminal uses credential across warehouse-to-management boundary → obtains dispatch administration → disables dispatch service. Impact: severe full-day shipment stoppage if recovery is slow, itself an assumption to check. Evidence: authorised isolated synthetic access test and recovery tabletop; no real disruption. Uncertainty: credential validity, additional authentication and restoration time. Rank 1: known reachability and the cached credential support a credible route to severe harm, conditional on terminal compromise and credential usability. Initiation and actual harm likelihood remain unknown; confidence is higher for reachability than for credential validity. Those assumptions are the first checks.\n\nS4 · Contaminated software delivery. Actor: malicious dependency maintainer, an explicit hypothetical actor. Entry: package update consumed by the build. Asset: integrity/availability of production dispatch software. Preconditions: an accepted malicious dependency, an unreviewed build change and effective production promotion, all unverified. Path: supplier code crosses supplier-to-build boundary → runner emits altered artifact → approved promotion crosses build-to-production boundary → malicious behavior stops dispatch. Impact: severe outage. Evidence: inspect dependency-change approval, runner permissions and release provenance; use a harmless manifest-change rehearsal. Uncertainty: whether automatic acceptance and deployment authority actually exist. Rank 4: severe but with several unresolved path conditions; neither initiation nor conditional harm likelihood can be estimated from the supplied facts. Low confidence does not mean low risk: the delivery owner investigates immediately, and confirmed unattended promotion could move it ahead of S1/S2.\n\nS5 · Employee bulk export misuse. Actor: a malicious clerk, an assumption with no allegation about real staff. Entry: permitted export interface. Asset: customer address confidentiality. Preconditions: broad export entitlement and a usable transfer route, both unknown. Path: clerk invokes bulk retrieval across individual-order-to-whole-dataset authority boundary → copies export outside the approved handling process → discloses addresses. Impact: serious disclosure and customer harm. Evidence: synthetic clerk role/export-scope check and review of approved transfer restrictions. Uncertainty: actual export permission and detection of small repeated exports. Rank 5: serious; the owner provisionally schedules this after the severe pipeline investigation, while entitlement is checked. Likelihood is unknown and confidence in the assumed bulk-export path is low; verified broad entitlement or a restricted pipeline could move it above S4. S1 and S5 differ because S1 abuses missing object ownership from an external customer role while S5 misuses an internal export entitlement and handling process.\n\nTop-two treatment note · S3: the infrastructure owner removes warehouse-to-dispatch-management access and cached management privileges, using a separate authorised management path. The prevention check allows synthetic dispatch work, denies a synthetic warehouse-role management request, and verifies the approved administrator route still works. Operations alerts on attempted forbidden management access; a harmless denied connection must produce telemetry and reach the named duty analyst. This targets the boundary crossing before service administration, not initial terminal compromise. Remaining path: misuse through an approved management identity or untested permitted application function; the infrastructure owner next checks those routes and validates the credential-revocation premise. An alert alone does not block access.\n\nS1: the application owner enforces per-order ownership server-side on every lookup. Two synthetic customer accounts test own-order allowance and other-order denial. Operations alerts on repeated cross-customer access denials; benign denied staging requests must reach the named application duty responder. This blocks the missing authorisation step and detects repeated probes after enforcement. Remaining exposure: previously disclosed records, single allowed-record misuse and overlooked endpoints; the application owner next checks endpoint coverage and production-equivalence evidence. Neither proposal is claimed implemented or tested here.\n\nUncertainty/reversal: if S3's credential is unusable and management is effectively restricted, move S1 first; if unattended dependency promotion with broad authority is confirmed, reconsider S4 urgently. Ask the dispatch business owner to review the conditional order with technical owners after these checks. Annotation: five distinct causal rows cover obj-w6-1; the complete order, stated assumptions, reversal and two bounded control/evidence pairs cover obj-w6-2. Alternatives earn equal credit when they meet the same requested reasoning, rather than matching this order."
+      }
+    },
+    {
+      "id": "lesson-w6-threat-modeling",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Week 6 · Explain five threat paths and choose the first actions",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1",
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w6-risk",
+          "version": 1
+        },
+        {
+          "id": "source-w6-engineering",
+          "version": 1
+        },
+        {
+          "id": "source-w6-ssdf",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Begin with a service and a bounded question",
+            "body": "Larch Parts is a fictional distributor. Its board asks how the next quarter's dispatch service could be disrupted or customer orders disclosed. Threat modeling makes possible routes to loss explicit before deciding what to change. The output is a reasoned model, not proof that an attack occurred or a forecast of its frequency. Use week 1's business consequences and week 3's service flows. C01 also names week 5's software-delivery review as a prerequisite; this draft includes the necessary delivery vocabulary below and makes no reference to an unavailable week 5 lesson. Select one service, one quarter and today's controls so all five scenarios answer the same question."
+          },
+          {
+            "heading": "obj-w6-1 · Build a causal scenario",
+            "body": "An asset is something valued, including accurate order records or the ability to dispatch goods. An actor is the person or group initiating an adversarial event, such as a criminal, a malicious employee or someone controlling a supplier account. The entry point is the interface or process first used. A precondition is something that must hold for the proposed route to work, such as a stolen session or excessive export permission. A vulnerability is a weakness; a predisposing condition, such as a shared administrative environment, can make harm easier or wider.\n\nWrite actor → entry point → action → boundary crossing → asset loss → business consequence. Explain why each step enables the next. A compromised clerk session might use bulk export permission to copy addresses, creating disclosure and customer-support work. Mark the compromised session as an assumption unless the brief supplies evidence. A software weakness alone says little about risk if the affected component is absent or inaccessible. NIST SP 800-30's assessment tasks support keeping these elements separate; they do not validate your fictional premises."
+          },
+          {
+            "heading": "Trace boundaries, including the delivery path",
+            "body": "A trust boundary separates areas with different controls or trust assumptions. At an internet-to-order-API boundary, ask which component checks the requested customer's access to that order. API means application programming interface: the interface software uses to request data or actions. A successful sign-in does not confer ownership of every record. At a terminal-to-management boundary, ask whether a warehouse role can reach and authenticate to an unrelated administrative service.\n\nFor software delivery, source code is the maintained program text; a dependency is external code it uses; a build converts inputs into a deployable artifact; deployment places that artifact into service. A continuous integration (CI) runner performs automated build or test jobs under a workload identity. Trace external package → build runner → artifact repository → production deployment. Each transition needs an acceptance decision and an owner. An approved artifact may still contain malicious behavior if an earlier input or build identity was compromised. This is enough vocabulary to model the route without prescribing exploitation or deployment commands."
+          },
+          {
+            "heading": "Make five scenarios meaningfully distinct",
+            "body": "Change the cause and control problem, not just the victim's name. Consider an external customer crossing an order-ownership boundary, a fraudulent supplier-change request crossing a finance approval boundary, a compromised terminal reaching management, contaminated build inputs reaching production, and an employee misusing a permitted export. These require different preventive decisions even if several end in disclosure. Include people, applications, infrastructure and delivery dependencies. For each scenario, label a supplied fact, an assumption and an unknown. Record what would disprove the route: an enforced denied action can remove a proposed path from the current model. Five rows are a teaching target, not evidence that all threats have been found."
+          },
+          {
+            "heading": "obj-w6-2 · Rank for a stated decision",
+            "body": "Likelihood concerns both whether the event will be initiated and whether it will cause harm under the stated conditions. Impact concerns the severity of that harm. Confidence concerns how well the premises are supported. A demonstrated access failure supports a possible route to harm; it does not establish how often a criminal will initiate an attack. If evidence is insufficient, record likelihood as unknown. For this exercise, severe means a full dispatch stoppage, serious means material disclosure or payment loss, and limited means a contained interruption. These are local consequence definitions, not NIST rating scales.\n\nYou can still rank action priorities under uncertainty. Use this provisional rule: tackle credible routes with demonstrated enabling conditions first, compare impact within that group, then explain the order of remaining routes; investigate any severe unresolved path promptly. State the actor/activity assumptions and why the rule fits the decision. Confidence is not probability, so a poorly evidenced scenario is not automatically low risk. Record evidence that could reverse the top two; do not convert qualitative labels into precise probabilities."
+          },
+          {
+            "heading": "Connect controls to mechanisms and evidence",
+            "body": "For each of the two highest priorities, choose one preventive and one detective control. Say which attack step each addresses. Restricting a warehouse role's management access can block lateral movement; an alert on attempted management access may expose the attempt. Record the enforcing owner, an allowed and denied synthetic test for prevention, and an injected benign event traced through the detector to its responder. A rule screenshot shows configuration, while an observed denial tests behavior under one condition. Neither proves every route is blocked.\n\nState the remaining exposure and uncertainty after the proposal. Narrow permissions still allow legitimate operations to be misused. An alert can arrive after an initial disclosure, or fail because a field is absent. A plan is not an implemented safeguard, and a successful test is not universal assurance. NIST SP 800-160's least-privilege principle and SSDF's retained design decisions support this reasoning; particular fictional controls still need technical validation."
+          },
+          {
+            "heading": "Worked executive example 1 · A login does not protect every order",
+            "body": "The chief operating officer sees authenticated customers on the architecture drawing and proposes closing the disclosure issue. In this fictional premise, a staging test with two synthetic customers shows that customer A can retrieve customer B's order through the public API. The actor is an abusive customer; the entry is the order lookup; the precondition is a missing per-order authorisation check; the boundary is one customer's permitted records versus another's; the consequence is address disclosure and investigation work.\n\nThe application owner proposes a server-side ownership check on each lookup and tests both an allowed own-order request and a denied other-order request. Operations proposes an alert for repeated cross-customer access denials, routed to a named duty role and tested with benign staging events. This detects repeated attempts after enforcement; it cannot recover previously disclosed data or reliably expose every single misuse. The executive keeps disclosure as serious, asks how representative the staging configuration is, and requests production-configuration comparison before treating the proposed fix as effective."
+          },
+          {
+            "heading": "Worked executive example 2 · A release signature has a boundary",
+            "body": "The technology director proposes accepting every signed release as safe. Larch's fictional pipeline automatically builds a supplier package; assume a malicious maintainer can publish an update that the build accepts. The runner produces an artifact, which the legitimate release process signs and deploys. The signature can establish an origin/integrity relationship under its trust assumptions; it cannot prove the code's behavior is harmless. The attack crosses supplier-to-build and artifact-to-production boundaries without needing to steal the signing key.\n\nThe delivery owner proposes reviewed, pinned dependency changes and a separate approval before production promotion. A detective comparison flags unexpected dependency or release-manifest changes for the release team; a harmless changed manifest tests routing. Review may miss malicious behavior, so residual risk remains. The director initially places this severe but unverified path below the demonstrated API disclosure, while ordering a pipeline-permission review. If that review confirms unattended updates with broad production authority, the severe route may move ahead. This is a conditional prioritisation decision, not a claim that a supplier was compromised."
+          },
+          {
+            "heading": "Practice and interpret the result",
+            "body": "Produce the five-row register and treatment note in scenario-w6-register@1. Its deliverable lists all work required for the highest rubric anchors: five distinct causal chains, ordered priorities with assumptions and uncertainty, and the specified controls, evidence and remaining exposure. Use only fictional or synthetic information. The model response illustrates a defensible answer; a different ranking can be equally strong when its premises and rule are explicit. Reading completion records study activity; card ratings concern retrieval; question attempts and rubric self-assessment record separate evidence. None establishes independently assessed executive competence or certification readiness."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w1-foundations",
+            "version": 2
+          },
+          {
+            "id": "lesson-w3-architecture",
+            "version": 2
+          }
+        ],
+        "estimatedMinutes": 65,
+        "workedExample": "Two worked executive examples appear in the reading: a customer lookup with missing per-order authorisation, and a signed release built from a hypothetical malicious dependency. They show conditional path analysis, step-specific controls, safe evidence and a priority reversal without alleging a real attack.",
+        "misconceptions": [
+          "A named threat is not a causal scenario; identify the actor, route, necessary conditions, boundary and consequence.",
+          "Authentication and encrypted storage do not establish per-record authorisation or dispatch availability.",
+          "Different victim names do not make five copies of the same cause/control problem distinct scenarios.",
+          "A signature does not establish harmless software behavior, and an alert does not establish prevention.",
+          "An unknown path is not automatically unlikely; investigate severe uncertain routes and state what could change the order."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w6-1",
+            "version": 1
+          },
+          {
+            "id": "question-w6-2",
+            "version": 1
+          },
+          {
+            "id": "question-w6-3",
+            "version": 1
+          },
+          {
+            "id": "question-w6-4",
+            "version": 1
+          },
+          {
+            "id": "question-w6-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w6-register",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w6-scenario",
+            "version": 1
+          },
+          {
+            "id": "concept-w6-boundary",
+            "version": 1
+          },
+          {
+            "id": "concept-w6-priority",
+            "version": 1
+          },
+          {
+            "id": "concept-w6-controls",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "mapping-w6-csf-risk",
+      "version": 1,
+      "kind": "mapping",
+      "title": "Prospective w6 analysis supports CSF ID.RA",
+      "authorIds": [
+        "ai-c04-w6-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w6"
+      ],
+      "objectiveIds": [
+        "obj-w6-1",
+        "obj-w6-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone C04 w6 AI-authored draft for #58/#16. Unmerged preparation only; no educator/legal approval or content release.",
+      "priorAttemptImpact": "New draft ID; preserves every baseline revision and exact historical attempt reference. No regrading or progress inference.",
+      "scheduleImpact": "No scheduler change or automatic card enrollment; existing schedules remain unchanged.",
+      "payload": {
+        "frameworkVersionId": "nist-csf-2.0",
+        "targetIds": [
+          "ID.RA"
+        ],
+        "validFrom": "2024-02-26",
+        "validUntilExclusive": null,
+        "rationale": "The five prospective threat scenarios, conditional prioritisation and treatment note support the ID.RA category, especially Appendix A ID.RA-03 through ID.RA-06, printed p. 19.",
+        "limitation": "Provisional subject alignment only. The exercise does not analyse actual adverse events or indicators to detect incidents and therefore adds no DE.AE mapping. It does not prove framework conformity, independent applied competence or certification readiness."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w6-risk",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w6-engineering",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w6-ssdf",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w6-scenario",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w6-boundary",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w6-priority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w6-controls",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w6-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w6-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w6-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w6-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w6-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w6-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w6-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w6-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w6-chain",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w6-priority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w6-controls",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w6-register",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w6-register",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w6-threat-modeling",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "mapping-w6-csf-risk",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
