@@ -159,6 +159,7 @@ test('p2a task opens pinned reading, questions, explicit cards and five-decision
   await expect(page.locator('#caseHeading')).toHaveText(scenario.title);
   await expect(page.locator('.case-body')).toContainText(scenario.payload.deliverable);
   for (const key of ['impact', 'options', 'accountableOwner', 'recommendation', 'residualRisk']) await page.locator('#case-' + key).fill(`Synthetic p2a ${key}: decision rights and bounded follow-up.`);
+  await page.getByLabel('Evidence title', { exact: true }).fill('Synthetic p2a five-decision worksheet');
   await page.locator('#saveCaseResponse').click();
   const form = page.getByRole('form', { name: 'Self-assess case response 1' });
   for (const select of await form.locator('select').all()) await select.selectOption({ index: 1 });
