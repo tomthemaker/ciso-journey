@@ -1,0 +1,58 @@
+# Local synthetic-only stack, pinned CLI in scripts/sync-local.mjs.
+project_id = "ciso-sync-foundation"
+[api]
+enabled = true
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 100
+[db]
+major_version = 17
+[db.migrations]
+enabled = true
+[db.seed]
+enabled = false
+[db.pooler]
+enabled = false
+[realtime]
+enabled = false
+[studio]
+enabled = false
+[local_smtp]
+enabled = true
+[storage]
+enabled = false
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:5173/ciso-journey/"
+additional_redirect_urls = ["http://127.0.0.1:4174/ciso-journey/", "http://127.0.0.1:5179/ciso-journey/"]
+jwt_expiry = 3600
+enable_signup = true
+enable_anonymous_sign_ins = false
+enable_manual_linking = false
+enable_refresh_token_rotation = true
+[auth.email]
+enable_signup = true
+enable_confirmations = true
+double_confirm_changes = true
+max_frequency = "1s"
+otp_length = 6
+otp_expiry = 600
+[auth.rate_limit]
+email_sent = 100
+sign_in_sign_ups = 100
+token_verifications = 100
+[edge_runtime]
+enabled = false
+[analytics]
+enabled = false
+
+[experimental]
+stack = true
+
+# GitHub is the ONLY intended product login. This stack's email provider exists
+# solely for synthetic Auth/JWT security fixtures. Do not deploy this config.
+# See docs/architecture/LOCAL_SYNC_FOUNDATION.md for actual GitHub setup.
+[auth.external.github]
+enabled = false
+client_id = "env(CISO_GITHUB_CLIENT_ID)"
+secret = "env(CISO_GITHUB_CLIENT_SECRET)"

@@ -12,7 +12,12 @@
     "test:desktop": "npm run test:browser -- --project=chromium",
     "test:mobile": "npm run test:browser -- --project=mobile-chromium",
     "test:unit": "node --experimental-strip-types --test tests/*.test.cjs tests/curriculum/*.test.mjs && node scripts/render-curriculum.mjs --check",
-    "test:browser": "npm run build && playwright test"
+    "test:browser": "npm run build && playwright test",
+    "sync:start": "node scripts/sync-local.mjs start",
+    "sync:reset": "node scripts/sync-local.mjs reset",
+    "sync:status": "node scripts/sync-local.mjs status",
+    "sync:stop": "node scripts/sync-local.mjs stop",
+    "test:sync": "node --experimental-strip-types --test tests/sync/*.test.mjs"
   },
   "engines": {
     "node": ">=24.4.1"
