@@ -130,3 +130,13 @@ test('private preferences validate strict primitives, canonical dates and refs; 
     assert.throws(() => validateBackup({ ...backup, data: { ...state, studyPreferences: prefs(bad) } }), /study preferences/);
   }
 });
+
+test('integrated portfolio self-report and study preferences round-trip together without becoming inferred planner evidence', () => {
+  const { appendAppraisal } = require('../src/portfolio.ts');
+  const state = structuredClone(require('./fixtures/v1/mixed-progress.json').data);
+  saveStudyPreferences(state, prefs({ goalTaskIds: ['w1'] }));
+  const baseline = personalizedPlan(bundle, state, now, tasks);
+  appendAppraisal(state, { id: 'synthetic-quarter', date: '2026-10-29', competency: 'Governance', level: 'Lead', provenance: 'self-assessment', scope: 'Fictional bounded exercise', rationale: 'Self-reported reflection only', evidenceIds: [], responseIds: [] });
+  assert.deepEqual(personalizedPlan(bundle, state, now, tasks), baseline);
+  for (const version of [1, 2]) assert.deepEqual(validateBackup({ ...createBackup(state), version }), state);
+});
