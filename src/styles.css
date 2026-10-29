@@ -567,7 +567,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible, summary:focus
 .task.done span, .task.done .task-title { color: var(--muted); }
 .warn { color: #734700; }
 .content-status { font-size: 14px; line-height: 1.5; color: #734700; margin-block: 8px; }
-body[data-section="today"] .hero, body[data-section="lessons"] .hero { display: none; }
+
 body[data-section="today"] .brand p, body[data-section="lessons"] .brand p,
 body[data-section="today"] .logo, body[data-section="lessons"] .logo { display: none; }
 body[data-section="today"] .top, body[data-section="lessons"] .top { margin-bottom: 12px; gap: 12px; }
@@ -665,8 +665,53 @@ button, input, textarea, select, .theme-control { font-family: system-ui, -apple
 .progress-section p { margin: 0.4rem 0; }
 .progress-rubric { margin: 1rem 0; }
 .progress-rubric h3 { overflow-wrap: anywhere; }
-body[data-section="progress"] .hero { display: none; }
+
 body[data-section="progress"] .brand p, body[data-section="progress"] .logo { display: none; }
 body[data-section="progress"] .top { margin-bottom: 12px; gap: 12px; }
 body[data-section="progress"] .tabs { margin-block: 16px 24px; }
 .progress-report { overflow-wrap: anywhere; min-width: 0; }
+
+/* Shared application shell and study surfaces. */
+.logo, .brand p { display: none; }
+.top { margin-bottom: 12px; gap: 12px; }
+.tabs { margin-block: 16px 24px; }
+.overview { border-bottom: 1px solid var(--line); }
+.overview > summary { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px; color: var(--muted); }
+.overview .hero { margin: 8px 0 20px; }
+.card { border-radius: 12px; box-shadow: none; }
+.layout { align-items: start; }
+.layout > *, .grid2 > *, .stack > * { min-width: 0; }
+.layout aside { align-content: start; }
+.filterline { align-items: end; }
+.filterline h2 { margin-bottom: 6px; }
+.filterline .muted { font-size: 14px; }
+.phasehead { align-items: baseline; flex-wrap: wrap; }
+.phasebadge { min-width: 0; padding: 4px 8px; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 13px; }
+.phasehead h3 { font-size: 21px; }
+.phasehead p { font-size: 14px; }
+.phase .progress { margin: 16px 0 8px; }
+.progress > div { background: var(--accent); }
+.progress-label { margin-bottom: 12px; }
+.task { padding: 14px 0 8px; }
+.task input { flex: none; }
+.task-resources { margin: 0 0 12px 28px; padding: 4px 12px; background: transparent; border-radius: 8px; }
+.task-resources summary { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-weight: 600; }
+.resource-card { background: var(--surface); }
+.resource-kind { font-size: 13px; }
+.field input, .field select, .field textarea, .score select, .filterline select { min-height: 44px; max-width: 100%; }
+.score select { flex-shrink: 0; }
+.question-answer, .today-controls, .case-body, .question-body { overflow-wrap: anywhere; }
+.question-answer input, .question-answer select, .question-answer textarea, .case-body input, .case-body select, .case-body textarea { background: var(--control); color: var(--ink); border: 1px solid var(--control-line); border-radius: 8px; padding: 10px; }
+.question-answer input[type="radio"], .question-answer input[type="checkbox"] { width: auto; accent-color: var(--accent); }
+#questionBank, #caseBank { max-width: calc(66ch + 64px); margin-inline: auto; }
+#questionBank .card, #caseBank .card { padding: 32px; }
+@media (max-width: 850px) {
+  .layout aside { margin-top: 8px; }
+  #questionBank .card, #caseBank .card { padding: 24px 16px; }
+  .score { flex-wrap: wrap; }
+}
+body[data-storage-blocked="true"] .overview { display: none; }
+@media (max-width: 850px) {
+  .tabs { flex-wrap: wrap; overflow: visible; }
+  .tab { font-size: 14px; padding: 8px 10px; }
+}
