@@ -723,7 +723,7 @@
       "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
       "payload": {
         "format": "scenario",
-        "prompt": "A fictional governing committee receives “100% of exceptions approved.” Management also records six repeated exceptions in one service, two expired safeguards and no test of whether the safeguards work. Write an oversight request with one management action owner and deadline, two evidence requests, a decision the committee should reconsider, and a follow-up trigger. Do not design controls or assert an observed breach.",
+        "prompt": "A fictional governing committee receives “100% of exceptions approved.” Management also records six repeated exceptions in one service, two expired safeguards and no test of whether the safeguards work. Write an oversight request with one management action owner and deadline, two evidence requests with comparable scope and dates, a decision the committee should reconsider, and a follow-up trigger. Do not design controls or assert an observed breach.",
         "difficulty": "advanced",
         "options": [],
         "correctOptionId": null,
@@ -838,7 +838,7 @@
       "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
       "payload": {
         "format": "open",
-        "prompt": "In a short paragraph, explain what CSF 2.0 GV.RR and GV.OV contribute to a decision-rights design. Contrast this with the limited public COBIT 2019 governance/management distinction used here. State one comparison limitation and one piece of local evidence needed before claiming the design works. No detailed crosswalk or paid framework recall is required.",
+        "prompt": "In a short paragraph, explain what CSF 2.0 GV.RR and GV.OV contribute to a decision-rights design. Contrast this with the limited public COBIT 2019 governance/management distinction used here. State one comparison limitation and one piece of local evidence needed before claiming the design works; explain how that evidence could challenge authority use or trigger a change in direction. No detailed crosswalk or paid framework recall is required.",
         "difficulty": "advanced",
         "options": [],
         "correctOptionId": null,
