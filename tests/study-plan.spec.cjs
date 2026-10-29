@@ -64,6 +64,7 @@ test('failed preference transaction preserves committed state and form draft; ke
   await expect(page.locator('#todayGoals')).toHaveValues(['p6e']);
   await page.evaluate(() => { window.studyAbort = false; });
   await page.locator('#todaySaveStudy').focus(); await page.keyboard.press('Enter'); await ready(page);
+  await expect(page.locator('#todaySaveStudy')).toBeFocused();
   const saved = await snapshot(page);
   expect(saved.revision).toBe(before.revision + 1); expect(saved.data.studyPreferences.goalTaskIds).toEqual(['p6e']);
   await page.reload(); await ready(page); await settings(page);

@@ -32,10 +32,11 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
   async function mutate(edit: (candidate: LearnerState) => void): Promise<boolean> {
     if (pending) return false;
     let saved = false;
+    const focusId = root.contains(document.activeElement) ? document.activeElement?.id : undefined;
     pending = true; render();
     try { saved = await change(edit); if (!saved) message = 'Save failed. Committed progress is unchanged; retry when storage is available.'; else message = ''; }
     catch (error) { message = error instanceof Error ? error.message : 'Could not save.'; }
-    finally { pending = false; render(); }
+    finally { pending = false; render(); if (focusId) document.getElementById(focusId)?.focus({ preventScroll: true }); }
     return saved;
   }
   async function rate(rating: RecallRating): Promise<void> {
