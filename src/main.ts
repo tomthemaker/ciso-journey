@@ -1,5 +1,5 @@
 import "./styles.css";
-import { initializeAccount } from "./account";
+import { initializeAccount, isFragmentAuthError } from "./account";
 import { renderProgress } from "./progress-view";
 import { bindPortfolio } from "./portfolio-view";
 import { bindToday } from "./today";
@@ -98,6 +98,15 @@ const changed: Change = async edit => {
     if (readingFocused && location.hash === readingHash) document.getElementById("readingComplete")?.focus({ preventScroll: true });
   }
 };
+// A fragment can also arrive while this document is already open.
+window.addEventListener("hashchange", () => {
+  if (isFragmentAuthError(location.hash)) {
+    invalidateProfile();
+    location.reload();
+  }
+});
+// Parse and clear callback material before the hash router reads the URL.
+const accountInitialization = initializeAccount(invalidateProfile);
 bindNavigation();
 const renderPortfolio = bindPortfolio(changed);
 const renderToday = bindToday(lessonBundle, changed);
@@ -188,7 +197,7 @@ byId("resetBtn", "button").addEventListener("click", () => {
   }
 });
 renderResources();
-void initializeAccount(invalidateProfile).then(profile => {
+void accountInitialization.then(profile => {
   storage = new LearnerStorage(undefined, undefined, profile);
   return load();
 }).catch(error => {

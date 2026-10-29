@@ -70,6 +70,59 @@ test.describe('local real Auth sessions (synthetic email fixtures, not GitHub OA
     expect(new URL(page.url()).searchParams.has('code')).toBeFalsy();
     await expect(page.locator('#roadmap')).toBeHidden();
   });
+  test('fragment failure blocks an existing account until verification retry', async ({ page }) => {
+    const a = await syntheticUser();
+    const authKey = `ciso-journey-auth:${encodeURIComponent(api.replace(/\/+$/, ''))}`;
+    await page.addInitScript(raw => localStorage.setItem('ciso-journey-v1', raw), JSON.stringify(mixed.data));
+    await page.goto('./');
+    await expect(page.locator('#statTasks')).toHaveText('19');
+    await page.evaluate(({authKey, a}) => localStorage.setItem(authKey, JSON.stringify(a)), {authKey, a});
+    await page.reload();
+    await expect(page.locator('#accountStatus')).toContainText('Account profile');
+    await page.locator('.task input').first().check();
+    await expect(page.locator('#statTasks')).toHaveText('1');
+    await page.goto('./#error=access_denied&error_description=Synthetic+denial');
+    await expect(page.locator('#accountStatus')).toContainText('cancelled or failed');
+    expect(new URL(page.url()).hash).toBe('');
+    await expect(page.locator('#roadmap')).toBeHidden();
+    await expect(page.locator('#exportBtn')).toBeDisabled();
+    await page.reload();
+    // The old session can be verified on retry, restoring its existing profile.
+    await expect(page.locator('#accountStatus')).toContainText('Account profile');
+    await expect(page.locator('#statTasks')).toHaveText('1');
+  });
+  for (const kind of ['malformed', 'expired']) {
+    test(`${kind} session blocks anonymous state across reload until local recovery`, async ({ page }) => {
+      const a = await syntheticUser();
+      const authKey = `ciso-journey-auth:${encodeURIComponent(api.replace(/\/+$/, ''))}`;
+      const raw = JSON.stringify(mixed.data);
+      await page.addInitScript(raw => localStorage.setItem('ciso-journey-v1', raw), raw);
+      await page.goto('./');
+      await expect(page.locator('#statTasks')).toHaveText('19');
+      await page.evaluate(({authKey, a}) => localStorage.setItem(authKey, JSON.stringify(a)), {authKey, a});
+      await page.reload();
+      await expect(page.locator('#accountStatus')).toContainText('Account profile');
+      await page.locator('.task input').first().check();
+      await expect(page.locator('#statTasks')).toHaveText('1');
+      const session = kind === 'malformed' ? {malformed:true} : {...a, expires_at:1, refresh_token:'invalid-test-refresh'};
+      await page.evaluate(({authKey, session}) => localStorage.setItem(authKey, JSON.stringify(session)), {authKey, session});
+      await page.reload();
+      await expect(page.locator('#accountStatus')).toContainText('could not be recovered');
+      await expect(page.locator('#roadmap')).toBeHidden();
+      await expect(page.locator('#exportBtn')).toBeDisabled();
+      await page.reload();
+      await expect(page.locator('#accountStatus')).toContainText('could not be recovered');
+      await expect(page.locator('#exportBtn')).toBeDisabled();
+      await page.getByRole('button', {name:'Continue with local study'}).click();
+      await expect(page.locator('#accountStatus')).toContainText('Local profile');
+      await expect(page.locator('#statTasks')).toHaveText('19');
+      expect(await page.evaluate(() => localStorage.getItem('ciso-journey-v1'))).toBe(raw);
+      await page.evaluate(({authKey, a}) => localStorage.setItem(authKey, JSON.stringify(a)), {authKey, a});
+      await page.reload();
+      await expect(page.locator('#accountStatus')).toContainText('Account profile');
+      await expect(page.locator('#statTasks')).toHaveText('1');
+    });
+  }
 });
 
 test('session changed while verification is pending cannot show old profile', async ({ browser }) => {
