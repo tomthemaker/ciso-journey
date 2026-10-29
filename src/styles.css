@@ -715,3 +715,6 @@ body[data-storage-blocked="true"] .overview { display: none; }
   .tabs { flex-wrap: wrap; overflow: visible; }
   .tab { font-size: 14px; padding: 8px 10px; }
 }
+.account-panel { font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
+.account-panel p { margin-bottom: 8px; }
+@media print { .account-panel { display: none; } }

@@ -34,11 +34,13 @@ export class LearnerStorage {
   recovery?: string;
 
   private readonly factory: IDBFactory | undefined;
+  private readonly profile: string;
   private readonly legacy: Pick<Storage, "getItem">;
   constructor(
     factory: IDBFactory | undefined = globalThis.indexedDB,
     legacy: Pick<Storage, "getItem"> = { getItem: key => localStorage.getItem(key) },
-  ) { this.factory = factory; this.legacy = legacy; }
+    profile = CURRENT,
+  ) { this.factory = factory; this.legacy = legacy; this.profile = profile; }
 
   private async open(): Promise<IDBDatabase> {
     if (this.db) return this.db;
@@ -74,7 +76,7 @@ export class LearnerStorage {
       tx.oncomplete = () => resolve(value);
       tx.onabort = () => reject(failure ?? tx.error ?? new Error("Storage transaction was aborted."));
       const store = tx.objectStore(STORE);
-      const read = store.get(CURRENT);
+      const read = store.get(this.profile);
       read.onsuccess = () => {
         try {
           work(store, read.result, result => { value = result; });
@@ -85,7 +87,7 @@ export class LearnerStorage {
 
   async load(): Promise<LearnerState> {
     // Capture raw v1 for recovery even when IndexedDB is unavailable. Never remove or update it.
-    try { this.recovery = this.legacy.getItem(KEY) ?? undefined; } catch { /* IDB may still be usable. */ }
+    try { this.recovery = this.profile === CURRENT ? this.legacy.getItem(KEY) ?? undefined : undefined; } catch { /* IDB may still be usable. */ }
     const snapshot = await this.transaction<Snapshot>((store, existing, result) => {
       if (existing !== undefined) {
         this.recovery = JSON.stringify(existing, null, 2);
@@ -93,11 +95,11 @@ export class LearnerStorage {
         return;
       }
       // Read failure is a failure, not evidence of a new learner.
-      const raw = this.legacy.getItem(KEY);
+      const raw = this.profile === CURRENT ? this.legacy.getItem(KEY) : null;
       this.recovery = raw ?? undefined;
       const data = raw === null ? empty() : validateState(JSON.parse(raw));
       const migrated: Snapshot = { schemaVersion: 2, revision: 1, data };
-      store.put(migrated, CURRENT);
+      store.put(migrated, this.profile);
       result(migrated);
     });
     this.revision = snapshot.revision;
@@ -116,7 +118,7 @@ export class LearnerStorage {
         throw new Error("Progress changed in another tab. Retry storage to load that progress before editing.");
       }
       const snapshot: Snapshot = { schemaVersion: 2, revision: (this.revision ?? 0) + 1, data };
-      store.put(snapshot, CURRENT);
+      store.put(snapshot, this.profile);
       result(snapshot);
     });
     this.revision = next.revision;

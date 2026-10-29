@@ -1,4 +1,5 @@
 import "./styles.css";
+import { initializeAccount, isFragmentAuthError } from "./account";
 import { renderProgress } from "./progress-view";
 import { bindPortfolio } from "./portfolio-view";
 import { bindToday } from "./today";
@@ -19,6 +20,14 @@ import type { Change, LearnerState } from "./types";
 let storage: LearnerStorage | undefined;
 let state: LearnerState | undefined;
 let busy = false;
+let generation = 0;
+function invalidateProfile(): void {
+  generation++;
+  state = undefined;
+  storage = undefined;
+  document.body.dataset.storageBlocked = "true";
+  controls();
+}
 const status = byId("storageStatus", "p");
 const themeChoice = byId("themeChoice", "select");
 const systemTheme = matchMedia("(prefers-color-scheme: dark)");
@@ -67,18 +76,21 @@ const changed: Change = async edit => {
   if (busy || !state || !storage) return false;
   const readingFocused = document.activeElement?.id === "readingComplete";
   const readingHash = location.hash;
+  const current = generation;
+  const target = storage;
   const candidate = structuredClone(state);
   edit(candidate);
   busy = true;
   controls();
   try {
-    await storage.save(candidate);
+    await target.save(candidate);
+    if (current !== generation) return false;
     state = candidate;
     document.body.dataset.storageError = "false";
     status.textContent = "Progress saved in this browser. Export regular backups.";
     return true;
   } catch (error) {
-    showError(error);
+    if (current === generation) showError(error);
     return false;
   } finally {
     busy = false;
@@ -86,6 +98,15 @@ const changed: Change = async edit => {
     if (readingFocused && location.hash === readingHash) document.getElementById("readingComplete")?.focus({ preventScroll: true });
   }
 };
+// A fragment can also arrive while this document is already open.
+window.addEventListener("hashchange", () => {
+  if (isFragmentAuthError(location.hash)) {
+    invalidateProfile();
+    location.reload();
+  }
+});
+// Parse and clear callback material before the hash router reads the URL.
+const accountInitialization = initializeAccount(invalidateProfile);
 bindNavigation();
 const renderPortfolio = bindPortfolio(changed);
 const renderToday = bindToday(lessonBundle, changed);
@@ -95,15 +116,18 @@ const renderCases = bindCases(lessonBundle, lessonObjectives, changed);
 async function load(): Promise<void> {
   if (busy) return;
   busy = true;
+  const current = generation;
   controls();
   try {
     storage ??= new LearnerStorage();
-    state = await storage.load();
+    const loaded = await storage.load();
+    if (current !== generation) return;
+    state = loaded;
     document.body.dataset.storageError = "false";
     status.textContent = "Progress stored in this browser. Export regular backups.";
   } catch (error) {
     // No fabricated empty learner: retain known committed state, or block the learning views.
-    showError(error);
+    if (current === generation) showError(error);
   } finally {
     busy = false;
     renderAll();
@@ -134,25 +158,28 @@ byId("exportBtn", "button").addEventListener("click", () => {
 recoveryButton.addEventListener("click", () => {
   if (storage?.recovery) download(storage.recovery, "ciso-journey-recovery.json");
 });
-byId("retryStorageBtn", "button").addEventListener("click", () => { void load(); });
+byId("retryStorageBtn", "button").addEventListener("click", () => { if (storage) void load(); else location.reload(); });
 const importFile = byId("importFile", "input");
 byId("importBtn", "button").addEventListener("click", () => importFile.click());
 importFile.addEventListener("change", async () => {
   const file = importFile.files?.[0];
   if (!file || busy) return;
   busy = true;
+  const current = generation;
+  const target = storage;
   controls();
   try {
     const candidate = validateBackup(JSON.parse(await file.text()));
-    if (confirm("Importing will overwrite current progress. Continue?")) {
-      storage ??= new LearnerStorage();
-      await storage.save(candidate);
+    if (current === generation && target && confirm("Importing will overwrite current progress. Continue?")) {
+      await target.save(candidate);
+      if (current !== generation) return;
       state = candidate;
       document.body.dataset.storageError = "false";
       status.textContent = "Backup imported and saved in this browser.";
       alert("Backup imported successfully.");
     }
   } catch (error) {
+    if (current !== generation) return;
     showError(error);
     alert("Could not import backup: " + recoveryMessage(error));
   } finally {
@@ -170,4 +197,12 @@ byId("resetBtn", "button").addEventListener("click", () => {
   }
 });
 renderResources();
-void load();
+void accountInitialization.then(profile => {
+  storage = new LearnerStorage(undefined, undefined, profile);
+  return load();
+}).catch(error => {
+  byId("accountStatus", "p").textContent = error instanceof Error ? error.message : "Account verification failed.";
+  status.textContent = "Account unavailable. Reload to retry; no progress was replaced.";
+  document.body.dataset.storageError = "true";
+  controls();
+});

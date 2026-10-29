@@ -39,6 +39,7 @@ test('case self-assessment is shown by exact rubric and dated criterion', async 
   await page.getByLabel('Evidence title', { exact: true }).fill('Synthetic evidence');
   await page.locator('#saveCaseResponse').click();
   const form = page.getByRole('form', { name: 'Self-assess case response 1' });
+  await expect(form).toBeVisible();
   for (const select of await form.locator('select').all()) await select.selectOption('1');
   await form.getByRole('button', { name: 'Save case self-assessment' }).click();
   await expect(form).toHaveCount(0);
