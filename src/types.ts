@@ -1,3 +1,4 @@
+import type { Portfolio } from "./portfolio.ts";
 import type { ReviewProgress } from "./reviews.ts";
 import type { ScenarioResponses } from "./scenario-responses.ts";
 import type { QuestionAttempts } from "./question-attempts.ts";
@@ -33,6 +34,7 @@ export interface LearnerState {
   scores: Record<string, number>;
   journal: HistoryEntry[];
   achievements: HistoryEntry[];
+  portfolio?: Portfolio;
   readingProgress?: ReadingProgress;
   reviewProgress?: ReviewProgress;
   questionAttempts?: QuestionAttempts;
