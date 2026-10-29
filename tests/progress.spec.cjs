@@ -47,3 +47,34 @@ test('case self-assessment is shown by exact rubric and dated criterion', async 
   await expect(page.locator('#progressReport')).toContainText(`${scenario.payload.rubricRef.id}@${scenario.payload.rubricRef.version}`);
   await expect(page.locator('.progress-rubric li').first()).toContainText(/\d{4}-\d{2}-\d{2} — 1:/);
 });
+test('quarterly self-report history and portfolio references are read-only in Progress', async ({ page }) => {
+  await page.goto('./#competencies');
+  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
+  await page.locator('#portfolio-title').fill('Synthetic evidence');
+  await page.getByRole('button', { name: 'Save evidence' }).click();
+  for (const [date, level] of [['2026-03-31', 'Recognize'], ['2026-04-01', 'Apply']]) {
+    await page.locator('#appraisal-date').fill(date);
+    await page.locator('#appraisal-competency').selectOption('Governance');
+    await page.locator('#appraisal-level').selectOption(level);
+    await page.locator('#appraisal-scope').fill('Synthetic pilot');
+    await page.locator('#appraisal-rationale').fill('Bounded self-report');
+    await page.locator('#appraisal-evidenceId').selectOption({ label: 'Synthetic evidence' });
+    await page.getByRole('button', { name: 'Save self-assessment' }).click();
+    await expect(page.locator('#appraisalHistory')).toBeFocused();
+  }
+  const snapshot = () => page.evaluate(() => new Promise(resolve => { const request = indexedDB.open('ciso-journey', 1); request.onsuccess = () => { const db = request.result, tx = db.transaction('snapshots'), get = tx.objectStore('snapshots').get('current'); tx.oncomplete = () => { db.close(); resolve(get.result); }; }; }));
+  const before = await snapshot();
+  await page.getByRole('button', { name: 'Progress', exact: true }).click();
+  const report = page.locator('#progressReport');
+  await expect(report).toContainText('2026 Q1 · 2026-03-31 · Recognize · self-assessment');
+  await expect(report).toContainText('2026 Q2 · 2026-04-01 · Apply · self-assessment');
+  await expect(report).toContainText('Prior self-report for this exact scope and provenance: 2026-03-31 · Recognize');
+  await expect(report).toContainText('Portfolio evidence');
+  await page.getByLabel('Event window').selectOption('90');
+  await expect(page.getByLabel('Event window')).toBeFocused();
+  await expect(report).toContainText('2026 Q2 · 2026-04-01 · Apply · self-assessment');
+  expect(await snapshot()).toEqual(before);
+  await page.reload();
+  await expect(report).toContainText('2026 Q2 · 2026-04-01 · Apply · self-assessment');
+  expect(await snapshot()).toEqual(before);
+});
