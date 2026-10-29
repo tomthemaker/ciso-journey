@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "a02-comp3-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-a02-comp3-author",
+      "kind": "ai",
+      "role": "Original governance case author and official-source inspector; not independent educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-a02-comp3-csf2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST CSF 2.0: authority, policy and oversight",
+      "authorIds": [
+        "ai-a02-comp3-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original AI-authored governance case draft; no delivered revision changed.",
+      "priorAttemptImpact": "New ID with no existing attempts; preserve every historical response and its exact content version.",
+      "scheduleImpact": "No card or scheduler changes; no completion, recall or legacy score changes.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29, The NIST Cybersecurity Framework (CSF) 2.0, February 26, 2024",
+        "jurisdiction": "Country-neutral cybersecurity outcomes; fictional corporate application, no legal applicability claim",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official PDF title/date, sections 1–2 and Appendix A printed pages 16–17: GV.RM-02/04/05, GV.RR-01/02, GV.PO-01/02 and GV.OV-01/03. These support explicit roles, risk boundaries, policy and oversight. CSF describes outcomes without prescribing this fictional charter, authority thresholds, exception duration or log. Official CSF landing page still identifies CSF 2.0 on check date. PDF HTTP 200, 1518858 bytes, SHA-256 3c31f46fee98cac0c4323453e5109291a213b4de7fef8c058af9bf67f717433c. Source/rights receipts and limits: docs/curriculum/drafts/a02-comp3.md. AI inspection is not independent educator/legal approval.",
+        "verifierId": "ai-a02-comp3-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original paraphrase and fictional evidence; no source passage, table, diagram, exam item or licensed requirement reproduced. NIST Technical Series rights notice inspected 2026-10-29: US employee-work treatment, foreign rights and third-party exceptions are distinct; notice includes worldwide reprint permission subject to its terms. Attribution: NIST (2024), CSWP 29, https://doi.org/10.6028/NIST.CSWP.29. Rights notice: https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications. No NIST endorsement or rights clearance claimed.",
+        "c01SourceId": "src-nist"
+      }
+    },
+    {
+      "id": "scenario-a02-comp3-governance",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Moraine Components: bounded authority and visible exceptions",
+      "authorIds": [
+        "ai-a02-comp3-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp3-csf2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original AI-authored governance case draft; no delivered revision changed.",
+      "priorAttemptImpact": "New ID with no existing attempts; preserve every historical response and its exact content version.",
+      "scheduleImpact": "No card or scheduler changes; no completion, recall or legacy score changes.",
+      "payload": {
+        "brief": "Moraine Components is a fictional distributor. You advise its chief operating officer (COO) as CISO on exercise Day 0. All people, records, figures and rules below are invented. Times are local exercise times; Day 21 is 21 calendar days after Day 0. No employer evidence is required.\n\nGovernance principle. Decision authority is a documented permission to decide within stated limits. A risk owner is accountable for the business consequences and response; a control owner operates safeguards. Performing a control or advising on its quality does not confer risk acceptance authority. An exception permits a bounded departure from an internal rule, with accountable approval, conditions and expiry. It does not erase residual risk, amend policy indefinitely or waive an external obligation. Oversight needs accurate exceptions and evidence, including uncertainty. NIST CSF 2.0 supports these governance outcomes; the particular charter and thresholds here are exercise choices.\n\nE1 — approved charter and access policy. The board risk committee approves security policy and risk appetite and decides risk outside delegated bounds. It meets on Day 2 and has a chair available for urgent escalation. The COO owns order-service risk and may personally approve an exception to the named-application-identity rule and accept its medium residual risk for at most 30 calendar days within that service, only after controls are evidenced and recorded, with no unresolved external obligation. This permission does not authorize permanent policy changes or other policy exceptions. Approval must be written before access begins; it cannot be delegated to the CISO, CIO or vendor. High risk, longer duration, unrestricted vendor access, missing evidence or unresolved obligations require committee decision before access. No reply means no approval. The CIO owns access controls, implementation and removal. The CISO advises on risk/evidence, maintains the register, and commands incident triage and immediate suspension of suspect vendor access; the CISO then informs the COO and committee chair. The head of internal audit reports assurance findings directly to the committee, independently of control operation and risk acceptance. The COO is accountable for the board pack; the CISO must submit material exception findings unchanged to the chair by 16:00 Day 1. Executive interference may be reported directly to the chair through the charter's confidential channel. Temporary exceptions must be disclosed. The normal access policy requires named vendor identities inside the order application.\n\nE2 — service and evidence. A vendor needs privileged order-quantity access for migration support from Day 0 through Day 21. Its application currently uses a shared support identity. Named application identities are promised in a Day 21 release, with no completed acceptance test. The CIO can restrict that shared identity behind a gateway: two named engineers use multifactor authentication; access is limited to 09:00–17:00 while staff monitor sessions, has no other network route, and records each gateway session. Application changes still show the shared identity, so attribution inside the application remains imperfect. A Day 0 dry run recorded 20 of 20 gateway sessions and a rollback test restored changed test orders. These tests do not prove every future session will be captured or that production loss cannot occur. The COO will fund daily order reconciliation, owned by the order-service manager. Reconciliation can find wrong quantities after a delay; it cannot prevent all delayed dispatch. The CISO's documented provisional assessment is medium residual risk only for this bounded configuration with verified production controls. It makes no numerical loss-probability claim. For this exercise no identified external obligation prohibits that bounded configuration; a newly discovered unresolved obligation blocks delegated approval pending appropriate review. Internal approval cannot waive an actual law or contract.\n\nE3 — alternatives and pressures. Sales requests unrestricted vendor access for 60 days to avoid repeated approvals and retain engineers for later work. The CIO requests a 21-day deferral until named application identities are tested. Deferral plus manual order handling costs an estimated CHF 5,000 per week, requires 12 staff hours per week and supports 200 rather than 500 orders per day; it avoids this vendor-access exposure but risks delayed orders and staff error. A bounded 21-day exception costs CHF 8,000 for gateway setup/monitoring and preserves normal capacity, with residual misuse, attribution and detection risk. Estimates exclude incident losses. Unrestricted 60-day access costs CHF 2,000 to set up and preserves capacity but removes gateway restrictions and exceeds the COO's authority; it needs committee evaluation and may be refused. No option has a guaranteed loss estimate. Manual processing is available immediately if approval or production evidence is missing.\n\nE4 — oversight conflict. The chief executive asks the CISO to leave any temporary exception out of the Day 1 board pack until the release succeeds, to keep the pack simple. Internal audit asks for the exception, limitations and owner to remain visible. The chief executive does not have authority to suspend E1's reporting or change its delegated limits. Concealment could deny the committee information needed to oversee the risk and expose staff to pressure. No breach has been established. Decide the access request and the reporting request separately; preserve the original evidence and disagreement.",
+        "deliverable": "Write a decision memo with a short charter and exactly two decision-log entries; use only fictional evidence E1–E4. You may use role titles instead of names. A defensible deferral, refusal or other bounded recommendation can earn the same rubric level as the example when it respects authority, evidence and consequences. Do not treat the example wording or option as the answer key.\n\n1. Charter: assign an accountable role and its authority/limit for policy approval, service-risk acceptance, incident escalation and assurance. Distinguish governing oversight, the risk owner, the control owner and the CISO's advice/incident role. Identify the actor and route for decisions beyond delegation; do not infer that seniority or CISO title grants unlimited acceptance authority.\n\n2. Entry G1, vendor access: record the conflict, affected stakeholders and E1 authority. Compare all three E3 alternatives, including cost/capacity effects and residual risk. Recommend one or justify a variant; state whether this is a recommendation, pending decision, approval or refusal and who may decide it. Do not invent a signed approval or completed production test. Identify risk/control/action owners, current evidence, uncertainty and what would change the recommendation. Produce an actionable exception-log record even if refused or pending: ID, internal rule/scope, requested duration, decision/approver/status, rationale, residual risk, required evidence and conditions before access, implementation/monitoring owners, review date and evidence, hard expiry, stop/escalation triggers, fallback and closure evidence. For refusal/deferral retain the requested scope, mark it unapproved, and state the next decision gate; do not fabricate an active exception. Choose concrete times within E1's bounds. State how release delay or control failure will be handled without automatic renewal.\n\n3. Entry G2, board reporting: record both conflicting requests, affected stakeholders, E1 authority, decision/owner/status, evidence and rationale for truthful proportionate reporting. State what will be reported, to whom and by when, including any pending G1 approval and uncertainty. Describe the ethical concern, how you would retain the disagreement without unnecessary personal detail, and the direct escalation route if the executive blocks submission. Give a check that the committee received the information. Distinguish a governance disagreement from an established incident.\n\nFor the Lead anchors, explicitly give the G1 uncertainty/change-of-decision condition, actionable evidence-based review/closure/fallback, and the G2 obstruction route and receipt check above. The rubric describes this response only: self-assessment is separate from task/resource completion, recall, question attempts and the six legacy self-ratings. It does not establish workplace competence or readiness.",
+        "constraints": [
+          "Use E1 as the fictional approved authority, not an assertion of any country's corporate or regulatory law. No COBIT, ISO or exam-equivalence claim or new framework mapping is needed.",
+          "Unverified production safeguards, unresolved obligations, no written decision or a missing response do not authorize access. The CISO can recommend and suspend suspect access but cannot accept the COO's or committee's risk by title.",
+          "Keep temporary risk acceptance, permanent policy change, operational implementation, incident escalation and independent assurance distinct. Internal audit's fictional role is not human approval of this authored curriculum.",
+          "Use the supplied estimates as estimates; do not calculate a fabricated expected loss. Apply the 30-day delegation ceiling, explicit expiry and no automatic renewal; committee approval cannot be presumed.",
+          "All feedback is an AI-authored draft. Use the Recognize/Explain/Apply/Lead anchors per criterion; score 0 means no assessable evidence, and the 1–4 rubric is separate from legacy 0–4 self-ratings."
+        ],
+        "rubricRef": {
+          "id": "rubric-a02-comp3-governance",
+          "version": 1
+        },
+        "annotatedExample": "One defensible response; alternatives can earn equivalent credit.\n\nCharter. The board risk committee approves policy/appetite and decides outside delegation; it oversees rather than runs the gateway. The COO is accountable for order-service risk and can personally approve the named-identity exception and accept its evidenced medium risk for at most 30 days within E1, without changing policy permanently. The CIO implements/operates/removes access controls, without accepting business risk on that basis. The CISO advises and records the decision; for suspect access the CISO commands immediate suspension/triage and informs the COO and chair. The head of internal audit owns assurance reporting to the committee and does not operate or accept these controls. The committee/chair is the escalation route for missing evidence, disputed risk or exceeded delegation. [Annotation: assigns all four requested decision types and separates oversight, risk, controls and assurance. An advisory opinion is not an acceptance.]\n\nG1 — Day 0, vendor migration access; pending recommendation. Sales seeks 60 unrestricted days; the CIO seeks deferral. Order staff/customers need reliable dispatch, the vendor needs bounded support access, and the COO bears service consequences. E1 permits only the COO to accept the evidenced medium configuration for at most 30 days. The 60-day unrestricted request is outside that delegation and is not approved; refer it to the committee if Sales wishes to pursue it, retaining manual processing meanwhile. The committee's decision is not presumed.\n\nI recommend the bounded 21-day configuration conditional on production evidence and the COO's written acceptance. It costs CHF 8,000 and preserves 500 orders/day, but leaves shared-identity attribution and delayed detection/misuse risk. Deferral with manual handling avoids the vendor access risk, costs CHF 5,000/week plus 12 hours/week and limits capacity to 200 orders/day; it may create delays/errors. The 60-day unrestricted option costs CHF 2,000 and preserves capacity but increases exposure, exceeds E1 and has no evidenced medium assessment. Low setup cost is insufficient reason to choose it. These are incomplete cost estimates, not expected-loss calculations. If production gateway evidence fails or the scope changes, I would recommend deferral and committee escalation instead. [Annotation: compares all supplied options, their consequences and authority, without pretending the provisional medium assessment applies to unrestricted access.]\n\nException record EX-MOR-01. Internal rule: named vendor identity inside the order application. Requested departure: shared application identity only through the restricted gateway for two named engineers, order-quantity migration support, 09:00–17:00 through 17:00 Day 21. No unrestricted route or later-project access is included. Status: pending; COO is the required risk decision maker; no signature or approval is asserted. Rationale: preserve service capacity while replacing shared application identities. Residual risk: imperfect application attribution, misuse and incomplete/delayed detection, including dispatch delay; risk owner COO, control owner CIO. E2's dry run and rollback provide limited evidence, not proof of production safety.\n\nBefore activation the CIO must demonstrate production route restrictions, named multifactor access, recording, access removal at expiry and staffed monitoring; the service manager must demonstrate reconciliation staffing. The CISO records the evidence and confirms whether the bounded-medium assessment still holds. The COO then decides personally in writing, including the residual risk and duration. If any condition or written acceptance is missing, access stays disabled and manual processing continues. The service manager owns daily reconciliation and reports discrepancies to the CISO; the CIO owns session monitoring/record checks each allowed day and removal. At 15:00 Day 7 the COO reviews the CISO's evidence summary: allowed sessions versus captured records, reconciliation exceptions, vendor scope and Day 21 release progress; audit receives that summary for assurance. Missing recordings, an unapproved route/engineer, suspected misuse, failed reconciliation coverage or changed risk/obligations trigger suspension through the CISO/CIO, notification of the COO/chair and committee review before any restart outside delegation. Suspected compromise also enters CISO incident triage; no incident is assumed here.\n\nHard expiry is 17:00 Day 21, earlier if named application access is tested and the shared route removed. By 15:00 Day 18 the COO reviews release evidence and manual-capacity needs. A promise of the Day 21 release is not completion evidence. If it slips, the default is access removal and manual processing at expiry. Any new request needs fresh evidence and an authorized written decision before access, with the committee deciding if E1 is exceeded; no renewal is automatic. Closure requires the CIO's disablement record, verified named-access testing if deployed, a check that no alternate shared route remains, and the service manager's final reconciliation. The CISO records closure or outstanding issues; the COO remains accountable and audit checks the evidence independently. [Annotation: pending approval cannot be mistaken for an active exception; each condition has an owner, time and observable evidence. Removal is required even if the vendor misses its delivery.]\n\nG2 — Day 0, board-pack integrity; CISO reporting decision, submission pending. The chief executive requests omission; internal audit requests visibility. The committee, COO, order staff and customers could be affected by oversight based on incomplete information. E1 makes the COO accountable for the pack and requires the CISO to submit material findings unchanged to the chair by 16:00 Day 1; the executive cannot cancel this duty. I decline the omission request and inform the COO and executive of that authority. I will report the shared-identity departure, scope, residual risk, owners, pending status of EX-MOR-01, production evidence not yet obtained, proposed expiry and review/fallback. If the COO refuses G1, I will report that refusal and the manual-service consequence, not imply an active acceptance. The pack will distinguish a proposal from an approved exception and a disagreement from an established incident.\n\nI retain the dated requests, E1 authority and my response in the fictional decision record with only role-level details needed for accountability. The ethical concern is pressure to withhold material information from those charged with oversight, not proof of dishonest intent or breach. I seek a corrected submission with the COO; if blocked, I use E1's confidential direct chair channel before the same deadline, attach the unchanged evidence and record the obstruction factually. I request acknowledgment from the chair by 16:00 Day 1 and use the urgent chair contact if it is missing. Receipt confirms delivery, not approval of G1. Internal audit can verify receipt and later compare the pack with the register. [Annotation: gives an accountable, time-bound reporting action and a usable route when the usual chain is obstructed. No new authority or actual legal duty is invented.]"
+      }
+    },
+    {
+      "id": "rubric-a02-comp3-governance",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Governance memo and two-entry log: response-scoped anchors",
+      "authorIds": [
+        "ai-a02-comp3-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w9"
+      ],
+      "objectiveIds": [
+        "obj-w9-1",
+        "obj-w9-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-a02-comp3-csf2",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial original AI-authored governance case draft; no delivered revision changed.",
+      "priorAttemptImpact": "New ID with no existing attempts; preserve every historical response and its exact content version.",
+      "scheduleImpact": "No card or scheduler changes; no completion, recall or legacy score changes.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "charter-authority",
+            "description": "Requested charter and E1 authority for both entries; assess roles/limits rather than memorized job titles.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable charter or authority reasoning, or assumes the CISO may accept all risk."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies a relevant governing or accountable role but leaves decision types or limits unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: assigns policy approval, service-risk acceptance, incident escalation and assurance to E1 roles and explains why risk ownership differs from control operation/advice; delegation or escalation limits remain incomplete."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: accurately assigns all four decision types and governing oversight, risk/control/CISO/assurance roles; applies E1 to both entries, including COO 30-day/evidence bounds, committee route and reporting authority without presuming approval."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and makes the boundary executable: access remains disabled without evidence/written approval, matters beyond E1 reach the committee, and the G2 direct chair route remains available if the executive interferes."
+              }
+            ]
+          },
+          {
+            "id": "options-and-recommendation",
+            "description": "G1 comparison, reasoned recommendation, evidence limits and consequences using E2–E3.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable comparison or recommendation."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: names a relevant option and one service or risk consequence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains why at least two supplied options trade service/cost against exposure, but omits part of the three-option comparison or evidence limits."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: compares all three supplied options using relevant cost/capacity and residual-risk evidence; recommends a defensible option/variant, distinguishes pending from approved and does not invent loss probabilities or transfer the bounded-medium assessment to unrestricted access."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and explicitly identifies uncertainty that could change the recommendation and a specific change-of-decision condition, with a feasible alternative pending evidence/authority. A justified refusal or deferral qualifies equally."
+              }
+            ]
+          },
+          {
+            "id": "exception-record",
+            "description": "G1 requested exception-log fields, accountable follow-up and lifecycle; pending/refused records remain unapproved.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable exception record or treats an unsigned request as active permission."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies the policy departure, an owner or a duration but leaves most log fields absent."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains why scope, decision status, residual risk and an accountable approver are needed, but the record lacks conditions, ownership or follow-up."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: supplies ID/rule/scope/duration, approver/status/rationale, residual risk, risk/control/action owners, evidence/preconditions, monitoring, a concrete review, hard expiry within authority, stop/escalation and fallback; refusal/deferral retains scope and next decision gate without inventing approval."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and makes the lifecycle verifiable with review evidence, release-delay handling without automatic renewal and owned closure/removal evidence. Refusal/deferral may instead specify evidence-based re-entry and confirmation that access stayed disabled, with the same accountable follow-up."
+              }
+            ]
+          },
+          {
+            "id": "ethical-oversight",
+            "description": "G2 conflict, stakeholders, truthful reporting, evidence retention, obstruction escalation and receipt.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No assessable G2 response or endorses concealment as an authorized exception."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies a reporting conflict or an affected stakeholder."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: explains the ethical oversight concern and E1 duty, identifies conflicting requests/stakeholders, but leaves reporting actions or escalation incomplete."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: records owner/status/authority, conflict/stakeholders/evidence/rationale, reports scope/status/uncertainty truthfully to the chair by E1 deadline, retains a proportionate disagreement record and distinguishes governance disagreement from an established incident."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: meets Apply and gives the direct chair escalation if blocked, a concrete receipt check and follow-up for missing receipt, without interpreting delivery as approval or attributing unsupported intent."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-a02-comp3-csf2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-a02-comp3-governance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-a02-comp3-governance",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
