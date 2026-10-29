@@ -3,3 +3,7 @@ node_modules/
 playwright-report/
 test-results/
 dist/
+
+.env
+.env.*
+!.env.example
