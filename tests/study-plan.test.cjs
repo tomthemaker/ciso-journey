@@ -113,8 +113,13 @@ test('only explicit low exact rubric anchors create case feedback; unassessed te
   const response = { id: 'synthetic-case', contentRef: scenario, submittedAt: now };
   state.scenarioResponses = { schemaVersion: 1, responses: [response], selfAssessments: [] };
   assert(!personalizedPlan(bundle, state, now).suggestions.some(item => item.record.id === scenario.id));
-  state.scenarioResponses.selfAssessments.push({ responseId: response.id, rubricRef: scenario.payload.rubricRef, ratings: [{ criterionId: rubric.payload.criteria[0].id, score: Math.min(...rubric.payload.criteria[0].levels.map(level => level.score)) }] });
+  state.scenarioResponses.selfAssessments.push({ id: 'synthetic-low', assessedAt: now, responseId: response.id, rubricRef: scenario.payload.rubricRef, ratings: [{ criterionId: rubric.payload.criteria[0].id, score: Math.min(...rubric.payload.criteria[0].levels.map(level => level.score)) }] });
   assert.equal(personalizedPlan(bundle, state, now).selected.record.id, scenario.id);
+  state.scenarioResponses.responses.push({ ...response, id: 'synthetic-unassessed-later', submittedAt: '2026-10-29T09:00:00.000Z' });
+  assert.equal(personalizedPlan(bundle, state, now).selected.record.id, scenario.id);
+  state.scenarioResponses.selfAssessments.push({ id: 'synthetic-later-judgment', assessedAt: '2026-10-29T10:00:00.000Z', responseId: 'synthetic-unassessed-later', rubricRef: scenario.payload.rubricRef, ratings: [{ criterionId: rubric.payload.criteria[0].id, score: Math.max(...rubric.payload.criteria[0].levels.map(level => level.score)) }] });
+  assert(!personalizedPlan(bundle, state, now).suggestions.some(item => item.record.id === scenario.id));
+  state.scenarioResponses.selfAssessments.pop();
   state.scenarioResponses.selfAssessments[0].ratings[0].score = 999;
   assert(!personalizedPlan(bundle, state, now).suggestions.some(item => item.record.id === scenario.id));
 });

@@ -31,21 +31,34 @@ export function readingGaps(bundle: ContentBundle, state: LearnerState, record: 
   visit(record, new Set());
   return { ready, warnings: [...new Set(warnings)] };
 }
-/** Only the latest observation for an exact question/response counts; an unanswered response is not a weakness. */
+/** Latest keyed answers and latest explicit rubric judgments are separate observations.
+ * A newer unassessed response cannot erase an earlier explicit rubric judgment. */
 function feedback(bundle: ContentBundle, state: LearnerState): Map<string, string[]> {
   const reasons = new Map<string, string[]>();
   function add(ref: ContentRef, reason: string) { reasons.set(key(ref), [...(reasons.get(key(ref)) ?? []), reason]); }
   const attempts = [...(state.questionAttempts?.attempts ?? [])].sort((a, b) => a.submittedAt.localeCompare(b.submittedAt) || a.id.localeCompare(b.id));
-  const latest = new Map(attempts.map(attempt => [key(attempt.contentRef), attempt]));
-  for (const attempt of latest.values()) {
+  for (const attempt of new Map(attempts.map(item => [key(item.contentRef), item])).values())
     if (attempt.provenance === 'keyed-mcq' && attempt.correct === false) add(attempt.contentRef, 'Your latest keyed MCQ attempt on this exact revision was incorrect; revisit the explanation.');
-    const assessment = state.questionAttempts?.selfAssessments.find(item => item.attemptId === attempt.id);
-    if (assessment && lowAnchor(bundle, assessment)) add(attempt.contentRef, 'Your latest response has an explicit low rubric self-rating on an exact available anchor.');
+  const questionJudgments = [...(state.questionAttempts?.selfAssessments ?? [])].sort((a, b) => a.assessedAt.localeCompare(b.assessedAt) || a.id.localeCompare(b.id));
+  const latestQuestions = new Map<string, typeof questionJudgments[number]>();
+  for (const judgment of questionJudgments) {
+    const attempt = attempts.find(item => item.id === judgment.attemptId);
+    if (attempt) latestQuestions.set(key(attempt.contentRef), judgment);
   }
-  const responses = [...(state.scenarioResponses?.responses ?? [])].sort((a, b) => a.submittedAt.localeCompare(b.submittedAt) || a.id.localeCompare(b.id));
-  for (const response of new Map(responses.map(item => [key(item.contentRef), item])).values()) {
-    const assessment = state.scenarioResponses?.selfAssessments.find(item => item.responseId === response.id);
-    if (assessment && lowAnchor(bundle, assessment)) add(response.contentRef, 'Your latest case response has an explicit low rubric self-rating on an exact available anchor; this is self-reported feedback.');
+  for (const [reference, judgment] of latestQuestions) if (lowAnchor(bundle, judgment)) {
+    const attempt = attempts.find(item => key(item.contentRef) === reference)!;
+    add(attempt.contentRef, 'Your latest explicit question rubric self-rating includes a low exact available anchor; an unassessed response does not supersede it.');
+  }
+  const responses = state.scenarioResponses?.responses ?? [];
+  const caseJudgments = [...(state.scenarioResponses?.selfAssessments ?? [])].sort((a, b) => a.assessedAt.localeCompare(b.assessedAt) || a.id.localeCompare(b.id));
+  const latestCases = new Map<string, typeof caseJudgments[number]>();
+  for (const judgment of caseJudgments) {
+    const response = responses.find(item => item.id === judgment.responseId);
+    if (response) latestCases.set(key(response.contentRef), judgment);
+  }
+  for (const [reference, judgment] of latestCases) if (lowAnchor(bundle, judgment)) {
+    const response = responses.find(item => key(item.contentRef) === reference)!;
+    add(response.contentRef, 'Your latest explicit case rubric self-rating includes a low exact available anchor; this is self-reported feedback, retained until another explicit judgment.');
   }
   return reasons;
 }
