@@ -1,0 +1,1432 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w10-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w10-author",
+      "kind": "ai",
+      "role": "Week 10 original draft author and official NIST technical-source inspector; not independent educator, legal or financial reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w10-risk-identification",
+      "version": 1,
+      "kind": "source",
+      "title": "Identifying and Estimating Cybersecurity Risk for Enterprise Risk Management",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8286Ar1.pdf",
+        "edition": "NIST IR 8286A Rev. 1, final December 2025",
+        "jurisdiction": "United States guidance; general risk-method teaching, no jurisdiction-specific legal applicability claim",
+        "publicationDate": "2025-12-18",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official final landing page and downloaded PDF inspected 2026-10-29. Sections 2.1.1–2.1.2 (printed pp. 13–16): scope, leadership direction, appetite and tolerance; selected risk-description discussion (pp. 24–25), 2.2.3 (pp. 37–39), 2.2.4–2.2.5 (pp. 41–44): scenario, vulnerability and impact distinctions; 2.3.1–2.3.2 (pp. 47–50): assessment methods, supporting data, ranges and estimation limits. Landing-page history distinguishes February 2025 draft from December 18 final. This inspection does not validate every example or referenced method, imply ISO licensed access or independent educator approval.",
+        "verifierId": "ai-c04-w10-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples, questions and rubrics; NIST technical terminology attributed to exact editions. No reproduced table, diagram, substantial quotation, paid ISO text or exam item. Source inspection is not rights clearance; inspect notices before later reuse.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w10-risk-response",
+      "version": 1,
+      "kind": "source",
+      "title": "Prioritizing Cybersecurity Risk for Enterprise Risk Management",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/ir/2025/NIST.IR.8286B-upd1.pdf",
+        "edition": "NIST IR 8286B-upd1, final February 2025; updates as of 2025-02-26",
+        "jurisdiction": "United States guidance; general risk-method teaching, no jurisdiction-specific legal applicability claim",
+        "publicationDate": "2025-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official final landing page and downloaded PDF inspected 2026-10-29. Sections 2.3.1–2.3.6 (printed pp. 21–29): accept, avoid, transfer, mitigate, strategy, residual consequences and implicit acceptance; 2.4.1–2.4.4 (pp. 31–34): response resources, description, owner and status. Updated final supersedes February 2022 edition. Original fictional exercises do not reproduce NIST tables or calculations; this is AI source inspection, not educator, legal or financial advice.",
+        "verifierId": "ai-c04-w10-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples, questions and rubrics; NIST technical terminology attributed to exact editions. No reproduced table, diagram, substantial quotation, paid ISO text or exam item. Source inspection is not rights clearance; inspect notices before later reuse.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-w10-risk-assessment",
+      "version": 1,
+      "kind": "source",
+      "title": "Guide for Conducting Risk Assessments",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf",
+        "edition": "NIST SP 800-30 Rev. 1, final September 2012",
+        "jurisdiction": "United States guidance; general risk-method teaching, no jurisdiction-specific legal applicability claim",
+        "publicationDate": "2012-09-17",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official final landing page and downloaded PDF inspected 2026-10-29. Section 2.1 (printed pp. 6–7) and 2.3.1–2.3.2 (pp. 8–15): risk factors, threat scenarios, specified likelihood period, impact, uncertainty, and qualitative/semi-quantitative/quantitative approaches; section 3.2 tasks 2-3 through 2-5 (pp. 32–35) for assessment relationships. Federal-system guidance is used for bounded general teaching, not a universal obligation. No claim that these illustrative scales are mandated or statistically calibrated.",
+        "verifierId": "ai-c04-w10-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations, fictional examples, questions and rubrics; NIST technical terminology attributed to exact editions. No reproduced table, diagram, substantial quotation, paid ISO text or exam item. Source inspection is not rights clearance; inspect notices before later reuse.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w10-scenario",
+      "version": 1,
+      "kind": "concept",
+      "title": "Risk scenario and business consequence",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "A risk scenario describes how a threat event can act through a vulnerability or other enabling condition to affect a business objective. A vulnerability is a weakness; risk concerns the possibility and severity of resulting harm.",
+        "misconception": "A vulnerability inventory is not itself a business risk register."
+      }
+    },
+    {
+      "id": "concept-w10-likelihood",
+      "version": 1,
+      "kind": "concept",
+      "title": "Likelihood with a defined period",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "Likelihood concerns the possibility of a specified event and consequence within a stated period and scope. Probability, event frequency and an ordinal likelihood category are different representations requiring explicit definitions.",
+        "misconception": "A count of attacks or a score of 3 is not automatically a probability of business harm."
+      }
+    },
+    {
+      "id": "concept-w10-uncertainty",
+      "version": 1,
+      "kind": "concept",
+      "title": "Uncertainty and confidence",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "Uncertainty concerns what is not known about an estimate, its assumptions or variability. Confidence describes the strength of the supporting basis; an ordinary confidence label is not a statistical confidence interval.",
+        "misconception": "A wide impact range does not by itself prove either high or low confidence."
+      }
+    },
+    {
+      "id": "concept-w10-treatment",
+      "version": 1,
+      "kind": "concept",
+      "title": "Treatment and retained responsibility",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "Accept retains an assessed exposure under authorized conditions; avoid removes the specified activity or path; transfer or share allocates some consequences to another party; mitigate changes likelihood or impact. Residual exposure remains for authorized consideration.",
+        "misconception": "Insurance, outsourcing, a planned control or a security title does not eliminate retained exposure or confer acceptance authority."
+      }
+    },
+    {
+      "id": "lesson-w10-risk-register",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Week 10 · Likelihood, impact and risk treatment",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-assessment",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Make the register explain a decision",
+            "body": "A risk register is a maintained record of scenarios, assessments, decisions and follow-up. It helps leaders allocate attention to business objectives. It is not simply a list of vulnerabilities or a declaration that risk has been controlled. You will create three entries, then compare four treatments for one entry. Use fictional information throughout.\n\nStart from the threat paths studied in Week 6 and the delegated authority and escalation reasoning from Week 9. A threat event is something potentially harmful, such as an attacker changing shipment instructions. A vulnerability is a weakness enabling that event, such as excessive write access. A scenario connects the event and weakness to a consequence: changed instructions cause goods to go to an unintended destination. Risk concerns the possibility and severity of that harm. “Excessive permissions” alone omits both the event and its business significance."
+          },
+          {
+            "heading": "Define likelihood before assigning a label",
+            "body": "State the service, event, consequence, assessment date and future period. “At least one unauthorized shipment during the next twelve months” is different from “an attempted login today.” An attempted event may be blocked before harm occurs. Assess relevant access, attacker opportunity and existing barriers rather than equating attack counts with successful harm.\n\nProbability concerns a specified event in a specified period, and lies between zero and one. Frequency counts occurrences per unit time; several can occur in one year. Converting between them requires an event model and assumptions. An ordinal scale such as low, medium and high orders judgments but does not establish equal distances between them. Numbers attached to those labels do not become money or measured probabilities when multiplied.\n\nChoose a method proportionate to the evidence and decision. Define qualitative labels before comparing entries. Record why the scenario belongs in the chosen category. If evidence cannot support a defensible probability, say so. SP 800-30 Rev. 1 sections 2.3.1–2.3.2 explain why assessment factors, period and methods need explicit interpretation."
+          },
+          {
+            "heading": "Separate consequences, uncertainty and confidence",
+            "body": "Describe impact conditional on the specified event causing harm: what changes for customers, operations, information or people? An outage can delay dispatch without necessarily causing data disclosure. Keep different consequences visible instead of inventing a single precise financial total. State units, duration and assumptions for every numerical estimate.\n\nAn operational estimate might be one to three working days of delayed dispatch, assuming a supplier can restore service and a manual backlog can be reconciled. This is an illustrative planning range, not a measured distribution or guaranteed upper bound. A missing supplier recovery test could make the range unreliable. Uncertainty includes unknown dependencies, incomplete observations and variation in possible outcomes. Confidence concerns the supporting basis. “Low confidence because the new interface has never been tested” explains more than an unexplained percentage. A confidence label is not a statistical confidence interval. IR 8286A Rev. 1 section 2.3 discusses estimation methods and their limits."
+          },
+          {
+            "heading": "Keep observed controls separate from planned treatment",
+            "body": "For each entry, record an identifier, business objective, scenario and business owner. Add the assessment date and period, existing controls with evidence, likelihood, consequence, assumptions, uncertainties and confidence rationale. Record a decision status, proposed response, action owner, accepting authority, residual exposure and a dated review with event triggers.\n\nAssess current risk using controls that actually exist and the evidence available about their operation. A purchased recovery service is not proof of recovery performance. An unevaluated planned control cannot reduce the current assessment. If you also discuss inherent risk before controls, label that counterfactual and its assumptions separately. Residual risk means exposure remaining after specified responses; distinguish a forecast after planned treatment from an assessment after verified implementation. Retain earlier dated assessments so a later decision can be explained."
+          },
+          {
+            "heading": "Use appetite, tolerance and delegated authority",
+            "body": "Risk appetite expresses the broad types and amounts of risk leadership is willing to take in pursuing objectives. Tolerance makes that direction more specific for a service or objective. For example, a fictional distributor may support new supplier connections while requiring escalation whenever an untested change could interrupt dispatch beyond one working day. That is an exercise rule, not an industry threshold.\n\nA risk owner is accountable for managing the scenario. An action owner delivers a particular response. The person authorized to accept exposure may be different from both. Verify the charter: the CISO title alone provides no universal power to accept business risk. Record which decision fits the delegation and escalate an exception with affected stakeholders and reasons. An empty response budget or management silence is not a documented acceptance decision."
+          },
+          {
+            "heading": "Compare four responses to the same scenario",
+            "body": "Accept means knowingly retain the assessed exposure under the relevant authorization and monitoring conditions. Explain why this serves the objective and what would reopen the decision. Avoid means stop or change the activity so the specified risk path is removed. Explain the business benefit lost and any replacement risks; stopping one interface does not eliminate every dispatch risk.\n\nTransfer, also called sharing in broader discussions, allocates some consequences through arrangements such as contracts or insurance. Identify what is covered, exclusions, dependencies and retained operational harm. Outsourcing work does not automatically transfer every responsibility. Mitigate means change likelihood, impact or both through controls. Explain the mechanism and how you would evaluate it.\n\nCompare all four against the same scope and period. Discuss feasibility, effort, business effect and residual exposure, not just a preferred product. Combinations can be justified. Recommend only the action within your delegated authority; seek the designated acceptance decision separately. IR 8286B-upd1 sections 2.3–2.4 connect responses, ownership and monitoring to enterprise direction."
+          },
+          {
+            "heading": "Executive example 1: shipment integrity",
+            "body": "Fictional director Mira reviews an import service. A compromised supplier account could alter destinations because imported changes receive no independent approval. A log shows who changed a record, but does not stop an unauthorized shipment. Mira records a credible path with incomplete barriers, a possible shipment-recall backlog, and uncertainty about how many orders could be affected before detection.\n\nShe compares acceptance with continued exposure, avoidance by suspending imports, sharing defined recovery costs with the supplier, and mitigation through independent destination verification before release. She recommends a supervised test of verification within the existing operating plan. The finance and dispatch owners must assess workload and coverage. She does not report lower current risk until the test and deployment evidence exist. The designated executive must decide any exception. A failed verification, changed supplier access or missed review date reopens the assessment."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w6-threat-modeling",
+            "version": 1
+          },
+          {
+            "id": "lesson-w9-governance",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 65,
+        "workedExample": "Executive example 2: recovery uncertainty. Fictional service owner Leon is told that supplier backups make dispatch interruption “low risk.” The service depends on one supplier and has no operating alternative. His register separates the supplier outage event, that dependency and the consequence of delayed orders. The contract confirms that backups are purchased; it contains no recent restoration result for the new interface. He therefore records current recovery effectiveness as unverified and a one-to-three-working-day delay as a provisional planning assumption, with low confidence because dependencies and backlog handling are untested.\n\nLeon compares acceptance under the escalation rule, avoidance by postponing the interface launch, sharing specified costs through contractual recovery commitments, and mitigation through a scoped restoration and manual-dispatch exercise. He can coordinate that exercise within his delegated operating plan. He cannot grant himself an exception to the one-day escalation boundary. He asks the designated executive for direction before launch, assigns the operations lead to gather evidence by 2026-11-13, and reopens the entry if the test fails or dependencies change. The forecast residual delay remains uncertain; arranging a test has not established a successful recovery. [The action, acceptance decision and evidence are distinct.]",
+        "misconceptions": [
+          "A severity score identifies a weakness, not the likelihood and consequence of a business scenario.",
+          "An ordinal likelihood label multiplied by an impact label is not a monetary loss estimate.",
+          "Unobserved incidents and purchased controls do not prove low current risk.",
+          "Planned mitigation produces a forecast to test, not an already verified reduction.",
+          "An outsourced service or insurance policy leaves retained operational exposure.",
+          "A CISO may recommend treatment without holding authority to accept the residual exposure."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w10-1",
+            "version": 1
+          },
+          {
+            "id": "question-w10-2",
+            "version": 1
+          },
+          {
+            "id": "question-w10-3",
+            "version": 1
+          },
+          {
+            "id": "question-w10-4",
+            "version": 1
+          },
+          {
+            "id": "question-w10-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w10-risk-register",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w10-scenario",
+            "version": 1
+          },
+          {
+            "id": "concept-w10-likelihood",
+            "version": 1
+          },
+          {
+            "id": "concept-w10-uncertainty",
+            "version": 1
+          },
+          {
+            "id": "concept-w10-treatment",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "card-w10-1",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 10 retrieval · scenario",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What distinguishes a vulnerability from a business risk scenario?",
+        "answer": "A vulnerability is a weakness. A scenario explains how a threat event can use that weakness to harm a stated business objective; risk considers the possibility and severity of the harm.",
+        "conceptRef": {
+          "id": "concept-w10-scenario",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w10-2",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 10 retrieval · likelihood",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "Why must a likelihood estimate state the event and period?",
+        "answer": "The estimate refers to that event within that period. Attempts, harmful outcomes, occurrence counts and ordinal labels describe different things and cannot be substituted without definitions and assumptions.",
+        "conceptRef": {
+          "id": "concept-w10-likelihood",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w10-3",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 10 retrieval · uncertainty",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What does a low-confidence impact estimate need to explain?",
+        "answer": "Why its supporting basis is weak, such as an untested dependency. Keep the estimated consequence/range and assumptions separate from that explanation; low confidence is not itself a small impact.",
+        "conceptRef": {
+          "id": "concept-w10-uncertainty",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w10-4",
+      "version": 1,
+      "kind": "card",
+      "title": "Week 10 retrieval · treatment",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What remains after transferring part of a risk through insurance?",
+        "answer": "Exposure outside the coverage, including exclusions and operational consequences, remains. The organization still needs an authorized decision about retained exposure and monitoring.",
+        "conceptRef": {
+          "id": "concept-w10-treatment",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-w10-1",
+      "version": 1,
+      "kind": "question",
+      "title": "Specify what the likelihood describes",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "Fictional dispatch staff observed 20 rejected login attempts last month. Which statement best supports a risk-register assessment?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "The probability of a harmful dispatch change next year is 20%.",
+            "explanation": "The attempt count has neither a probability denominator nor evidence of harmful dispatch changes; it cannot establish 20%."
+          },
+          {
+            "id": "b",
+            "text": "Likelihood is high because the impact label is 4.",
+            "explanation": "Consequence severity is distinct from likelihood, and an ordinal score supplies no event-period estimate."
+          },
+          {
+            "id": "c",
+            "text": "Define unauthorized shipment changes as the outcome, assess the next twelve months, and examine access barriers and relevant evidence.",
+            "explanation": "Correct. A specified harmful outcome, period and barrier evidence support a bounded assessment. The attempt count alone cannot determine it."
+          },
+          {
+            "id": "d",
+            "text": "Twenty rejected attempts prove that existing controls prevent all future harm.",
+            "explanation": "The observation supports rejection in those observed conditions. Other paths and future effectiveness remain uncertain."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w10-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Interpret a supplier indemnity",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A fictional supplier offers reimbursement for certain documented recovery expenses after a dispatch outage. Service interruption and customer delays are excluded. Which interpretation is strongest?",
+        "difficulty": "intermediate",
+        "options": [
+          {
+            "id": "a",
+            "text": "Transfer removes the outage scenario from the register.",
+            "explanation": "The arrangement allocates only specified consequences. The service can still fail and retained exposure needs management."
+          },
+          {
+            "id": "b",
+            "text": "The agreement may share covered expenses; assess exclusions and retained operational harm before an authorized decision.",
+            "explanation": "Correct. This recognizes the scope of sharing while preserving the decision about residual consequences."
+          },
+          {
+            "id": "c",
+            "text": "The CISO can accept the remainder because reviewing contracts creates acceptance authority.",
+            "explanation": "Reviewing an agreement does not create delegated acceptance authority; the charter determines it."
+          },
+          {
+            "id": "d",
+            "text": "The contract proves that mitigation has reduced the probability of an outage.",
+            "explanation": "A reimbursement term is not evidence that preventive or recovery controls change outage likelihood or duration."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-w10-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Separate a current assessment from a forecast response rubric",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "causal-assessment",
+            "description": "Scenario and period-specific likelihood",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Omits the business consequence or treats a weakness as the whole scenario."
+              },
+              {
+                "score": 1,
+                "descriptor": "Identifies event, weakness and consequence but leaves likelihood period or reasoning incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Connects event, weakness and consequence and gives an explicitly qualitative assessment for the stated period with relevant reasoning; justified alternatives accepted."
+              }
+            ]
+          },
+          {
+            "id": "evidence-residual",
+            "description": "Controls, uncertainty, confidence and forecast",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats planned approval as verified risk reduction."
+              },
+              {
+                "score": 1,
+                "descriptor": "Separates existing and planned controls but omits uncertainty/confidence or retained forecast exposure."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains what the log can support, keeps proposed approval separate, links one uncertainty to confidence and describes conditional residual exposure without claiming verification."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w10-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Separate a current assessment from a forecast",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "Fictional dispatch uses a supplier import with no independent destination approval. An existing log records destination changes, but its coverage and response time are unexamined. A new approval control is proposed but untested. Write one compact register entry: identify the threat event, enabling weakness or condition and business consequence; assess likelihood qualitatively over 2026-11-01 through 2027-10-31 with a reason; distinguish the existing log from the planned approval; state one uncertainty and its effect on confidence; describe forecast residual exposure without claiming verified reduction. No owner or treatment comparison is requested in this short answer.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w10-question-3",
+          "version": 1
+        },
+        "annotatedExample": "Scenario: a compromised supplier account changes destinations through the unapproved import path, causing misdirected shipments. For 2026-11-01 through 2027-10-31 I call harmful changes credible, with incomplete barriers; this is a qualitative judgment, not a measured probability. The log can support investigation but does not approve changes before release. The approval control is planned, so it has not reduced current assessed risk. Coverage and response delay are unknown, limiting confidence in the extent of harm. After effective approval, unauthorized changes may be less likely to reach release, but collusion or missed checks may remain. That is a forecast requiring a coverage test. [Other justified likelihood judgments are acceptable if they retain the stated period, evidence limits and current/forecast distinction.]"
+      }
+    },
+    {
+      "id": "rubric-w10-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Respect a delegated decision boundary response rubric",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "comparison",
+            "description": "Four options, business effects and retained exposure",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Addresses fewer than two options or says a contract removes all exposure."
+              },
+              {
+                "score": 1,
+                "descriptor": "Addresses at least two options accurately but omits an option, business effect or retained exposure."
+              },
+              {
+                "score": 2,
+                "descriptor": "Accurately compares all four options for the same outage, including a business effect and residual exposure for each; combinations and justified alternatives accepted."
+              }
+            ]
+          },
+          {
+            "id": "authority-followup",
+            "description": "Scoped recommendation, roles and review",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Invents CISO acceptance/suspension authority or treats silence as acceptance."
+              },
+              {
+                "score": 1,
+                "descriptor": "Recommendation respects delegation but a decision/action role, date or event trigger is missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "Recommends a supported next action within delegation, identifies CEO acceptance and an action owner, and gives a dated review plus a relevant event trigger."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w10-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Respect a delegated decision boundary",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A fictional charter lets the service owner accept dispatch-delay exposure up to one working day when supported by evidence. Longer or unbounded delay requires a CEO decision. The CISO may coordinate an exercise under the existing operating plan but cannot accept exceptions or suspend the service. A supplier restoration estimate is one to three working days with low confidence. In five to seven sentences compare accept, avoid, transfer and mitigate for this outage scenario, including each option's business effect and residual exposure. Recommend the next action within the CISO delegation, identify the accepting authority and action owner, and give a dated review plus an event trigger. Additional powers or successful test results must not be invented.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w10-question-4",
+          "version": 1
+        },
+        "annotatedExample": "Acceptance preserves service but retains uncertain one-to-three-day delays, so the CEO must decide this exception. Avoidance by postponing use of the service removes this outage path during postponement but loses its dispatch benefit and leaves any replacement process risks; it needs authorization beyond the CISO role. Transfer through covered recovery commitments may share some cost but leaves delay, exclusions and supplier dependence. Mitigation through a restoration/manual-workaround exercise requires staff time and may reveal ways to shorten delay, yet the reduction remains unverified. I recommend coordinating that exercise within the existing operating plan, with the operations lead as action owner, and asking the CEO for direction on the exception. Review on 2026-11-13 or immediately on a failed test or changed dependency; neither coordination nor silence counts as acceptance. [A different recommendation can earn full credit if it covers all requested comparisons, respects the delegation and explains residual exposure.]"
+      }
+    },
+    {
+      "id": "rubric-w10-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Explain uncertainty without false precision response rubric",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "range-confidence",
+            "description": "Consequence range and evidential confidence",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Equates confidence with consequence size or calls the range a guaranteed upper bound."
+              },
+              {
+                "score": 1,
+                "descriptor": "Distinguishes the terms but omits the stated evidence gap or assumptions."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes consequence duration under assumptions from confidence in supporting evidence and identifies the interface test gap without inventing a statistical interval."
+              }
+            ]
+          },
+          {
+            "id": "evidence-scale",
+            "description": "Relevant evidence and valid numerical interpretation",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Converts ordinal product into days or money."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects that conversion but omits a relevant request or its possible assessment effect."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains the missing units/proportional meaning and gives one scoped evidence request with a plausible assessment effect and bounded interpretation."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w10-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Explain uncertainty without false precision",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "open",
+        "prompt": "In four to six sentences explain why a one-to-three-working-day dispatch delay range and “low confidence because the changed supplier interface has not been tested” describe different things. State one relevant evidence request and how its result could affect the assessment. Explain why multiplying ordinal likelihood 3 by ordinal impact 4 cannot establish twelve days or a financial loss. Do not calculate an expected monetary loss.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w10-question-5",
+          "version": 1
+        },
+        "annotatedExample": "The delay range describes possible consequence duration under stated restoration and backlog assumptions. Low confidence describes the weak supporting basis because the changed interface has not been tested; it is not a probability or confidence interval. Request a dated restoration and backlog-reconciliation exercise for that interface with observed elapsed time and dependency conditions. A successful result would support performance under those conditions, while a failure could widen the planning range or expose missing dependencies. Multiplying labels 3 and 4 preserves none of the units or proportional meanings needed for days or money, so twelve has no such interpretation. [Comparable evidence requests and justified descriptions of their possible effects are acceptable.]"
+      }
+    },
+    {
+      "id": "rubric-w10-risk-register",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 10 foundation risk register and treatment self-assessment",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "entries",
+            "description": "Three business-owned, bounded causal entries",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than two coherent entries or mostly vulnerability labels."
+              },
+              {
+                "score": 1,
+                "descriptor": "Two complete entries, or three with incomplete scenario/owner/period fields."
+              },
+              {
+                "score": 2,
+                "descriptor": "Three distinct entries identify business objective, threat event, enabling weakness or condition, consequence, business owner, assessment date and shared horizon; causal reasoning is defensible."
+              }
+            ]
+          },
+          {
+            "id": "assessment-evidence",
+            "description": "Likelihood, consequence, controls and uncertainty remain distinct",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Invents measured probabilities or control success; converts ordinal products into physical or financial units."
+              },
+              {
+                "score": 1,
+                "descriptor": "Entries distinguish main factors but evidence, assumptions, confidence or current/forecast status is incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Each entry gives a reasoned likelihood under the declared scale, consequence with any units/range assumptions, existing controls and supplied evidence, uncertainty/confidence rationale and forecast residual exposure clearly distinguished from current assessment; alternatives accepted when justified."
+              }
+            ]
+          },
+          {
+            "id": "treatment-comparison",
+            "description": "All four responses compared for one selected entry",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than two responses explained or transfer/avoidance falsely removes all related business risk."
+              },
+              {
+                "score": 1,
+                "descriptor": "At least two responses accurate; one option, business effect, feasibility/effort or residual exposure missing."
+              },
+              {
+                "score": 2,
+                "descriptor": "All four responses address the same entry and horizon, explaining mechanism, business effect, feasibility/effort and retained or replacement exposure; a recommendation explains its choice and respects delegation."
+              }
+            ]
+          },
+          {
+            "id": "authority-monitoring",
+            "description": "Decision roles, statuses and review conditions",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims universal CISO acceptance authority or treats inaction/planned control as acceptance or verified reduction."
+              },
+              {
+                "score": 1,
+                "descriptor": "Roles and follow-up mostly present but one entry lacks a decision status, authority, action owner, dated review or event trigger, or the comparison lacks an evidence need."
+              },
+              {
+                "score": 2,
+                "descriptor": "Each entry identifies decision status, accepting authority, proposed action and action owner, dated review and event trigger. The comparison names one evidence need and how it could change the recommendation. No acceptance, authority or successful result is invented."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w10-risk-register",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Week 10 practice · Start an enterprise risk register",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "brief": "Fictional distributor Harbor Dispatch wants reliable fulfillment and controlled use of customer information. Assessment date: 2026-10-29; shared future horizon: 2026-11-01 through 2027-10-31. Supplied exercise evidence, not real employer material:\nR1: A supplier-account import can change shipment destinations without independent approval. A sampled 2026-10-20 log records a destination change, but coverage and response time have not been evaluated. No harmful shipment is reported; that does not establish its absence. Compromise of the supplier account is a threat hypothesis.\nR2: The dispatch supplier may suffer a service outage. Dispatch processing depends on this single supplier; no alternative processing route currently operates. A purchased backup service is documented. The changed import interface has no restoration test; dependencies and manual backlog reconciliation are untested. The operations lead offers one to three working days of delay as a provisional planning range if supplier restoration and manual reconciliation work; it is not a bound or observation.\nR3: A clerk role can export all customer contact and discount records. A 2026-08-01 access list includes that permission; no subsequent access review, export-volume evidence or incident investigation is supplied. An internal user's misuse of excessive export access is a threat hypothesis. External release could expose information and disrupt customer relationships; the affected record count is unknown.\nFictional governance direction: appetite supports useful supplier connections with controlled operational and information exposure. The dispatch service owner may accept evidenced delay exposure up to one working day. Longer/unbounded delay, unauthorized shipment-integrity exposure and customer-information disclosure exposure require CEO acceptance. The CISO may coordinate assessment and safe tests within the existing operating plan and recommend treatment, but cannot accept those exceptions, approve new contracts or suspend a service. Relevant business owners are the dispatch service owner and sales director. No acceptance has yet occurred.\nUse this exercise-only ordinal likelihood scale over the shared horizon: low = identified path with observed barriers blocking it in the assessed scope, while exceptions remain possible; medium = credible harmful path with incomplete barriers or evidence; high = evidence supports sustained or repeated relevant opportunities for harm with weak or failed barriers; past harmful events can support this judgment but are not required. These are uncalibrated ordering labels, not probabilities or equal numerical intervals; a different category requires a reason consistent with supplied evidence. Consequence is described directly in operational or information terms. Confidence is a stated evidential judgment with a reason, not a probability.",
+        "deliverable": "Create exactly three register entries, R1–R3. In each state the business objective, threat event, enabling weakness or condition, business consequence and business owner; assessment date and shared horizon; existing controls with supplied evidence; a likelihood label under the stated scale and causal reason; consequence scope/range with units and assumptions where relevant; an uncertainty and confidence rationale; decision status, proposed treatment/action and action owner; accepting authority; forecast residual exposure distinguished from current assessment; and a dated review plus an event trigger. Do not turn supplied hypotheses into observed incidents.\nChoose one entry and compare accept, avoid, transfer/share and mitigate in a four-row comparison. For each explain the mechanism, business effect, feasibility/effort and retained or replacement exposure over the same horizon. Recommend a next action within the CISO delegation, identify the separate acceptance decision and authority, and state one evidence need and how a possible result would change the recommendation. All rubric anchors concern this requested work; no financial calculation, separate charter, full enterprise aggregation or extra extension is required.",
+        "constraints": [
+          "Use fictional exercise information only. Do not supply learner backups, credentials, employer notes or evidence.",
+          "Three entries start a cybersecurity contribution to an enterprise register; they do not represent a complete enterprise risk assessment. Shared dependencies may link entries; do not add their ordinal scores or assert independent probabilities.",
+          "All treatment reductions are forecasts until evaluated. Name the retained exposure even for acceptance, avoidance or sharing. No insurance purchase, legal duty, financial advice or ISO conformance is inferred.",
+          "Preserve separate resource completion, task completion, card recall, question attempts and applied self-assessment. This artifact awards no readiness or independent educator approval.",
+          "This weekly rubric assesses the three entries and comparison only. Short-answer rubrics apply only to their own prompts."
+        ],
+        "rubricRef": {
+          "id": "rubric-w10-risk-register",
+          "version": 1
+        },
+        "annotatedExample": "One defensible response follows; justified alternative owners, estimates, actions and recommendations may also satisfy the rubric if they respect the fictional delegation and evidence. All entries are assessed on 2026-10-29 for 2026-11-01 through 2027-10-31, with decision status “proposed; acceptance pending.” No observed harmful event or successful mitigation is invented.\n\nR1 — Objective: ship goods to authorized destinations. Event: an attacker controlling the supplier account changes shipment destinations. Weakness: imports bypass independent approval. Consequence: misdirected goods and shipment-recall work. Business owner: dispatch service owner. Existing control/evidence: the supplied 2026-10-20 sample shows one logged change; log coverage and response effectiveness are unknown. Likelihood: medium, because a credible harmful path exists with no stated pre-release barrier; the rate of relevant opportunities and barrier performance are unknown, so a high label is not supported here under this scale. Consequence scope: potentially several shipments before detection, but count/duration are unknown; do not invent a loss total. Uncertainty/confidence: no coverage or response-time assessment, so confidence in extent of harm is low. Proposed action: engineering lead designs a safe independent-approval test coordinated by the CISO within the operating plan. Acceptance: CEO for retained shipment-integrity exposure. Forecast residual: effective approval could block some unauthorized changes, while missed checks, collusion and other paths remain; current risk is unchanged until evidence supports reassessment. Review: 2026-11-06, or immediately if an unapproved destination change or supplier-access change is discovered.\n\nR2 — Objective: maintain timely dispatch. Event: supplier outage prevents processing. Enabling condition: dependence on one supplier with no operating alternative processing route. Restoration effectiveness is an uncertainty, not a proven technical defect. Consequence: delayed orders. Business owner: dispatch service owner. Existing control/evidence: a documented purchased backup service; it proves a service arrangement, not restoration performance. Likelihood: medium, a credible outage-to-delay path with incomplete recovery evidence; no incident rate is supplied. Consequence: provisional one-to-three-working-day delay assuming supplier restoration and manual reconciliation work; longer delay remains possible if dependencies fail. Uncertainty/confidence: no current restoration/fallback test, so confidence in duration is low. Proposed action: operations lead scopes a restoration and backlog exercise under CISO coordination. Acceptance: CEO because the estimate exceeds one day and its upper extent is not supported. Forecast residual: a successful exercise could support a narrower tested duration, but future supplier failures and untested conditions remain. Review: 2026-11-13 or immediately on failed restoration, missed test or dependency change. No exercise has yet reduced current risk.\n\nR3 — Objective: use customer information within authorized business purposes. Event: a clerk misuses broad export rights and releases customer contact/discount records externally. Weakness: export access exceeds the assumed clerk need and has no supplied recent review. Consequence: exposed information and damaged customer relationships; record count and duration of remediation are unknown. Business owner: sales director. Existing control/evidence: the supplied 2026-08-01 access list documents permission assignment, not prevention or detection of misuse; no effective export safeguard is evidenced. Likelihood: medium, a credible misuse path with incomplete barriers, without treating missing incident evidence as proof of safety. Uncertainty/confidence: actual export use and relevant safeguards are unexamined, giving low confidence in extent and likelihood. Proposed action: IAM administrator investigates permission need and designs a restricted-export test with the sales director, coordinated under the operating plan. Acceptance: CEO for customer-information disclosure exposure. Forecast residual: effective restricted access could limit export scope, but authorized-user misuse and other disclosure paths remain. Review: 2026-11-10 or immediately on unexpected export activity or role change.\n\nR1 comparison, same horizon:\nAccept — Continue the current import path after an explicit CEO decision. This preserves convenience and avoids new implementation effort, but retains unauthorized-shipment exposure and investigation/recall effort. It is beyond the CISO acceptance delegation and is not the current status.\nAvoid — Seek authorization to suspend destination imports and use a separately assessed manual process. This removes the specified automated-import path during suspension, costs staff effort and supplier convenience, and introduces manual-entry errors and delay. The CISO cannot authorize suspension; feasibility depends on dispatch capacity and executive direction.\nTransfer/share — Seek procurement/executive review of supplier commitments for specified correction/recovery costs. Negotiation and contract evaluation take effort and may not produce suitable coverage. Coverage, exclusions and supplier ability to perform need examination; customer delay, misdelivery and uncovered consequences remain. The CISO cannot approve a new contract.\nMitigate — Coordinate a safe test of independent destination approval and operational workload. This uses engineering and dispatch time within the stated assessment/test delegation. If later implemented effectively it could stop some unauthorized changes before release, but missed checks and collusion remain, and implementation requires the appropriate authorization. No immediate current reduction is claimed.\n\nRecommendation: coordinate the mitigation test and request CEO direction on pending shipment-integrity exposure. Engineering lead owns the test; dispatch owner owns the business scenario. Request observed approval coverage and workload under a safe unauthorized-change test by the 2026-11-06 review, reopening immediately after a bypass or access change. If the test reveals systematic bypass or unacceptable workload, revise the design and present authorized temporary avoidance or other combinations to the CEO. If it succeeds, reassess only the tested path and retain other uncertainty. [All four options include business effects, feasibility and residual exposure; a justified alternative recommendation is acceptable. The three entries are a starting contribution, not an aggregated enterprise risk total.]"
+      }
+    },
+    {
+      "id": "mapping-w10-csf",
+      "version": 1,
+      "kind": "mapping",
+      "title": "Week 10 provisional CSF risk alignment",
+      "authorIds": [
+        "ai-c04-w10-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "w10"
+      ],
+      "objectiveIds": [
+        "obj-w10-1",
+        "obj-w10-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w10-risk-identification",
+          "version": 1
+        },
+        {
+          "id": "source-w10-risk-response",
+          "version": 1
+        },
+        {
+          "id": "source-csf",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone Week 10 AI-authored draft for #62 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; every existing revision and historical attempt reference remains unchanged. No reassessment inferred.",
+      "scheduleImpact": "No registration, enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "frameworkVersionId": "nist-csf-2.0",
+        "targetIds": [
+          "ID.RA",
+          "GV.RM"
+        ],
+        "validFrom": "2024-02-26",
+        "validUntilExclusive": null,
+        "rationale": "The original three-entry assessment supports risk assessment (ID.RA); comparison within appetite/tolerance and delegated response boundaries supports risk management strategy (GV.RM). Reuses only the unchanged C01 alignment targets.",
+        "limitation": "Provisional subject alignment, not complete CSF implementation, enterprise aggregation, ISO conformance, legal compliance, CISM/CISSP examination advice or readiness. No licensed ISO text inspected."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w10-risk-identification",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w10-risk-response",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w10-risk-assessment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w10-scenario",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w10-likelihood",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w10-uncertainty",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w10-treatment",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w10-risk-register",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w10-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w10-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w10-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w10-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w10-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w10-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w10-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w10-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w10-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w10-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w10-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w10-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w10-risk-register",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w10-risk-register",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "mapping-w10-csf",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
