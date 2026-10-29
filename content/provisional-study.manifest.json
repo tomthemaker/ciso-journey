@@ -1,5 +1,5 @@
 {
-  "contentVersion": "provisional-study-2026-10-29.1",
+  "contentVersion": "provisional-study-2026-10-29.2",
   "baseline": {
     "path": "content/foundation.v1.json",
     "sha256": "dc82e76a1e6c3bfb7e103a2f495507c9f318959a19043e6b0a7c5fe55a542b0c",
@@ -119,6 +119,13 @@
       "records": 4,
       "pr": 85,
       "commit": "90acd9680005fb21fe049edb9b15994f92430984"
+    },
+    {
+      "path": "docs/curriculum/drafts/p2a.json",
+      "sha256": "e77ec787d6871e1f9e0d1b8fb5a0e02933bb463be806f97cc8223cb405ee38dc",
+      "contentVersion": "c06-p2a-draft-2026-10-29.1",
+      "records": 21,
+      "commit": "3900ff481694ffd836a87a8306955060d02d9b32"
     }
   ]
 }
