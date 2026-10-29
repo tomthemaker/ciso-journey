@@ -1,0 +1,1212 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c04-w7-draft-2026-10-28.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c04-w7-author",
+      "kind": "ai",
+      "role": "Week 7 original draft author and official NIST technical-source inspector; not independent educator or legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-w7-csf-core",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST CSF 2.0 Core, Profiles and Tiers",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29, final 2024-02-26 / CSF 2.0",
+        "jurisdiction": "United States guidance; framework teaching only, no jurisdiction-specific legal applicability claim",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official PDF text inspected 2026-10-28: sections 1–4 (printed pp. 1–9), Appendix A Table 1 (p. 15) and GV.OV, ID.AM, PR.PS, DE.CM, RS.MA, RC.RP outcomes (pp. 17–23). Checked taxonomy, concurrent Functions, nonprescriptive outcomes, Profiles, Tiers and example/reference limits. Extends the inspection scope of unchanged source-csf@1 without rewriting it. AI inspection only; fictional teaching and rubrics require independent educator review.",
+        "verifierId": "ai-c04-w7-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original prose, fictional cases, questions and rubrics. NIST category names and identifiers attributed to exact references; no reproduced diagram, table, extended quotation or third-party material. Inspect notices and obtain permission where needed for later reuse. Source inspection is not rights clearance.",
+        "c01SourceId": "src-nist"
+      }
+    },
+    {
+      "id": "source-w7-csf-guide",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST CSF 2.0 Resource & Overview Guide",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [],
+      "objectiveIds": [],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://csrc.nist.gov/Projects/cybersecurity-framework/nist-cybersecurity-framework-resource-and-overview",
+        "edition": "NIST SP 1299, February 2024; official 8-page PDF",
+        "jurisdiction": "United States guidance; framework teaching only, no jurisdiction-specific legal applicability claim",
+        "publicationDate": null,
+        "effectiveDate": null,
+        "checkedAt": "2026-10-28",
+        "reviewDueAt": "2027-10-28",
+        "verification": "authoritative-text",
+        "verificationEvidence": "Official PDF downloaded and text inspected 2026-10-28: PDF pp. 1–3 identify SP 1299 / February 2024, Core/Profile/Tier distinctions and the purposes of Informative References, Implementation Examples and the Reference Tool; pp. 5–7 provide Function explanations. Exact publication day unknown here. This is the February 2024 guide, not evidence that every linked online resource remains current. AI source inspection is not independent educator review.",
+        "verifierId": "ai-c04-w7-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original prose, fictional cases, questions and rubrics. NIST category names and identifiers attributed to exact references; no reproduced diagram, table, extended quotation or third-party material. Inspect notices and obtain permission where needed for later reuse. Source inspection is not rights clearance.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-w7-outcome-hierarchy",
+      "version": 1,
+      "kind": "concept",
+      "title": "Outcome hierarchy",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "The CSF Core groups desired cybersecurity results into Functions, Categories and more specific Subcategories. A control is a chosen way to pursue a result; its existence alone does not demonstrate that result.",
+        "misconception": "A category code is neither a prescribed product nor a checklist proving implementation."
+      }
+    },
+    {
+      "id": "concept-w7-purpose-allocation",
+      "version": 1,
+      "kind": "concept",
+      "title": "Allocation by purpose",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "An activity can support several CSF outcomes. Allocate it by the result it is meant to produce in the stated context, and explain any additional mapping separately.",
+        "misconception": "An activity belongs to a Function because of its purpose, not merely because its name contains security vocabulary."
+      }
+    },
+    {
+      "id": "concept-w7-capability-evidence",
+      "version": 1,
+      "kind": "concept",
+      "title": "Capability evidence",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "definition": "A capability is an organization’s ability to achieve a stated result using people, processes and technology. An evidence request specifies what observation would support a bounded claim about that ability, including scope and recency.",
+        "misconception": "A named owner or a purchased tool does not establish that an outcome is being achieved."
+      }
+    },
+    {
+      "id": "lesson-w7-csf-capability-map",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Week 7 · Build an initial security capability map",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        },
+        {
+          "id": "source-w7-csf-guide",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "Start with the business service",
+            "body": "An initial security capability map connects useful security work to the results a business needs. Here, a capability means an ability supported by people, processes and technology. Your map will classify twelve activities and connect six selected CSF categories to accountable roles and evidence requests. It will expose questions for investigation rather than declare implementation complete.\n\nUse a fictional order-dispatch service: customers submit orders, staff approve shipments, and a supplier hosts the application. Delayed dispatch loses sales; altered orders may send goods to the wrong destination. Recall the risk distinction: a threat may exploit a weakness and cause a business consequence. A control changes that possibility or its consequences. Evidence examines whether the control works under stated conditions. This recap supports the risk-treatment reasoning expected before week 7; it does not complete the separate week 6 assessment."
+          },
+          {
+            "heading": "Understand the hierarchy before classifying work",
+            "body": "The NIST Cybersecurity Framework (CSF) 2.0 Core describes outcomes: results an organization seeks. It organizes them into Functions, then Categories, then more specific Subcategories. For example, Protect contains Platform Security (PR.PS); its outcomes concern managing platform risks. A patch process is one possible contribution. A purchase order for a patching product proves acquisition, while a deployment report and a sampled verification may support a narrower claim about managed systems.\n\nCategories group related outcomes. They are not products, departments or individual controls. A single control may support several outcomes, and a single outcome may need several controls. Define the intended result before selecting an implementation. NIST’s Informative References connect Core outcomes to other guidance. Implementation Examples suggest possible actions. Neither relationship establishes that an implementation is sufficient for your service. See CSWP 29 sections 1, 2 and 4, and SP 1299 PDF pages 2–3."
+          },
+          {
+            "heading": "Use all six Functions together",
+            "body": "Govern (GV) sets and monitors cybersecurity direction, expectations and policy. For dispatch, a management review can change security priorities after repeated failures. Oversight (GV.OV) is the category for using risk-management results to adjust direction.\n\nIdentify (ID) develops understanding of current cybersecurity risks. Asset Management (ID.AM) supports knowing the assets and services that enable dispatch and their importance. A maintained inventory is useful because an omitted system may also be omitted from monitoring or maintenance.\n\nProtect (PR) concerns using safeguards to manage risk. Platform Security (PR.PS) includes keeping the dispatch application and its supporting platforms appropriately maintained and configured. Detect (DE) concerns finding and analyzing possible attacks or compromises. Continuous Monitoring (DE.CM) concerns watching relevant assets for anomalies and other potentially adverse events. Collected events need interpretation; a logging subscription alone cannot demonstrate effective detection.\n\nRespond (RS) concerns action on a detected incident. Incident Management (RS.MA) includes coordinating the response and managing escalation. Recover (RC) concerns restoring affected assets and operations. Incident Recovery Plan Execution (RC.RP) includes selecting and verifying restoration actions. Restoring a server alone may leave dispatch unusable if its dependencies or data remain damaged.\n\nThese six Functions interact. They are not six consecutive project phases or a rule to finish protection before preparing recovery. Governance and risk understanding continue during an incident; response and recovery arrangements need preparation before one. The six selected categories are a teaching sample, not the whole Core. The authoritative names and identifiers are in CSWP 29 Appendix A, Table 1."
+          },
+          {
+            "heading": "Allocate an activity by its intended result",
+            "body": "First ask what the activity changes or establishes. Recording the supplier’s dispatch-system dependencies primarily supports Identify. Reviewing unresolved risks with executives to change investment priorities supports Govern. Deploying a restrictive configuration supports Protect. Investigating an alert to determine whether it signals compromise supports Detect. Coordinating containment of a confirmed incident supports Respond. Restoring validated order data and checking service operation supports Recover.\n\nSome descriptions contain several purposes. A recovery exercise can reveal improvement opportunities under Identify; executing a recovery plan during a real incident supports Recover. A post-incident management review may support Govern when it changes strategy. Explain the stated purpose rather than claiming that every exercise belongs automatically to Recover. Cross-function mapping is acceptable when each link has a distinct causal reason. Do not count the same activity twice to reach the required twelve activities."
+          },
+          {
+            "heading": "Attach ownership, evidence and uncertainty",
+            "body": "Give each selected category a role that can account for the scoped result. The role may need several contributors: a service owner can explain business priorities while an infrastructure team maintains hosts. Naming the CISO in every row can conceal those dependencies. Verify that the proposed role has authority, time and access to the information needed; until confirmed, label the assignment proposed.\n\nUse these columns: category and scoped desired outcome; proposed accountable role and contributors; current activity or control; evidence request; known gap or uncertainty; next action and review date. Separate the desired result from the mechanism. For DE.CM, the desired result might be monitoring dispatch components for suspicious behavior. A log collection service is a mechanism. Request a dated component-coverage list and results from a safe simulated event, including who received and examined the alert. This asks whether the event could be observed and acted upon in that test. It does not prove that every attack will be detected.\n\nNo evidence received means unknown, not automatically absent or effective. Old evidence, a small sample or an untested supplier dependency limits the claim. Record those limits so that the next action resolves a real uncertainty."
+          },
+          {
+            "heading": "Worked executive example: a monitoring proposal",
+            "body": "The dispatch supplier offers more event storage. The security lead proposes buying it because Detect is empty on a presentation. The operations director asks which business failure the purchase addresses. The team discovers that host events are collected, but application order changes are outside the agreed coverage. More storage would retain more of the existing events while leaving that gap unchanged.\n\nThey map the monitoring question to DE.CM, propose the operations lead as accountable owner, and request an application-event coverage check plus a safe test of an unauthorized order-change alert. They also map understanding the supplier boundary to ID.AM. The director funds the coverage investigation first. This choice follows from the missing observation, not from a preferred product. Successful test evidence would support the tested path; other event types and supplier systems would remain open questions."
+          },
+          {
+            "heading": "Distinguish the map from a Profile or Tier",
+            "body": "A CSF Organizational Profile describes current and/or target cybersecurity posture using Core outcomes within a defined scope. The current part characterizes outcomes achieved or being attempted; the target part selects and prioritizes desired outcomes. This first capability map can supply inputs to later Profile work. Its six rows do not establish a complete Current or Target Profile.\n\nCSF Tiers characterize the rigor of cybersecurity risk governance and management practices. They are Partial, Risk Informed, Repeatable and Adaptive. Counting mapped activities cannot determine a Tier or provide a universal maturity score. Choosing an appropriate approach depends on risk and context; the labels do not certify the service or its owner. This lesson makes no audit, legal-compliance or certification-readiness determination. See CSWP 29 section 3 and SP 1299 PDF page 2."
+          },
+          {
+            "heading": "Build your initial map",
+            "body": "Complete the fictional twelve-activity exercise in scenario-w7-capability-map. Keep one row per activity, state its primary Function and explain its intended result. Represent all six Functions and justify ambiguous choices. Then add six ownership rows for GV.OV, ID.AM, PR.PS, DE.CM, RS.MA and RC.RP. For each, separate the desired outcome from a possible implementation, propose an accountable role and request scoped evidence. Record an uncertainty and a next action with a review date.\n\nThe top rubric anchors require all twelve allocations to be defensible, two explained cross-function alternatives, six complete ownership rows, and one explicitly prioritized follow-up with a business reason and a bounded assurance statement. These are requested extensions, not hidden expectations. A useful first map can still reveal substantial unknowns. Keep resource completion, task completion, recall, question attempts and rubric self-assessment separate: completing this exercise does not automatically change any of them."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w1-foundations",
+            "version": 2
+          },
+          {
+            "id": "lesson-w3-architecture",
+            "version": 2
+          }
+        ],
+        "estimatedMinutes": 60,
+        "workedExample": "Worked executive example: recovery evidence. After a dispatch outage, the CIO sees a successful backup-job report and proposes closing the recovery gap. The service owner points out that the report measures backup execution, not restoration of working dispatch. The team separates the ongoing safeguard under Protect from restoring incident-affected operations under RC.RP. It requests a timed restoration record, checks of order integrity and confirmation that dispatch dependencies worked. The proposed accountable service owner coordinates infrastructure and supplier contributors. If restored orders are stale, the team must decide whether delayed fulfillment or manual reconciliation is acceptable. A management review of that result can also support GV.OV when it changes priorities. The observed test informs a decision about a scoped capability; it does not certify all future recoveries.",
+        "misconceptions": [
+          "A Function is a stage that must finish before the next begins: the six Functions need concurrent attention and preparation.",
+          "A category names a prescribed control: it groups outcomes, which may need several context-specific controls.",
+          "A green row proves compliance or a Tier: an allocation and evidence request do not establish complete implementation, a Tier or certification."
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-w7-1",
+            "version": 1
+          },
+          {
+            "id": "question-w7-2",
+            "version": 1
+          },
+          {
+            "id": "question-w7-3",
+            "version": 1
+          },
+          {
+            "id": "question-w7-4",
+            "version": 1
+          },
+          {
+            "id": "question-w7-5",
+            "version": 1
+          },
+          {
+            "id": "scenario-w7-capability-map",
+            "version": 1
+          }
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-w7-outcome-hierarchy",
+            "version": 1
+          },
+          {
+            "id": "concept-w7-purpose-allocation",
+            "version": 1
+          },
+          {
+            "id": "concept-w7-capability-evidence",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "card-w7-1",
+      "version": 1,
+      "kind": "card",
+      "title": "Card W7 1",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What is the relationship between a CSF category and a control?",
+        "answer": "A category groups related cybersecurity outcomes. A control is a chosen mechanism that may help achieve one or more outcomes; its presence alone does not demonstrate the outcome.",
+        "conceptRef": {
+          "id": "concept-w7-outcome-hierarchy",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w7-2",
+      "version": 1,
+      "kind": "card",
+      "title": "Card W7 2",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What decides a defensible Function allocation when an activity could support several Functions?",
+        "answer": "The intended result in its stated context. Explain each additional mapping by a separate purpose rather than choosing from the activity’s name alone.",
+        "conceptRef": {
+          "id": "concept-w7-purpose-allocation",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-w7-3",
+      "version": 1,
+      "kind": "card",
+      "title": "Card W7 3",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "prompt": "What makes an evidence request bounded?",
+        "answer": "It states the observation sought, the service or systems covered and relevant date or test conditions, so the resulting claim cannot silently exceed what was examined.",
+        "conceptRef": {
+          "id": "concept-w7-capability-evidence",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-w7-1",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 7 question 1",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A manager says: “We will finish Protect, then start Detect and plan Recover.” Which response best uses CSF 2.0?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "1",
+            "text": "Accept: the Function order defines the incident sequence.",
+            "explanation": "The Core ordering does not prescribe a sequence; delayed monitoring and recovery preparation leave avoidable gaps."
+          },
+          {
+            "id": "2",
+            "text": "Address all six Functions together and prepare response and recovery before incidents.",
+            "explanation": "Correct. Activities interact; continuing governance, safeguards and detection support prepared response and recovery."
+          },
+          {
+            "id": "3",
+            "text": "Begin Recover only after every category has evidence.",
+            "explanation": "Recovery arrangements need preparation; complete evidence across the Core is not a prerequisite to that preparation."
+          },
+          {
+            "id": "4",
+            "text": "Replace the Functions with department names.",
+            "explanation": "Functions group outcomes, and several departments may contribute to each."
+          }
+        ],
+        "correctOptionId": "2",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-w7-2",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 7 question 2",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "The initial map lists PR.PS and a patching-product purchase. What claim is defensible from that information alone?",
+        "difficulty": "introductory",
+        "options": [
+          {
+            "id": "1",
+            "text": "All Platform Security outcomes are achieved.",
+            "explanation": "A purchase does not show configuration, coverage or effective maintenance."
+          },
+          {
+            "id": "2",
+            "text": "The organization qualifies for Tier 3.",
+            "explanation": "A category row and purchase cannot characterize governance and management rigor."
+          },
+          {
+            "id": "3",
+            "text": "The purchase is a possible implementation contribution; achieved outcomes need scoped evidence.",
+            "explanation": "Correct. Separate the desired result, chosen control and observation of its operation."
+          },
+          {
+            "id": "4",
+            "text": "PR.PS requires that specific product.",
+            "explanation": "The Core is nonprescriptive and does not prescribe a particular product."
+          }
+        ],
+        "correctOptionId": "3",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-w7-question-3",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 7 question 3 response rubric",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "purposes",
+            "description": "Two primary allocations and their causal purposes",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Gives only labels or treats the exercise as incident restoration."
+              },
+              {
+                "score": 1,
+                "descriptor": "Defensibly allocates one activity with a reason."
+              },
+              {
+                "score": 2,
+                "descriptor": "Allocates exercise-derived improvement to Identify and management strategy adjustment to Govern, or gives equally defensible purpose-based alternatives for both."
+              }
+            ]
+          },
+          {
+            "id": "alternative",
+            "description": "One requested cross-function alternative",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No alternative or no distinct purpose."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names a plausible alternative without explaining its distinct result."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains one additional Function by a distinct result, such as Govern if the exercise also tests decision authority, while distinguishing preparation from actual restoration."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w7-3",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 7 question 3",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A recovery exercise identifies an untested supplier dependency. Management later changes the security investment plan because of that finding. Allocate each of these two activities to a primary Function, explain its intended result, and give one justified alternative Function for either activity. Do not treat the exercise as a real incident restoration.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w7-question-3",
+          "version": 1
+        },
+        "annotatedExample": "The exercise supports Identify because it discovers an improvement need in the dependency assumptions (ID.IM). The management decision supports Govern because it uses findings to change direction (GV.OV). If the exercise also evaluates who has authority to approve recovery decisions, that part can support Govern’s responsibilities outcomes. This alternative has a separate purpose; the exercise is not evidence of restoring service in a real incident. [Two activities and their effects are separated; one alternative is justified.]"
+      }
+    },
+    {
+      "id": "rubric-w7-question-4",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 7 question 4 response rubric",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "outcome-owner",
+            "description": "Scoped outcome, implementation distinction and responsibilities",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats the subscription as proof or omits ownership."
+              },
+              {
+                "score": 1,
+                "descriptor": "States a plausible outcome or role but leaves scope, mechanism distinction or contributor unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Distinguishes monitoring dispatch components for suspicious activity from buying log collection; proposes an accountable operations role and a relevant application or supplier contributor."
+              }
+            ]
+          },
+          {
+            "id": "evidence-action",
+            "description": "Bounded evidence request and uncertainty follow-up",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Invents success or makes no testable request."
+              },
+              {
+                "score": 1,
+                "descriptor": "Requests relevant evidence but omits coverage, conditions/date, uncertainty or dated action."
+              },
+              {
+                "score": 2,
+                "descriptor": "Requests dated coverage and a safe test record with observation/handling results, leaves effectiveness unknown until examined, and assigns a next action with a date addressing that uncertainty."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w7-4",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 7 question 4",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "For fictional dispatch, the monitoring team has a log subscription but no recent coverage test. For DE.CM, state a scoped desired outcome, distinguish it from the subscription, propose an accountable role and one contributor, request evidence including coverage and date/test conditions, and state one uncertainty plus a dated next action. Do not invent a test result.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w7-question-4",
+          "version": 1
+        },
+        "annotatedExample": "Desired outcome: monitor the dispatch application and its supporting hosts for relevant suspicious activity. The subscription is a collection mechanism, not evidence that this outcome is achieved. Proposed owner: operations lead; contributor: application lead. Request the current component-coverage list and a safe simulated order-change event record dated for the test, including whether the monitoring team observed and handled it. Current effectiveness is unknown. By 2026-11-06 the operations lead should confirm test scope with the application lead and schedule the test. [The request has a defined scope and conditions; no successful result is invented.]"
+      }
+    },
+    {
+      "id": "rubric-w7-question-5",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 7 question 5 response rubric",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "distinctions",
+            "description": "Core, Profile and Tier distinctions",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Conflates the three or calls the map certification."
+              },
+              {
+                "score": 1,
+                "descriptor": "Distinguishes two correctly but leaves the third ambiguous."
+              },
+              {
+                "score": 2,
+                "descriptor": "Describes Core as outcome taxonomy, Profile as scoped current/target posture using outcomes, and Tier as rigor of risk governance/management practices."
+              }
+            ]
+          },
+          {
+            "id": "limits-evidence",
+            "description": "Map limitation and one capability evidence need",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Declares certification or complete implementation from counts."
+              },
+              {
+                "score": 1,
+                "descriptor": "Rejects overclaiming but gives no relevant additional evidence need."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explains that counts and proposed owners lack sufficient achievement/rigor evidence and requests one scoped observation relevant to a current capability."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-w7-5",
+      "version": 1,
+      "kind": "question",
+      "title": "Week 7 question 5",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "format": "open",
+        "prompt": "In four to six sentences, distinguish the CSF Core, an Organizational Profile and a Tier. Explain why twelve mapped activities and six proposed owners do not establish a complete Profile, a Tier or audit certification. State one further evidence need before making a claim about a current capability.",
+        "difficulty": "intermediate",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-w7-question-5",
+          "version": 1
+        },
+        "annotatedExample": "The Core organizes cybersecurity outcomes into Functions, Categories and Subcategories. An Organizational Profile describes current and/or target posture using those outcomes for a defined scope. A Tier characterizes the rigor of risk governance and management practices. Twelve allocations and six proposed owners are planning inputs, so they do not establish complete posture, justify a Tier or confer audit certification. Before claiming that dispatch monitoring operates, I would request a dated coverage check and test-event observation for the specified components. [Each term is distinguished and the additional evidence need is bounded.]"
+      }
+    },
+    {
+      "id": "rubric-w7-capability-map",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Week 7 initial capability map self-assessment",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "allocations",
+            "description": "Twelve activity rows, six Functions and defensible purpose-based rationales",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than six Functions represented or fewer than eight defensible allocations."
+              },
+              {
+                "score": 1,
+                "descriptor": "All six Functions represented; eight or nine of twelve allocations defensible with rationale."
+              },
+              {
+                "score": 2,
+                "descriptor": "All six Functions represented; at least ten of twelve allocations defensible with rationale."
+              },
+              {
+                "score": 3,
+                "descriptor": "All twelve defensible with rationale; additionally explains two cross-function alternatives by distinct purposes."
+              }
+            ]
+          },
+          {
+            "id": "ownership",
+            "description": "Six category rows with outcome, implementation distinction, proposed owner and bounded evidence request",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Fewer than four category rows or treats product presence as achieved outcome."
+              },
+              {
+                "score": 1,
+                "descriptor": "Four or five categories have distinct outcomes, proposed owners and relevant evidence requests."
+              },
+              {
+                "score": 2,
+                "descriptor": "All six required categories have distinct desired outcomes, possible implementations, proposed accountable roles and scoped evidence requests."
+              },
+              {
+                "score": 3,
+                "descriptor": "All six satisfy score 2 and distinguish contributors, state authority to confirm with the proposed owner, and include relevant recency or test conditions for each request."
+              }
+            ]
+          },
+          {
+            "id": "gaps-limits",
+            "description": "Uncertainties, dated actions, priority and assurance limits",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims certification/complete implementation or provides no uncertainties."
+              },
+              {
+                "score": 1,
+                "descriptor": "Identifies uncertainties and limits but dated follow-up is incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Each ownership row identifies an uncertainty and next action with review date; states the map is preliminary and does not establish complete implementation, audit certification or a Tier."
+              },
+              {
+                "score": 3,
+                "descriptor": "Satisfies score 2 and prioritizes one follow-up by a business consequence; states what its evidence could support and what would remain unknown."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-w7-capability-map",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Week 7 practice · Map dispatch capabilities",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "brief": "Fictional exercise. A small distributor uses a supplier-hosted dispatch application, internal hosts and an operations team. Wrong orders could misdirect goods; prolonged outage delays fulfillment. The following activities are descriptions of intended work, not proof of successful implementation. A1: executives review unresolved security risks and change investment priorities. A2: management establishes who may accept dispatch downtime risk. A3: staff maintain the dispatch asset and supplier-service inventory. A4: a recovery exercise identifies missing dependency information and improvement actions. A5: engineers deploy tested platform configuration restrictions. A6: engineers patch supported dispatch hosts. A7: operations monitor dispatch components for anomalies. A8: analysts examine unexpected access events to decide whether compromise may be occurring. A9: a coordinator escalates and directs the response to a confirmed dispatch incident. A10: responders isolate the affected host to contain that incident. A11: recovery staff restore validated dispatch data after that incident. A12: staff verify restored dispatch operation and dependencies before normal service resumes.",
+        "deliverable": "Create twelve activity rows, one per A1–A12, each with a primary Function and purpose-based rationale. Represent all six Functions. Explain two justified cross-function alternatives for any two activities to address the top allocation anchor. Then create exactly six category rows for GV.OV, ID.AM, PR.PS, DE.CM, RS.MA and RC.RP. In each row state the scoped desired outcome, a possible implementation, a proposed accountable role, a contributor and authority to confirm with that role, a bounded evidence request including recency or test conditions, an uncertainty and next action with review date. Prioritize one follow-up by business consequence. Explain what its requested evidence could support and what remains unknown. End with a statement that this initial map establishes neither complete implementation, audit certification nor a Tier.",
+        "constraints": [
+          "Use fictional data only; do not paste learner, employer or supplier evidence.",
+          "Treat all owners as proposed and all requested evidence as unexamined; invent no successful test or confirmed authority.",
+          "The twelve activities must remain twelve distinct rows. Cross-function alternatives do not increase the count.",
+          "Alternative allocations require a causal purpose. Category names are outcomes, not prescribed controls.",
+          "This weekly rubric is separate from each short question rubric; it assesses the requested map only."
+        ],
+        "rubricRef": {
+          "id": "rubric-w7-capability-map",
+          "version": 1
+        },
+        "annotatedExample": "One defensible allocation is A1 GV/GV.OV (results change priorities); A2 GV/GV.RR (decision authority); A3 ID/ID.AM (know service assets); A4 ID/ID.IM (find improvement needs); A5 PR/PR.PS (configuration safeguards); A6 PR/PR.PS (platform maintenance); A7 DE/DE.CM (observe anomalies); A8 DE/DE.AE (analyze possible compromise); A9 RS/RS.MA (coordinate confirmed-incident action); A10 RS/RS.MI (contain effects); A11 RC/RC.RP (restore affected data); A12 RC/RC.RP (verify restoration). Alternative 1: A4 can support GV if the exercise separately evaluates decision authority. Alternative 2: A12 observations can support ID.IM when used to identify improvements beyond the restoration decision. These additional purposes do not replace the stated primary purposes.\n\nSix illustrative ownership rows follow. Every role is proposed; confirm authority to coordinate contributors and obtain evidence at the stated review. Evidence is requested, not reported as received.\nGV.OV: desired outcome, review dispatch risk-management performance to adjust direction; implementation, periodic management review; owner, executive risk sponsor; contributor, security lead; request, dated review minutes showing considered results and decisions for dispatch; uncertainty, follow-through not examined; action, sponsor confirms decision and follow-up authority by 2026-11-06.\nID.AM: desired outcome, know dispatch-enabling assets and dependencies by importance; implementation, maintained inventory; owner, service owner; contributor, supplier liaison; request, current dated inventory reconciled with dispatch architecture and supplier-service scope; uncertainty, supplier dependencies may be missing; action, service owner confirms inventory authority and reconciles scope by 2026-11-06.\nPR.PS: desired outcome, manage dispatch platform security; implementation, patch/configuration process; owner, infrastructure lead; contributor, application lead; request, last-month deployment records and sampled verification for named dispatch hosts; uncertainty, exceptions not examined; action, infrastructure lead confirms maintenance authority and reviews exceptions by 2026-11-09.\nDE.CM: desired outcome, observe suspicious activity on dispatch components; implementation, log collection and monitoring; owner, operations lead; contributor, application lead; request, dated coverage list and safe test-event observation/handling record for application and hosts; uncertainty, application events may be missing; action, operations lead confirms test coordination authority and agrees the test by 2026-11-06.\nRS.MA: desired outcome, coordinate and escalate confirmed dispatch incidents; implementation, incident plan and on-call arrangements; owner, incident manager; contributor, duty operations lead; request, current escalation roster and recent exercise record showing activation and coordination for dispatch; uncertainty, out-of-hours contacts untested; action, incident manager confirms escalation authority and tests contacts by 2026-11-09.\nRC.RP: desired outcome, restore incident-affected dispatch operation with verified data and dependencies; implementation, restoration procedure; owner, service owner; contributor, recovery engineer; request, dated restoration test record including data checks and dependency/service verification; uncertainty, current supplier dependency has not been tested; action, service owner confirms restoration acceptance authority and agrees supplier test scope by 2026-11-09.\n\nPrioritize DE.CM coverage investigation because unobserved unauthorized order changes could misdirect shipments. A successful safe event test would support that tested monitoring path, while other attack types, components and continuing operation remain uncertain. This preliminary map does not establish complete implementation, audit certification, an Organizational Profile covering all relevant outcomes, or a Tier. [The example shows all requested outputs and extensions; justified alternatives may also satisfy the rubric. No evidence result or organizational authority is invented.]"
+      }
+    },
+    {
+      "id": "mapping-w7-csf",
+      "version": 1,
+      "kind": "mapping",
+      "title": "Week 7 provisional CSF category alignment",
+      "authorIds": [
+        "ai-c04-w7-author"
+      ],
+      "authoredAt": "2026-10-28",
+      "taskIds": [
+        "w7"
+      ],
+      "objectiveIds": [
+        "obj-w7-1",
+        "obj-w7-2"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-w7-csf-core",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "Initial standalone week 7 AI-authored draft for #59 / #16; unregistered and unmerged. No independent educator or legal approval.",
+      "priorAttemptImpact": "New draft ID; preserves every existing revision and attempt reference. No reassessment inferred.",
+      "scheduleImpact": "No enrollment, scheduler or automatic schedule change.",
+      "payload": {
+        "frameworkVersionId": "nist-csf-2.0",
+        "targetIds": [
+          "GV.OV",
+          "ID.AM",
+          "PR.PS",
+          "DE.CM",
+          "RS.MA",
+          "RC.RP"
+        ],
+        "validFrom": "2024-02-26",
+        "validUntilExclusive": null,
+        "rationale": "The six selected categories anchor the ownership/evidence exercise across all six Functions. The twelve-activity exercise also discusses other official categories in original prose.",
+        "limitation": "Provisional subject alignment to unchanged C01 targets, not exhaustive Core coverage, a control crosswalk, implementation assurance, a Tier, legal compliance or certification readiness. No ISO, CISSP or CISM mapping is created."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-w7-csf-core",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-w7-csf-guide",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w7-outcome-hierarchy",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w7-purpose-allocation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-w7-capability-evidence",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-w7-csf-capability-map",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w7-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w7-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-w7-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w7-1",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w7-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w7-question-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w7-3",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w7-question-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w7-4",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w7-question-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-w7-5",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-w7-capability-map",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-w7-capability-map",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "mapping-w7-csf",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
