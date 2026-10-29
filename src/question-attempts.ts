@@ -51,7 +51,9 @@ export function validateQuestionAttempts(value: unknown): asserts value is Quest
       !a.objectiveIds.length || !a.objectiveIds.every(slug) || !unique(a.objectiveIds) || !Array.isArray(a.sourceRefs) ||
       !a.sourceRefs.length || !a.sourceRefs.every(ref) || !nonempty(a.response)) invalid();
     if (a.format === 'mcq') {
-      if (a.rubricRef !== null || a.provenance !== 'keyed-mcq' || typeof a.correct !== 'boolean' || !slug(a.response)) invalid();
+      // C02 option IDs are opaque nonempty strings (including numeric strings), not content-reference slugs.
+      // New submissions check exact option membership in createAttempt; unknown historical IDs stay literal.
+      if (a.rubricRef !== null || a.provenance !== 'keyed-mcq' || typeof a.correct !== 'boolean') invalid();
     } else if (a.format === 'scenario' || a.format === 'open') {
       if (!ref(a.rubricRef) || a.provenance !== 'unassessed-response' || a.correct !== null) invalid();
     } else invalid();

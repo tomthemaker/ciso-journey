@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-const bundle = require('../content/foundation.v1.json');
+const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const lessons = bundle.records.filter(record => record.kind === 'lesson');
 const lesson = lessons[0];
 const hash = ref => `#lessons/${ref.id}/${ref.version}`;

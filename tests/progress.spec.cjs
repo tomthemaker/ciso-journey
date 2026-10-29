@@ -16,7 +16,7 @@ test('progress route is readable, keyboard navigable, and does not change learni
   await expect(page.locator('#progressReport')).toContainText('No keyed MCQ attempts');
 });
 test('committed practice appears separately without changing the saved snapshot', async ({ page }) => {
-  const bundle = require('../content/foundation.v1.json');
+  const { studyBundle: bundle } = require('../scripts/study-content.cjs');
   const question = bundle.records.find(r => r.kind === 'question' && r.payload.format === 'mcq');
   await page.goto(`./#questions/${question.id}/${question.version}`);
   await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
@@ -31,7 +31,7 @@ test('committed practice appears separately without changing the saved snapshot'
   expect(await snapshot()).toEqual(before);
 });
 test('case self-assessment is shown by exact rubric and dated criterion', async ({ page }) => {
-  const bundle = require('../content/foundation.v1.json');
+  const { studyBundle: bundle } = require('../scripts/study-content.cjs');
   const scenario = bundle.records.filter(r => r.kind === 'scenario' && r.id === 'scenario-foundation-decision').sort((a, b) => b.version - a.version)[0];
   await page.goto(`./#cases/${scenario.id}/${scenario.version}`);
   await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');

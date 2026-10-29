@@ -7,6 +7,7 @@ import type { Rubric } from './question-attempts';
 import { appendCaseSelfAssessment, appendScenarioResponse, caseHash, caseRoute, createScenarioResponse, resolveScenario, responseFields } from './scenario-responses';
 import type { DecisionResponse, ScenarioResponse } from './scenario-responses';
 import type { Change, LearnerState } from './types';
+import { latestRecords } from './content-catalog';
 
 type Objectives = { id: string; statement: string }[];
 const p = (parent: HTMLElement, text: string): void => { parent.append(node('p', {}, text)); };
@@ -49,7 +50,7 @@ export function bindCases(bundle: ContentBundle, objectives: Objectives, change:
     catalog.append(node('h2', {}, 'Executive decision cases'));
     p(catalog, 'Practice business decisions with original provisional teaching. Applied responses and explicit rubric self-assessments stay separate from task completion, resource consumption, reading, questions, recall and legacy ratings. No mastery, professional readiness or certification is inferred.');
     const list = node('ul', { class: 'lesson-catalog' });
-    for (const scenario of bundle.records.filter(r => r.kind === 'scenario' && !bundle.records.some(other => other.id === r.id && other.version > r.version))) {
+    for (const scenario of latestRecords(bundle, 'scenario')) {
       const li = node('li'); li.append(node('a', { href: caseHash(scenario) }, `${scenario.title} · v${scenario.version}`)); list.append(li);
     }
     catalog.append(list);

@@ -63,7 +63,7 @@ test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work'
   await expect(page.locator('.task > span')).toHaveText(tasks.map(task => task[1] + task[2]));
   const renderedResources = await page.locator('.task-block').evaluateAll(blocks => blocks.map(block => ({
     focus: [...block.querySelectorAll('details p')].find(p => p.textContent.startsWith('Study focus: ')).textContent,
-    links: [...block.querySelectorAll('a')].map(a => [a.getAttribute('href'), a.target, a.rel]).sort((a, b) => a[0].localeCompare(b[0]))
+    links: [...block.querySelectorAll('.task-resources a')].map(a => [a.getAttribute('href'), a.target, a.rel]).sort((a, b) => a[0].localeCompare(b[0]))
   })));
   expect(renderedResources).toEqual(tasks.map(([id]) => {
     const resource = inventory.taskLearningResources[id];
