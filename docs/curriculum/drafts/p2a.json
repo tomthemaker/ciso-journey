@@ -1,0 +1,1323 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "c06-p2a-draft-2026-10-29.1",
+  "curriculumVersion": "c01-2026-10-27.2",
+  "actors": [
+    {
+      "id": "ai-c06-p2a-author",
+      "kind": "ai",
+      "role": "Original p2a lesson author and official public-source inspector; not an independent human educator/legal reviewer"
+    }
+  ],
+  "records": [
+    {
+      "id": "source-p2a-csf-2",
+      "version": 1,
+      "kind": "source",
+      "title": "NIST CSF 2.0: governance outcomes",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "National Institute of Standards and Technology (NIST)",
+        "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+        "edition": "NIST CSWP 29, The NIST Cybersecurity Framework (CSF) 2.0, February 26, 2024",
+        "jurisdiction": "International voluntary guidance; no legal applicability claim",
+        "publicationDate": "2024-02-26",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI inspected official final PDF abstract, section 2 and Appendix A printed pages 16–17: GV.RM-05, GV.RR-01/02/03, GV.PO-01/02 and GV.OV-01/02/03. Supports outcome-based guidance, leadership accountability, communicated authority, resources and strategic feedback. All role assignments, amounts, intervals and escalation rules are original fictional design choices. Inspection locators/rights: docs/curriculum/drafts/p2a.md. No human educator/legal validation.",
+        "verifierId": "ai-c06-p2a-author",
+        "sourceKind": "official-reference",
+        "copyright": "Original explanations and fictional examples; no NIST passages, tables or diagrams reproduced. NIST Technical Series rights notice inspected 2026-10-29 at https://www.nist.gov/open/copyright-fair-use-and-licensing-statements-srd-data-software-and-technical-series-publications: NIST employee works are not copyright-protected in the US; foreign and third-party rights require attention. Attribution to NIST is not endorsement.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "source-p2a-cobit-public",
+      "version": 1,
+      "kind": "source",
+      "title": "ISACA public explanation of COBIT 2019 governance and management",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "publisher": "ISACA",
+        "url": "https://www.isaca.org/resources/news-and-trends/industry-news/2019/employing-cobit-2019-for-enterprise-governance-strategy",
+        "edition": "Christopher Anoruo, Employing COBIT 2019 for Enterprise Governance Strategy, public Industry News article, 28 October 2019",
+        "jurisdiction": "International framework commentary; no legal applicability claim",
+        "publicationDate": "2019-10-28",
+        "effectiveDate": null,
+        "checkedAt": "2026-10-29",
+        "reviewDueAt": "2027-10-29",
+        "verification": "authoritative-text",
+        "verificationEvidence": "AI read title/byline/date and Governance and Management Objectives in COBIT 2019 section on the official ISACA host. Only its public description of EDM governance versus the four management domains is used. Also inspected https://www.isaca.org/resources/cobit for publisher context. This is publisher-hosted explanatory commentary, not inspection of the paid normative publications or a verified NIST/COBIT crosswalk. No detailed objectives, principles list, practices or mappings reproduced; see docs/curriculum/drafts/p2a.md.",
+        "verifierId": "ai-c06-p2a-author",
+        "sourceKind": "official-reference",
+        "copyright": "ISACA copyright retained; public access is not a reuse license. Only a brief original paraphrase of the public domain distinction and attribution is used. No paid COBIT/ISO text, diagrams, process tables, assessment scales or exam material copied; no endorsement or equivalence claimed.",
+        "c01SourceId": null
+      }
+    },
+    {
+      "id": "concept-p2a-authority",
+      "version": 1,
+      "kind": "concept",
+      "title": "Decision authority",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "An explicit permission to approve a defined choice within a scope and limits, with an escalation route when those limits fail. Accountability includes answering for the decision and follow-up; implementation and advice are separate assignments.",
+        "misconception": "A senior title or a responsibility label automatically grants permission to accept every risk."
+      }
+    },
+    {
+      "id": "concept-p2a-escalation",
+      "version": 1,
+      "kind": "concept",
+      "title": "Escalation condition",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "An observable condition that moves a decision to an authorized role or alternate route, carrying the evidence, uncertainty, requested choice and interim action.",
+        "misconception": "Escalation means waiting for certainty or forwarding an alarm without a requested decision."
+      }
+    },
+    {
+      "id": "concept-p2a-oversight",
+      "version": 1,
+      "kind": "concept",
+      "title": "Oversight as feedback",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "Review of results, limitations and repeated patterns to challenge performance and change direction, resources or delegation where warranted.",
+        "misconception": "Receiving a green dashboard or independently operating a control constitutes governing oversight."
+      }
+    },
+    {
+      "id": "concept-p2a-framework-boundary",
+      "version": 1,
+      "kind": "concept",
+      "title": "Framework comparison boundary",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "definition": "A declared limit on comparison: CSF cybersecurity outcomes and COBIT governance/management concepts can inform local design without proving equivalent coverage or authority.",
+        "misconception": "Similar governance vocabulary proves a one-to-one crosswalk or certifies the local operating model."
+      }
+    },
+    {
+      "id": "card-p2a-authority",
+      "version": 1,
+      "kind": "card",
+      "title": "Separate the decision from its execution",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "What must a five-decision register say beyond naming a responsible team?",
+        "answer": "For each defined decision, name one accountable authorized approver and the authority basis/limits, implementer, advisers, evidence and rationale, escalation condition/recipient/interim action, and oversight evidence with review trigger. These are exercise design fields, not a NIST-prescribed form.",
+        "conceptRef": {
+          "id": "concept-p2a-authority",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-p2a-escalation",
+      "version": 1,
+      "kind": "card",
+      "title": "Carry a decision through escalation",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "A proposed decision exceeds delegation. What makes escalation actionable?",
+        "answer": "State the failed condition, known facts and uncertainty, business consequence, options and requested decision; route to the authorized recipient or alternate, with an owner, response time and authorized interim action. Do not split the request to evade the limit.",
+        "conceptRef": {
+          "id": "concept-p2a-escalation",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-p2a-oversight",
+      "version": 1,
+      "kind": "card",
+      "title": "Close the oversight loop",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "Why can repeated individually authorized exceptions still require governing attention?",
+        "answer": "They may share a dependency or expose an unrealistic policy, resource gap or limit. Oversight examines the aggregate evidence, challenges management, changes direction/resources/delegation if justified and checks subsequent results; approval counts alone cannot show effectiveness.",
+        "conceptRef": {
+          "id": "concept-p2a-oversight",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "card-p2a-framework-boundary",
+      "version": 1,
+      "kind": "card",
+      "title": "Keep CSF and COBIT claims bounded",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "prompt": "What can this lesson claim about CSF 2.0 Govern and COBIT 2019?",
+        "answer": "CSF describes cybersecurity outcomes without prescribing implementation. ISACA’s public COBIT explanation distinguishes governance in EDM from management domains. This is a conceptual comparison, not an objective crosswalk, equivalence, compliance result or a prescribed organization chart.",
+        "conceptRef": {
+          "id": "concept-p2a-framework-boundary",
+          "version": 1
+        }
+      }
+    },
+    {
+      "id": "question-p2a-authority",
+      "version": 1,
+      "kind": "question",
+      "title": "A threshold is exceeded",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "The fictional charter lets the COO approve one-service exceptions costing at most CHF 20,000 for at most 14 days. A request costs CHF 28,000 and lasts 10 days. The CEO decides requests beyond those limits. No emergency authority applies. What is the defensible route?",
+        "difficulty": "advanced",
+        "options": [
+          {
+            "id": "a",
+            "text": "The COO approves because the duration is within 14 days.",
+            "explanation": "Incorrect. Both limits must hold; acceptable duration does not remove the spending limit."
+          },
+          {
+            "id": "b",
+            "text": "The CISO approves because security recommended the safeguards.",
+            "explanation": "Incorrect. Advice does not grant the missing authority; the brief grants no substitute CISO approval."
+          },
+          {
+            "id": "c",
+            "text": "Send the whole decision to the CEO with options, failed limit and an authorized interim action.",
+            "explanation": "Correct. The request exceeds delegation. Escalation preserves the full choice and its tradeoffs rather than disguising its cost."
+          },
+          {
+            "id": "d",
+            "text": "Split the request into two CHF 14,000 approvals for the same exception.",
+            "explanation": "Incorrect. Splitting one decision conceals its aggregate cost and evades the stated delegation."
+          }
+        ],
+        "correctOptionId": "c",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "question-p2a-framework",
+      "version": 1,
+      "kind": "question",
+      "title": "What does the framework establish?",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "mcq",
+        "prompt": "A team labels its local oversight meeting GV.OV and describes its governance work using COBIT EDM. Which conclusion follows from this lesson’s verified sources?",
+        "difficulty": "advanced",
+        "options": [
+          {
+            "id": "a",
+            "text": "The labels demonstrate that every COBIT objective and CSF outcome has been achieved.",
+            "explanation": "Incorrect. Labels supply no effectiveness evidence; the sources do not verify equivalent coverage."
+          },
+          {
+            "id": "b",
+            "text": "The concepts can inform design, but local authority and effectiveness still need explicit rules and evidence.",
+            "explanation": "Correct. CSF outcomes and the public COBIT governance/management distinction provide different design perspectives; neither label proves the local result."
+          },
+          {
+            "id": "c",
+            "text": "GV.OV requires the same executive committee and review interval at every organization.",
+            "explanation": "Incorrect. CSF does not prescribe that implementation; the lesson’s committee and intervals are fictional choices."
+          },
+          {
+            "id": "d",
+            "text": "COBIT management monitoring removes the need for governing oversight.",
+            "explanation": "Incorrect. Operational or management monitoring does not itself settle the governing question of whether direction and strategy need adjustment."
+          }
+        ],
+        "correctOptionId": "b",
+        "rubricRef": null,
+        "annotatedExample": null
+      }
+    },
+    {
+      "id": "rubric-p2a-question-escalation",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Escalate a shared-service exception response criteria",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "authority-route",
+            "description": "Identify the failed delegation and the correct recipient.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No authority limit or grants COO/CISO the decision without basis."
+              },
+              {
+                "score": 1,
+                "descriptor": "Identifies the two-service/shared-service limit and routes the whole decision to CEO."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also separates CEO approval, identity-team execution and CISO advice; does not misuse absent incident authority."
+              }
+            ]
+          },
+          {
+            "id": "actionable-choice",
+            "description": "Make this single referral actionable.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No feasible options or treats silence as approval."
+              },
+              {
+                "score": 1,
+                "descriptor": "Gives two feasible choices, business consequence and a permitted interim action."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also names an owner/response time and evidence/event for revisiting the choice; uncertainty remains explicit."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-p2a-escalation",
+      "version": 1,
+      "kind": "question",
+      "title": "Escalate a shared-service exception",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A fictional charter permits the COO to approve exceptions for one service for 14 days, with no shared-service effects. A proposed seven-day change disables a shared identity safeguard for two services. The CEO decides beyond those limits. The incident lead may contain credible compromise, but none is reported. Write one escalation entry: state the failed limit and consequence, approver, implementer/adviser, two options, interim action, response time and evidence/revisit trigger. Choose reasonable fictional times; do not produce a full five-row register.",
+        "difficulty": "advanced",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-p2a-question-escalation",
+          "version": 1
+        },
+        "annotatedExample": "Entry E1: COO cannot approve because the shared identity change affects two services. It could expose both services to unauthorized access; likelihood and current exploitation are unknown. CEO receives the full request; identity lead supplies the technical facts and would implement an authorized change; CISO advises. Options: retain the safeguard and delay the dependent release, or assess a narrower per-service workaround before any new approval. Keep the existing safeguard while identity lead tests that workaround in isolation. COO requests a CEO decision by tomorrow noon; if unavailable use the charter’s alternate rather than silence. Revisit on scoped test results or changed exposure; credible compromise would trigger the separately authorized incident route.\n\nAnnotation: this is one referral with explicit authority, options and follow-up; it requires no enterprise policy rewrite. The response time is an exercise choice."
+      }
+    },
+    {
+      "id": "rubric-p2a-question-oversight",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Challenge a reassuring indicator response criteria",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "evidence-challenge",
+            "description": "Use the stated limitations to request evidence.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Treats approval rate as risk reduction or invents a breach."
+              },
+              {
+                "score": 1,
+                "descriptor": "Explains why approval rate omits repeated/expired exceptions and requests two relevant evidence items."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also distinguishes the observed records from unknown safeguard effectiveness and asks for comparable scope/dates."
+              }
+            ]
+          },
+          {
+            "id": "feedback-action",
+            "description": "Turn challenge into accountable strategic follow-up.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "No owner/action or committee takes over control operation."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names a management owner/deadline, a committee decision to reconsider and a follow-up trigger."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also links that reconsideration to the evidence and assigns committee review without treating collection as proof of improvement."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-p2a-oversight",
+      "version": 1,
+      "kind": "question",
+      "title": "Challenge a reassuring indicator",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "scenario",
+        "prompt": "A fictional governing committee receives “100% of exceptions approved.” Management also records six repeated exceptions in one service, two expired safeguards and no test of whether the safeguards work. Write an oversight request with one management action owner and deadline, two evidence requests, a decision the committee should reconsider, and a follow-up trigger. Do not design controls or assert an observed breach.",
+        "difficulty": "advanced",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-p2a-question-oversight",
+          "version": 1
+        },
+        "annotatedExample": "Request: COO must reconcile all six recurring exceptions and the two expiries by 5 November. Supply (1) a dated register linking each exception to its service, dependency, approval and expiry action, and (2) scoped test results for the claimed safeguards, including failures, exclusions and test dates. The approval percentage measures administrative decisions; expired safeguards are recorded, but neither a breach nor effective safeguards have been established. Use the same service/time boundary for comparison. Committee will reconsider whether the standing exception limit and allocated remediation capacity remain appropriate, then direct a revised plan if the evidence warrants it. Review on 6 November or sooner if a safeguard fails; COO executes remediation and committee checks subsequent results.\n\nAnnotation: evidence collection supports a decision about direction and resources. The committee challenges and follows up; it does not become the control operator. Dates are fictional choices."
+      }
+    },
+    {
+      "id": "rubric-p2a-question-comparison",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Explain the comparison limit response criteria",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "outcome-and-comparison",
+            "description": "Explain the two perspectives within their source limits.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Equates the frameworks or omits one perspective."
+              },
+              {
+                "score": 1,
+                "descriptor": "Explains CSF roles/authority and oversight outcomes, and contrasts COBIT EDM governance with management work."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also states that CSF does not prescribe local implementation and that the public conceptual contrast is not a verified crosswalk."
+              }
+            ]
+          },
+          {
+            "id": "local-evidence",
+            "description": "Bound the effectiveness claim.",
+            "levels": [
+              {
+                "score": 0,
+                "descriptor": "Claims conformity/readiness from a label or attendance."
+              },
+              {
+                "score": 1,
+                "descriptor": "Names relevant local decision or performance evidence and a comparison limit."
+              },
+              {
+                "score": 2,
+                "descriptor": "Also explains how the evidence could challenge authority use or trigger a change in direction; no equivalence or publication claim."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "question-p2a-comparison",
+      "version": 1,
+      "kind": "question",
+      "title": "Explain the comparison limit",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "format": "open",
+        "prompt": "In a short paragraph, explain what CSF 2.0 GV.RR and GV.OV contribute to a decision-rights design. Contrast this with the limited public COBIT 2019 governance/management distinction used here. State one comparison limitation and one piece of local evidence needed before claiming the design works. No detailed crosswalk or paid framework recall is required.",
+        "difficulty": "advanced",
+        "options": [],
+        "correctOptionId": null,
+        "rubricRef": {
+          "id": "rubric-p2a-question-comparison",
+          "version": 1
+        },
+        "annotatedExample": "GV.RR asks whether cybersecurity authority and roles are established and understood; GV.OV asks whether reviewed results inform changes in risk strategy. CSF expresses outcomes without selecting our committee or delegations. ISACA’s public COBIT 2019 explanation distinguishes EDM governance from management domains; this helps ask who directs and who executes. It does not establish a one-to-one relationship with CSF outcomes or verify detailed COBIT practices. A sampled decision log showing who actually approved an out-of-limit request, and what happened at its review, could reveal ignored delegation or the need to revise it.\n\nAnnotation: this contrasts purpose and scope using inspected public material, then asks for observable local behavior. It does not award compliance or test unprovided paid text."
+      }
+    },
+    {
+      "id": "lesson-p2a-decision-rights",
+      "version": 1,
+      "kind": "lesson",
+      "title": "Governance decision rights: authority, escalation and oversight",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "sections": [
+          {
+            "heading": "From a charter to five testable decisions",
+            "body": "A charter names authority; a decision register makes it usable. This lesson extends w9’s conflict and escalation work. Retrieve the exact w9 lesson and recall why advice, approval, implementation and assurance differ. Your objective is to assign five governance decisions to accountable roles and explain escalation and oversight. You will produce a small artifact that another person could use when a decision becomes uncomfortable.\n\nAmbiguity has a causal cost. If security recommends a safeguard, operations implements it and sales announces approval, each may believe another role accepted the remaining exposure. A deadline then converts silence into apparent consent. Define the choice and its authority before the dispute. That creates a point where someone must explicitly accept, reject, defer or escalate, with reasons and follow-up."
+          },
+          {
+            "heading": "Use frameworks without inventing authority",
+            "body": "NIST CSF 2.0 describes cybersecurity outcomes without prescribing their implementation. GV.RR addresses leadership accountability, communicated roles and authority, and resources. GV.OV connects reviewed results to adjustment of strategy and performance. These outcomes make useful questions: can people explain their limits, and do results change decisions? They do not appoint your COO, dictate a monetary limit or require a specific committee.\n\nISACA’s public explanation of COBIT 2019 places governance in Evaluate, Direct and Monitor (EDM), with management in four other domains. This offers a conceptual distinction between directing the enterprise and managing execution. It is not a CSF-to-COBIT objective crosswalk. This lesson neither reproduces paid framework detail nor claims equivalent coverage. Our decision register is an original local design; evaluate it using the evidence it produces."
+          },
+          {
+            "heading": "Define the decision before assigning a title",
+            "body": "Write a decision as a choice with consequences: “approve an exception for this service until this date,” rather than “security.” Specify service, version, business purpose and affected stakeholders. A decision that changes shared identity may affect several services even when the request comes from one team. Scope follows consequences, not the requester’s organization chart.\n\nFor each row, name one accountable approver for the defined choice and cite the authority basis. This is a simplifying exercise convention, not a universal rule about corporate boards. State what the role may approve, what it cannot approve, and any deputy. Name implementers and advisers separately. A responsibility matrix can summarize these assignments, but a letter in a cell cannot express a threshold, resolve conflicting delegations or grant authority that the charter never gave."
+          },
+          {
+            "heading": "Make escalation a usable route",
+            "body": "Escalation moves a choice beyond the current role’s authority or to an alternate when the normal route fails. Use observable triggers: a cost limit, shared-service effect, missed expiry, unavailable approver or conflict of interest. “Escalate if serious” leaves people to negotiate seriousness during pressure. Avoid splitting one request to hide its aggregate effect.\n\nSend the failed condition, evidence, uncertainty, business consequence, options and requested decision to a named recipient. Assign an owner and response time. Define what remains authorized while waiting; an urgent message does not itself permit a policy exception. Where a separately authorized incident action applies, use it and communicate the action. Otherwise keep the existing control or pause the proposed activity within existing authority. Include an alternate route when the recipient is unavailable or implicated."
+          },
+          {
+            "heading": "Five rows that expose different kinds of authority",
+            "body": "Consider fictional Larch Services. Its governing committee approves strategic direction and delegations; CEO approves organization-wide policy and changes beyond executive limits. COO may accept one-service exceptions for at most 14 days and CHF 20,000, with no shared-service effect, suspected compromise or unresolved external-obligation concern. Incident lead has immediate containment authority for credible compromise and informs CEO/CISO. These are exercise assumptions, not legal duties.\n\nRow 1 approves security policy: CEO decides after CISO and service-owner advice; service owners implement; changes beyond strategic direction return to committee. Row 2 accepts a bounded exception: COO decides within every limit; service owner implements safeguards; failed limits go to CEO. Row 3 allocates remediation capacity: CEO approves within the committee’s budget envelope; operations allocates people; an envelope change returns to committee. Row 4 authorizes emergency containment: incident lead decides within its playbook; responders execute; wider effects go to CEO without delaying already authorized containment. Row 5 accepts the management response to assurance findings: committee decides whether the response supports direction, COO owns remediation, and an assurance lead outside the work checks evidence. Each row still needs the evidence, timing and follow-up fields; naming roles is only its beginning."
+          },
+          {
+            "heading": "Oversight closes a causal loop",
+            "body": "Execution produces results; measurement describes them with limits; oversight asks what those results imply for direction. An approval count shows that decisions were recorded. It does not show that safeguards worked or exposure declined. Ask for expired exceptions, repeated dependencies, failed tests, missed actions and excluded scope alongside successes. Comparable periods and denominators matter before asserting a trend.\n\nRequire a management response, owner and due date, then revisit the result. Repeated exceptions may reveal an unrealistic rule or insufficient capacity rather than isolated disobedience. The governing role can change direction, resources or delegations, or require better evidence before deciding. Assurance examines evidence with appropriate separation and disclosed conflicts; management reporting remains useful but does not become independent assurance merely by reaching the board."
+          },
+          {
+            "heading": "Worked executive example 1: a convenient split",
+            "body": "A portal launch needs a ten-day exception costing CHF 28,000. COO suggests two CHF 14,000 requests. Duration fits Larch’s rule, but total cost exceeds it. CISO records the complete request, its unknown exposure and two options: postpone launch while fixing the control, or ask CEO to assess the whole temporary exception with safeguards and expiry. Operations estimates a two-day fix; the business owner explains the launch consequence.\n\nCEO selects the fix and postponement, appoints portal owner to implement, and requires a scoped allowed/denied access test before launch. Until then the existing safeguard remains. COO records the decision today and reviews the test in two days. Committee later examines whether repeated launch exceptions indicate insufficient planning capacity. Neither the split nor security’s recommendation could substitute for the authorized decision."
+          },
+          {
+            "heading": "Worked executive example 2: green report, changing direction",
+            "body": "A monthly report says every exception received approval. Assurance independently samples the portal register and finds two expired safeguards; recurring requests share one identity dependency. No compromise is established. Committee asks COO for a reconciled register and scoped safeguard tests within a week, preserving the failures and untested areas in the report.\n\nCOO proposes continuing weekly exceptions or moving funded work from a lower-priority feature to repair identity. Committee reviews the business consequence and limited test evidence, directs CEO to bring a revised capacity proposal within the budget process, and schedules a result review in two weeks. COO owns execution; assurance checks the supplied evidence without implementing the repair. If credible compromise appears, incident lead uses its existing containment authority immediately. Oversight has changed a resource decision and set a feedback check; a green percentage alone would have concealed the dependency."
+          },
+          {
+            "heading": "Practice a bounded claim",
+            "body": "Build the five-row register in the linked case. Include evidence and rationale, authorized approver and limits, implementer/advisers, escalation trigger/recipient/interim action, and oversight evidence with owner and date or event. Resolve one out-of-limit referral and one oversight challenge. State the narrow framework comparison and its source boundary.\n\nAssess only this artifact using its Recognize, Explain, Apply and Lead anchors. A high anchor means the response demonstrates the specified design reasoning; it does not prove workplace leadership, legal compliance or professional readiness. Reading, resource and task completion, card recall, question attempts and applied self-assessment remain separate. All material is AI-authored provisional teaching pending the separate human publication gates."
+          }
+        ],
+        "prerequisiteRefs": [
+          {
+            "id": "lesson-w9-governance",
+            "version": 1
+          }
+        ],
+        "estimatedMinutes": 80,
+        "workedExample": "Example 1 follows a CHF 28,000 launch exception beyond COO delegation to a CEO decision and acceptance check. Example 2 uses expired safeguards and repeated dependencies to change resource direction through governing oversight. Both are fictional; the reading contains the full worked reasoning.",
+        "misconceptions": [
+          "A senior title or a responsibility label automatically grants permission to accept every risk.",
+          "Escalation means waiting for certainty or forwarding an alarm without a requested decision.",
+          "Receiving a green dashboard or independently operating a control constitutes governing oversight.",
+          "Similar governance vocabulary proves a one-to-one crosswalk or certifies the local operating model.",
+          "Approval rate proves safeguard effectiveness: it measures recorded approvals; request scoped outcome evidence and preserve failures.",
+          "Escalation suspends all response: use already delegated containment authority when its trigger holds and escalate wider decisions separately."
+        ],
+        "conceptRefs": [
+          {
+            "id": "concept-p2a-authority",
+            "version": 1
+          },
+          {
+            "id": "concept-p2a-escalation",
+            "version": 1
+          },
+          {
+            "id": "concept-p2a-oversight",
+            "version": 1
+          },
+          {
+            "id": "concept-p2a-framework-boundary",
+            "version": 1
+          }
+        ],
+        "practiceRefs": [
+          {
+            "id": "question-p2a-authority",
+            "version": 1
+          },
+          {
+            "id": "question-p2a-framework",
+            "version": 1
+          },
+          {
+            "id": "question-p2a-escalation",
+            "version": 1
+          },
+          {
+            "id": "question-p2a-oversight",
+            "version": 1
+          },
+          {
+            "id": "question-p2a-comparison",
+            "version": 1
+          },
+          {
+            "id": "scenario-p2a-five-decisions",
+            "version": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "rubric-p2a-five-decisions",
+      "version": 1,
+      "kind": "rubric",
+      "title": "Five-decision artifact: Recognize, Explain, Apply and Lead",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "criteria": [
+          {
+            "id": "decision-authority",
+            "description": "Assign the five requested decisions and their authority.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: identifies policy, exception, resources, containment and assurance-response decisions, but authority or role separation remains incomplete."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: assigns each an accountable approver, authority basis/limits, implementer and adviser; explains why advice/execution do not themselves approve."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: all five rows consistently use Larch’s supplied delegations, evidence/rationale and review fields, including the whole CHF 28,000 referral."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also explains how the register would be communicated and tested using one sampled decision to check understood/enforced limits; claims concern the designed artifact only."
+              }
+            ]
+          },
+          {
+            "id": "escalation-oversight",
+            "description": "Make referral and strategic feedback actionable.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: names escalation and oversight but omits usable routes or evidence."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: describes failed limits, recipients and how oversight differs from execution."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: each row has trigger, recipient, authorized interim action and oversight evidence/owner/review time; resolves one referral and the expired-safeguard challenge without inventing a breach."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also provides an alternate for unavailable/implicated authority and a conditional change to resources/direction/delegation with a subsequent result check; no real implementation is required."
+              }
+            ]
+          },
+          {
+            "id": "framework-and-claims",
+            "description": "Bound framework and learning claims.",
+            "levels": [
+              {
+                "score": 1,
+                "descriptor": "Recognize: names CSF and COBIT but leaves comparison or assessment provenance unclear."
+              },
+              {
+                "score": 2,
+                "descriptor": "Explain: distinguishes CSF outcome guidance from the public COBIT EDM/management distinction and identifies the lack of a verified crosswalk."
+              },
+              {
+                "score": 3,
+                "descriptor": "Apply: connects GV.RR/GV.OV questions to local evidence without presenting local roles/thresholds as framework mandates; states self-assessment and separate learning signals."
+              },
+              {
+                "score": 4,
+                "descriptor": "Lead: also identifies one result that could falsify the design’s claimed effectiveness and trigger revision; avoids compliance, equivalence, publication or professional-readiness inference."
+              }
+            ]
+          }
+        ],
+        "assessmentProvenance": "self-assessment"
+      }
+    },
+    {
+      "id": "scenario-p2a-five-decisions",
+      "version": 1,
+      "kind": "scenario",
+      "title": "Design and test five governance decisions",
+      "authorIds": [
+        "ai-c06-p2a-author"
+      ],
+      "authoredAt": "2026-10-29",
+      "taskIds": [
+        "p2a"
+      ],
+      "objectiveIds": [
+        "obj-p2a-1"
+      ],
+      "sourceRefs": [
+        {
+          "id": "source-p2a-csf-2",
+          "version": 1
+        },
+        {
+          "id": "source-p2a-cobit-public",
+          "version": 1
+        }
+      ],
+      "legalClaims": [],
+      "supersedes": null,
+      "changeNote": "New original p2a AI-authored provisional draft; all earlier revisions remain unchanged.",
+      "priorAttemptImpact": "New ID; preserve every historical attempt and exact reference. No automatic regrading or readiness inference.",
+      "scheduleImpact": "No existing schedule changes. New retrieval cards require separate explicit enrollment.",
+      "payload": {
+        "brief": "Fictional Larch Services operates a customer portal and a shared identity service. Committee approves strategy, delegations and budget envelope; CEO approves organization-wide policy and decisions beyond executive limits, and capacity within that envelope. COO may accept one-service exceptions for at most 14 days and CHF 20,000, only with no shared-service effect, suspected compromise or unresolved external-obligation concern. Incident lead may immediately contain credible compromise under an approved playbook and informs CEO/CISO. Wider effects go to CEO while authorized containment continues. Service owners/operations execute; CISO advises. An assurance lead outside the control work, with conflicts disclosed, checks evidence and reports to committee; COO owns remediation. Chair is the alternate for an unavailable/implicated CEO; deputy lead substitutes for unavailable incident lead. No additional legal authority is implied. A ten-day portal exception costs CHF 28,000. A management report says all exceptions are approved, but independent sampling finds two expired safeguards and recurring requests tied to shared identity; effectiveness is untested and no compromise is established.",
+        "deliverable": "Produce exactly five decision rows: policy approval; exception acceptance; remediation capacity allocation; emergency containment; acceptance of the management response to assurance findings. For each define the choice/scope, accountable approver and authority basis/limits, implementer and advisers, evidence and rationale, escalation trigger/recipient/authorized interim action, and oversight evidence with owner and review date or event. Resolve the CHF 28,000 request as one explicit referral with two options, decision/next step and response time; explain a possible business consequence. Resolve the expired-safeguard oversight challenge with two evidence requests, management owner/deadline, a conditional decision about resources/direction/delegation and a subsequent result check. Provide an alternate route for unavailable/implicated authority. Explain how you would communicate the register and sample one decision to check understood/enforced authority; identify one observation that could disprove its effectiveness. Briefly distinguish CSF GV.RR/GV.OV outcomes from the public COBIT EDM/management comparison, state its crosswalk limitation, and keep this self-assessment separate from reading, resources, tasks, recall and question attempts. These fields define the Lead anchors for this artifact; no production execution, detailed framework mapping or legal conclusion is required.",
+        "constraints": [
+          "Use only the fictional facts or label additional synthetic assumptions. No real learner backups, notes, credentials or employer evidence.",
+          "Amounts, roles, response times and committee design are exercise choices, not NIST/COBIT/legal requirements. Internal authority does not establish or waive external obligations.",
+          "Justified refusal, deferral or alternative choices are acceptable within the supplied limits. Do not split requests or invent control effectiveness or compromise.",
+          "All anchors assess the requested draft artifact only. AI draft, self-assessment and agent review do not confer human educator/legal approval, publication or professional readiness."
+        ],
+        "rubricRef": {
+          "id": "rubric-p2a-five-decisions",
+          "version": 1
+        },
+        "annotatedExample": "Register scope: Larch portal/shared identity, design dated 29 October 2026; no claim about other services. Row 1—approve portal security policy: CEO accountable under policy delegation; CISO advises from the risk/exception register; service owner implements. Scope beyond strategic direction returns to committee; retain existing policy pending that choice. CISO supplies version and implementation exceptions for committee review on 12 November. Row 2—accept portal exception: COO accountable only within every supplied condition; portal owner executes and CISO advises from exposure/safeguard evidence. CHF 28,000 fails the cost limit: refer the whole ten-day request to CEO today, with options to delay launch for a two-day fix or assess a bounded exception. Consequence: delayed customer access versus uncertain unauthorized-access exposure. Request decision by tomorrow noon; maintain current safeguard meanwhile. Chair substitutes if CEO is unavailable/implicated. Portal owner supplies test/expiry evidence for COO review before launch or on changed exposure; no automatic renewal. Row 3—allocate remediation capacity: CEO approves an evidenced plan within budget envelope; operations implements with service-owner/CISO estimates of competing work and residual exposure. Budget-envelope change goes to committee; keep only already authorized work pending choice. COO reports delivery and excluded work to committee on 12 November or earlier for a missed critical milestone. Row 4—contain credible compromise: incident lead decides within playbook on credible indicators; responders execute; CISO advises and CEO is informed. Deputy covers unavailability; wider effects go to CEO/chair, without withholding already authorized containment. Incident lead records indicators, scope, consequences and uncertainty; committee receives the post-incident review within a fictional five days of stabilization and challenges authority gaps. No compromise is asserted in today’s brief. Row 5—accept management response to assurance: committee decides whether COO’s remediation response supports direction; COO executes and assurance lead checks evidence without owning the repair. Evidence: dated sampled findings and limitations, management plan and effectiveness tests. Unresolved conflict/blocked response goes to chair; retain open findings meanwhile. Committee reviews results on 12 November and sooner if safeguards fail.\n\nOversight entry: approval rate does not establish effectiveness. COO must supply by 5 November (1) a dated exception/dependency/expiry register and (2) scoped safeguard tests including failures/exclusions. Committee on 6 November considers directing CEO to reprioritize capacity within the envelope if shared identity drives recurrence, or reconsidering delegation if it was ignored. It checks delivery/test results two weeks later; the assurance lead checks evidence, COO remains execution owner. A proposal beyond budget returns to committee through Row 3. Communicate the register to named roles and deputies, ask them to resolve the CHF 28,000 example, then sample the actual recorded synthetic decision against its limits and follow-up. Observation that would disprove effective use: the COO approves the full request despite the limit and nobody follows the referral; investigate understanding/enforcement and revise the design rather than report success.\n\nCSF GV.RR/GV.OV provide questions about communicated authority and feedback to strategy. Public COBIT commentary distinguishes EDM governance from management; this is a conceptual comparison, not a verified crosswalk or framework mandate for these rows. This is a self-assessed design artifact; reading, resource/task completion, recall and question attempts measure different activities. Annotation: the five rows show operationally different authority and feedback paths. Lead concerns testing and revising the proposed design, not evidence of real executive leadership or compliance."
+      }
+    }
+  ],
+  "editorial": [
+    {
+      "ref": {
+        "id": "source-p2a-csf-2",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "source-p2a-cobit-public",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-p2a-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-p2a-escalation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-p2a-oversight",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "concept-p2a-framework-boundary",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-p2a-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-p2a-escalation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-p2a-oversight",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "card-p2a-framework-boundary",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-p2a-authority",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-p2a-framework",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-p2a-question-escalation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-p2a-escalation",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-p2a-question-oversight",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-p2a-oversight",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-p2a-question-comparison",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "question-p2a-comparison",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "lesson-p2a-decision-rights",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "rubric-p2a-five-decisions",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    },
+    {
+      "ref": {
+        "id": "scenario-p2a-five-decisions",
+        "version": 1
+      },
+      "status": "draft",
+      "reviews": [],
+      "unresolvedChallenges": []
+    }
+  ]
+}
