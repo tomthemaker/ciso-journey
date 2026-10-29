@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-const { studyBundle: bundle } = require('../scripts/study-content.mjs');
+const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version)).sort((a, b) => `${a.id}@${a.version}`.localeCompare(`${b.id}@${b.version}`));
 const first = cards[0];
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');

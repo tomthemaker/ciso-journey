@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { studyBundle: bundle } = require('../scripts/study-content.mjs');
+const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const scenario = bundle.records.find(r => r.kind === 'scenario' && r.version === 2);
 const rubric = bundle.records.find(r => r.id === scenario.payload.rubricRef.id && r.version === 2);

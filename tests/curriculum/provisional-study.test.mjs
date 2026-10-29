@@ -11,6 +11,8 @@ import { contentRefs } from '../../src/content-status.ts';
 import { todayPlan } from '../../src/today-plan.ts';
 import { setRead } from '../../src/reading-progress.ts';
 import { enrollCard } from '../../src/reviews.ts';
+import { appendAttempt, appendSelfAssessment, createAttempt } from '../../src/question-attempts.ts';
+import { createBackup, validateBackup } from '../../src/backup.ts';
 
 const previous = studyInputs[0].bundle;
 const asOf = '2026-10-29';
@@ -91,6 +93,34 @@ test('Today progresses beyond the pilot, uses exact authored practice and never 
   const w5 = changed.records.find(record => record.id === 'lesson-w5-cloud');
   w5.payload.prerequisiteRefs = [{ id: 'lesson-w3-architecture', version: 1 }];
   assert.equal(todayPlan(changed, state, '2026-10-29T10:00:00.000Z').lesson.taskIds[0], 'w6');
+});
+
+test('every current question accepts exact authored option IDs or constructed responses and round-trips its rubric history', () => {
+  const state = JSON.parse(readFileSync(new URL('../fixtures/v1/empty.json', import.meta.url), 'utf8')).data;
+  const before = structuredClone(state);
+  const now = '2026-10-29T10:00:00.000Z';
+  for (const question of latestRecords(bundle, 'question')) {
+    if (question.payload.format === 'mcq') {
+      for (const option of question.payload.options) {
+        const attempt = createAttempt(bundle, question, option.id, `synthetic-${question.id}-${option.id}`, now);
+        appendAttempt(state, attempt);
+        assert.equal(attempt.response, option.id);
+        assert.equal(attempt.correct, option.id === question.payload.correctOptionId);
+      }
+      assert.throws(() => createAttempt(bundle, question, 'synthetic-not-an-option', 'synthetic-invalid', now), /Attempt an answer first/);
+    } else {
+      const attempt = createAttempt(bundle, question, 'Synthetic original response with decision and uncertainty.', `synthetic-${question.id}`, now);
+      appendAttempt(state, attempt);
+      const rubric = findContent(bundle, question.payload.rubricRef);
+      appendSelfAssessment(state, bundle, attempt.id, rubric.payload.criteria.map(criterion => ({ criterionId: criterion.id, score: criterion.levels[0].score })), `synthetic-assessment-${question.id}`, now);
+      assert.equal(attempt.correct, null);
+    }
+  }
+  assert(state.questionAttempts.attempts.some(attempt => attempt.response === '2'));
+  assert.deepEqual(validateBackup(createBackup(state)), state);
+  const { questionAttempts, ...unchanged } = state;
+  assert.deepEqual(unchanged, before);
+  assert.equal(questionAttempts.selfAssessments.length, latestRecords(bundle, 'question').filter(question => question.payload.format !== 'mcq').length);
 });
 
 test('composition rejects conflicting provenance, duplicate revisions and incompatible curriculum snapshots', () => {

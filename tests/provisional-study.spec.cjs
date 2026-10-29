@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-const { studyBundle: bundle } = require('../scripts/study-content.mjs');
+const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const { latestRecords, taskContent } = require('../src/content-catalog.ts');
 const { contentKey, findContent } = require('../src/content.ts');
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');

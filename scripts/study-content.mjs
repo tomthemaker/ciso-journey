@@ -1,13 +1,9 @@
-import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
-import { composeContent } from '../src/content-catalog.ts';
 import { validateContent } from './validate-content.mjs';
+import study from './study-content.cjs';
 
-const read = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
-export const studyManifest = read('content/provisional-study.manifest.json');
-export const studyInputs = [studyManifest.baseline, ...studyManifest.artifacts].map(artifact => ({ artifact, bundle: read(artifact.path) }));
-export const studyBundle = composeContent(studyManifest.contentVersion, studyInputs.map(input => input.bundle));
+export const { studyManifest, studyInputs, studyBundle } = study;
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const previous = studyInputs[0].bundle;
