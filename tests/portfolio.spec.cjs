@@ -1,0 +1,43 @@
+const { test, expect } = require('@playwright/test');
+test('portfolio appends private evidence and quarterly judgments and survives full backup', async ({ page }) => {
+  await page.goto('./#competencies');
+  await page.locator('#portfolio-title').fill('Synthetic register');
+  await page.locator('#portfolio-url').fill('https://example.test/register');
+  await page.locator('#portfolio-notes').fill('<img src=x> synthetic');
+  await page.getByRole('button', { name: 'Save evidence' }).click();
+  await expect(page.locator('#evidenceHistory')).toBeFocused();
+  await page.locator('#appraisal-date').fill('2026-03-31');
+  await page.locator('#appraisal-competency').selectOption('Governance');
+  await page.locator('#appraisal-level').selectOption('Apply');
+  await page.locator('#appraisal-scope').fill('Fictional pilot');
+  await page.locator('#appraisal-rationale').fill('Bounded evidence');
+  await page.locator('#appraisal-evidenceId').selectOption({ label: 'Synthetic register' });
+  await page.getByRole('button', { name: 'Save self-assessment' }).click();
+  await expect(page.locator('#appraisalHistory')).toBeFocused();
+  await page.reload();
+  await expect(page.locator('#portfolio summary')).toContainText('2026 Q1 · 2026-03-31 · Governance · Apply');
+  await page.locator('#portfolio summary').click();
+  await expect(page.locator('#portfolio')).toContainText('Evidence: Synthetic register');
+  await expect(page.locator('#portfolio img')).toHaveCount(0);
+  const downloadPromise = page.waitForEvent('download'); await page.locator('#exportBtn').click(); const download = await downloadPromise;
+  const fs = require('node:fs'); const backup = JSON.parse(fs.readFileSync(await download.path(), 'utf8'));
+  expect(backup.data.portfolio.appraisals[0].provenance).toBe('self-assessment');
+  expect(backup.data.portfolio.evidence[0].notes).toBe('<img src=x> synthetic');
+  page.on('dialog', dialog => dialog.accept());
+  await page.locator('#importFile').setInputFiles({ name: 'synthetic.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(backup)) });
+  await expect(page.locator('#storageStatus')).toContainText('Backup imported');
+  await expect(page.locator('#portfolio summary')).toContainText('Governance · Apply');
+});
+
+test('failed portfolio write retains draft for retry', async ({ page }) => {
+  await page.goto('./#competencies');
+  await expect(page.locator('#storageStatus')).toContainText('Progress stored');
+  await page.evaluate(() => { window.failWrites = true; const put = IDBObjectStore.prototype.put; IDBObjectStore.prototype.put = function (...args) { if (window.failWrites) throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); return put.apply(this, args); }; });
+  await page.locator('#portfolio-title').fill('Retry synthetic evidence');
+  await page.getByRole('button', { name: 'Save evidence' }).click();
+  await expect(page.locator('#storageStatus')).toContainText('Synthetic quota failure');
+  await expect(page.locator('#portfolio-title')).toHaveValue('Retry synthetic evidence');
+  await page.evaluate(() => { window.failWrites = false; });
+  await page.getByRole('button', { name: 'Save evidence' }).click();
+  await expect(page.locator('#portfolio')).toContainText('Retry synthetic evidence');
+});
