@@ -10,6 +10,7 @@ import type { RecallRating, ReviewInput } from './reviews';
 import { availableCard, cardsForBulkEnrollment, latestRecords, todayPlan } from './today-plan';
 import type { Change, LearnerState } from './types';
 import { phases } from './data';
+import { cardRoute } from './content-catalog';
 
 interface Presentation { ref: ContentRef; signature: string; eventId: string; revealed: boolean; retry?: ReviewInput }
 const signature = (card: { schedule: { reps: number; due: string } }): string => `${card.schedule.reps}:${card.schedule.due}`;
@@ -50,7 +51,8 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
   function render(): void {
     const focusId = root.contains(document.activeElement) ? document.activeElement?.id : undefined;
     const openDetails = new Set(Array.from(root.querySelectorAll<HTMLDetailsElement>('details[open][id]')).map(item => item.id));
-    const deckWasOpen = openDetails.has('todayDeck');
+    const targetCard = cardRoute(location.hash);
+    const deckWasOpen = openDetails.has('todayDeck') || !!targetCard;
     root.replaceChildren();
     const intro = node('div', { class: 'today-intro' });
     intro.append(node('h2', {}, 'Today'), node('p', {}, 'Review what is due, then continue reading or choose an open task.'));
@@ -123,9 +125,9 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     const reading = node('section', { class: 'today-section', id: 'todayReading' });
     reading.append(node('h2', {}, `Unfinished reading (${unread.length})`));
     const readingList = node('ul', { class: 'worklist' });
-    for (const [index, record] of unread.entries()) {
+    for (const record of unread) {
       const li = node('li');
-      li.append(node('a', { href: contentHash(record), class: !card && index === 0 ? 'btn primary' : '' }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
+      li.append(node('a', { href: contentHash(record), class: !card && plan.lesson && contentKey(record) === contentKey(plan.lesson) ? 'btn primary' : '' }, record.title), node('span', { class: 'side-note' }, ` · v${record.version} · ${effectiveStatus(bundle, record, now.slice(0, 10))}`));
       readingList.append(li);
     }
     reading.append(unread.length ? readingList : node('p', {}, 'All current lesson revisions are marked read.'), node('p', { class: 'side-note' }, 'Draft lessons are provisional. Reading completion records participation, not mastery.'));
@@ -163,6 +165,7 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
     form.addEventListener('submit', event => { event.preventDefault(); const limit = Number(input.value); void mutate(candidate => setNewCardLimit(candidate, limit)).then(() => { if (state?.reviewProgress?.settings.newCardsPerDay === limit) capDraft = undefined; }); });
     deck.append(form, node('p', {}, 'Limits apply only to first ratings of new cards. Due and overdue reviews remain available even at zero. Suspending or archiving keeps exact schedules and history; restoring keeps the original due date.'));
     const cards = latestRecords(bundle, 'card').filter(record => effectiveStatus(bundle, record, now.slice(0, 10)) !== 'retired');
+    if (targetCard) deck.append(node('p', { role: 'status' }, availableCard(bundle, targetCard) ? `Selected card: ${availableCard(bundle, targetCard)!.title} · ${contentKey(targetCard)}. Enrollment is explicit and does not complete a lesson or task.` : `Exact card ${contentKey(targetCard)} is unavailable. Existing history is retained.`));
     const missing = cardsForBulkEnrollment(cards, state);
     if (missing.length) deck.append(button('todayEnrollAll', `Enroll ${missing.length} foundation draft cards`, () => { const at = new Date().toISOString(); void mutate(candidate => { for (const record of missing) enrollCard(candidate, { id: record.id, version: record.version }, at); }); }));
     const list = node('ul', { class: 'today-deck' });
@@ -188,7 +191,15 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
       document.getElementById(focusId)?.focus({ preventScroll: true });
     }
   }
-  window.addEventListener('hashchange', () => { if (location.hash === '#today') render(); });
+  window.addEventListener('hashchange', () => {
+    if (location.hash.split('/')[0] !== '#today') return;
+    render();
+    const target = cardRoute(location.hash);
+    if (target) {
+      const entry = document.getElementById(`enroll-${target.id}-${target.version}`) ?? document.getElementById(`suspended-${target.id}-${target.version}`);
+      entry?.focus(); entry?.scrollIntoView({ block: 'center' });
+    }
+  });
   // Recheck newly due cards and local midnight without disrupting typing or a revealed answer.
   window.setInterval(() => { if (location.hash === '#today' && !root.contains(document.activeElement) && !pending) render(); }, 30000);
   return next => { state = next; render(); };

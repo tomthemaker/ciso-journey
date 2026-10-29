@@ -5,6 +5,7 @@ import { effectiveStatus } from './content-status';
 import { appendAttempt, appendSelfAssessment, createAttempt, questionHash, questionRoute, resolveRubric } from './question-attempts';
 import type { Question, QuestionAttempt, Rubric } from './question-attempts';
 import type { Change, LearnerState } from './types';
+import { latestRecords } from './content-catalog';
 
 type Objectives = { id: string; statement: string }[];
 const paragraph = (parent: HTMLElement, text: string): void => { parent.append(node('p', {}, text)); };
@@ -56,7 +57,7 @@ export function bindQuestions(bundle: ContentBundle, objectives: Objectives, cha
     catalog.append(node('h2', {}, 'Foundation questions'));
     paragraph(catalog, 'Practice against original learning objectives. Attempts and explicit rubric self-assessments are separate from reading, resources, task completion, recall, applied assessment and legacy ratings. Use fictional responses; keep employer information out of practice.');
     const list = node('ol', { class: 'lesson-catalog' });
-    for (const question of bundle.records.filter(record => record.kind === 'question' && !bundle.records.some(other => other.id === record.id && other.version > record.version))) {
+    for (const question of latestRecords(bundle, 'question')) {
       const item = node('li');
       item.append(node('a', { href: questionHash(question) }, `${question.title} · v${question.version} · ${String(question.payload.format)}`));
       list.append(item);

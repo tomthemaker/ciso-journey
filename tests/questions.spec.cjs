@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-const bundle = require('../content/foundation.v1.json');
+const { studyBundle: bundle } = require('../scripts/study-content.mjs');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const questions = bundle.records.filter(r => r.kind === 'question');
 const mcq = questions.find(r => r.payload.format === 'mcq');

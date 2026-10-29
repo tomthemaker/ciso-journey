@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const fs = require('node:fs/promises');
-const bundle = require('../content/foundation.v1.json');
+const { studyBundle: bundle } = require('../scripts/study-content.mjs');
 const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version)).sort((a, b) => `${a.id}@${a.version}`.localeCompare(`${b.id}@${b.version}`));
 const first = cards[0];
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
@@ -71,7 +71,7 @@ test('Today connects original reading, question and case; keyboard review and al
   await page.locator('#todayRateGood').focus(); await page.keyboard.press('Enter');
   await expect(page.locator('#todayMessage')).toContainText('Good saved');
   await expect(page.locator('#todayQueueHeading')).toBeFocused();
-  await expect(page.locator('#todaySignals')).toContainText('Reading: 1/4');
+  await expect(page.locator('#todaySignals')).toContainText(`Reading: 1/${bundle.records.filter(r => r.kind === 'lesson' && !bundle.records.some(other => other.id === r.id && other.version > r.version)).length}`);
   await expect(page.locator('#todaySignals')).toContainText('Resources: 1 marked completed');
   await expect(page.locator('#todaySignals')).toContainText('Tasks: 0/37');
   await expect(page.locator('#todaySignals')).toContainText('Recall: 1 saved ratings');

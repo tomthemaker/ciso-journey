@@ -3,6 +3,11 @@ import { byId, node } from "./dom";
 import { renderTaskResources } from "./resource-view";
 import { resourceCompletionCount } from "./resource-progress";
 import type { Change, LearnerState } from "./types";
+import { lessonBundle } from './lesson-data';
+import { taskContent } from './content-catalog';
+import { contentHash } from './content';
+import { questionHash } from './question-attempts';
+import { caseHash } from './scenario-responses';
 
 let previousState: LearnerState | undefined;
 export function renderRoadmap(state: LearnerState, changed: Change) {
@@ -55,6 +60,17 @@ export function renderRoadmap(state: LearnerState, changed: Change) {
       row.append(check, label);
       const block = node("div", { class: "task-block" });
       block.append(row);
+      const study = node('details', { id: `${task[0]}-study` });
+      const links = node('ul');
+      for (const [kind, label, hash] of [['lesson', 'Original lesson', contentHash], ['question', 'Question', questionHash], ['scenario', 'Executive case', caseHash]] as const) {
+        for (const record of taskContent(lessonBundle, task[0], kind)) {
+          const item = node('li'); item.append(node('a', { href: hash(record) }, `${label}: ${record.title} · v${record.version}`)); links.append(item);
+        }
+      }
+      if (links.children.length) {
+        study.append(node('summary', {}, 'Original study and practice'), node('p', { class: 'side-note' }, 'Provisional AI-authored study; no independent educator or legal approval. Task completion stays separate from reading and practice.'), links);
+        block.append(study);
+      }
       block.append(renderTaskResources(state, task[0], changed));
       card.append(block);
     }

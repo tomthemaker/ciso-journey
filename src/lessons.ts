@@ -6,6 +6,7 @@ import { effectiveStatus } from './content-status';
 import { questionHash } from './question-attempts';
 import { isRead, setRead } from './reading-progress';
 import type { Change, LearnerState } from './types';
+import { cardHash, latestRecords } from './content-catalog';
 
 interface Objective { id: string; statement: string; entryRequirement: string | null }
 const text = (value: unknown): string => typeof value === 'string' ? value : '';
@@ -56,8 +57,7 @@ export function renderReader(
   root.replaceChildren();
   const intro = node('details', { class: 'card lesson-index' });
   intro.append(node('summary', {}, 'Foundation reading — lesson index'), node('p', {}, 'Original reading is self-contained. External courses are optional supplements. Reading completion records participation only; task completion, resource use, recall, question attempts and applied assessment remain separate.'));
-  const lessons = bundle.records.filter(record => record.kind === 'lesson' &&
-    !bundle.records.some(other => other.id === record.id && other.version > record.version));
+  const lessons = latestRecords(bundle, 'lesson');
   const catalog = node('ol', { class: 'lesson-catalog' });
   for (const lesson of lessons) {
     const item = node('li');
@@ -102,6 +102,8 @@ export function renderReader(
       const links = node('ul');
       for (const target of p.prerequisiteRefs) { const item = node('li'); item.append(referenceLink(bundle, target)); links.append(item); }
       article.append(links);
+      const remaining = p.prerequisiteRefs.filter(target => !isRead(state, target));
+      if (remaining.length) article.append(node('p', { class: 'side-note' }, `${remaining.length} prerequisite reading revision(s) not marked complete. You may preview this lesson; reading status is participation only.`));
     }
     const contents = node('nav', { 'aria-label': 'Reading sections', class: 'reading-sections' });
     p.sections.forEach((section, index) => {
@@ -135,6 +137,14 @@ export function renderReader(
       if (practice.kind === 'scenario') preview.append(node('a', { href: caseHash(practice) }, 'Attempt this executive case'));
       if (practice.kind === 'question') preview.append(node('a', { href: questionHash(practice) }, 'Attempt this question'));
       article.append(preview);
+    }
+    const cards = latestRecords(bundle, 'card').filter(card => card.taskIds.some(id => lesson.taskIds.includes(id)));
+    if (cards.length) {
+      heading(article, 'Retrieval cards');
+      article.append(node('p', { class: 'side-note' }, 'Choose a card to manage explicit enrollment in Today. Reading never enrolls cards or changes a schedule.'));
+      const links = node('ul');
+      for (const card of cards) { const item = node('li'); item.append(node('a', { href: cardHash(card) }, `${card.title} · v${card.version}`)); links.append(item); }
+      article.append(links);
     }
     const complete = isRead(state, lesson);
     const button = node('button', { class: 'btn primary', id: 'readingComplete', type: 'button', 'aria-pressed': String(complete) }, complete ? 'Mark reading unread' : 'Mark reading complete');
