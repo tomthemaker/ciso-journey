@@ -13,7 +13,7 @@ import { byId, node } from "./dom";
 import { bindHistoryForms, renderEntries } from "./history";
 import { bindNavigation } from "./navigation";
 import { renderRoadmap } from "./roadmap";
-import { empty, LearnerStorage, recoveryMessage } from "./storage";
+import { LearnerStorage, recoveryMessage } from "./storage";
 import type { Change, LearnerState } from "./types";
 
 // Keep a committed state separate from pending edits and unreadable stored data.
@@ -23,9 +23,17 @@ let busy = false;
 let generation = 0;
 function invalidateProfile(): void {
   generation++;
+  busy = false;
   state = undefined;
   storage = undefined;
+  document.body.dataset.accountReady = "false";
   document.body.dataset.storageBlocked = "true";
+  renderToday(undefined); renderLessons(undefined); renderQuestions(undefined); renderCases(undefined); renderPortfolio(undefined);
+  for (const id of ["phaseList", "scores", "journalList", "achievementList", "progressReport", "todayStudy", "caseBank", "questionBank", "lessonReader", "portfolio"]) document.getElementById(id)?.replaceChildren();
+  for (const id of ["overallText", "statTasks", "statLogs", "statAchievements", "statCompetency"]) { const element = document.getElementById(id); if (element) element.textContent = ""; }
+  byId("overallBar", "div").style.width = "0%";
+  for (const form of document.querySelectorAll("form")) form.reset();
+  document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("input:not([type=button]):not([type=submit]), textarea").forEach(input => { if (input.type !== "checkbox" && input.type !== "radio") input.value = ""; });
   controls();
 }
 const status = byId("storageStatus", "p");
@@ -37,7 +45,6 @@ function applyTheme(): void {
   document.documentElement.dataset.theme = theme === "system" ? (systemTheme.matches ? "dark" : "light") : theme;
 }
 systemTheme.addEventListener("change", applyTheme);
-const recoveryButton = byId("recoveryBtn", "button");
 function controls(): void {
   document.body.dataset.storageBlocked = String(!state);
   document.body.dataset.storageBusy = String(busy);
@@ -45,10 +52,9 @@ function controls(): void {
     "#todayStudy fieldset, #readingComplete, #questionBank fieldset, #caseBank fieldset, .task input, #scores select, form input, form select, form textarea, form button, .resource-panel button, .log button, #phaseFilter, #resetBtn",
   )) control.disabled = busy || !state || control.dataset.retired === "true" || control.dataset.pending === "true";
   themeChoice.disabled = busy || !state;
-  byId("importBtn", "button").disabled = busy;
+  byId("importBtn", "button").disabled = busy || !state;
   byId("exportBtn", "button").disabled = !state;
   byId("retryStorageBtn", "button").disabled = busy;
-  recoveryButton.hidden = !storage?.recovery;
 }
 function showError(error: unknown): void {
   document.body.dataset.storageError = "true";
@@ -87,12 +93,13 @@ const changed: Change = async edit => {
     if (current !== generation) return false;
     state = candidate;
     document.body.dataset.storageError = "false";
-    status.textContent = "Progress saved in this browser. Export regular backups.";
+    status.textContent = "Progress saved to your account.";
     return true;
   } catch (error) {
     if (current === generation) showError(error);
     return false;
   } finally {
+    if (current !== generation) return false;
     busy = false;
     renderAll();
     if (readingFocused && location.hash === readingHash) document.getElementById("readingComplete")?.focus({ preventScroll: true });
@@ -106,7 +113,11 @@ window.addEventListener("hashchange", () => {
   }
 });
 // Parse and clear callback material before the hash router reads the URL.
-const accountInitialization = initializeAccount(invalidateProfile);
+const accountInitialization = initializeAccount(invalidateProfile, account => {
+  document.body.dataset.accountReady = "true";
+  storage = new LearnerStorage(account);
+  void load();
+});
 bindNavigation();
 const renderPortfolio = bindPortfolio(changed);
 const renderToday = bindToday(lessonBundle, changed);
@@ -119,16 +130,17 @@ async function load(): Promise<void> {
   const current = generation;
   controls();
   try {
-    storage ??= new LearnerStorage();
+    if (!storage) return;
     const loaded = await storage.load();
     if (current !== generation) return;
     state = loaded;
     document.body.dataset.storageError = "false";
-    status.textContent = "Progress stored in this browser. Export regular backups.";
+    status.textContent = "Progress loaded from your account.";
   } catch (error) {
     // No fabricated empty learner: retain known committed state, or block the learning views.
     if (current === generation) showError(error);
   } finally {
+    if (current !== generation) return;
     busy = false;
     renderAll();
     if (state && location.hash.startsWith("#roadmap/")) {
@@ -155,9 +167,6 @@ byId("exportBtn", "button").addEventListener("click", () => {
   if (state) download(JSON.stringify(createBackup(state), null, 2),
     "ciso-journey-backup-" + new Date().toISOString().slice(0, 10) + ".json");
 });
-recoveryButton.addEventListener("click", () => {
-  if (storage?.recovery) download(storage.recovery, "ciso-journey-recovery.json");
-});
 byId("retryStorageBtn", "button").addEventListener("click", () => { if (storage) void load(); else location.reload(); });
 const importFile = byId("importFile", "input");
 byId("importBtn", "button").addEventListener("click", () => importFile.click());
@@ -175,7 +184,7 @@ importFile.addEventListener("change", async () => {
       if (current !== generation) return;
       state = candidate;
       document.body.dataset.storageError = "false";
-      status.textContent = "Backup imported and saved in this browser.";
+      status.textContent = "Backup imported and saved to your account.";
       alert("Backup imported successfully.");
     }
   } catch (error) {
@@ -183,22 +192,30 @@ importFile.addEventListener("change", async () => {
     showError(error);
     alert("Could not import backup: " + recoveryMessage(error));
   } finally {
+    if (current !== generation) return;
     busy = false;
     importFile.value = "";
     renderAll();
   }
 });
-byId("resetBtn", "button").addEventListener("click", () => {
-  if (confirm("Reset current learning progress, entries and competency scores? Export a backup first. The original pre-migration recovery copy will remain in this browser.")) {
-    void changed(candidate => {
-      for (const key of Object.keys(candidate)) delete candidate[key];
-      Object.assign(candidate, empty());
-    });
-  }
+byId("resetBtn", "button").addEventListener("click", async () => {
+  if (!state || !storage || busy || !confirm("Reset current learning progress, entries and competency scores? Export a backup first.")) return;
+  const current = generation, target = storage;
+  busy = true; controls();
+  try {
+    const reset = await target.reset();
+    if (current !== generation) return;
+    state = reset;
+    document.body.dataset.storageError = "false";
+    status.textContent = "Account progress reset.";
+  } catch (error) { if (current === generation) showError(error); }
+  finally { if (current === generation) { busy = false; renderAll(); } }
 });
 renderResources();
-void accountInitialization.then(profile => {
-  storage = new LearnerStorage(undefined, undefined, profile);
+void accountInitialization.then(account => {
+  if (!account) { controls(); return; }
+  document.body.dataset.accountReady = "true";
+  storage = new LearnerStorage(account);
   return load();
 }).catch(error => {
   byId("accountStatus", "p").textContent = error instanceof Error ? error.message : "Account verification failed.";

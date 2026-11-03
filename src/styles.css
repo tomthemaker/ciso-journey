@@ -718,3 +718,7 @@ body[data-storage-blocked="true"] .overview { display: none; }
 .account-panel { font-size: 14px; line-height: 1.5; margin-bottom: 16px; }
 .account-panel p { margin-bottom: 8px; }
 @media print { .account-panel { display: none; } }
+
+body[data-storage-blocked="true"] .top .actions,
+body:not([data-account-ready="true"]) .storage-panel,
+body[data-storage-blocked="true"] .foot { display: none; }

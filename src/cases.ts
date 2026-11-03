@@ -85,7 +85,7 @@ export function bindCases(bundle: ContentBundle, objectives: Objectives, change:
       drafts.set(key, draft);
       const form = node('form', { 'aria-label': 'Executive decision response' });
       const fields = node('fieldset', { class: 'question-answer' }); fields.append(node('legend', {}, 'Your decision response'));
-      p(fields, 'Use fictional practice evidence. Notes and links are stored only in this browser and full backups. No binary upload or public evidence storage exists. Opening a reference visits its host; exports contain your private notes and links.');
+      p(fields, 'Use fictional practice evidence. Notes and links are stored in your account and full backups. No binary upload or public evidence storage exists. Opening a reference visits its host; exports contain your private notes and links.');
       for (const [name, label] of responseFields) {
         const field = node('div', { class: 'field' });
         const input = node('textarea', { id: `case-${name}`, name, required: '', rows: '5' }); input.value = draft[name];
