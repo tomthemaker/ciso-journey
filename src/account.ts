@@ -97,7 +97,7 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
         }
         status.textContent = "Signed in with GitHub.";
         refreshed(accountFor(updated.access_token));
-      })(), 0);
+      })().catch(() => { if (active && current === epoch) { active = false; location.reload(); } }), 0);
     }
   });
   const latest = await client.auth.getSession();
