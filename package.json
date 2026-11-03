@@ -2,7 +2,7 @@
   "name": "ciso-journey",
   "version": "1.0.0",
   "private": true,
-  "description": "Local-first CISO Journey with a static TypeScript/Vite build",
+  "description": "Account-backed CISO Journey with a static TypeScript/Vite build",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
