@@ -76,7 +76,10 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
   }
   let active = true;
   let epoch = 0;
-  const accountFor = (token: string): Account => ({ project: projectBase(project), key, subject: verified.data.user!.id, token, invalidate: () => { if (active) { active = false; epoch++; invalidate(); location.reload(); } } });
+  const accountFor = (token: string): Account => {
+    const issuedEpoch = epoch;
+    return { project: projectBase(project), key, subject: verified.data.user!.id, token, invalidate: () => { if (active && issuedEpoch === epoch) { active = false; epoch++; invalidate(); location.reload(); } } };
+  };
   client.auth.onAuthStateChange((event, updated) => {
     if (!active) return;
     if (event === "SIGNED_OUT" || (event === "SIGNED_IN" && updated?.user.id !== verified.data.user!.id)) {
