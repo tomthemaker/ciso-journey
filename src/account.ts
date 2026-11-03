@@ -49,7 +49,22 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
     setItem: (name: string, value: string) => { if (name === verifierKey) sessionStorage.setItem(name, JSON.stringify({ value, expires: Date.now() + 10 * 60_000 })); else memory.set(name, value); },
     removeItem: (name: string) => { if (name === verifierKey) sessionStorage.removeItem(name); else memory.delete(name); },
   };
-  const client = createClient(projectBase(project), key, { auth: { flowType: "pkce", detectSessionInUrl: false, persistSession: true, storageKey, storage } });
+  let refreshFailed = false;
+  let failRefresh = () => { refreshFailed = true; };
+  const authFetch: typeof fetch = async (input, init) => {
+    const requestUrl = typeof input === "string" ? input : input instanceof URL ? input.href : input.url;
+    const request = new URL(requestUrl);
+    const isRefresh = request.pathname.endsWith("/auth/v1/token") && request.searchParams.get("grant_type") === "refresh_token";
+    try {
+      const response = await fetch(input, init);
+      if (isRefresh && !response.ok) failRefresh();
+      return response;
+    } catch (error) {
+      if (isRefresh) failRefresh();
+      throw error;
+    }
+  };
+  const client = createClient(projectBase(project), key, { global: { fetch: authFetch }, auth: { flowType: "pkce", detectSessionInUrl: false, persistSession: true, storageKey, storage } });
   const base = new URL(import.meta.env.BASE_URL, location.origin).href;
   signIn.hidden = false;
   signIn.onclick = async () => {
@@ -76,6 +91,7 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
   }
   let active = true;
   let epoch = 0;
+  failRefresh = () => { refreshFailed = true; if (active) { active = false; epoch++; invalidate(); location.reload(); } };
   const accountFor = (token: string): Account => {
     const issuedEpoch = epoch;
     return { project: projectBase(project), key, subject: verified.data.user!.id, token, invalidate: () => { if (active && issuedEpoch === epoch) { active = false; epoch++; invalidate(); location.reload(); } } };
@@ -104,7 +120,7 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
     }
   });
   const latest = await client.auth.getSession();
-  if (!active || latest.error || latest.data.session?.access_token !== session.access_token) {
+  if (!active || refreshFailed || latest.error || latest.data.session?.access_token !== session.access_token) {
     active = false;
     invalidate();
     status.textContent = "Session changed. Please sign in again.";
