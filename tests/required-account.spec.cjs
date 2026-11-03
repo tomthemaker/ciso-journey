@@ -98,6 +98,7 @@ test.describe('required account, real local Auth and Postgres', () => {
     await expect(page.locator('#exportBtn')).toBeDisabled();
     expect(await page.locator('body').innerText()).not.toContain('Private unsaved draft');
     await expect(page.locator('#journalTopic')).toHaveValue('');
+    await expect(page.locator('#phaseList')).toBeEmpty();
   });
   test('two accounts are isolated and stale saves do not replace progress', async ({ browser }) => {
     const [a,b] = await Promise.all([syntheticUser(), syntheticUser()]);
