@@ -63,6 +63,22 @@ test.describe('required account, real local Auth and Postgres', () => {
     await expect(page.locator('#roadmap')).toBeHidden();
     await expect(page.locator('#exportBtn')).toBeDisabled();
   });
+  test('failed automatic refresh clears the active account and draft', async ({ page }) => {
+    const session = await syntheticUser();
+    session.expires_at = Math.floor(Date.now() / 1000) + 120;
+    await page.clock.install();
+    await login(page, session);
+    await page.locator('.task input').first().check();
+    await expect(page.locator('#statTasks')).toHaveText('1');
+    const response = await fetch(`${api}/auth/v1/logout`, { method:'POST', headers:{ apikey:key, Authorization:`Bearer ${session.access_token}` } });
+    expect(response.ok).toBeTruthy();
+    const refresh = page.waitForResponse(r => r.url().includes('/auth/v1/token?grant_type=refresh_token'));
+    await page.clock.runFor(65_000);
+    expect((await refresh).ok()).toBeFalsy();
+    await expect(page.getByRole('button', {name:'Sign in with GitHub'})).toBeVisible();
+    await expect(page.locator('#roadmap')).toBeHidden();
+    await expect(page.locator('#exportBtn')).toBeDisabled();
+  });
   test('two accounts are isolated and stale saves do not replace progress', async ({ browser }) => {
     const [a,b] = await Promise.all([syntheticUser(), syntheticUser()]);
     const contexts = await Promise.all([browser.newContext(), browser.newContext(), browser.newContext()]);
