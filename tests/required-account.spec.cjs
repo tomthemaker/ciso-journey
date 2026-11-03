@@ -51,6 +51,21 @@ test.describe('required account, real local Auth and Postgres', () => {
     await expect(page.getByRole('button', {name:'Sign in with GitHub'})).toBeVisible();
     await expect(page.locator('#roadmap')).toBeHidden();
   });
+  test('authenticated v1 import and v2 export preserve unusual backup strings', async ({ page }) => {
+    const session = await syntheticUser();
+    await login(page, session);
+    const backup = require('./fixtures/v1/mixed-progress.json');
+    const input = structuredClone(backup);
+    input.data.syntheticExtension = { nul: 'a\u0000b', loneSurrogate: '\ud800', longId: 'x'.repeat(300) };
+    page.on('dialog', dialog => dialog.accept());
+    await page.locator('#importFile').setInputFiles({name:'synthetic.json', mimeType:'application/json', buffer:Buffer.from(JSON.stringify(input))});
+    await expect(page.locator('#statTasks')).toHaveText('19');
+    const download = page.waitForEvent('download');
+    await page.getByRole('button', {name:'Export backup'}).click();
+    const exported = JSON.parse(await fs.readFile(await (await download).path(), 'utf8'));
+    expect(exported.version).toBe(2);
+    expect(exported.data.syntheticExtension).toEqual(input.data.syntheticExtension);
+  });
   test('server-revoked session clears private UI on the next write', async ({ page }) => {
     const session = await syntheticUser();
     await login(page, session);
