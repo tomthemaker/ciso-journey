@@ -35,8 +35,18 @@ export async function initializeAccount(invalidate: () => void, refreshed: (acco
   const verifierKey = `${storageKey}-code-verifier`;
   const memory = new Map<string, string>();
   const storage = {
-    getItem: (name: string) => name === verifierKey ? sessionStorage.getItem(name) : memory.get(name) ?? null,
-    setItem: (name: string, value: string) => { if (name === verifierKey) sessionStorage.setItem(name, value); else memory.set(name, value); },
+    getItem: (name: string) => {
+      if (name !== verifierKey) return memory.get(name) ?? null;
+      const raw = sessionStorage.getItem(name);
+      if (!raw) return null;
+      try {
+        const item = JSON.parse(raw) as { value: unknown; expires: unknown };
+        if (typeof item.value === "string" && typeof item.expires === "number" && item.expires > Date.now()) return item.value;
+      } catch { /* Malformed or abandoned handshake. */ }
+      sessionStorage.removeItem(name);
+      return null;
+    },
+    setItem: (name: string, value: string) => { if (name === verifierKey) sessionStorage.setItem(name, JSON.stringify({ value, expires: Date.now() + 10 * 60_000 })); else memory.set(name, value); },
     removeItem: (name: string) => { if (name === verifierKey) sessionStorage.removeItem(name); else memory.delete(name); },
   };
   const client = createClient(projectBase(project), key, { auth: { flowType: "pkce", detectSessionInUrl: false, persistSession: true, storageKey, storage } });

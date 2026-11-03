@@ -23,11 +23,13 @@ async function syntheticUser() {
 }
 async function login(page, session) {
   const verifier = `ciso-journey-auth:${encodeURIComponent(api.replace(/\/+$/, ''))}-code-verifier`;
-  await page.addInitScript(({verifier, legacy}) => { sessionStorage.setItem(verifier, JSON.stringify('synthetic-verifier')); localStorage.setItem('ciso-journey-v1', legacy); }, {verifier, legacy});
+  await page.addInitScript(({verifier, legacy}) => { sessionStorage.setItem(verifier, JSON.stringify({value:JSON.stringify('synthetic-verifier'), expires:Date.now()+600000})); localStorage.setItem('ciso-journey-v1', legacy); }, {verifier, legacy});
   await page.route('**/auth/v1/token?grant_type=pkce', route => route.fulfill({ status:200, contentType:'application/json', body:JSON.stringify(session) }));
   await page.goto('./?code=synthetic');
   await expect(page.locator('#accountStatus')).toContainText('Signed in');
   await expect(page.locator('#statTasks')).toHaveText('0');
+  expect(await page.evaluate(verifier => sessionStorage.getItem(verifier), verifier)).toBeNull();
+  expect(await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage } }))).not.toContain(session.access_token);
 }
 test.describe('required account, real local Auth and Postgres', () => {
   test.skip(!api || !key || !mail, 'Requires configured isolated local stack');
