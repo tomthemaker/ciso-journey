@@ -1,20 +1,11 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, seedServerState, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
+const { randomUUID } = require('node:crypto');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const scenario = bundle.records.find(r => r.kind === 'scenario' && r.version === 2);
 const rubric = bundle.records.find(r => r.id === scenario.payload.rubricRef.id && r.version === 2);
 const route = './#cases/' + scenario.id + '/2';
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots'), read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-    };
-  }));
-}
 async function fill(page) {
   for (const name of ['impact', 'options', 'accountableOwner', 'recommendation', 'residualRisk']) await page.locator('#case-' + name).fill('Synthetic ' + name + ' <img src=x onerror=globalThis.syntheticUnsafe=1>');
   await page.getByLabel('Evidence title', { exact: true }).fill('Synthetic private exercise');
@@ -28,6 +19,7 @@ async function importBackup(page, backup) {
 }
 test('executive case, worked tradeoffs, keyboard response and rubric stay distinct and round-trip privately on Pages', async ({ page }) => {
   await page.addInitScript(v => localStorage.setItem('ciso-journey-v1', v), JSON.stringify(mixed.data));
+  await seedServerState(page, mixed.data);
   await page.goto(route); const original = await snapshot(page);
   await expect(page.locator('#cases')).toBeVisible();
   await expect(page.locator('.case-body')).toContainText('Status: draft');
@@ -66,23 +58,20 @@ test('executive case, worked tradeoffs, keyboard response and rubric stay distin
 });
 test('failed response and assessment writes keep drafts and committed history; unsafe/future imports do not replace it', async ({ page }) => {
   await page.goto(route); const original = await snapshot(page); await fill(page);
-  await page.evaluate(() => {
-    window.syntheticPut = IDBObjectStore.prototype.put;
-    IDBObjectStore.prototype.put = function (...args) { const r = window.syntheticPut.apply(this, args); r.addEventListener('success', () => this.transaction.abort()); return r; };
-  });
+  const failure = await failWrites(page);
   await page.locator('#saveCaseResponse').click();
   await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
   await expect(page.locator('#case-impact')).toHaveValue('Synthetic impact <img src=x onerror=globalThis.syntheticUnsafe=1>');
   await expect(page.locator('.case-result')).toHaveCount(0); expect((await snapshot(page)).data).toEqual(original.data);
-  await page.evaluate(() => { IDBObjectStore.prototype.put = window.syntheticPut; });
+  await failure.restore(); await reloadProgress(page);
   await page.locator('#saveCaseResponse').click(); await expect(page.locator('.case-result')).toHaveCount(1);
   const form = page.getByRole('form', { name: 'Self-assess case response 1' });
   for (const criterion of rubric.payload.criteria) await form.getByLabel(criterion.description, { exact: true }).selectOption('2');
-  await page.evaluate(() => { IDBObjectStore.prototype.put = function (...args) { const r = window.syntheticPut.apply(this, args); r.addEventListener('success', () => this.transaction.abort()); return r; }; });
+  const assessmentFailure = await failWrites(page);
   await form.getByRole('button', { name: 'Save case self-assessment' }).click(); await ready(page);
   for (const criterion of rubric.payload.criteria) await expect(form.getByLabel(criterion.description, { exact: true })).toHaveValue('2');
   expect((await snapshot(page)).data.scenarioResponses.selfAssessments).toHaveLength(0);
-  await page.evaluate(() => { IDBObjectStore.prototype.put = window.syntheticPut; });
+  await assessmentFailure.restore(); await reloadProgress(page);
   await form.getByRole('button', { name: 'Save case self-assessment' }).click(); await ready(page);
   const saved = await snapshot(page);
   for (const alter of [p => p.schemaVersion = 99, p => p.responses[0].response.evidence.url = 'javascript:alert(1)']) {
@@ -98,6 +87,7 @@ test('unknown and incompatible historical scenario/rubric refs survive import/re
   for (const ref of [{ id: 'source-csf', version: 1 }, { id: 'rubric-unavailable', version: 8 }]) {
     const backup = { ...mixed, version: 2, data: structuredClone(saved.data) };
     backup.data.scenarioResponses.responses[0].rubricRef = ref;
+    backup.data.scenarioResponses.responses[0].id = randomUUID();
     await importBackup(page, backup); await page.reload(); await ready(page);
     await expect(page.locator('.case-result')).toContainText('is unavailable or incompatible');
     await expect(page.getByRole('button', { name: 'Save case self-assessment' })).toHaveCount(0);
@@ -105,6 +95,7 @@ test('unknown and incompatible historical scenario/rubric refs survive import/re
   }
   const backup = { ...mixed, version: 2, data: structuredClone(saved.data) };
   backup.data.scenarioResponses.responses[0].contentRef = { id: 'scenario-unavailable', version: 7 };
+  backup.data.scenarioResponses.responses[0].id = randomUUID();
   await importBackup(page, backup); await page.getByRole('link', { name: 'scenario-unavailable@7', exact: true }).click();
   await page.reload(); await ready(page);
   await expect(page.locator('#caseHeading')).toHaveText('Case revision unavailable');

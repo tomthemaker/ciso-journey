@@ -1,19 +1,10 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot: serverSnapshot } = require('./browser/account-fixture.cjs');
+const snapshot = async page => (await serverSnapshot(page)).data;
 const fs = require('node:fs/promises');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const { latestRecords, taskContent } = require('../src/content-catalog.ts');
 const { contentKey, findContent } = require('../src/content.ts');
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots'), get = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(get.result.data); };
-    };
-  }));
-}
 async function practice(page, question) {
   const preview = page.locator('.practice-preview').filter({ has: page.locator(`a[href="#questions/${question.id}/${question.version}"]`) });
   await preview.locator('summary').click(); await preview.getByRole('link', { name: 'Attempt this question' }).click();

@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('./browser/account-fixture.cjs');
 
 test('built Pages subpath loads JS and CSS assets and survives direct hash refresh', async ({ page, request, baseURL }) => {
   const assetResponses = [];
@@ -55,6 +55,9 @@ test('all section links support refresh and browser history on the Pages URL', a
     await expect(page.locator('#' + id)).toBeVisible();
     await expect(page.locator('.tab.active')).toHaveText(label);
   }
+  // Browser history within the authenticated document remains navigable.
+  await page.getByRole('button', { name: 'Resources', exact: true }).click();
+  await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
   await page.goBack();
   await expect(page.locator('#resources')).toBeVisible();
   await page.goForward();

@@ -1,4 +1,5 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, seedServerState, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
+const { randomUUID } = require('node:crypto');
 const fs = require('node:fs/promises');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const mixed = require('./fixtures/v1/mixed-progress.json');
@@ -6,15 +7,12 @@ const questions = bundle.records.filter(r => r.kind === 'question');
 const mcq = questions.find(r => r.payload.format === 'mcq');
 const route = q => './#questions/' + q.id + '/' + q.version;
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots'), read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-    };
-  }));
+// Historical fixture variants are separate imported observations. Reusing an
+// existing immutable observation ID for different content is rejected server-side.
+function freshQuestionIds(backup) {
+  const ids = new Map();
+  for (const attempt of backup.data.questionAttempts.attempts) { const id = randomUUID(); ids.set(attempt.id, id); attempt.id = id; }
+  for (const assessment of backup.data.questionAttempts.selfAssessments) { assessment.id = randomUUID(); assessment.attemptId = ids.get(assessment.attemptId); }
 }
 async function importBackup(page, backup) {
   const accept = dialog => dialog.accept(); page.on('dialog', accept);
@@ -24,6 +22,7 @@ async function importBackup(page, backup) {
 
 test('MCQ feedback waits for a committed answer; keyboard retries preserve history and legacy state on Pages', async ({ page }) => {
   await page.addInitScript(value => localStorage.setItem('ciso-journey-v1', value), JSON.stringify(mixed.data));
+  await seedServerState(page, mixed.data);
   await page.goto(route(mcq));
   const original = await snapshot(page);
   await expect(page.locator('#questions')).toBeVisible();
@@ -93,30 +92,27 @@ test('open/scenario use scoped rubrics, delayed examples and explicit self-asses
   }
 });
 
-test('aborted writes keep drafts and hide feedback until retry commits; imported history stays literal and version-pinned', async ({ page }) => {
+test('failed server writes keep drafts and hide feedback until retry commits; imported history stays literal and version-pinned', async ({ page }) => {
   const question = questions.find(r => r.payload.format === 'open');
   await page.goto(route(question));
   const original = await snapshot(page);
-  await page.evaluate(() => {
-    const put = IDBObjectStore.prototype.put;
-    window.syntheticPut = put;
-    IDBObjectStore.prototype.put = function (...args) {
-      const request = put.apply(this, args);
-      request.addEventListener('success', () => this.transaction.abort()); return request;
-    };
-  });
+  const failure = await failWrites(page);
   await page.locator('#questionResponse').fill('Synthetic retained draft with a risk chain.');
   await page.locator('#submitAttempt').click();
   await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
   await expect(page.locator('#questionResponse')).toHaveValue('Synthetic retained draft with a risk chain.');
   await expect(page.getByRole('heading', { name: 'Annotated example', exact: true })).toHaveCount(0);
   expect((await snapshot(page)).data).toEqual(original.data);
-  await page.evaluate(() => { IDBObjectStore.prototype.put = window.syntheticPut; });
+  await failure.restore(); await reloadProgress(page);
   await page.locator('#submitAttempt').click();
   await expect(page.locator('.attempt-result')).toHaveCount(1);
-  const saved = await snapshot(page), backup = { ...mixed, version: 2, data: saved.data };
+  const saved = await snapshot(page), backup = { ...mixed, version: 2, data: structuredClone(saved.data) };
   backup.data.questionAttempts.attempts[0].response = '<img src=x onerror=globalThis.syntheticUnsafe=1>';
   backup.data.questionAttempts.attempts[0].contentRef.version = 12;
+  await importBackup(page, backup);
+  await expect(page.locator('#storageStatus')).toContainText('account_observation_id_reused');
+  expect((await snapshot(page)).data).toEqual(saved.data);
+  await reloadProgress(page); freshQuestionIds(backup);
   await importBackup(page, backup);
   await expect(page.locator('.attempt-result')).toContainText('exact question revision is unavailable');
   await expect(page.getByRole('heading', { name: 'Annotated example', exact: true })).toHaveCount(0);
@@ -148,6 +144,7 @@ test('real imports and reloads preserve incompatible and missing historical rubr
       backup.data.questionAttempts.attempts[0].rubricRef = reference;
       backup.data.questionAttempts.selfAssessments[0].rubricRef = reference;
       if (!assessed) backup.data.questionAttempts.selfAssessments = [];
+      freshQuestionIds(backup);
       await importBackup(page, backup);
       expect(errors).toEqual([]);
       for (const reload of [false, true]) {
@@ -168,6 +165,7 @@ test('real imports and reloads preserve incompatible and missing historical rubr
   const incompatibleQuestion = { ...mixed, version: 2, data: structuredClone(original.data) };
   Object.assign(incompatibleQuestion.data.questionAttempts.attempts[0], { format: 'mcq', response: 'a', provenance: 'keyed-mcq', correct: true, rubricRef: null });
   incompatibleQuestion.data.questionAttempts.selfAssessments = [];
+  freshQuestionIds(incompatibleQuestion);
   await importBackup(page, incompatibleQuestion); await page.reload(); await ready(page);
   await expect(page.locator('.attempt-result')).toContainText('exact question revision is unavailable or incompatible');
   await expect(page.locator('.option-feedback')).toHaveCount(0);

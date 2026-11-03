@@ -1,18 +1,7 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, seedServerState, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
 const fs = require('node:fs/promises');
 const mixed = require('./fixtures/v1/mixed-progress.json');
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots');
-      const read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-    };
-  }));
-}
 async function importBackup(page, backup) {
   const accept = dialog => dialog.accept(); page.on('dialog', accept);
   await page.locator('#importFile').setInputFiles({ name: 'synthetic-resources.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(backup)) });
@@ -32,6 +21,7 @@ async function openResources(page) {
 test('resource progress stays separate, persists and round-trips under Pages; discovery remains untracked', async ({ page }) => {
   const legacy = JSON.stringify({ ...mixed.data, readingProgress: { schemaVersion: 1, entries: [{ contentRef: { id: 'lesson-synthetic', version: 1 }, completed: true }] }, recallSynthetic: { preserved: true }, taskMastery: { w1: 'not-assessed' } });
   await page.addInitScript(raw => { if (localStorage.getItem('ciso-journey-v1') === null) localStorage.setItem('ciso-journey-v1', raw); }, legacy);
+  await seedServerState(page, JSON.parse(legacy));
   await page.goto('./#roadmap');
   const original = await snapshot(page);
   const panel = await openResources(page);
@@ -103,7 +93,7 @@ test('custom resource edits and archive/restore retain historical metadata and p
   expect(await page.evaluate(() => globalThis.syntheticUnsafe)).toBeUndefined();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
-test('unsafe URLs, corrupt/future imports and aborted writes preserve committed state and unsaved resource drafts', async ({ page }) => {
+test('unsafe URLs, corrupt/future imports and failed server writes preserve committed state and unsaved resource drafts', async ({ page }) => {
   await page.goto('./#roadmap'); await openResources(page);
   const card = page.locator('[data-resource-id="w1-linkedin"]');
   const original = await snapshot(page);
@@ -115,19 +105,15 @@ test('unsafe URLs, corrupt/future imports and aborted writes preserve committed 
   await card.getByLabel('Resource status', { exact: true }).selectOption('completed');
   await card.getByLabel('Completion date').fill('2026-10-28');
   await card.getByLabel('Notes / what I understood').fill('Synthetic unsaved resource draft');
-  await page.evaluate(() => {
-    const put = IDBObjectStore.prototype.put;
-    IDBObjectStore.prototype.put = function (...args) {
-      const request = put.apply(this, args); request.addEventListener('success', () => this.transaction.abort()); return request;
-    };
-  });
+  const failure = await failWrites(page);
   await card.getByRole('button', { name: 'Save resource progress' }).click();
   await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
   await expect(card.getByLabel('Notes / what I understood')).toHaveValue('Synthetic unsaved resource draft');
   await expect(card.getByLabel('Resource status', { exact: true })).toHaveValue('completed');
   await expect(card.locator('.resource-status')).toContainText('Not started');
   expect(await snapshot(page)).toEqual(original);
-  await page.reload(); await openResources(page);
+  await failure.restore(); await reloadProgress(page); await openResources(page);
+  await expect(card.getByLabel('Notes / what I understood')).toHaveValue('Synthetic unsaved resource draft');
   await card.getByRole('button', { name: 'Save resource progress' }).click();
   const saved = await snapshot(page);
   const backup = await exportBackup(page);

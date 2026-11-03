@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, failWrites } = require('./browser/account-fixture.cjs');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const inventory = require('./fixtures/v1/inventory.json');
@@ -8,20 +8,7 @@ const empty = require('./fixtures/v1/empty.json');
 const { malformedInputs } = require('./fixtures/backup-cases.cjs');
 const KEY = 'ciso-journey-v1';
 const tasks = inventory.phases.flatMap(phase => phase.tasks);
-const stored = async page => {
-  await expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-  return page.evaluate(() => new Promise((resolve, reject) => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onerror = () => reject(request.error);
-    request.onsuccess = () => {
-      const db = request.result;
-      const tx = db.transaction('snapshots');
-      const read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(JSON.stringify(read.result.data)); };
-      tx.onabort = () => { db.close(); reject(tx.error); };
-    };
-  }));
-};
+const stored = async page => JSON.stringify((await snapshot(page)).data);
 
 async function importText(page, text, accept = true) {
   const dialogs = [];
@@ -137,19 +124,12 @@ test('v1 fixtures render safely and real downloads round-trip every value', asyn
 
 test('existing storage bytes, default scores and extra fields survive', async ({ page }) => {
   const original = JSON.stringify(mixed.data, null, 2);
-  await page.evaluate(({ key, original }) => new Promise(resolve => {
-    localStorage.setItem(key, original);
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result;
-      const tx = db.transaction('snapshots', 'readwrite');
-      tx.objectStore('snapshots').clear();
-      tx.oncomplete = () => { db.close(); resolve(); };
-    };
-  }), { key: KEY, original });
+  await page.evaluate(({ key, original }) => localStorage.setItem(key, original), { key: KEY, original });
   await page.reload();
-  await expect(page.locator('#statLogs')).toHaveText('2');
+  await expect(page.locator('#statLogs')).toHaveText('0');
   expect(await page.evaluate(key => localStorage.getItem(key), KEY)).toBe(original);
+  expect((await exportBackup(page)).data).toEqual(empty.data);
+  await importBackup(page, mixed);
   expect((await exportBackup(page)).data).toEqual(mixed.data);
 
   // Defaults and extensions also survive the real import/export path.
@@ -194,7 +174,7 @@ test('cancelled import and failed persistence leave storage and live state untou
   expect((await importBackup(page, allComplete, false)).map(dialog => dialog.type)).toEqual(['confirm']);
   expect(await stored(page)).toBe(original);
   expect((await exportBackup(page)).data).toEqual(mixed.data);
-  await page.evaluate(() => { IDBObjectStore.prototype.put = () => { throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); }; });
+  await failWrites(page);
   const dialogs = await importBackup(page, allComplete);
   expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
   expect(dialogs[1].message).toContain('Could not import backup:');
@@ -258,4 +238,23 @@ test('ratings, journal, achievements, delete confirmation and reset remain indep
   await page.emulateMedia({ media: 'print' });
   for (const view of await page.locator('.view').all()) await expect(view).toBeVisible();
   await expect(page.locator('#exportBtn')).toBeHidden();
+});
+
+test('authenticated v1/v2 file imports preserve long IDs and JSON strings containing NUL through server reload and download', async ({ page }) => {
+  const backup = structuredClone(mixed), id = 'synthetic-' + 'x'.repeat(4096) + '\u0000';
+  backup.data.journal[0].id = id;
+  backup.data.journal[0].body = 'Fictional before\u0000after';
+  backup.data.syntheticExtension = { ['synthetic\u0000key']: ['opaque\u0000value', { preserved: true }] };
+  backup.data.portfolio = { schemaVersion: 1, evidence: [], appraisals: [{
+    id, date: '2026-03-31', competency: 'Governance', level: 'Explain', provenance: 'self-assessment',
+    scope: 'Fictional compatibility check', rationale: 'Bounded\u0000reflection', evidenceIds: [], responseIds: [],
+  }] };
+  for (const version of [1, 2]) {
+    const dialogs = await importBackup(page, { ...backup, version });
+    expect(dialogs.map(dialog => dialog.type)).toEqual(['confirm', 'alert']);
+    expect(dialogs.at(-1).message).toBe('Backup imported successfully.');
+    await page.reload();
+    expect((await snapshot(page)).data).toEqual(backup.data);
+    expect((await exportBackup(page)).data).toEqual(backup.data);
+  }
 });

@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
 test('portfolio appends private evidence and quarterly judgments and survives full backup', async ({ page }) => {
   await page.goto('./#competencies');
   await page.locator('#portfolio-title').fill('Synthetic register');
@@ -31,13 +31,13 @@ test('portfolio appends private evidence and quarterly judgments and survives fu
 
 test('failed portfolio write retains draft for retry', async ({ page }) => {
   await page.goto('./#competencies');
-  await expect(page.locator('#storageStatus')).toContainText('Progress stored');
-  await page.evaluate(() => { window.failWrites = true; const put = IDBObjectStore.prototype.put; IDBObjectStore.prototype.put = function (...args) { if (window.failWrites) throw new DOMException('Synthetic quota failure', 'QuotaExceededError'); return put.apply(this, args); }; });
+  await expect(page.locator('#storageStatus')).toContainText('Progress loaded');
+  const failure = await failWrites(page);
   await page.locator('#portfolio-title').fill('Retry synthetic evidence');
   await page.getByRole('button', { name: 'Save evidence' }).click();
-  await expect(page.locator('#storageStatus')).toContainText('Synthetic quota failure');
+  await expect(page.locator('#storageStatus')).toContainText('Synthetic server unavailable');
   await expect(page.locator('#portfolio-title')).toHaveValue('Retry synthetic evidence');
-  await page.evaluate(() => { window.failWrites = false; });
+  await failure.restore(); await reloadProgress(page);
   await page.getByRole('button', { name: 'Save evidence' }).click();
   await expect(page.locator('#portfolio')).toContainText('Retry synthetic evidence');
 });

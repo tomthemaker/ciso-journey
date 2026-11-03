@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('./browser/account-fixture.cjs');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const lessons = bundle.records.filter(record => record.kind === 'lesson' && !bundle.records.some(other => other.id === record.id && other.version > record.version));
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');

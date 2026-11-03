@@ -1,21 +1,10 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, failWrites } = require('./browser/account-fixture.cjs');
 const fs = require('node:fs/promises');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const lessons = bundle.records.filter(record => record.kind === 'lesson');
 const lesson = lessons[0];
 const hash = ref => `#lessons/${ref.id}/${ref.version}`;
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots');
-      const read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-    };
-  }));
-}
 async function importBackup(page, backup) {
   const accept = dialog => dialog.accept();
   page.on('dialog', accept);
@@ -70,7 +59,7 @@ test('complete reading, exact concept/prerequisite navigation and keyboard secti
   expect((await snapshot(page)).data.readingProgress).toBeUndefined();
 });
 
-test('reading persists and round-trips separately; abort/future progress leave committed state intact', async ({ page }) => {
+test('reading persists and round-trips separately; server failure/future progress leave committed state intact', async ({ page }) => {
   await page.goto('./' + hash(lesson));
   const original = await snapshot(page);
   await page.getByRole('button', { name: 'Mark reading complete', exact: true }).focus();
@@ -91,14 +80,7 @@ test('reading persists and round-trips separately; abort/future progress leave c
   await importBackup(page, backup);
   await expect(page.locator('#readingStatus')).toContainText('Reading complete for this revision');
   expect((await snapshot(page)).data).toEqual(saved.data);
-  await page.evaluate(() => {
-    const put = IDBObjectStore.prototype.put;
-    IDBObjectStore.prototype.put = function (...args) {
-      const request = put.apply(this, args);
-      request.addEventListener('success', () => this.transaction.abort());
-      return request;
-    };
-  });
+  const failure = await failWrites(page);
   await page.getByRole('button', { name: 'Mark reading unread', exact: true }).click();
   await ready(page);
   await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');

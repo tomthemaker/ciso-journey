@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot } = require('./browser/account-fixture.cjs');
 test('progress route is readable, keyboard navigable, and does not change learning state', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('./#progress');
@@ -23,12 +23,11 @@ test('committed practice appears separately without changing the saved snapshot'
   await page.locator('#answer-' + question.payload.correctOptionId).check();
   await page.locator('#submitAttempt').click();
   await expect(page.locator('.attempt-result')).toHaveCount(1);
-  const snapshot = () => page.evaluate(() => new Promise(resolve => { const request = indexedDB.open('ciso-journey', 1); request.onsuccess = () => { const db = request.result, tx = db.transaction('snapshots'), get = tx.objectStore('snapshots').get('current'); tx.oncomplete = () => { db.close(); resolve(get.result); }; }; }));
-  const before = await snapshot();
+  const before = await snapshot(page);
   await page.getByRole('button', { name: 'Progress', exact: true }).click();
   await expect(page.locator('#progressReport')).toContainText('1 correct of 1 keyed MCQ attempts');
   await expect(page.locator('#progressReport')).toContainText('No review self-ratings');
-  expect(await snapshot()).toEqual(before);
+  expect(await snapshot(page)).toEqual(before);
 });
 test('case self-assessment is shown by exact rubric and dated criterion', async ({ page }) => {
   const { studyBundle: bundle } = require('../scripts/study-content.cjs');
