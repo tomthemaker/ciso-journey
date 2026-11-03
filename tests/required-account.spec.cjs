@@ -71,7 +71,7 @@ test.describe('required account, real local Auth and Postgres', () => {
       await Promise.all([login(first, a), login(stale, a), login(other, b)]);
       await first.locator('.task input').first().check();
       await expect(first.locator('#statTasks')).toHaveText('1');
-      await stale.locator('.task input').nth(1).check();
+      await stale.locator('.task input').nth(1).click();
       await expect(stale.locator('#storageStatus')).toContainText('Progress changed elsewhere');
       await expect(stale.locator('#statTasks')).toHaveText('0');
       await stale.getByRole('button', {name:'Reload progress'}).click();

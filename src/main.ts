@@ -26,6 +26,7 @@ function invalidateProfile(): void {
   busy = false;
   state = undefined;
   storage = undefined;
+  applyTheme();
   document.body.dataset.accountReady = "false";
   document.body.dataset.storageBlocked = "true";
   renderToday(undefined); renderLessons(undefined); renderQuestions(undefined); renderCases(undefined); renderPortfolio(undefined);

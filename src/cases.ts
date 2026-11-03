@@ -170,5 +170,5 @@ export function bindCases(bundle: ContentBundle, objectives: Objectives, change:
     if (focused) document.getElementById(focused)?.focus({ preventScroll: true });
   }
   window.addEventListener('hashchange', () => { render(); if (location.hash.startsWith('#cases/')) root.querySelector<HTMLElement>('#caseHeading')?.focus(); });
-  return next => { state = next; render(); };
+  return next => { state = next; if (!next) { drafts.clear(); ratingDrafts.clear(); } render(); if (!next) { drafts.clear(); ratingDrafts.clear(); } };
 }

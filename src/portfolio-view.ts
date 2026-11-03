@@ -53,5 +53,5 @@ export function bindPortfolio(change: Change): (state: LearnerState | undefined)
       history.append(details);
     } root.append(history);
   }
-  return next => { state = next; render(); };
+  return next => { state = next; if (!next) { Object.assign(evidenceDraft, { title: '', url: '', notes: '' }); Object.assign(draft, { date: new Date().toISOString().slice(0, 10), competency: '', level: '', scope: '', rationale: '', evidenceId: '', responseId: '' }); } render(); };
 }

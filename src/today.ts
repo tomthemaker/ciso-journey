@@ -202,5 +202,5 @@ export function bindToday(bundle: ContentBundle, change: Change): (state: Learne
   });
   // Recheck newly due cards and local midnight without disrupting typing or a revealed answer.
   window.setInterval(() => { if (location.hash === '#today' && !root.contains(document.activeElement) && !pending) render(); }, 30000);
-  return next => { state = next; render(); };
+  return next => { state = next; if (!next) { presentation = undefined; message = ''; capDraft = undefined; } render(); };
 }

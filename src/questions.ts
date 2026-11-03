@@ -178,5 +178,5 @@ export function bindQuestions(bundle: ContentBundle, objectives: Objectives, cha
     if (focused) document.getElementById(focused)?.focus({ preventScroll: true });
   }
   window.addEventListener('hashchange', () => { render(); if (location.hash.startsWith('#questions/')) root.querySelector<HTMLElement>('#questionHeading')?.focus(); });
-  return next => { state = next; render(); };
+  return next => { state = next; if (!next) { drafts.clear(); ratingDrafts.clear(); } render(); if (!next) { drafts.clear(); ratingDrafts.clear(); } };
 }
