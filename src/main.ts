@@ -12,7 +12,7 @@ import { renderResources, renderScores, renderStats } from "./dashboard";
 import { byId, node } from "./dom";
 import { bindHistoryForms, renderEntries } from "./history";
 import { bindNavigation } from "./navigation";
-import { renderRoadmap } from "./roadmap";
+import { clearRoadmap, renderRoadmap } from "./roadmap";
 import { LearnerStorage, recoveryMessage } from "./storage";
 import type { Change, LearnerState } from "./types";
 
@@ -26,6 +26,7 @@ function invalidateProfile(): void {
   busy = false;
   state = undefined;
   storage = undefined;
+  clearRoadmap();
   applyTheme();
   document.body.dataset.accountReady = "false";
   document.body.dataset.storageBlocked = "true";
@@ -62,7 +63,7 @@ function showError(error: unknown): void {
   status.textContent = recoveryMessage(error);
   controls();
 }
-function renderAll(): void {
+function renderAll(retainRoadmapDrafts = false): void {
   applyTheme();
   renderProgress(state, lessonBundle);
   renderToday(state);
@@ -72,7 +73,7 @@ function renderAll(): void {
   renderPortfolio(state);
   if (state) {
     renderStats(state);
-    renderRoadmap(state, changed);
+    renderRoadmap(state, changed, retainRoadmapDrafts);
     renderScores(state, changed);
     renderEntries(state, "journal", changed);
     renderEntries(state, "achievements", changed);
@@ -130,6 +131,7 @@ async function load(): Promise<void> {
   if (busy) return;
   busy = true;
   const current = generation;
+  const retainRoadmapDrafts = !!state;
   controls();
   try {
     if (!storage) return;
@@ -144,7 +146,7 @@ async function load(): Promise<void> {
   } finally {
     if (current !== generation) return;
     busy = false;
-    renderAll();
+    renderAll(retainRoadmapDrafts);
     if (state && location.hash.startsWith("#roadmap/")) {
       const target = document.getElementById(`task-${location.hash.split("/")[1]}`);
       target?.focus(); target?.scrollIntoView({ block: "center" });

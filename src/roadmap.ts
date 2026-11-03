@@ -10,12 +10,13 @@ import { questionHash } from './question-attempts';
 import { caseHash } from './scenario-responses';
 
 let previousState: LearnerState | undefined;
-export function renderRoadmap(state: LearnerState, changed: Change) {
+export function clearRoadmap(): void { previousState = undefined; }
+export function renderRoadmap(state: LearnerState, changed: Change, retainDrafts = false) {
   const root = byId("phaseList", "div");
   const open = new Set(Array.from(root.querySelectorAll<HTMLDetailsElement>('details[open]')).map(details => details.id));
-  const drafts = previousState === state ? Array.from(root.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('form input, form select, form textarea')).map(control => ({ id: control.id, value: control.value })) : [];
+  const drafts = (retainDrafts || previousState === state) ? Array.from(root.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('form input, form select, form textarea')).map(control => ({ id: control.id, value: control.value })) : [];
   // Custom-add form IDs are generated per render; retain the old forms on a failed save.
-  const addDrafts = previousState === state ? Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id$="-add-resource"]')).map(details => ({ id: details.id, form: details.querySelector('form')! })) : [];
+  const addDrafts = (retainDrafts || previousState === state) ? Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id$="-add-resource"]')).map(details => ({ id: details.id, form: details.querySelector('form')! })) : [];
   previousState = state;
   root.replaceChildren();
   root.append(node('p', { id: 'resourceCompletionCount', role: 'status' }, `${resourceCompletionCount(state)} resources completed (including archived history). Task completion and legacy ratings are separate.`));
