@@ -9,14 +9,15 @@ create table account_private.states (
   owner uuid primary key, -- retained disabled tombstone on explicit closure
   enabled boolean not null default true,
   revision uuid not null default gen_random_uuid(),
-  snapshot jsonb
+  snapshot text
 );
 create table account_private.observations (
   owner uuid not null references account_private.states(owner),
   kind text not null,
   id text not null,
+  id_hash bytea not null,
   fingerprint bytea not null,
-  primary key (owner, kind, id)
+  primary key (owner, kind, id_hash)
 );
 alter table account_private.states enable row level security;
 alter table account_private.observations enable row level security;
@@ -39,9 +40,9 @@ begin
   return subject;
 end $$;
 
-create function account_private.defaults() returns jsonb
+create function account_private.defaults() returns text
 language sql immutable set search_path = '' as $$
-  select '{"schemaVersion":2,"data":{"completed":{},"scores":{"Security architecture":0,"Cyber-risk management":1,"Governance":0,"Compliance":0,"Security operations":0,"Executive reporting":2},"journal":[],"achievements":[]}}'::jsonb;
+  select '{"schemaVersion":2,"data":{"completed":{},"scores":{"Security architecture":0,"Cyber-risk management":1,"Governance":0,"Compliance":0,"Security operations":0,"Executive reporting":2},"journal":[],"achievements":[]}}'::text;
 $$;
 
 create function account_private.envelope(state account_private.states) returns jsonb
@@ -66,13 +67,87 @@ begin
   return state;
 end $$;
 
+-- PostgreSQL text/JSONB cannot represent U+0000 or lone UTF-16 surrogates,
+-- which existing JS file backups accept. Retain serialized JSON verbatim and use
+-- only this private, injective projection for validation/identity hashes. A '~'
+-- becomes '~007e'; NUL/surrogate code units become '~hhhh'. Astral scalars and
+-- escaped surrogate pairs produce the same two units. No client codec is needed.
+create function account_private.project_codepoint(code integer) returns text
+language sql immutable strict set search_path = '' as $$
+  select case
+    when code = 0 or code = 126 or code between 55296 and 57343 then '~' || lpad(to_hex(code),4,'0')
+    when code > 65535 then '~' || to_hex(55296 + ((code-65536) / 1024)) || '~' || to_hex(56320 + ((code-65536) % 1024))
+    else chr(code) end;
+$$;
+
+create function account_private.project_string_piece(piece text) returns text
+language plpgsql immutable strict set search_path = '' as $$
+begin
+  if left(piece,1) = chr(92) then
+    if substr(piece,2,1) = 'u' then
+      return account_private.project_codepoint(('x' || substr(piece,3,4))::bit(16)::integer);
+    end if;
+    return case substr(piece,2,1)
+      when 'b' then chr(8) when 'f' then chr(12) when 'n' then chr(10)
+      when 'r' then chr(13) when 't' then chr(9) else substr(piece,2,1) end;
+  end if;
+  if length(piece) = 1 then return account_private.project_codepoint(ascii(piece)); end if;
+  return piece;
+end $$;
+
+create function account_private.project_string(token text) returns text
+language sql immutable strict set search_path = '' as $$
+  -- Match whole safe runs to avoid per-character work/quadratic concatenation.
+  select to_jsonb(coalesce(string_agg(account_private.project_string_piece(m[1]),''),''))::text
+  from regexp_matches(substr(token,2,length(token)-2),
+    E'\\\\u[0-9a-fA-F]{4}|\\\\.|[^\\\\~' || chr(65536) || '-' || chr(1114111) || ']+|.', 'g') m;
+$$;
+
+create function account_private.project_snapshot(source text) returns jsonb
+language plpgsql immutable set search_path = '' as $$
+declare projected text;
+begin
+  if source is null or octet_length(source) > 16777216 then
+    raise exception 'account_snapshot_invalid_or_too_large' using errcode = '22023';
+  end if;
+  -- json checks syntax without JSONB's Unicode decoding restriction. Never
+  -- extract a decoded text value from it; that would reintroduce the restriction.
+  begin perform source::json;
+  exception when invalid_text_representation then
+    raise exception 'account_snapshot_invalid' using errcode = '22023';
+  end;
+  select string_agg(case when left(m[1],1) = '"' then account_private.project_string(m[1]) else m[1] end,'')
+    into projected from regexp_matches(source, E'"(?:[^"\\\\]|\\\\.)*"|[^"]+', 'g') m;
+  return projected::jsonb;
+end $$;
+
 -- Server structural/version fence; domain/FSRS validation stays in validateState.
 -- Compatible unknown extensions are retained as JSON values, not interpreted.
 create function account_private.validate_snapshot(snapshot jsonb) returns void
 language plpgsql set search_path = '' as $$
 declare state jsonb; field text; item jsonb; score jsonb; year numeric; month integer; day integer; days integer[];
 begin
-  perform sync_private.validate_snapshot(snapshot);
+  if snapshot is null or jsonb_typeof(snapshot) <> 'object'
+    or snapshot->'schemaVersion' is distinct from '2'::jsonb
+    or (select count(*) from jsonb_object_keys(snapshot)) <> 2
+    or jsonb_typeof(snapshot->'data') is distinct from 'object' then
+    raise exception 'account_snapshot_invalid' using errcode = '22023';
+  end if;
+  state := snapshot->'data';
+  if jsonb_typeof(state->'completed') is distinct from 'object'
+    or jsonb_typeof(state->'scores') is distinct from 'object'
+    or jsonb_typeof(state->'journal') is distinct from 'array'
+    or jsonb_typeof(state->'achievements') is distinct from 'array' then
+    raise exception 'account_state_invalid' using errcode = '22023';
+  end if;
+  foreach field in array array['readingProgress','reviewProgress','questionAttempts','scenarioResponses','resourceProgress','portfolio','studyPreferences'] loop
+    if state ? field and (jsonb_typeof(state->field) <> 'object' or state->field->'schemaVersion' is distinct from '1'::jsonb) then
+      raise exception 'account_namespace_version_unsupported' using errcode = '22023';
+    end if;
+  end loop;
+  if state ? 'displayPreferences' and state->'displayPreferences'->'schema' is distinct from '1'::jsonb then
+    raise exception 'account_namespace_version_unsupported' using errcode = '22023';
+  end if;
   state := snapshot->'data';
   if exists(select 1 from jsonb_each(state->'completed') e where jsonb_typeof(e.value) <> 'boolean') then
     raise exception 'account_state_invalid' using errcode = '22023';
@@ -119,7 +194,7 @@ end $$;
 
 create function account_private.observe(subject uuid, snapshot jsonb) returns void
 language plpgsql set search_path = '' as $$
-declare path text[]; items jsonb; item jsonb; observed_kind text; candidate_hash bytea; old bytea;
+declare path text[]; items jsonb; item jsonb; observed_kind text; candidate_hash bytea; candidate_id text; candidate_id_hash bytea; old account_private.observations;
 begin
   foreach path slice 1 in array array[
     ['reviewProgress','events'], ['questionAttempts','attempts'], ['questionAttempts','selfAssessments'],
@@ -133,21 +208,26 @@ begin
     end if;
     observed_kind := array_to_string(path,'.');
     for item in select value from jsonb_array_elements(items) loop
-      if jsonb_typeof(item) <> 'object' or jsonb_typeof(item->'id') is distinct from 'string' or length(item->>'id') not between 1 and 256 then
+      if jsonb_typeof(item) <> 'object' or jsonb_typeof(item->'id') is distinct from 'string' or item->>'id' = '' then
         raise exception 'account_observation_invalid' using errcode = '22023';
       end if;
+      candidate_id := item->>'id';
+      candidate_id_hash := sha256(convert_to(candidate_id,'UTF8'));
       candidate_hash := sha256(convert_to(item::text,'UTF8'));
-      select o.fingerprint into old from account_private.observations o
-        where o.owner = subject and o.kind = observed_kind and o.id = item->>'id';
+      select o.* into old from account_private.observations o
+        where o.owner = subject and o.kind = observed_kind and o.id_hash = candidate_id_hash;
       if found then
-        if old <> candidate_hash then raise exception 'account_observation_id_reused' using errcode = '22023'; end if;
+        if old.id <> candidate_id then raise exception 'account_observation_hash_collision' using errcode = '22023'; end if;
+        if old.fingerprint <> candidate_hash then raise exception 'account_observation_id_reused' using errcode = '22023'; end if;
       else
-        insert into account_private.observations values(subject,observed_kind,item->>'id',candidate_hash);
+        insert into account_private.observations values(subject,observed_kind,candidate_id,candidate_id_hash,candidate_hash);
       end if;
     end loop;
   end loop;
   -- Bound retained identity metadata even if snapshots remove old observations.
-  if (select count(*) from account_private.observations o where o.owner = subject) > 100000 then
+  -- 128 MiB includes the projection's at-most-fivefold string expansion.
+  if (select count(*) > 100000 or coalesce(sum(octet_length(o.id) + 128),0) > 134217728
+      from account_private.observations o where o.owner = subject) then
     raise exception 'account_observation_limit' using errcode = '54000';
   end if;
 end $$;
@@ -156,13 +236,14 @@ create function public.account_load() returns jsonb
 language plpgsql security definer set search_path = '' as $$
 begin return account_private.envelope(account_private.current_state()); end $$;
 
-create function public.account_save(p_expected_revision uuid, p_snapshot jsonb) returns jsonb
+create function public.account_save(p_expected_revision uuid, p_snapshot text) returns jsonb
 language plpgsql security definer set search_path = '' as $$
-declare state account_private.states := account_private.current_state();
+declare state account_private.states := account_private.current_state(); projected jsonb;
 begin
   if p_expected_revision is distinct from state.revision then raise exception 'account_revision_stale' using errcode = 'PT409'; end if;
-  perform account_private.validate_snapshot(p_snapshot);
-  perform account_private.observe(state.owner,p_snapshot);
+  projected := account_private.project_snapshot(p_snapshot);
+  perform account_private.validate_snapshot(projected);
+  perform account_private.observe(state.owner,projected);
   update account_private.states s set snapshot = p_snapshot, revision = gen_random_uuid()
     where s.owner = state.owner returning * into state;
   return account_private.envelope(state);
@@ -193,5 +274,5 @@ begin
 end $$;
 
 revoke all on all functions in schema account_private from public, anon, authenticated;
-revoke all on function public.account_load(), public.account_save(uuid,jsonb), public.account_reset(uuid), public.account_close(uuid) from public, anon, authenticated;
-grant execute on function public.account_load(), public.account_save(uuid,jsonb), public.account_reset(uuid), public.account_close(uuid) to authenticated;
+revoke all on function public.account_load(), public.account_save(uuid,text), public.account_reset(uuid), public.account_close(uuid) from public, anon, authenticated;
+grant execute on function public.account_load(), public.account_save(uuid,text), public.account_reset(uuid), public.account_close(uuid) to authenticated;

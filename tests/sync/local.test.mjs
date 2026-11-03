@@ -9,9 +9,17 @@ import { enrollCard, applyReview } from '../../src/reviews.ts';
 import { appendEvidence, appendAppraisal } from '../../src/portfolio.ts';
 const { key } = settings();
 async function request(path, token, body, method = 'POST') {
+  if (path === '/rest/v1/rpc/account_save' && body && typeof body.p_snapshot !== 'string') {
+    body = { ...body, p_snapshot: JSON.stringify(body.p_snapshot) };
+  }
   const response = await fetch(`${api}${path}`, { method, headers: { apikey: key, ...(token ? { Authorization: `Bearer ${token}` } : {}), 'Content-Type': 'application/json' }, ...(body === undefined ? {} : { body: JSON.stringify(body) }) });
   const text = await response.text();
-  return { status: response.status, data: text ? JSON.parse(text) : null };
+  const data = text ? JSON.parse(text) : null;
+  if (response.status === 200 && /^\/rest\/v1\/rpc\/account_(load|save|reset)$/.test(path)) {
+    assert.equal(typeof data.snapshot, 'string', 'Wire snapshot is serialized JSON');
+    data.snapshot = JSON.parse(data.snapshot);
+  }
+  return { status: response.status, data };
 }
 async function rpc(user, name, body = {}) {
   const response = await request(`/rest/v1/rpc/account_${name}`, user?.access_token, body);
@@ -137,6 +145,64 @@ test('required account state on real local Auth/Postgres/API', { timeout: 300000
     A=await save(a,A,empty());
     await denied(a,'save',{p_expected_revision:A.revision,p_snapshot:rewritten},/observation_id_reused/);
     A=await save(a,A,fixture);
+  });
+  await t.test('valid backups preserve long IDs, every UTF-16 code unit, and opaque extension keys without collisions', async () => {
+    const state = empty();
+    const opaque = '\0 ~0000 ~007e \\u0000 \\ud800 " \\ / \b\f\n\r\t 😀 \ud800 \udfff';
+    state.journal.push({ id: opaque, date: '2026-01-01', title: opaque, body: opaque });
+    state.compatibleExtension = Object.fromEntries(['\0','~0000','~','~007e','\\u0000','😀','\ud800','\udfff'].map(key => [key, { [opaque]: opaque }]));
+    // Beyond both the previous 256-char limit and a PostgreSQL btree entry.
+    // Random hex avoids TOAST/compression accidentally hiding the index limit.
+    const eventId = Array.from({length:400}, () => randomUUID()).join('') + opaque;
+    enrollCard(state,{id:'opaque-card',version:1},'2026-01-01T00:00:00.000Z');
+    applyReview(state,{eventId,contentRef:{id:'opaque-card',version:1},rating:'Good',now:'2026-01-01T00:00:00.000Z',timeZone:'UTC'});
+    validateState(state);
+    assert.deepEqual(validateBackup(createBackup(state)),state);
+    assert.deepEqual(validateBackup({app:'CISO Journey',version:1,data:state}),state);
+    A = await save(a,A,state);
+    assert.deepEqual(A.snapshot.data,state);
+    assert.deepEqual((await rpc(a,'load')).snapshot.data,state);
+    assert.deepEqual(validateBackup(createBackup(A.snapshot.data)),state);
+    const original = JSON.stringify(snapshot(state));
+    assert.equal(sql(`select snapshot = '${original.replaceAll("'","''")}' from account_private.states where owner='${a.user.id}'`),'t');
+    // Equivalent Unicode escapes, whitespace and object order retain identities.
+    const escaped = JSON.stringify(snapshot(state),null,2).replaceAll('😀','\\uD83D\\uDE00').replaceAll('~','\\u007e').replaceAll('"data"','"\\u0064ata"');
+    A = await rpc(a,'save',{p_expected_revision:A.revision,p_snapshot:escaped});
+    assert.deepEqual(A.snapshot.data,state);
+    const reordered = structuredClone(state);
+    const event = reordered.reviewProgress.events[0];
+    reordered.reviewProgress.events[0] = Object.fromEntries(Object.entries(event).reverse());
+    A = await save(a,A,reordered);
+    const changed = structuredClone(state);
+    changed.reviewProgress.events[0].timeZone = 'Europe/Zurich';
+    await denied(a,'save',{p_expected_revision:A.revision,p_snapshot:snapshot(changed)},/observation_id_reused/);
+    // Literal escape-looking IDs and actual NUL IDs must remain distinct.
+    const ids = ['~0000','\0','\\u0000','😀','\ud83d\ude00','\ud800','~d800'];
+    const countBefore = Number(sql(`select count(*) from account_private.observations where owner='${a.user.id}'`));
+    for (const id of ids) {
+      const separate = empty();
+      enrollCard(separate,{id:'identity-card',version:1},'2026-01-01T00:00:00.000Z');
+      applyReview(separate,{eventId:id,contentRef:{id:'identity-card',version:1},rating:'Good',now:'2026-01-01T00:00:00.000Z',timeZone:'UTC'});
+      A = await save(a,A,separate);
+      assert.deepEqual(A.snapshot.data,separate);
+    }
+    assert.equal(Number(sql(`select count(*) from account_private.observations where owner='${a.user.id}'`)),countBefore + new Set(ids).size);
+    // Exhaustive UTF-16 coverage catches sentinel, backslash and surrogate edges.
+    const units = Array.from({length:65536}, (_,i) => String.fromCharCode(i)).join('');
+    const allUnits = empty();
+    allUnits.journal.push({id:'all-code-units',date:'2026-01-01',title:'Synthetic Unicode',body:units});
+    const projectedUnits = units.replace(/[~\u0000\ud800-\udfff]/g, unit => '~' + unit.charCodeAt(0).toString(16).padStart(4,'0'));
+    const sqlSource = JSON.stringify(snapshot(allUnits)).replaceAll("'","''");
+    const projected = JSON.parse(sql(`select account_private.project_snapshot('${sqlSource}')::text`));
+    assert.equal(projected.data.journal[0].body,projectedUnits);
+    A = await save(a,A,allUnits);
+    assert.equal((await rpc(a,'load')).snapshot.data.journal[0].body,units);
+    const before = A;
+    for (const p_snapshot of ['{', 'null', JSON.stringify({schemaVersion:99,data:empty()}), JSON.stringify(snapshot({...empty(),extra:'x'.repeat(16777216)}))]) {
+      const result = await denied(a,'save',{p_expected_revision:A.revision,p_snapshot});
+      assert.equal(result.data.code,'22023');
+    }
+    assert.deepEqual(await rpc(a,'load'),before);
   });
   await t.test('live ban, disabled account and deleted session guard otherwise valid JWTs', async () => {
     sql(`update auth.users set banned_until=now()+interval '1 hour' where id='${a.user.id}';`);
