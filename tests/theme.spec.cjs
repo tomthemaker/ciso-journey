@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require('./browser/account-fixture.cjs');
 
 test('appearance follows system, persists choices and loads the local font on Pages', async ({ page }) => {
   await page.emulateMedia({ colorScheme: 'dark' });

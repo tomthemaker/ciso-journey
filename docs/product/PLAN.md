@@ -62,3 +62,5 @@ Keep new issue/PR/review text brief and factual for the primary LLM consumer: re
 ## Scope boundaries
 
 No AI tutoring/grading service, automated course scraping, certification dumps, LMS integrations or binary evidence hosting. These require separate decisions. D045 explicitly authorizes the authenticated backend dependency, superseding the former cloud-independent first-release boundary. A full curriculum is a continuing editorial program, not one mass-generated code milestone. Actual authorship/review capacity and learner time budget determine subsequent scheduling.
+
+Owner direction, 2026-11-03: [D046](MEMORY.md#d046--required-github-account-and-server-authoritative-learning-2026-11-03) supersedes the local-operation and optional-auth assumptions above. GitHub sign-in and server-authoritative progress are required; existing v1/v2 backups remain explicit authenticated file imports/exports. Release and human content review gates otherwise remain in effect.

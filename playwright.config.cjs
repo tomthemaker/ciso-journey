@@ -3,6 +3,7 @@ module.exports = defineConfig({
   testDir: './tests',
   testMatch: '**/*.spec.cjs',
   fullyParallel: true,
+  workers: 2,
   forbidOnly: !!process.env.CI,
   retries: 0,
   reporter: 'list',

@@ -10,12 +10,25 @@ import { questionHash } from './question-attempts';
 import { caseHash } from './scenario-responses';
 
 let previousState: LearnerState | undefined;
-export function renderRoadmap(state: LearnerState, changed: Change) {
+const dirtyControls = new Set<string>();
+let tracking = false;
+export function clearRoadmap(): void { previousState = undefined; dirtyControls.clear(); }
+export function renderRoadmap(state: LearnerState, changed: Change, retainDrafts = false) {
   const root = byId("phaseList", "div");
+  if (!tracking) {
+    const markDirty = (event: Event) => {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.id && target.closest('form')) dirtyControls.add(target.id);
+    };
+    root.addEventListener('input', markDirty);
+    root.addEventListener('change', markDirty);
+    tracking = true;
+  }
   const open = new Set(Array.from(root.querySelectorAll<HTMLDetailsElement>('details[open]')).map(details => details.id));
-  const drafts = previousState === state ? Array.from(root.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('form input, form select, form textarea')).map(control => ({ id: control.id, value: control.value })) : [];
+  const drafts = (retainDrafts || previousState === state) ? Array.from(root.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('form input, form select, form textarea')).filter(control => !retainDrafts || dirtyControls.has(control.id)).map(control => ({ id: control.id, value: control.value })) : [];
   // Custom-add form IDs are generated per render; retain the old forms on a failed save.
-  const addDrafts = previousState === state ? Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id$="-add-resource"]')).map(details => ({ id: details.id, form: details.querySelector('form')! })) : [];
+  const addDrafts = (retainDrafts || previousState === state) ? Array.from(root.querySelectorAll<HTMLDetailsElement>('details[id$="-add-resource"]')).filter(details => !retainDrafts || Array.from(details.querySelectorAll('input, select, textarea')).some(control => dirtyControls.has(control.id))).map(details => ({ id: details.id, form: details.querySelector('form')! })) : [];
+  if (!retainDrafts && previousState !== state) dirtyControls.clear();
   previousState = state;
   root.replaceChildren();
   root.append(node('p', { id: 'resourceCompletionCount', role: 'status' }, `${resourceCompletionCount(state)} resources completed (including archived history). Task completion and legacy ratings are separate.`));

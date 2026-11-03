@@ -1,166 +1,77 @@
-const { test, expect } = require('@playwright/test');
-const fs = require('node:fs/promises');
+const { test, expect, snapshot, seedServerState, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
 const mixed = require('./fixtures/v1/mixed-progress.json');
-const KEY = 'ciso-journey-v1';
-const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise((resolve, reject) => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onerror = () => reject(request.error);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots');
-      const read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-      tx.onabort = () => { db.close(); reject(tx.error); };
-    };
-  }));
-}
-async function replaceSnapshot(page, value) {
-  await page.evaluate(value => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots', 'readwrite');
-      tx.objectStore('snapshots').put(value, 'current');
-      tx.oncomplete = () => { db.close(); resolve(); };
-    };
-  }), value);
-}
 async function importBackup(page, backup) {
-  const dialogs = [];
-  const handle = async dialog => { dialogs.push(dialog.message()); await dialog.accept(); };
-  page.on('dialog', handle);
+  const dialogs = [], handler = async dialog => { dialogs.push(dialog.message()); await dialog.accept(); };
+  page.on('dialog', handler);
   await page.locator('#importFile').setInputFiles({ name: 'synthetic.json', mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(backup)) });
-  await expect(page.locator('#importFile')).toHaveValue('');
-  page.off('dialog', handle);
+  await expect(page.locator('#importFile')).toHaveValue(''); page.off('dialog', handler);
   return dialogs;
 }
-async function recoveryDownload(page) {
-  const event = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download recovery copy' }).click();
-  return fs.readFile(await (await event).path(), 'utf8');
-}
-
-test('aborted migration retains exact v1 bytes, retries atomically and is idempotent', async ({ page }) => {
-  const raw = JSON.stringify(mixed.data, null, 2);
-  await page.addInitScript(({ key, raw }) => {
-    localStorage.setItem(key, raw);
-    window.abortWrites = true;
-    const put = IDBObjectStore.prototype.put;
-    IDBObjectStore.prototype.put = function (...args) {
-      const request = put.apply(this, args);
-      request.addEventListener('success', () => { if (window.abortWrites) this.transaction.abort(); });
-      return request;
-    };
-  }, { key: KEY, raw });
-  await page.goto('./');
-  await ready(page);
-  await expect(page.locator('#storageStatus')).toContainText('transaction was aborted');
-  await expect(page.locator('#roadmap')).toBeHidden();
-  expect(await snapshot(page)).toBeUndefined();
-  expect(await recoveryDownload(page)).toBe(raw);
-  expect(await page.evaluate(key => localStorage.getItem(key), KEY)).toBe(raw);
-  await page.evaluate(() => { window.abortWrites = false; });
-  await page.getByRole('button', { name: 'Retry storage' }).click();
-  await expect(page.locator('#statTasks')).toHaveText('19');
-  expect(await snapshot(page)).toEqual({ schemaVersion: 2, revision: 1, data: mixed.data });
-  await page.reload();
-  await expect(page.locator('#statTasks')).toHaveText('19');
-  expect((await snapshot(page)).revision).toBe(1);
-  expect(await page.evaluate(key => localStorage.getItem(key), KEY)).toBe(raw);
-});
-
-test('quota failure keeps task, score, history and reset committed state; draft can be retried', async ({ page }) => {
-  await page.goto('./');
-  await ready(page);
-  await importBackup(page, mixed);
-  const original = await snapshot(page);
-  await page.evaluate(() => {
-    window.failWrites = true;
-    const put = IDBObjectStore.prototype.put;
-    IDBObjectStore.prototype.put = function (...args) {
-      if (window.failWrites) throw new DOMException('Synthetic quota failure', 'QuotaExceededError');
-      return put.apply(this, args);
-    };
-  });
-  await page.locator('.task input').nth(1).check();
+for (const kind of ['http', 'network']) test(`${kind} failure preserves committed tasks, scores, history, reset and retryable draft`, async ({ page }) => {
+  await seedServerState(page, mixed.data); await page.goto('./');
+  const original = await snapshot(page), failure = await failWrites(page, kind);
+  await page.locator('.task input').nth(1).click();
   await expect(page.locator('.task input').nth(1)).not.toBeChecked();
-  await expect(page.locator('#storageStatus')).toContainText('Synthetic quota failure');
+  await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
   expect(await snapshot(page)).toEqual(original);
   await page.getByRole('button', { name: 'Competencies', exact: true }).click();
   await page.getByRole('combobox', { name: 'Rating for Governance' }).selectOption('4');
-  await ready(page);
   await expect(page.getByRole('combobox', { name: 'Rating for Governance' })).toHaveValue(String(mixed.data.scores.Governance));
   await page.getByRole('button', { name: 'Learning journal', exact: true }).click();
-  await page.locator('#journalTopic').fill('Synthetic retained draft');
-  await page.locator('#journalLearned').fill('Synthetic text only');
+  await page.locator('#journalTopic').fill('Synthetic retained draft'); await page.locator('#journalLearned').fill('Synthetic text only');
   await page.getByRole('button', { name: 'Save learning entry' }).click();
-  await ready(page);
   await expect(page.locator('#journalTopic')).toHaveValue('Synthetic retained draft');
+  page.once('dialog', dialog => dialog.accept()); await page.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await snapshot(page)).toEqual(original);
-  page.once('dialog', dialog => dialog.accept());
-  await page.getByRole('button', { name: 'Reset', exact: true }).click();
-  expect(await snapshot(page)).toEqual(original);
-  await page.evaluate(() => { window.failWrites = false; });
+  await failure.restore(); await reloadProgress(page);
+  await expect(page.locator('#journalTopic')).toHaveValue('Synthetic retained draft');
   await page.getByRole('button', { name: 'Save learning entry' }).click();
   await expect(page.locator('#journalTopic')).toHaveValue('');
   expect((await snapshot(page)).data.journal).toHaveLength(mixed.data.journal.length + 1);
-  await page.reload();
-  await expect(page.locator('#statLogs')).toHaveText('3');
+  await page.reload(); await expect(page.locator('#statLogs')).toHaveText('3');
 });
-
-test('stale tab cannot overwrite newer progress by import or reset; retry loads latest', async ({ page, context }) => {
-  await page.goto('./');
-  await ready(page);
-  await importBackup(page, mixed);
-  const other = await context.newPage();
-  await other.goto('./');
-  await ready(other);
-  await page.locator('.task input').nth(1).check();
+test('lost server acknowledgement reports failure until an explicit reload reveals committed progress', async ({ page }) => {
+  await page.goto('./'); await snapshot(page);
+  await page.route('**/rpc/account_save', async route => {
+    const response = await route.fetch(); expect(response.ok()).toBeTruthy();
+    await route.abort('failed'); // Real Postgres committed; the browser never received success.
+  });
+  await page.locator('.task input').first().click();
+  await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
+  await expect(page.locator('#statTasks')).toHaveText('0');
+  expect((await snapshot(page)).data.completed.w1).toBe(true);
+  await page.locator('.task input').nth(1).click();
+  await expect(page.locator('#storageStatus')).toContainText('Reload progress');
+  expect((await snapshot(page)).data.completed).toEqual({ w1: true });
+  await page.unroute('**/rpc/account_save'); await reloadProgress(page);
+  await expect(page.locator('#statTasks')).toHaveText('1');
+  await expect(page.locator('.task input').first()).toBeChecked();
+});
+test('stale authenticated device cannot overwrite newer progress by import or reset; reload gets latest', async ({ page, context }) => {
+  await seedServerState(page, mixed.data); await page.goto('./'); await snapshot(page);
+  const other = await context.newPage(); await other.goto('./'); await snapshot(other);
+  await page.locator('.task input').nth(1).check(); await expect(page.locator('#statTasks')).toHaveText('20');
   const latest = await snapshot(page);
-  const dialogs = await importBackup(other, { ...mixed, data: { ...mixed.data, completed: {} } });
-  expect(dialogs.at(-1)).toContain('Progress changed in another tab');
+  expect((await importBackup(other, { ...mixed, data: { ...mixed.data, completed: {} } })).at(-1)).toContain('Progress changed elsewhere');
   expect(await snapshot(other)).toEqual(latest);
-  other.once('dialog', dialog => dialog.accept());
-  await other.getByRole('button', { name: 'Reset', exact: true }).click();
+  other.once('dialog', dialog => dialog.accept()); await other.getByRole('button', { name: 'Reset', exact: true }).click();
   expect(await snapshot(other)).toEqual(latest);
-  await other.getByRole('button', { name: 'Retry storage' }).click();
-  await expect(other.locator('#statTasks')).toHaveText('20');
+  await reloadProgress(other); await expect(other.locator('#statTasks')).toHaveText('20');
   await other.getByRole('button', { name: 'Competencies', exact: true }).click();
   await other.getByRole('combobox', { name: 'Rating for Governance' }).selectOption('4');
-  expect((await snapshot(other)).data.completed).toEqual(latest.data.completed);
-  expect((await snapshot(other)).revision).toBe(latest.revision + 1);
+  await expect(other.getByRole('combobox', { name: 'Rating for Governance' })).toHaveValue('4');
+  const saved = await snapshot(other); expect(saved.data.completed).toEqual(latest.data.completed); expect(saved.revision).not.toBe(latest.revision);
 });
-
-test('corrupt and future stored snapshots stay intact with raw recovery and no fabricated defaults', async ({ page }) => {
-  await page.goto('./');
-  await ready(page);
-  for (const value of [
-    { schemaVersion: 2, revision: 9, data: { ...mixed.data, journal: null } },
-    { schemaVersion: 99, revision: 9, data: mixed.data, syntheticFutureEntity: ['opaque'] },
-  ]) {
-    await replaceSnapshot(page, value);
-    await page.reload();
-    await ready(page);
-    await expect(page.locator('#roadmap')).toBeHidden();
-    await expect(page.locator('#exportBtn')).toBeDisabled();
-    expect(JSON.parse(await recoveryDownload(page))).toEqual(value);
-    expect((await importBackup(page, mixed)).at(-1)).toContain('Stored data could not be loaded');
-    expect(await snapshot(page)).toEqual(value);
+test('corrupt or future server responses block learning/export/import without fabricated defaults or writes', async ({ page }) => {
+  for (const mutate of [value => { value.snapshot.data.journal = null; }, value => { value.snapshot.schemaVersion = 99; }]) {
+    let writes = 0;
+    const count = request => { if (/\/rpc\/account_(save|reset)$/.test(request.url())) writes++; };
+    page.on('request', count);
+    const handler = async route => { const response = await route.fetch(), value = await response.json(); value.snapshot = JSON.parse(value.snapshot); mutate(value); value.snapshot = JSON.stringify(value.snapshot); await route.fulfill({ response, json: value }); };
+    await page.route('**/rpc/account_load', handler); await page.goto('./');
+    await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
+    await expect(page.locator('#roadmap')).toBeHidden(); await expect(page.locator('#exportBtn')).toBeDisabled(); await expect(page.locator('#importBtn')).toBeDisabled();
+    expect(writes).toBe(0); await page.unroute('**/rpc/account_load', handler); page.off('request', count);
+    expect((await snapshot(page)).data.completed).toEqual({});
   }
-});
-
-test('damaged v1 loads visibly blocked and a repaired import preserves original recovery bytes', async ({ page }) => {
-  const damaged = JSON.stringify({ ...mixed.data, scores: { Governance: 9 } }, null, 2);
-  await page.addInitScript(({ key, damaged }) => localStorage.setItem(key, damaged), { key: KEY, damaged });
-  await page.goto('./');
-  await ready(page);
-  await expect(page.locator('#roadmap')).toBeHidden();
-  await expect(page.locator('#storageStatus')).toContainText('Invalid task completion or competency score');
-  expect(await snapshot(page)).toBeUndefined();
-  expect(await recoveryDownload(page)).toBe(damaged);
-  await importBackup(page, mixed);
-  await expect(page.locator('#statTasks')).toHaveText('19');
-  expect((await snapshot(page)).data).toEqual(mixed.data);
-  expect(await page.evaluate(key => localStorage.getItem(key), KEY)).toBe(damaged);
 });

@@ -1,0 +1,9 @@
+# GitHub account and progress
+
+[#120](https://github.com/tomthemaker/ciso-journey/issues/120) requires a verified GitHub sign-in for all learning, imports and exports. Account progress is held by the server, with revision-checked saves and resets; a failed or uncertain write leaves the previously displayed progress unchanged. Reload progress before retrying a failed save. Export full backups regularly. Explicit v1 and v2 file imports remain available after sign-in; tokens are never included in a backup. Existing browser data is neither copied nor deleted automatically.
+
+The static application needs `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` at build time. Configure GitHub as the Supabase OAuth provider and register the Supabase callback with GitHub. Register the application base URL as an allowed redirect in Supabase. No service-role key belongs in the application. An unconfigured build shows setup information and blocks learning.
+
+The SDK uses PKCE. Its custom storage adapter holds session tokens in memory, and uses tab-scoped `sessionStorage` only for the PKCE verifier during the redirect (valid for at most ten minutes); the verifier is removed after exchange or callback failure. This handshake value is not learner data or a persistent session. A page reload requires sign-in again. An expired, revoked, unverifiable or signed-out session clears the active view and requires sign-in. Tokens are not written to localStorage, IndexedDB, learner backups, or an offline queue.
+
+Run `npm test`, `npm run typecheck`, `npm run build`, and local `npm run test:browser -- --workers=2`. Local synthetic Auth users and Postgres exercise authorization and storage, but are not evidence of a real GitHub-provider login. Real OAuth configuration and provider verification require operator credentials.

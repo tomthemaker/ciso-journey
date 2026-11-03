@@ -1,19 +1,9 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect, snapshot, failWrites, reloadProgress } = require('./browser/account-fixture.cjs');
 const fs = require('node:fs/promises');
 const { studyBundle: bundle } = require('../scripts/study-content.cjs');
 const cards = bundle.records.filter(r => r.kind === 'card' && !bundle.records.some(other => other.id === r.id && other.version > r.version)).sort((a, b) => `${a.id}@${a.version}`.localeCompare(`${b.id}@${b.version}`));
 const first = cards[0];
 const ready = page => expect(page.locator('body')).toHaveAttribute('data-storage-busy', 'false');
-async function snapshot(page) {
-  await ready(page);
-  return page.evaluate(() => new Promise(resolve => {
-    const request = indexedDB.open('ciso-journey', 1);
-    request.onsuccess = () => {
-      const db = request.result, tx = db.transaction('snapshots'), read = tx.objectStore('snapshots').get('current');
-      tx.oncomplete = () => { db.close(); resolve(read.result); };
-    };
-  }));
-}
 async function deck(page) {
   const details = page.locator('#todayDeck');
   if (!await details.evaluate(el => el.open)) await details.locator('summary').click();
@@ -94,7 +84,7 @@ for (const refresh of ['button', 'tab return']) test(`unrevealed new card yields
   await expect(page.locator('#todayPrompt')).toHaveText(cards[1].payload.prompt);
   const before = await snapshot(page);
   // The installed clock still ticks during UI work; advance past the actual committed due instant.
-  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards[0].schedule.due) + 1000));
+  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards.find(card => card.contentRef.id === first.id && card.contentRef.version === first.version).schedule.due) + 1000));
   if (refresh === 'button') await page.locator('#todayRefresh').click();
   else {
     await page.getByRole('button', { name: 'Roadmap', exact: true }).click();
@@ -119,20 +109,11 @@ test('newly due work preserves a revealed prompt and failed rating; retry and du
   const before = await snapshot(page);
   await page.locator('#todayReveal').click();
   // The installed clock still ticks during UI work; advance past the actual committed due instant.
-  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards[0].schedule.due) + 1000));
+  await page.clock.setSystemTime(new Date(Date.parse(before.data.reviewProgress.cards.find(card => card.contentRef.id === first.id && card.contentRef.version === first.version).schedule.due) + 1000));
   await page.locator('#todayRefresh').click();
   await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 4 allowed new cards');
   await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
-  await page.evaluate(() => {
-    window.todayPut = IDBObjectStore.prototype.put;
-    window.abortToday = true;
-    window.todayAttempts = [];
-    IDBObjectStore.prototype.put = function (...args) {
-      window.todayAttempts.push(structuredClone(args[0].data.reviewProgress.events.at(-1)));
-      const request = window.todayPut.apply(this, args);
-      request.addEventListener('success', () => { if (window.abortToday) this.transaction.abort(); }); return request;
-    };
-  });
+  const failure = await failWrites(page);
   await page.locator('#todayRateHard').click();
   await expect(page.locator('#todayMessage')).toContainText('Review not saved');
   await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
@@ -143,7 +124,10 @@ test('newly due work preserves a revealed prompt and failed rating; retry and du
   await page.locator('#todayRefresh').click();
   await expect(page.locator('#todayAnswer')).toHaveText(cards[1].payload.answer);
   await expect(page.locator('#todayRateHard')).toBeEnabled();
-  await page.evaluate(() => { window.abortToday = false; document.querySelector('#todayRateHard').click(); document.querySelector('#todayRateHard').click(); });
+  await failure.restore(); await reloadProgress(page);
+  const successfulRequests = [];
+  page.on('request', request => { if (request.url().endsWith('/rpc/account_save')) successfulRequests.push(request.postDataJSON()); });
+  await page.evaluate(() => { document.querySelector('#todayRateHard').click(); document.querySelector('#todayRateHard').click(); });
   await expect(page.locator('#todayMessage')).toContainText('Hard saved');
   const saved = await snapshot(page);
   expect(saved.data.reviewProgress.events).toHaveLength(2);
@@ -152,12 +136,12 @@ test('newly due work preserves a revealed prompt and failed rating; retry and du
   const answer = saved.data.reviewProgress.events[1];
   expect(answer.rating).toBe('Hard');
   expect(answer.contentRef.id).toBe(cards[1].id);
-  const attempts = await page.evaluate(() => window.todayAttempts);
+  const attempts = [...failure.requests, ...successfulRequests].map(request => JSON.parse(request.p_snapshot).data.reviewProgress.events.at(-1));
   expect(attempts).toHaveLength(2);
-  expect(answer).toEqual(attempts[0]); // Exact ID/time/rating/schedule from the aborted write, despite the later clock.
+  expect(answer).toEqual(attempts[0]); // Exact ID/time/rating/schedule from the failed request, despite the later clock.
   expect(attempts[1]).toEqual(attempts[0]);
   expect(saved.data.reviewProgress.cards.find(card => card.contentRef.id === cards[1].id && card.contentRef.version === cards[1].version).schedule).toEqual(answer.after);
-  expect(saved.revision).toBe(before.revision + 1);
+  expect(saved.revision).not.toBe(before.revision);
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   await page.reload(); await ready(page);
   expect((await snapshot(page)).data).toEqual(saved.data);
@@ -169,8 +153,11 @@ test('missed days retain overdue priority at zero cap; suspend/archive/restore r
   await page.locator('#todayReveal').click(); await page.locator('#todayRateAgain').click();
   await expect(page.locator('#todayMessage')).toContainText('Again saved');
   await cap(page, 0);
-  await page.clock.setSystemTime(new Date('2026-11-07T08:00:00.000Z'));
+  // Reauthenticate before advancing the scheduler clock; the redirect verifier
+  // is deliberately short-lived and cannot survive a fictional multi-day jump.
   await page.reload(); await ready(page);
+  await page.clock.setSystemTime(new Date('2026-11-07T08:00:00.000Z'));
+  await page.locator('#todayRefresh').click();
   await expect(page.locator('#todayQueue')).toContainText('1 due or overdue reviews before 0 allowed new cards');
   await expect(page.locator('#todayPrompt')).toHaveText(first.payload.prompt);
   const before = await snapshot(page); await deck(page);
@@ -203,7 +190,7 @@ test('daily cap refreshes at local midnight and newly due reviews appear without
 test('bulk enrollment leaves an archived earlier revision unchanged; the newer revision is explicit', async ({ page }) => {
   const { enrollCard, applyReview, setCardStatus } = require('../src/reviews.ts');
   await page.goto('./#today'); await ready(page);
-  const backup = await exported(page), old = { id: first.id, version: first.version - 1 };
+  const backup = await exported(page), revised = cards.find(card => bundle.records.some(other => other.kind === 'card' && other.id === card.id && other.version < card.version)), old = { id: revised.id, version: revised.version - 1 };
   enrollCard(backup.data, old, '2026-10-28T08:00:00.000Z');
   applyReview(backup.data, { eventId: 'synthetic-old-review', contentRef: old, rating: 'Good', now: '2026-10-28T08:01:00.000Z' });
   setCardStatus(backup.data, old, 'archived');
@@ -214,11 +201,11 @@ test('bulk enrollment leaves an archived earlier revision unchanged; the newer r
   const afterBulk = (await snapshot(page)).data.reviewProgress;
   expect(afterBulk.cards.find(item => item.contentRef.id === old.id)).toEqual(prior.cards[0]);
   expect(afterBulk.events).toEqual(prior.events);
-  expect(afterBulk.cards.some(item => item.contentRef.id === first.id && item.contentRef.version === first.version)).toBe(false);
-  await expect(page.locator('#enroll-' + first.id + '-' + first.version)).toHaveText('Enroll this revision');
-  await page.locator('#enroll-' + first.id + '-' + first.version).click(); await ready(page);
+  expect(afterBulk.cards.some(item => item.contentRef.id === revised.id && item.contentRef.version === revised.version)).toBe(false);
+  await expect(page.locator('#enroll-' + revised.id + '-' + revised.version)).toHaveText('Enroll this revision');
+  await page.locator('#enroll-' + revised.id + '-' + revised.version).click(); await ready(page);
   const afterExplicit = (await snapshot(page)).data.reviewProgress;
   expect(afterExplicit.cards.find(item => item.contentRef.id === old.id && item.contentRef.version === old.version)).toEqual(prior.cards[0]);
   expect(afterExplicit.events).toEqual(prior.events);
-  expect(afterExplicit.cards.find(item => item.contentRef.id === first.id && item.contentRef.version === first.version).schedule.reps).toBe(0);
+  expect(afterExplicit.cards.find(item => item.contentRef.id === revised.id && item.contentRef.version === revised.version).schedule.reps).toBe(0);
 });

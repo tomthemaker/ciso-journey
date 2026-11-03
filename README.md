@@ -1,6 +1,6 @@
 # CISO Journey
 
-A local-first web application for tracking an executive CISO development roadmap.
+An account-backed web application for tracking an executive CISO development roadmap.
 
 The weeks 1–4 learning loop is a **provisional AI-authored pilot**, with independent educator review outstanding. Read the [pilot notes and private recovery steps](docs/product/FOUNDATION_RELEASE_NOTES.md) and [release-gate evidence and limitations](docs/product/G01_RELEASE_GATE.md). No validated teaching release or readiness assessment is claimed.
 
@@ -13,7 +13,7 @@ npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173/ciso-journey/. The TypeScript source needs a build/server; opening `index.html` directly no longer runs the app.
+Configure the public Supabase URL and publishable key as described in the [account guide](docs/product/ACCOUNTS.md), then open http://127.0.0.1:5173/ciso-journey/. GitHub sign-in is required. The TypeScript source needs a build/server; opening `index.html` directly does not run the app.
 
 ```sh
 npm run typecheck
@@ -23,7 +23,7 @@ npm run preview
 npm test
 # Local critical browser checks (install Chromium once):
 npx playwright install chromium
-npm run test:browser -- --workers=4
+npm run test:browser -- --workers=2
 ```
 
 Fast unit checks run with `npm test`. CI adds typecheck/build; critical browser checks run locally against a production build under the actual Pages subpath. See [build, deployment, origin migration and rollback](docs/product/F02_BUILD_AND_DEPLOY.md) for the Actions publishing workflow and private recovery steps.
@@ -37,20 +37,22 @@ Fast unit checks run with `npm test`. CI adds typecheck/build; critical browser 
 - Learning journal and achievement/evidence log
 - Curated links to official security frameworks and certification programs
 - JSON export/import backups
-- Transactional IndexedDB persistence; responsive layout; no analytics/tracking
+- Server-authoritative progress with revision-checked saves; responsive layout
 
 ## Notes about data
 
-Data is saved in your current browser's IndexedDB. Existing `ciso-journey-v1` data migrates atomically and its original bytes remain untouched as a historical recovery copy. Use **Export backup** regularly: exports use version 2, and imports accept versions 1 and 2. Storage failures show recovery steps instead of resetting progress. Switching browser/device or clearing site data can lose progress; the app does not synchronize across devices. See [storage, backup compatibility and recovery](docs/product/F03_STORAGE_AND_RECOVERY.md).
+Progress is stored in your signed-in account. Use **Export backup** regularly; exports use version 2 and authenticated imports accept versions 1 and 2. Existing browser data is neither copied nor removed automatically. A failed or uncertain save leaves committed progress unchanged and requires reloading before retry. See the [account, backup and configuration guide](docs/product/ACCOUNTS.md).
 
 ## Security and privacy
 
-The browser loads static HTML, JavaScript and CSS assets; no learner data is sent to a service. External framework links open in new tabs when clicked. Imported JSON is parsed as data and rendered with `textContent`, not injected as HTML. Only import backups you trust. No authentication is provided because this prototype stores data only in your browser.
+The browser loads static assets and sends learner data to the configured account service. Session tokens stay in memory; only a short-lived PKCE verifier is stored for the sign-in redirect. External framework links open when clicked. Imported JSON is parsed as data and rendered with `textContent`, not injected as HTML. Only import backups you trust.
 
 ## Learning resources per roadmap task (v1.1)
-Every roadmap task includes expandable supplementary courses/references plus clearly labeled LinkedIn Learning and Coursera discovery searches. Original lessons are the core teaching. Track a specific resource manually with status, completion date, notes and an optional HTTPS evidence link; custom resources support editing and reversible archive/restore with saved history. Resource completion stays separate from task completion, reading, recall and competency ratings. See [resource progress and recovery](docs/product/L02_RESOURCE_PROGRESS.md). Prior `ciso-journey-v1` progress is preserved through the IndexedDB migration in the same browser and origin. If moving between file locations/browsers, export a JSON backup from the old app and import it into the updated one.
+Every roadmap task includes expandable supplementary courses/references plus clearly labeled LinkedIn Learning and Coursera discovery searches. Original lessons are the core teaching. Track a specific resource manually with status, completion date, notes and an optional HTTPS evidence link; custom resources support editing and reversible archive/restore with saved history. Resource completion stays separate from task completion, reading, recall and competency ratings. See [resource progress and recovery](docs/product/L02_RESOURCE_PROGRESS.md). Existing v1 backups can be imported explicitly after sign-in.
 
-## Recommended next feature for Codex: Resource-level learning and mastery tracking
+## Historical feature proposal: Resource-level learning and mastery tracking
+
+This historical proposal is not current implementation authority; account and storage instructions below are superseded by [D046](docs/product/MEMORY.md#d046--required-github-account-and-server-authoritative-learning-2026-11-03). See the current [plan](docs/product/PLAN.md).
 
 **Priority: High.** Currently, each roadmap task offers learning resources, but the app only tracks whether the *whole roadmap task* is complete. Add tracking that separately distinguishes **resource consumption**, **concept understanding**, and **demonstrated competency**. Completing a LinkedIn Learning course must not automatically mark a roadmap task or competency as mastered.
 
@@ -88,7 +90,7 @@ A comprehensive learning platform is planned; the current foundation uses lightw
 
 [F01 baseline and recovery](docs/product/V1_PRESERVATION.md) records all 37 actual task IDs, six score categories, browser interactions and private backup/recovery steps. Synthetic fixtures and browser tests preserve this contract before modularization. Imports validate the full v1/v2 payload before replacing progress; unsupported or malformed files leave current state untouched.
 
-The app uses plain DOM TypeScript and pinned `ts-fsrs` for retrieval scheduling. Development, production builds and checks use the pinned npm tools; see the commands above. Browser storage does not guarantee offline app availability. Keep private exports before changing origin, browser or device.
+The app uses plain DOM TypeScript and pinned `ts-fsrs` for retrieval scheduling. Development, production builds and checks use the pinned npm tools; see the commands above. Keep private exports as backups.
 
 CI runs only unit/type/build checks. Run local browser checks during implementation and independent review of runtime/test changes and before release; record exact-candidate results in the PR. See the [validation policy](AGENTS.md#validation-policy).
 

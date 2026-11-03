@@ -5,4 +5,6 @@ test-results/
 dist/
 
 # Private local runtime/provider configuration (public VITE config may also live here).
-.env*.local
+.env
+.env.*
+!.env.example

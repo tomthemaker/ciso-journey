@@ -11,7 +11,7 @@ export function bindPortfolio(change: Change): (state: LearnerState | undefined)
   const draft = { date: new Date().toISOString().slice(0, 10), competency: '', level: '', scope: '', rationale: '', evidenceId: '', responseId: '' };
   function render(): void {
     root.replaceChildren();
-    const intro = node('div', { class: 'card' }); intro.append(node('h2', {}, 'Quarterly self-assessments and portfolio'), node('p', {}, 'Record a judgment for a specific scope and evidence. Recognize, Explain, Apply and Lead are self-assessed descriptions, not proof of overall mastery or readiness. Case rubric anchors are not averaged. Append a new entry to correct an earlier one.'), node('p', {}, 'Portfolio titles, links and notes stay in this browser and full backups. Use HTTPS references; opening one visits its host. No files are uploaded.')); root.append(intro);
+    const intro = node('div', { class: 'card' }); intro.append(node('h2', {}, 'Quarterly self-assessments and portfolio'), node('p', {}, 'Record a judgment for a specific scope and evidence. Recognize, Explain, Apply and Lead are self-assessed descriptions, not proof of overall mastery or readiness. Case rubric anchors are not averaged. Append a new entry to correct an earlier one.'), node('p', {}, 'Portfolio titles, links and notes are stored in your account and full backups. Use HTTPS references; opening one visits its host. No files are uploaded.')); root.append(intro);
     const evidenceForm = node('form', { class: 'card', 'aria-label': 'Add portfolio evidence' }); evidenceForm.append(node('h3', {}, 'Add evidence metadata'));
     for (const [key, label] of [['title', 'Portfolio evidence title'], ['url', 'Evidence HTTPS link (optional)'], ['notes', 'Private notes and limitations']] as const) {
       const field = node('div', { class: 'field' }); const input = key === 'notes' ? node('textarea', { rows: '3' }) : node('input', { type: key === 'url' ? 'url' : 'text' }); input.id = `portfolio-${key}`; input.value = evidenceDraft[key]; input.required = key === 'title'; input.addEventListener('input', () => { evidenceDraft[key] = input.value; }); field.append(node('label', { for: input.id }, label), input); evidenceForm.append(field);
@@ -53,5 +53,5 @@ export function bindPortfolio(change: Change): (state: LearnerState | undefined)
       history.append(details);
     } root.append(history);
   }
-  return next => { state = next; render(); };
+  return next => { state = next; if (!next) { Object.assign(evidenceDraft, { title: '', url: '', notes: '' }); Object.assign(draft, { date: new Date().toISOString().slice(0, 10), competency: '', level: '', scope: '', rationale: '', evidenceId: '', responseId: '' }); } render(); };
 }

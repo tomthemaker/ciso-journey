@@ -27,10 +27,14 @@
           /><button id="resetBtn" class="btn">Reset</button>
         </div>
       </header>
-      <section class="storage-panel" aria-label="Browser storage">
+      <section class="account-panel" aria-label="Account">
+        <p id="accountStatus" role="status">Checking account…</p>
+        <button id="signInBtn" class="btn" hidden>Sign in with GitHub</button>
+        <button id="signOutBtn" class="btn" hidden>Sign out</button>
+      </section>
+      <section class="storage-panel" aria-label="Account storage">
         <p id="storageStatus" role="status">Loading saved progress…</p>
-        <button id="retryStorageBtn" class="btn">Retry storage</button>
-        <button id="recoveryBtn" class="btn" hidden>Download recovery copy</button>
+        <button id="retryStorageBtn" class="btn">Reload progress</button>
       </section>
       <details class="overview">
         <summary>Study overview</summary>
@@ -133,8 +137,8 @@
                 decisions, 1h recall, 1h professional development.
               </p>
               <div class="warn">
-                Progress is stored in this browser only. Export regular backups
-                to preserve your data or move computers.
+                Progress is stored in your account. Export regular backups
+                to preserve a copy of your data.
               </div>
             </div>
             <div class="card">
@@ -286,8 +290,7 @@
         </div>
       </section>
       <p class="foot">
-        CISO Journey · Local-first and dependency-free · Data remains in this
-        browser unless you export it · No account or cloud sync
+        CISO Journey · Progress is stored in your account · Export backups regularly
       </p>
     </main>
     <script type="module" src="/src/main.ts"></script>
