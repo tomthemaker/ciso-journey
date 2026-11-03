@@ -27,12 +27,16 @@ test('server saves use captured identity and revision; uncertain outcomes requir
   global.fetch = async (url, options) => {
     const args = JSON.parse(options.body); requests.push({ url, options, args });
     if (fail) return new Response(JSON.stringify({ message: 'account_revision_stale' }), { status: 409 });
-    if (url.endsWith('account_save')) { assert.equal(args.p_expected_revision, revision); data = args.p_snapshot.data; revision = 'revision-2'; }
-    return Response.json({ protocol: 1, owner, revision, snapshot: { schemaVersion: 2, data } });
+    if (url.endsWith('account_save')) { assert.equal(args.p_expected_revision, revision); data = JSON.parse(args.p_snapshot).data; revision = 'revision-2'; }
+    return Response.json({ protocol: 1, owner, revision, snapshot: JSON.stringify({ schemaVersion: 2, data }) });
   };
   const store = new LearnerStorage({ project: 'https://example.test', key: 'public', token: 'captured-token', subject: owner, invalidate: () => { invalidated = true; } });
   assert.deepEqual(await store.load(), data);
-  await store.save(data);
+  const special = structuredClone(data);
+  special.syntheticExtension = { nul: 'a\u0000b', surrogate: '\ud800', longId: 'x'.repeat(300) };
+  assert.deepEqual(await store.save(special), special);
+  assert.deepEqual(JSON.parse(requests[1].args.p_snapshot).data.syntheticExtension, special.syntheticExtension);
+  data = special;
   assert.equal(requests[1].options.headers.Authorization, 'Bearer captured-token');
   fail = true; await assert.rejects(store.save(data), /Progress changed elsewhere/);
   await assert.rejects(store.save(data), /Reload progress/);
@@ -41,7 +45,7 @@ test('server saves use captured identity and revision; uncertain outcomes requir
   assert.equal(invalidated, false);
 });
 test('wrong account responses and invalid server snapshots never load', async () => {
-  global.fetch = async () => Response.json({ protocol: 1, owner: 'other', revision: 'r', snapshot: { schemaVersion: 2, data: mixed.data } });
+  global.fetch = async () => Response.json({ protocol: 1, owner: 'other', revision: 'r', snapshot: JSON.stringify({ schemaVersion: 2, data: mixed.data }) });
   const store = new LearnerStorage({ project: 'https://example.test', key: 'public', token: 'token', subject: 'user', invalidate() {} });
   await assert.rejects(store.load(), /could not be verified/);
 });

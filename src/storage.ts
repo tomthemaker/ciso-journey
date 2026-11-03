@@ -24,9 +24,12 @@ export class LearnerStorage {
     return body;
   }
   private validate(value: unknown): Envelope {
-    const v = value as Envelope;
-    if (!v || v.protocol !== 1 || v.owner !== this.account.subject || typeof v.revision !== "string" || !v.revision || v.snapshot?.schemaVersion !== 2) throw new Error("Account data could not be verified.");
-    return { ...v, snapshot: { schemaVersion: 2, data: validateState(v.snapshot.data) } };
+    const v = value as { protocol?: unknown; owner?: unknown; revision?: unknown; snapshot?: unknown } | null;
+    if (!v || v.protocol !== 1 || v.owner !== this.account.subject || typeof v.revision !== "string" || !v.revision || typeof v.snapshot !== "string") throw new Error("Account data could not be verified.");
+    let snapshot: { schemaVersion?: unknown; data?: unknown };
+    try { snapshot = JSON.parse(v.snapshot); } catch { throw new Error("Account data could not be verified."); }
+    if (!snapshot || snapshot.schemaVersion !== 2) throw new Error("Account data could not be verified.");
+    return { protocol: 1, owner: this.account.subject, revision: v.revision, snapshot: { schemaVersion: 2, data: validateState(snapshot.data) } };
   }
   async load(): Promise<LearnerState> {
     const result = this.validate(await this.call("account_load"));
@@ -46,7 +49,7 @@ export class LearnerStorage {
     if (!this.revision || this.uncertain) throw new Error("Reload progress before saving again.");
     const snapshot = { schemaVersion: 2, data: validateState(candidate) };
     this.uncertain = true;
-    const result = this.validate(await this.call("account_save", { p_expected_revision: this.revision, p_snapshot: snapshot }));
+    const result = this.validate(await this.call("account_save", { p_expected_revision: this.revision, p_snapshot: JSON.stringify(snapshot) }));
     this.revision = result.revision;
     this.uncertain = false;
     return result.snapshot.data;
