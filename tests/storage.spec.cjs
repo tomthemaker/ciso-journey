@@ -10,7 +10,7 @@ async function importBackup(page, backup) {
 for (const kind of ['http', 'network']) test(`${kind} failure preserves committed tasks, scores, history, reset and retryable draft`, async ({ page }) => {
   await seedServerState(page, mixed.data); await page.goto('./');
   const original = await snapshot(page), failure = await failWrites(page, kind);
-  await page.locator('.task input').nth(1).check();
+  await page.locator('.task input').nth(1).click();
   await expect(page.locator('.task input').nth(1)).not.toBeChecked();
   await expect(page.locator('#storageStatus')).toContainText('No progress was replaced');
   expect(await snapshot(page)).toEqual(original);

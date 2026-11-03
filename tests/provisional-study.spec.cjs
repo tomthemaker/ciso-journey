@@ -81,8 +81,11 @@ test('new constructed feedback, explicit card review and all six competency case
     await page.getByLabel('Evidence title', { exact: true }).fill('Synthetic worksheet for ' + scenario.id);
     await page.locator('#saveCaseResponse').click();
     const form = page.getByRole('form', { name: 'Self-assess case response 1' });
+    await expect(form).toBeVisible();
+    await expect(form.locator('select')).toHaveCount(findContent(bundle, scenario.payload.rubricRef).payload.criteria.length);
     for (const select of await form.locator('select').all()) await select.selectOption({ index: 1 });
-    await form.getByRole('button', { name: 'Save case self-assessment' }).click(); await ready(page);
+    await form.getByRole('button', { name: 'Save case self-assessment' }).click();
+    await expect(form).toHaveCount(0); await ready(page);
     await expect(page.locator('.case-result')).toContainText(contentKey(scenario.payload.rubricRef));
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }

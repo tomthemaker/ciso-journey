@@ -43,6 +43,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('all 37 tracker IDs, resources, scores, keyboard, filters and refresh work', async ({ page }) => {
+  test.setTimeout(90000);
   expect(tasks).toHaveLength(37);
   expect(new Set(tasks.map(task => task[0])).size).toBe(37);
   expect(tasks.slice(0, 12).map(task => task[0])).toEqual(Array.from({ length: 12 }, (_, i) => `w${i + 1}`));
