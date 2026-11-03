@@ -27,6 +27,7 @@ async function login(page, session) {
   await page.route('**/auth/v1/token?grant_type=pkce', route => route.fulfill({ status:200, contentType:'application/json', body:JSON.stringify(session) }));
   await page.goto('./?code=synthetic');
   await expect(page.locator('#accountStatus')).toContainText('Signed in');
+  await expect(page.locator('#storageStatus')).toContainText('Progress loaded');
   await expect(page.locator('#statTasks')).toHaveText('0');
   expect(await page.evaluate(verifier => sessionStorage.getItem(verifier), verifier)).toBeNull();
   expect(await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage } }))).not.toContain(session.access_token);
