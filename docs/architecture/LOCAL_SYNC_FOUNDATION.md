@@ -1,5 +1,7 @@
 # Local Supabase foundation
 
+**Historical protocol:** D045 (2026-11-03) supersedes optional/local/offline browser modes and the branching API below. The new migration revokes every browser grant to these RPCs and preserves their data only as operator recovery staging. Use [Required account state](REQUIRED_ACCOUNT_STATE.md) for the current API and browser contract. The local CLI/loopback/GitHub setup remains relevant; references below to local partitions, explicit sync enrollment and outboxes are historical, not current requirements.
+
 Implemented for [#117](https://github.com/tomthemaker/ciso-journey/issues/117), pending independent security review. Parent [#23](https://github.com/tomthemaker/ciso-journey/issues/23) remains open. This is executable local Postgres/Auth/API infrastructure and a client protocol, **not a shipped browser sync client or a hosted deployment**. D041 selects Supabase Zurich and, following the owner's later instruction, **GitHub OAuth as the only product login**. Earlier email OTP selection is superseded.
 
 ## Reproduce locally
