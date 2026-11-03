@@ -49,6 +49,34 @@ test.describe('required account, real local Auth and Postgres', () => {
     await expect(page.getByRole('button', {name:'Sign in with GitHub'})).toBeVisible();
     await expect(page.locator('#roadmap')).toBeHidden();
   });
+  test('server-revoked session clears private UI on the next write', async ({ page }) => {
+    const session = await syntheticUser();
+    await login(page, session);
+    await page.locator('.task input').first().check();
+    await expect(page.locator('#statTasks')).toHaveText('1');
+    const response = await fetch(`${api}/auth/v1/logout`, { method:'POST', headers:{ apikey:key, Authorization:`Bearer ${session.access_token}` } });
+    expect(response.ok).toBeTruthy();
+    await page.locator('.task input').nth(1).check();
+    await expect(page.getByRole('button', {name:'Sign in with GitHub'})).toBeVisible();
+    await expect(page.locator('#roadmap')).toBeHidden();
+    await expect(page.locator('#exportBtn')).toBeDisabled();
+  });
+  test('two accounts are isolated and stale saves do not replace progress', async ({ browser }) => {
+    const [a,b] = await Promise.all([syntheticUser(), syntheticUser()]);
+    const contexts = await Promise.all([browser.newContext(), browser.newContext(), browser.newContext()]);
+    try {
+      const [first, stale, other] = await Promise.all(contexts.map(context => context.newPage()));
+      await Promise.all([login(first, a), login(stale, a), login(other, b)]);
+      await first.locator('.task input').first().check();
+      await expect(first.locator('#statTasks')).toHaveText('1');
+      await stale.locator('.task input').nth(1).check();
+      await expect(stale.locator('#storageStatus')).toContainText('Progress changed elsewhere');
+      await expect(stale.locator('#statTasks')).toHaveText('0');
+      await stale.getByRole('button', {name:'Reload progress'}).click();
+      await expect(stale.locator('#statTasks')).toHaveText('1');
+      await expect(other.locator('#statTasks')).toHaveText('0');
+    } finally { await Promise.all(contexts.map(context => context.close())); }
+  });
   for (const suffix of ['?error=access_denied&error_description=denied', '#error=access_denied&error_description=denied', '?code=bad']) {
     test(`callback failure ${suffix} clears URL and blocks learning`, async ({page}) => {
       await page.goto(`./${suffix}`);

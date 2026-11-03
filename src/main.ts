@@ -87,11 +87,12 @@ const changed: Change = async edit => {
   const candidate = structuredClone(state);
   edit(candidate);
   busy = true;
+  status.textContent = "Saving progress…";
   controls();
   try {
-    await target.save(candidate);
+    const committed = await target.save(candidate);
     if (current !== generation) return false;
-    state = candidate;
+    state = committed;
     document.body.dataset.storageError = "false";
     status.textContent = "Progress saved to your account.";
     return true;
@@ -180,9 +181,9 @@ importFile.addEventListener("change", async () => {
   try {
     const candidate = validateBackup(JSON.parse(await file.text()));
     if (current === generation && target && confirm("Importing will overwrite current progress. Continue?")) {
-      await target.save(candidate);
+      const committed = await target.save(candidate);
       if (current !== generation) return;
-      state = candidate;
+      state = committed;
       document.body.dataset.storageError = "false";
       status.textContent = "Backup imported and saved to your account.";
       alert("Backup imported successfully.");
@@ -201,7 +202,7 @@ importFile.addEventListener("change", async () => {
 byId("resetBtn", "button").addEventListener("click", async () => {
   if (!state || !storage || busy || !confirm("Reset current learning progress, entries and competency scores? Export a backup first.")) return;
   const current = generation, target = storage;
-  busy = true; controls();
+  busy = true; status.textContent = "Resetting progress…"; controls();
   try {
     const reset = await target.reset();
     if (current !== generation) return;

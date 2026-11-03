@@ -17,6 +17,8 @@ export class LearnerStorage {
     const body = await response.json().catch(() => null);
     if (!response.ok) {
       if (response.status === 401 || response.status === 403 || body?.code === "42501") this.account.invalidate();
+      if (body?.message === "account_revision_stale") throw new Error("Progress changed elsewhere. Reload progress before saving again.");
+      if (body?.message === "legacy_account_requires_recovery") throw new Error("Existing server data needs recovery before this account can be opened.");
       throw new Error(body?.message ?? `Account request failed (${response.status}).`);
     }
     return body;
@@ -40,12 +42,13 @@ export class LearnerStorage {
     this.uncertain = false;
     return result.snapshot.data;
   }
-  async save(candidate: LearnerState): Promise<void> {
+  async save(candidate: LearnerState): Promise<LearnerState> {
     if (!this.revision || this.uncertain) throw new Error("Reload progress before saving again.");
     const snapshot = { schemaVersion: 2, data: validateState(candidate) };
     this.uncertain = true;
     const result = this.validate(await this.call("account_save", { p_expected_revision: this.revision, p_snapshot: snapshot }));
     this.revision = result.revision;
     this.uncertain = false;
+    return result.snapshot.data;
   }
 }

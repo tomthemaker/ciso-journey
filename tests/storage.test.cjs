@@ -34,7 +34,7 @@ test('server saves use captured identity and revision; uncertain outcomes requir
   assert.deepEqual(await store.load(), data);
   await store.save(data);
   assert.equal(requests[1].options.headers.Authorization, 'Bearer captured-token');
-  fail = true; await assert.rejects(store.save(data), /account_revision_stale/);
+  fail = true; await assert.rejects(store.save(data), /Progress changed elsewhere/);
   await assert.rejects(store.save(data), /Reload progress/);
   assert.equal(requests.length, 3);
   fail = false; await store.load(); await store.save(data);
